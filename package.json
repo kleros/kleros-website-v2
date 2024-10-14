@@ -1,6 +1,5 @@
 {
   "name": "kleros-website-v2",
-  "packageManager": "yarn@4.5.0",
   "private": true,
   "workspaces": [
     "cms-backend",
