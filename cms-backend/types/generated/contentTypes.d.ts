@@ -513,6 +513,119 @@ export interface ApiFooterLinkFooterLink extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHamburgerLogoHamburgerLogo extends Struct.SingleTypeSchema {
+  collectionName: 'hamburger_logo';
+  info: {
+    singularName: 'hamburger-logo';
+    pluralName: 'hamburger-logos';
+    displayName: 'HamburgerLogo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    icon_svg: Schema.Attribute.Media<'images' | 'files'>;
+    alt_text: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hamburger-logo.hamburger-logo'
+    >;
+  };
+}
+
+export interface ApiHeaderButtonHeaderButton extends Struct.SingleTypeSchema {
+  collectionName: 'header_button';
+  info: {
+    singularName: 'header-button';
+    pluralName: 'header-buttons';
+    displayName: 'HeaderButton';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::header-button.header-button'
+    >;
+  };
+}
+
+export interface ApiKlerosLogoKlerosLogo extends Struct.SingleTypeSchema {
+  collectionName: 'kleros_logo';
+  info: {
+    singularName: 'kleros-logo';
+    pluralName: 'kleros-logos';
+    displayName: 'KlerosLogo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logo_svg: Schema.Attribute.Media<'images' | 'files'>;
+    alt_text: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kleros-logo.kleros-logo'
+    >;
+  };
+}
+
+export interface ApiNavLinkNavLink extends Struct.CollectionTypeSchema {
+  collectionName: 'nav_links';
+  info: {
+    singularName: 'nav-link';
+    pluralName: 'nav-links';
+    displayName: 'NavLink';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    path_name: Schema.Attribute.String;
+    is_dropdown: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nav-link.nav-link'
+    >;
+  };
+}
+
 export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
   collectionName: 'partners';
   info: {
@@ -945,6 +1058,10 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::footer-link.footer-link': ApiFooterLinkFooterLink;
+      'api::hamburger-logo.hamburger-logo': ApiHamburgerLogoHamburgerLogo;
+      'api::header-button.header-button': ApiHeaderButtonHeaderButton;
+      'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
+      'api::nav-link.nav-link': ApiNavLinkNavLink;
       'api::partner.partner': ApiPartnerPartner;
       'api::social.social': ApiSocialSocial;
       'admin::permission': AdminPermission;

@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "hamburger_logo",
+  "info": {
+    "singularName": "hamburger-logo",
+    "pluralName": "hamburger-logos",
+    "displayName": "HamburgerLogo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "icon_svg": {
+      "allowedTypes": ["images", "files"],
+      "type": "media",
+      "multiple": false
+    },
+    "alt_text": {
+      "type": "string"
+    }
+  }
+}
