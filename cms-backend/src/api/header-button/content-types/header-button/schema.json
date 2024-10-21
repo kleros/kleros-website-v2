@@ -14,7 +14,7 @@
     "name": {
       "type": "string"
     },
-    "link": {
+    "url": {
       "type": "string"
     }
   }

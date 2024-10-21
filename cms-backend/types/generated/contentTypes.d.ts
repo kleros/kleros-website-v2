@@ -525,7 +525,7 @@ export interface ApiHeaderButtonHeaderButton extends Struct.SingleTypeSchema {
   };
   attributes: {
     name: Schema.Attribute.String;
-    link: Schema.Attribute.String;
+    url: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
