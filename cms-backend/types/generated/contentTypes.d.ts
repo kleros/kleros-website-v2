@@ -766,9 +766,9 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    solution_name: Schema.Attribute.String & Schema.Attribute.Required;
+    header_title: Schema.Attribute.String;
+    header_description: Schema.Attribute.Text & Schema.Attribute.Required;
     logo_svg: Schema.Attribute.Media & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;

@@ -11,15 +11,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "solution_name": {
       "type": "string",
       "required": true
     },
-    "title": {
+    "header_title": {
       "type": "string",
       "required": false
     },
-    "description": {
+    "header_description": {
       "type": "text",
       "required": true
     },
