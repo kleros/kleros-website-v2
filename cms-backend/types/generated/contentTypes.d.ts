@@ -553,7 +553,6 @@ export interface ApiKlerosLogoKlerosLogo extends Struct.SingleTypeSchema {
   };
   attributes: {
     logo_svg: Schema.Attribute.Media<'images' | 'files'>;
-    alt_text: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -580,9 +579,14 @@ export interface ApiNavLinkNavLink extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     path_name: Schema.Attribute.String;
-    is_dropdown: Schema.Attribute.Boolean;
+    is_dropdown: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    solutions: Schema.Attribute.Relation<'oneToMany', 'api::solution.solution'>;
+    resource_sections: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource-section.resource-section'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -628,6 +632,103 @@ export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiResourceLinkResourceLink
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'resource_links';
+  info: {
+    singularName: 'resource-link';
+    pluralName: 'resource-links';
+    displayName: 'Resource Link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+    resource_section: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::resource-section.resource-section'
+    > &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource-link.resource-link'
+    >;
+  };
+}
+
+export interface ApiResourceSectionResourceSection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'resource_sections';
+  info: {
+    singularName: 'resource-section';
+    pluralName: 'resource-sections';
+    displayName: 'Resource Section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    resource_links: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource-link.resource-link'
+    > &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource-section.resource-section'
+    >;
+  };
+}
+
+export interface ApiResourceSocialResourceSocial
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'resource_socials';
+  info: {
+    singularName: 'resource-social';
+    pluralName: 'resource-socials';
+    displayName: 'Resource Social';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+    logo_svg: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource-social.resource-social'
+    >;
+  };
+}
+
 export interface ApiSocialSocial extends Struct.CollectionTypeSchema {
   collectionName: 'socials';
   info: {
@@ -651,6 +752,36 @@ export interface ApiSocialSocial extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::social.social'>;
+  };
+}
+
+export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
+  collectionName: 'solutions';
+  info: {
+    singularName: 'solution';
+    pluralName: 'solutions';
+    displayName: 'Solution';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    logo_svg: Schema.Attribute.Media & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::solution.solution'
+    >;
   };
 }
 
@@ -1034,7 +1165,11 @@ declare module '@strapi/strapi' {
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
       'api::nav-link.nav-link': ApiNavLinkNavLink;
       'api::partner.partner': ApiPartnerPartner;
+      'api::resource-link.resource-link': ApiResourceLinkResourceLink;
+      'api::resource-section.resource-section': ApiResourceSectionResourceSection;
+      'api::resource-social.resource-social': ApiResourceSocialResourceSocial;
       'api::social.social': ApiSocialSocial;
+      'api::solution.solution': ApiSolutionSolution;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;
