@@ -513,34 +513,6 @@ export interface ApiFooterLinkFooterLink extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiHamburgerLogoHamburgerLogo extends Struct.SingleTypeSchema {
-  collectionName: 'hamburger_logo';
-  info: {
-    singularName: 'hamburger-logo';
-    pluralName: 'hamburger-logos';
-    displayName: 'HamburgerLogo';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    icon_svg: Schema.Attribute.Media<'images' | 'files'>;
-    alt_text: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::hamburger-logo.hamburger-logo'
-    >;
-  };
-}
-
 export interface ApiHeaderButtonHeaderButton extends Struct.SingleTypeSchema {
   collectionName: 'header_button';
   info: {
@@ -1058,7 +1030,6 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::footer-link.footer-link': ApiFooterLinkFooterLink;
-      'api::hamburger-logo.hamburger-logo': ApiHamburgerLogoHamburgerLogo;
       'api::header-button.header-button': ApiHeaderButtonHeaderButton;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
       'api::nav-link.nav-link': ApiNavLinkNavLink;
