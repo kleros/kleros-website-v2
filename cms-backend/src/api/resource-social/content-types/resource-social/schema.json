@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resource_socials",
+  "info": {
+    "singularName": "resource-social",
+    "pluralName": "resource-socials",
+    "displayName": "Resource Social"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "logo_svg": {
+      "allowedTypes": ["images", "files"],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
