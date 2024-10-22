@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "solutions",
+  "info": {
+    "singularName": "solution",
+    "pluralName": "solutions",
+    "displayName": "Solution"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "solution_name": {
+      "type": "string",
+      "required": true
+    },
+    "header_title": {
+      "type": "string",
+      "required": false
+    },
+    "header_description": {
+      "type": "text",
+      "required": true
+    },
+    "logo_svg": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

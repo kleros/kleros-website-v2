@@ -12,13 +12,28 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "path_name": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "is_dropdown": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
+    },
+    "solutions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::solution.solution",
+      "required": false
+    },
+    "resource_sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::resource-section.resource-section",
+      "required": false
     }
   }
 }
