@@ -485,12 +485,37 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiFooterFooter extends Struct.SingleTypeSchema {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'Footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    section: Schema.Attribute.Component<'footer.footer-section', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::footer.footer'>;
+  };
+}
+
 export interface ApiFooterLinkFooterLink extends Struct.CollectionTypeSchema {
   collectionName: 'footer_links';
   info: {
     singularName: 'footer-link';
     pluralName: 'footer-links';
     displayName: 'FooterLink';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1160,6 +1185,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::footer.footer': ApiFooterFooter;
       'api::footer-link.footer-link': ApiFooterLinkFooterLink;
       'api::header-button.header-button': ApiHeaderButtonHeaderButton;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;

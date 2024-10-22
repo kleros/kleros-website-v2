@@ -4,7 +4,8 @@
   "info": {
     "singularName": "footer-link",
     "pluralName": "footer-links",
-    "displayName": "FooterLink"
+    "displayName": "FooterLink",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
