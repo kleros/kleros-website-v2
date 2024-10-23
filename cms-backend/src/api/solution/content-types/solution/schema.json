@@ -11,6 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
     "solution_name": {
       "type": "string",
       "required": true
@@ -21,7 +25,7 @@
     },
     "header_description": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "logo_svg": {
       "type": "media",
