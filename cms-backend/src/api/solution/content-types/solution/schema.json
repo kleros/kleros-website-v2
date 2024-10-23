@@ -21,7 +21,7 @@
     },
     "header_title": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "header_description": {
       "type": "text",
