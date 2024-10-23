@@ -485,44 +485,19 @@ export interface PluginUsersPermissionsUser
   };
 }
 
-export interface ApiFooterFooter extends Struct.SingleTypeSchema {
-  collectionName: 'footers';
+export interface ApiFooterLinksSectionFooterLinksSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'footer_links_sections';
   info: {
-    singularName: 'footer';
-    pluralName: 'footers';
-    displayName: 'Footer';
+    singularName: 'footer-links-section';
+    pluralName: 'footer-links-sections';
+    displayName: 'FooterLinksSection';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    section: Schema.Attribute.Component<'footer.footer-section', true>;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::footer.footer'>;
-  };
-}
-
-export interface ApiFooterLinkFooterLink extends Struct.CollectionTypeSchema {
-  collectionName: 'footer_links';
-  info: {
-    singularName: 'footer-link';
-    pluralName: 'footer-links';
-    displayName: 'FooterLink';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    content: Schema.Attribute.Component<'content.link-section', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -533,7 +508,35 @@ export interface ApiFooterLinkFooterLink extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::footer-link.footer-link'
+      'api::footer-links-section.footer-links-section'
+    >;
+  };
+}
+
+export interface ApiFooterSocialsSectionFooterSocialsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'footer_socials_sections';
+  info: {
+    singularName: 'footer-socials-section';
+    pluralName: 'footer-socials-sections';
+    displayName: 'FooterSocialsSection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    socials: Schema.Attribute.Relation<'oneToMany', 'api::social.social'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer-socials-section.footer-socials-section'
     >;
   };
 }
@@ -590,6 +593,32 @@ export interface ApiKlerosLogoKlerosLogo extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::kleros-logo.kleros-logo'
     >;
+  };
+}
+
+export interface ApiLinkLink extends Struct.CollectionTypeSchema {
+  collectionName: 'links';
+  info: {
+    singularName: 'link';
+    pluralName: 'links';
+    displayName: 'Link';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::link.link'>;
   };
 }
 
@@ -760,14 +789,23 @@ export interface ApiSocialSocial extends Struct.CollectionTypeSchema {
     singularName: 'social';
     pluralName: 'socials';
     displayName: 'Social';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Schema.Attribute.String;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    url: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    icon_white: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1186,10 +1224,11 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::footer.footer': ApiFooterFooter;
-      'api::footer-link.footer-link': ApiFooterLinkFooterLink;
+      'api::footer-links-section.footer-links-section': ApiFooterLinksSectionFooterLinksSection;
+      'api::footer-socials-section.footer-socials-section': ApiFooterSocialsSectionFooterSocialsSection;
       'api::header-button.header-button': ApiHeaderButtonHeaderButton;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
+      'api::link.link': ApiLinkLink;
       'api::nav-link.nav-link': ApiNavLinkNavLink;
       'api::partner.partner': ApiPartnerPartner;
       'api::resource-link.resource-link': ApiResourceLinkResourceLink;
