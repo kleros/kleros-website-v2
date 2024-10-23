@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "kleros_logo",
+  "info": {
+    "singularName": "kleros-logo",
+    "pluralName": "kleros-logos",
+    "displayName": "KlerosLogo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo_svg": {
+      "allowedTypes": ["images", "files"],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

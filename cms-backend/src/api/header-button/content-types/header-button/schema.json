@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "header_button",
+  "info": {
+    "singularName": "header-button",
+    "pluralName": "header-buttons",
+    "displayName": "HeaderButton"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
