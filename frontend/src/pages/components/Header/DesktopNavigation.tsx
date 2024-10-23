@@ -6,22 +6,24 @@ import Image from "next/image";
 import { NavLink } from "@/pages/queries";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 
+import AppsDropdownContent from "./AppsDropdownContent";
+import ResourcesDropdownContent from "./ResourcesDropdownContent";
+
 interface DesktopNavigationProps {
   pathname: string;
   navLinks: NavLink[];
 }
 
-const DesktopNavigation = ({ pathname, navLinks }: DesktopNavigationProps) => {
+const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
+  pathname,
+  navLinks,
+}) => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null
   );
 
   const handleDropdownClick = (index: number) => {
-    if (openDropdownIndex === index) {
-      setOpenDropdownIndex(null);
-    } else {
-      setOpenDropdownIndex(index);
-    }
+    setOpenDropdownIndex(openDropdownIndex === index ? null : index);
   };
 
   return (
@@ -38,25 +40,36 @@ const DesktopNavigation = ({ pathname, navLinks }: DesktopNavigationProps) => {
               {navLink.title}
             </Link>
           ) : (
-            <button
-              className="flex items-center"
-              onClick={() => handleDropdownClick(index)}
-            >
-              {navLink.title}
-              <Image
-                src={DownArrowIcon}
-                alt="Down Arrow"
-                width={12}
-                height={12}
-                className="ml-2"
-              />
-            </button>
-          )}
+            <>
+              <button
+                className="flex items-center"
+                onClick={() => handleDropdownClick(index)}
+              >
+                {navLink.title}
+                <Image
+                  src={DownArrowIcon}
+                  alt="Down Arrow"
+                  width={12}
+                  height={12}
+                  className="ml-2"
+                />
+              </button>
 
-          {openDropdownIndex === index && navLink.is_dropdown && (
-            <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded p-4">
-              <p>content here</p>
-            </div>
+              {openDropdownIndex === index && navLink.is_dropdown && (
+                <>
+                  {navLink?.solutions && navLink?.solutions.length > 0 && (
+                    <AppsDropdownContent solutions={navLink.solutions} />
+                  )}
+
+                  {navLink?.resource_sections &&
+                  navLink?.resource_sections.length > 0 ? (
+                    <ResourcesDropdownContent
+                      resourceSections={navLink.resource_sections}
+                    />
+                  ) : null}
+                </>
+              )}
+            </>
           )}
         </div>
       ))}

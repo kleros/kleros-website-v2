@@ -1,5 +1,24 @@
 import { gql } from "graphql-request";
 
+export type Solution = {
+  solution_name: string;
+  header_title?: string;
+  header_description: string;
+  logo_svg: {
+    url: string;
+  };
+};
+
+export type ResourceSection = {
+  title: string;
+  resource_links: ResourceLink[];
+};
+
+export type ResourceLink = {
+  name: string;
+  url: string;
+};
+
 export const partnersQueryDocument = gql`
   {
     partners {
@@ -32,18 +51,35 @@ export type KlerosLogo = {
 
 export const navLinksQueryDocument = gql`
   {
-    navLinks {
+    navLinks(sort: "createdAt:asc") {
       title
       path_name
       is_dropdown
+      solutions {
+        solution_name
+        header_title
+        header_description
+        logo_svg {
+          url
+        }
+      }
+      resource_sections {
+        title
+        resource_links {
+          name
+          url
+        }
+      }
     }
   }
 `;
 
 export type NavLink = {
   title: string;
-  path_name: string;
+  path_name?: string | null;
   is_dropdown: boolean;
+  solutions?: Solution[];
+  resource_sections?: ResourceSection[];
 };
 
 export const headerButtonQueryDocument = gql`

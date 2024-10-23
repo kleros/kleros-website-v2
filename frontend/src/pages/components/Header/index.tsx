@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+import { responsiveSize } from "@/styles/responsiveSize";
 import HamburgerIcon from "@/assets/svgs/icons/Hamburger.svg";
 import { HeaderButton, KlerosLogo, NavLink } from "@/pages/queries";
 
@@ -57,8 +58,14 @@ const Header: React.FC<IHeader> = ({ klerosLogo, navLinks, headerButton }) => {
   }, []);
 
   return (
-    <header className="h-[80px] px-[24px] md:px-[128px] pt-[8px] pb-[8px] w-full flex justify-between items-center text-white text-[18px] bg-transparent shadow-sm relative">
-      <Link href="/" className="flex items-center w-[156px]">
+    <header
+      className="min-h-[80px] pt-[8px] pb-[8px] w-full flex justify-between items-center text-white text-[18px] bg-transparent shadow-sm relative"
+      style={{
+        paddingLeft: responsiveSize(24, 256, 1024, 1920),
+        paddingRight: responsiveSize(24, 256, 1024, 1920),
+      }}
+    >
+      <Link href="/" className="flex items-center">
         <Image
           alt="Kleros"
           src={klerosLogo.logo_svg.url}
@@ -68,7 +75,7 @@ const Header: React.FC<IHeader> = ({ klerosLogo, navLinks, headerButton }) => {
       </Link>
 
       <button
-        className="block md:hidden ml-auto text-white"
+        className="block lg:hidden ml-auto text-white"
         onClick={toggleMenu}
       >
         <Image
@@ -79,11 +86,11 @@ const Header: React.FC<IHeader> = ({ klerosLogo, navLinks, headerButton }) => {
         />
       </button>
 
-      <div className="hidden md:flex lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+      <div className="hidden lg:flex">
         <DesktopNavigation {...{ pathname, navLinks }} />
       </div>
 
-      <div className="hidden md:flex items-center">
+      <div className="hidden lg:flex items-center">
         <a href={headerButton.url} rel="noopener noreferrer" target="_blank">
           <button className="w-[122px] px-4 py-2 bg-blue-500 rounded-full">
             {headerButton.name}

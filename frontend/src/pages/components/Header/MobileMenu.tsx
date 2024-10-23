@@ -2,10 +2,11 @@ import { useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-
-import { NavLink } from "@/pages/queries";
+import { HeaderButton, NavLink } from "@/pages/queries";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
-import { HeaderButton } from "@/pages/queries";
+
+import AppsDropdownContent from "./AppsDropdownContent";
+import ResourcesDropdownContent from "./ResourcesDropdownContent";
 
 interface MobileMenuProps {
   pathname: string;
@@ -27,7 +28,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   };
 
   return (
-    <div className="fixed w-[200px] top-20 right-0 bg-black p-6 rounded-lg shadow-lg z-50">
+    <div className="fixed w-[250px] top-[80px] right-0 bg-black p-6 rounded-lg shadow-lg z-50">
       <nav className="flex flex-col gap-y-4">
         {navLinks.map((navLink, index) => (
           <div key={navLink.path_name || navLink.title} className="relative">
@@ -55,7 +56,18 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   />
                 </button>
                 {openDropdownIndex === index && navLink.is_dropdown && (
-                  <div className="mt-2 pl-4">content goes here</div>
+                  <div className="mt-2">
+                    {navLink?.solutions && navLink?.solutions.length > 0 && (
+                      <AppsDropdownContent solutions={navLink.solutions} />
+                    )}
+
+                    {navLink?.resource_sections &&
+                    navLink?.resource_sections.length > 0 ? (
+                      <ResourcesDropdownContent
+                        resourceSections={navLink.resource_sections}
+                      />
+                    ) : null}
+                  </div>
                 )}
               </>
             )}
