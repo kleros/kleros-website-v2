@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "footer_links_sections",
+  "info": {
+    "singularName": "footer-links-section",
+    "pluralName": "footer-links-sections",
+    "displayName": "FooterLinksSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Section": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.section"
+    }
+  }
+}

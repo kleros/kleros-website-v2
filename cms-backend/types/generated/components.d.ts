@@ -1,12 +1,14 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface ContentLinkSection extends Struct.ComponentSchema {
-  collectionName: 'components_content_link_sections';
+export interface ContentSection extends Struct.ComponentSchema {
+  collectionName: 'components_content_sections';
   info: {
-    displayName: 'LinkSection';
+    displayName: 'section';
   };
   attributes: {
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     links: Schema.Attribute.Relation<'oneToMany', 'api::link.link'>;
   };
 }
@@ -14,7 +16,7 @@ export interface ContentLinkSection extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'content.link-section': ContentLinkSection;
+      'content.section': ContentSection;
     }
   }
 }

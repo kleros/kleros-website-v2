@@ -497,7 +497,7 @@ export interface ApiFooterLinksSectionFooterLinksSection
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.Component<'content.link-section', true>;
+    Section: Schema.Attribute.Component<'content.section', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -602,14 +602,15 @@ export interface ApiLinkLink extends Struct.CollectionTypeSchema {
     singularName: 'link';
     pluralName: 'links';
     displayName: 'Link';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

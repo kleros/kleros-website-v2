@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "footer_socials_sections",
+  "info": {
+    "singularName": "footer-socials-section",
+    "pluralName": "footer-socials-sections",
+    "displayName": "FooterSocialsSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "socials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social.social"
+    }
+  }
+}
