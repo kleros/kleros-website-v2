@@ -541,6 +541,37 @@ export interface ApiFooterSocialsSectionFooterSocialsSection
   };
 }
 
+export interface ApiFooterSubscribeCtaFooterSubscribeCta
+  extends Struct.SingleTypeSchema {
+  collectionName: 'footer_subscribe_ctas';
+  info: {
+    singularName: 'footer-subscribe-cta';
+    pluralName: 'footer-subscribe-ctas';
+    displayName: 'FooterSubscribeCTA';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    notice: Schema.Attribute.String;
+    cta_text: Schema.Attribute.String;
+    cta_button: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer-subscribe-cta.footer-subscribe-cta'
+    >;
+  };
+}
+
 export interface ApiHeaderButtonHeaderButton extends Struct.SingleTypeSchema {
   collectionName: 'header_button';
   info: {
@@ -1227,6 +1258,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::footer-links-section.footer-links-section': ApiFooterLinksSectionFooterLinksSection;
       'api::footer-socials-section.footer-socials-section': ApiFooterSocialsSectionFooterSocialsSection;
+      'api::footer-subscribe-cta.footer-subscribe-cta': ApiFooterSubscribeCtaFooterSubscribeCta;
       'api::header-button.header-button': ApiHeaderButtonHeaderButton;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
       'api::link.link': ApiLinkLink;
