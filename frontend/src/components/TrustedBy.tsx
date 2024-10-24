@@ -20,7 +20,7 @@ const TrustedBy: React.FC<ITrustedBy> = ({ partnersData }) => {
           <div
             key={name}
             className={
-              "bg-white h-16 w-16 rounded-full flex justify-center align-middle"
+              "bg-white h-16 w-16 rounded-full flex justify-center items-center"
             }
           >
             <Image

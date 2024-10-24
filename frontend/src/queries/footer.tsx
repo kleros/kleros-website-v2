@@ -18,6 +18,14 @@ export const footerQuery = gql`
         }
       }
     }
+    footerSubscribeCta {
+      logo {
+        url
+      }
+      notice
+      cta_text
+      cta_button
+    }
   }
 `;
 
@@ -28,14 +36,22 @@ export type footerQueryType = {
       links: {
         name: string
       }[],
-    }[]
-  }
+    }[],
+  },
   footerSocialsSection: {
     socials: {
       name: string,
       icon_white: {
         url: string
-      }
-    }[]
-  }
+      },
+    }[],
+  },
+  footerSubscribeCta: {
+    logo: {
+      url: string
+    },
+    notice: string,
+    cta_text: string,
+    cta_button: string,
+  },
 };

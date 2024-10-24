@@ -16,6 +16,7 @@ const config: Config = {
         "secondary-text": "#BECCE5",
         "kleros-purple": "#9747FF",
         "light-blue": "#7CE2FF",
+        "primary-blue": "#27CDFE",
         "secondary-purple": "#BA75FE",
       },
     },
