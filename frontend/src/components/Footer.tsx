@@ -1,10 +1,10 @@
 import React from "react";
 
+import clsx from "clsx";
 import Image from "next/image";
 
 import Button from "@/components/Button";
 import { footerQueryType } from "@/queries/footer";
-import clsx from "clsx";
 
 interface IFooter {
   footerData: footerQueryType;
