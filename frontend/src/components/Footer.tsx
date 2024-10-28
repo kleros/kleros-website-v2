@@ -11,7 +11,7 @@ interface IFooter {
 const Footer: React.FC<IFooter> = ({ socials }) => {
   return (
     <div className={
-      "py-4 bg-gradient-to-b from-light-blue to-30% to-kleros-purple"
+      "py-4 bg-gradient-to-b from-secondary-blue to-30% to-primary-purple"
     }>
       <hr className="h-0.5 border-t-0 bg-secondary-purple mb-4 mx-2"/>
       <div className="flex gap-4 justify-center align-middle">
