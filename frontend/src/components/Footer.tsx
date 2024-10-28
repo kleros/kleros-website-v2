@@ -36,7 +36,7 @@ const Footer: React.FC<IFooter> = ({ footerData }) => {
                   className={clsx(hoverScaleUp, "w-max")}
                   key={name}
                   href={url}
-                  target={url.trim().startsWith("http") ? "_blank" : ""}
+                  target={/^https?:\/\//.test(url) ? "_blank" : undefined}
                   rel="noopener noreferrer"
                 >
                   {name}
