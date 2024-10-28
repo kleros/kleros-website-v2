@@ -2,9 +2,12 @@ import React from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 
 import Button from "@/components/Button";
 import { footerQueryType } from "@/queries/footer";
+
+const hoverScaleUp = clsx("hover:scale-105 transform transition duration-75");
 
 interface IFooter {
   footerData: footerQueryType;
@@ -28,18 +31,32 @@ const Footer: React.FC<IFooter> = ({ footerData }) => {
               <h1 className="text-background-2">
                 {title}
               </h1>
-              {links.map(({ name }) => (
-                <p key={name}>{name}</p>
+              {links.map(({ name, url }) => (
+                <Link 
+                  className={clsx(hoverScaleUp, "w-max")}
+                  key={name}
+                  href={url}
+                  target={url.trim().startsWith("http") ? "_blank" : ""}
+                  rel="noopener noreferrer"
+                >
+                  {name}
+                </Link>
               ))}
             </div>
           ))}
         </div>
         <hr className="h-0.5 border-t-0 bg-secondary-purple mt-16 mb-6 mx-6"/>
         <div className="flex gap-8 justify-center items-center">
-          {socials.map(({ name, icon_white: icon }) => (
-            <div key={name}>
+          {socials.map(({ name, icon_white: icon, url }) => (
+            <Link
+              className={hoverScaleUp}
+              key={name}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image src={icon.url} alt={name} width="24" height="24" />
-            </div>
+            </Link>
           ))}
         </div>
       </div>

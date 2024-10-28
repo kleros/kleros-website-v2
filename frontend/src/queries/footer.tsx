@@ -7,12 +7,14 @@ export const footerQuery = gql`
         title
         links {
           name
+          url
         }
       }
     }
     footerSocialsSection {
       socials {
         name,
+        url,
         icon_white {
           url
         }
@@ -34,13 +36,15 @@ export type footerQueryType = {
     Section: {
       title: string,
       links: {
-        name: string
+        name: string,
+        url: string,
       }[],
     }[],
   },
   footerSocialsSection: {
     socials: {
       name: string,
+      url: string,
       icon_white: {
         url: string
       },
