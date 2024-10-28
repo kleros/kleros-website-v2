@@ -28,9 +28,9 @@ const Footer: React.FC<IFooter> = ({ footerData }) => {
         <div className="flex flex-col gap-12 px-6">
           {sections.map(({ title, links }) => (
             <div key={title} className="flex flex-col gap-4">
-              <h1 className="text-background-2">
+              <h2 className="text-background-2">
                 {title}
-              </h1>
+              </h2>
               {links.map(({ name, url }) => (
                 <Link 
                   className={clsx(hoverScaleUp, "w-max")}
@@ -76,7 +76,7 @@ const Footer: React.FC<IFooter> = ({ footerData }) => {
         <p className="mb-8">{cta.notice}</p>
         <p className="mb-6">{cta.cta_text}</p>
         <Button>
-          <p className="text-background-2">{cta.cta_button}</p>
+          <span className="text-background-2">{cta.cta_button}</span>
         </Button>
       </div>
     </div>
