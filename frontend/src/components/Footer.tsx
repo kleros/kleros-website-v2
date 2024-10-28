@@ -17,7 +17,7 @@ const Footer: React.FC<IFooter> = ({ footerData }) => {
   return (
     <div>
       <div className={
-        "bg-gradient-to-b from-light-blue to-[27.74%] to-kleros-purple py-16"
+        "bg-gradient-to-b from-secondary-blue to-[27.74%] to-primary-purple py-16"
       }>
         <div className="flex flex-col gap-12 px-6">
           {sections.map(({ title, links }) => (
