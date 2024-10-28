@@ -2,10 +2,10 @@ import React from "react";
 
 import Image from "next/image";
 
-import { partnersQueryType } from "@/queries/partners";
+import { PartnersQueryType } from "@/queries/partners";
 
 interface ITrustedBy {
-  partnersData: partnersQueryType
+  partnersData: PartnersQueryType
 }
 
 const TrustedBy: React.FC<ITrustedBy> = ({ partnersData }) => {

@@ -1,12 +1,12 @@
 import Footer from "@/components/Footer";
 import TrustedBy from "@/components/TrustedBy";
-import { footerQuery, footerQueryType } from "@/queries/footer";
-import { partnersQuery, partnersQueryType } from "@/queries/partners";
+import { footerQuery, FooterQueryType } from "@/queries/footer";
+import { partnersQuery, PartnersQueryType } from "@/queries/partners";
 import { graphQLClient } from "@/utils/graphQLClient";
 
 interface IHome {
-  partnersData: partnersQueryType;
-  footerData: footerQueryType;
+  partnersData: PartnersQueryType;
+  footerData: FooterQueryType;
 }
 
 const Home: React.FC<IHome> = ({ partnersData, footerData }) => {
@@ -19,10 +19,10 @@ const Home: React.FC<IHome> = ({ partnersData, footerData }) => {
 }
 
 export const getStaticProps = async () => {
-  const partnersData = await graphQLClient.request<partnersQueryType>(
+  const partnersData = await graphQLClient.request<PartnersQueryType>(
     partnersQuery
   );
-  const footerData = await graphQLClient.request<footerQueryType>(footerQuery);
+  const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   return {
     props: {
       partnersData,

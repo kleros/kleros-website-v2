@@ -11,7 +11,7 @@ export const partnersQuery = gql`
   }
 `;
 
-export type partnersQueryType = {
+export type PartnersQueryType = {
   partners: {
     name: string,
     icon_svg: {

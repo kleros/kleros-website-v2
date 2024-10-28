@@ -31,7 +31,7 @@ export const footerQuery = gql`
   }
 `;
 
-export type footerQueryType = {
+export type FooterQueryType = {
   footerLinksSection: {
     Section: {
       title: string,

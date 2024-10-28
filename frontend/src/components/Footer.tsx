@@ -5,12 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Button from "@/components/Button";
-import { footerQueryType } from "@/queries/footer";
+import { FooterQueryType } from "@/queries/footer";
 
 const hoverScaleUp = clsx("hover:scale-105 transform transition duration-75");
 
 interface IFooter {
-  footerData: footerQueryType;
+  footerData: FooterQueryType;
 }
 
 const Footer: React.FC<IFooter> = ({ footerData }) => {
