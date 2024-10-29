@@ -4,7 +4,8 @@
   "info": {
     "singularName": "social",
     "pluralName": "socials",
-    "displayName": "Social"
+    "displayName": "Social",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +13,23 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "icon_white": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "required": true
     },
     "icon": {
       "allowedTypes": [
@@ -22,10 +39,8 @@
         "audios"
       ],
       "type": "media",
-      "multiple": false
-    },
-    "url": {
-      "type": "string"
+      "multiple": true,
+      "required": true
     }
   }
 }

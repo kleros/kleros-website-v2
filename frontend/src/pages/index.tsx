@@ -1,52 +1,32 @@
+import Footer from "@/components/Footer";
+import TrustedBy from "@/components/TrustedBy";
+import { footerQuery, FooterQueryType } from "@/queries/footer";
+import { partnersQuery, PartnersQueryType } from "@/queries/partners";
 import { graphQLClient } from "@/utils/graphQLClient";
 
-import TrustedBy from "./components/TrustedBy";
-import {
-  partnersQueryDocument,
-  Partner,
-  NavLink,
-  navLinksQueryDocument,
-  klerosLogoQueryDocument,
-  KlerosLogo,
-  HeaderButton,
-  headerButtonQueryDocument,
-} from "./queries";
-import Header from "@/pages/components/Header";
+interface IHome {
+  partnersData: PartnersQueryType;
+  footerData: FooterQueryType;
+}
 
-const Home: React.FC<{
-  klerosLogo: KlerosLogo;
-  navLinks: NavLink[];
-  partners: Partner[];
-  headerButton: HeaderButton;
-}> = ({ klerosLogo, navLinks, partners, headerButton }) => {
+const Home: React.FC<IHome> = ({ partnersData, footerData }) => {
   return (
     <div>
-      <Header {...{ klerosLogo, headerButton, navLinks }} />
-      <TrustedBy {...{ partners }} />
+      <TrustedBy {...{ partnersData }} />
+      <Footer {...{ footerData }} />
     </div>
   );
 };
 
 export const getStaticProps = async () => {
-  const partnersData: { partners: Partner[] } = await graphQLClient.request(
-    partnersQueryDocument,
-    {}
+  const partnersData = await graphQLClient.request<PartnersQueryType>(
+    partnersQuery
   );
-  const navLinksData: { navLinks: NavLink[] } = await graphQLClient.request(
-    navLinksQueryDocument,
-    {}
-  );
-  const klerosLogoData: { klerosLogo: KlerosLogo } =
-    await graphQLClient.request(klerosLogoQueryDocument, {});
-  const headerButtonData: { headerButton: HeaderButton } =
-    await graphQLClient.request(headerButtonQueryDocument, {});
-
+  const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   return {
     props: {
-      partners: partnersData?.partners,
-      navLinks: navLinksData?.navLinks,
-      klerosLogo: klerosLogoData?.klerosLogo,
-      headerButton: headerButtonData?.headerButton,
+      partnersData,
+      footerData,
     },
   };
 };
