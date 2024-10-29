@@ -1924,13 +1924,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/api@npm:^1.9.0":
-  version: 1.9.0
-  resolution: "@opentelemetry/api@npm:1.9.0"
-  checksum: 10/a607f0eef971893c4f2ee2a4c2069aade6ec3e84e2a1f5c2aac19f65c5d9eeea41aa72db917c1029faafdd71789a1a040bdc18f40d63690e22ccae5d7070f194
-  languageName: node
-  linkType: hard
-
 "@paralleldrive/cuid2@npm:2.2.2":
   version: 2.2.2
   resolution: "@paralleldrive/cuid2@npm:2.2.2"
@@ -6762,6 +6755,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "clsx@npm:2.1.1"
+  checksum: 10/cdfb57fa6c7649bbff98d9028c2f0de2f91c86f551179541cf784b1cfdc1562dcb951955f46d54d930a3879931a980e32a46b598acaea274728dbe068deca919
+  languageName: node
+  linkType: hard
+
 "cms-backend@workspace:cms-backend":
   version: 0.0.0-use.local
   resolution: "cms-backend@workspace:cms-backend"
@@ -8233,18 +8233,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-toolkit@npm:^1.25.2":
-  version: 1.25.2
-  resolution: "es-toolkit@npm:1.25.2"
-  dependenciesMeta:
-    "@trivago/prettier-plugin-sort-imports@4.3.0":
-      unplugged: true
-    prettier-plugin-sort-re-exports@0.0.1:
-      unplugged: true
-  checksum: 10/4bc6984728d8289cd47f1ae87a6ff2a3b54ca9cfbb1cf880e2d3137921aed620d9d6e574daf8430297c61c59e2374356dfd219b84b6f38909d57853bc0c066e7
-  languageName: node
-  linkType: hard
-
 "es6-error@npm:^4.1.1":
   version: 4.1.1
   resolution: "es6-error@npm:4.1.1"
@@ -9503,15 +9491,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend@workspace:frontend"
   dependencies:
-    "@opentelemetry/api": "npm:^1.9.0"
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
-    es-toolkit: "npm:^1.25.2"
+    clsx: "npm:^2.1.1"
     eslint: "npm:^8"
     eslint-config-next: "npm:^15.0.0"
-    graffle: "npm:^8.0.0-next.75"
     graphql: "npm:^16.9.0"
+    graphql-request: "npm:^7.1.0"
     husky: "npm:^9.1.6"
     next: "npm:14.2.8"
     postcss: "npm:^8"
@@ -10015,34 +10002,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graffle@npm:^8.0.0-next.75":
-  version: 8.0.0-next.75
-  resolution: "graffle@npm:8.0.0-next.75"
-  dependencies:
-    "@graphql-typed-document-node/core": "npm:^3.2.0"
-    "@molt/command": "npm:^0.9.0"
-    is-plain-obj: "npm:^4.1.0"
-  peerDependencies:
-    "@dprint/formatter": ^0.3.0 || ^0.4.0
-    "@dprint/typescript": ^0.91.1 || ^0.92.0 || ^0.93.0
-    "@opentelemetry/api": ^1.9.0
-    dprint: ^0.46.2 || ^0.47.0
-    graphql: 14 - 16
-  peerDependenciesMeta:
-    "@dprint/formatter":
-      optional: true
-    "@dprint/typescript":
-      optional: true
-    "@opentelemetry/api":
-      optional: true
-    dprint:
-      optional: true
-  bin:
-    graffle: build/generator/cli/generate.js
-  checksum: 10/4047a9cf04f3e6dece1b35bc9dbf9602371a2663c208b5d5234a5506926f9660ed9f3ac24ead19dd63f946b8eeb097004cfd1a993f62a8a2ce10a13bee88e1c2
-  languageName: node
-  linkType: hard
-
 "grant-koa@npm:5.4.8":
   version: 5.4.8
   resolution: "grant-koa@npm:5.4.8"
@@ -10113,6 +10072,31 @@ __metadata:
   peerDependencies:
     koa: ^2
   checksum: 10/22d709ae6e6ab19c23139ae351f17387209df2e127e87a2b2168f35ff665b119a8fca15fc69f36950e673dbfdaae731b1bf78cbae5575fab898425683690814c
+  languageName: node
+  linkType: hard
+
+"graphql-request@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "graphql-request@npm:7.1.0"
+  dependencies:
+    "@graphql-typed-document-node/core": "npm:^3.2.0"
+    "@molt/command": "npm:^0.9.0"
+    zod: "npm:^3.23.8"
+  peerDependencies:
+    "@dprint/formatter": ^0.3.0
+    "@dprint/typescript": ^0.91.1
+    dprint: ^0.46.2
+    graphql: 14 - 16
+  peerDependenciesMeta:
+    "@dprint/formatter":
+      optional: true
+    "@dprint/typescript":
+      optional: true
+    dprint:
+      optional: true
+  bin:
+    graffle: build/cli/generate.js
+  checksum: 10/6e61cd8200f9842569a657b0fdc0cb45a8433d8afa730ace911fa9a09318fb3cae3ccd9396a9ab2e1795bf9ccbce976fc90fb0bfac9dfe2fc821e74845be57d9
   languageName: node
   linkType: hard
 
@@ -18608,7 +18592,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.17.3, zod@npm:^3.19.1, zod@npm:^3.22.2, zod@npm:^3.22.4":
+"zod@npm:^3.17.3, zod@npm:^3.19.1, zod@npm:^3.22.2, zod@npm:^3.22.4, zod@npm:^3.23.8":
   version: 3.23.8
   resolution: "zod@npm:3.23.8"
   checksum: 10/846fd73e1af0def79c19d510ea9e4a795544a67d5b34b7e1c4d0425bf6bfd1c719446d94cdfa1721c1987d891321d61f779e8236fde517dc0e524aa851a6eff1

@@ -2,19 +2,19 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "codegen": "graphql-codegen",
+    "codegen": "graffle generate --schema http://localhost:1337/graphql --output src/graffle",
     "prepare": "cd .. && husky frontend/.husky"
   },
   "dependencies": {
-    "@opentelemetry/api": "^1.9.0",
-    "es-toolkit": "^1.25.2",
-    "graffle": "^8.0.0-next.75",
+    "clsx": "^2.1.1",
     "graphql": "^16.9.0",
+    "graphql-request": "^7.1.0",
     "next": "14.2.8",
     "react": "^18",
     "react-dom": "^18"
