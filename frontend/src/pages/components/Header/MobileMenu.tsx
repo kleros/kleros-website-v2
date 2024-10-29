@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import { HeaderButton, NavLink } from "@/pages/queries";
+import { HeaderButton, NavLink } from "@/queries/navbar";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 
 import AppsDropdownContent from "./AppsDropdownContent";

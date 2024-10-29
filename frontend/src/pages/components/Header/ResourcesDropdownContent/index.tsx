@@ -1,4 +1,4 @@
-import { ResourceLink, ResourceSection } from "@/pages/queries";
+import { ResourceLink, ResourceSection } from "@/queries/navbar";
 
 interface ResourcesDropdownContentProps {
   resourceSections: ResourceSection[];

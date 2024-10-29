@@ -1,4 +1,4 @@
-import { Solution } from "@/pages/queries";
+import { Solution } from "@/queries/navbar";
 import Image from "next/image";
 
 interface AppsDropdownContentProps {

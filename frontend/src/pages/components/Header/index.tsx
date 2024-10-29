@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { responsiveSize } from "@/styles/responsiveSize";
 import HamburgerIcon from "@/assets/svgs/icons/Hamburger.svg";
-import { HeaderButton, KlerosLogo, NavLink } from "@/pages/queries";
+import { HeaderButton, KlerosLogo, NavLink } from "@/queries/navbar";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";

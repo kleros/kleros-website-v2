@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { NavLink } from "@/pages/queries";
+import { NavLink } from "@/queries/navbar";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
