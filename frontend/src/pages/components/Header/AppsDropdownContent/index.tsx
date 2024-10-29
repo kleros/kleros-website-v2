@@ -17,31 +17,38 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
       <div className="grid grid-cols-3 gap-4 w-[1172px]">
         <div className="flex flex-col gap-4 h-full">
           {columnOne.map((solution: Solution) => (
-            <div
+            <a
               key={solution.solution_name}
-              className="bg-[#220050] flex flex-wrap rounded-lg p-[16px] w-[380px] h-full border border-[#42498F]"
+              href={solution.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="bg-[#220050] gap-[16px] flex flex-wrap flex-col rounded-lg p-[16px] pb-[32px] w-[380px] h-full border border-[#42498F]"
             >
-              <div className="flex flex-col gap-[8px] w-[240px]">
-                <Image
-                  src={solution.logo_svg.url}
-                  alt={solution.solution_name}
-                  width={64}
-                  height={64}
-                />
-                <h3 className="flex text-wrap w-full text-[#9747FF] font-bold break-words text-[16px]">
-                  {solution.solution_name}
-                </h3>
-              </div>
+              <Image
+                src={solution.logo_svg.url}
+                alt={solution.solution_name}
+                width={64}
+                height={64}
+              />
+              <h3 className="flex text-wrap w-full text-[#9747FF] font-bold break-words text-[16px]">
+                {solution.solution_name}
+              </h3>
+              <h1 className="flex text-wrap w-full text-[#DAF0FF] font-bold break-words text-[32px] leading-tight">
+                {solution.header_title}
+              </h1>
               <p className="flex text-wrap flex-wrap w-full text-[#BECCE5] mt-2 break-words text-[16px] leading-tight">
                 {solution.header_description}
               </p>
-            </div>
+            </a>
           ))}
         </div>
         <div className="flex flex-col gap-[16px]">
           {columnTwo.map((solution: Solution) => (
-            <div
+            <a
               key={solution.solution_name}
+              href={solution.url}
+              rel="noopener noreferrer"
+              target="_blank"
               className="bg-[#220050] gap-[12px] flex flex-row rounded-lg p-[16px] w-[380px] border border-[#42498F] h-full"
             >
               <div className="flex flex-col gap-[8px] w-[240px]">
@@ -63,13 +70,16 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
                   {solution.header_description}
                 </p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
         <div className="flex flex-col gap-4">
           {columnThree.map((solution: Solution) => (
-            <div
+            <a
               key={solution.solution_name}
+              href={solution.url}
+              rel="noopener noreferrer"
+              target="_blank"
               className="bg-[#220050] flex flex-row gap-[16px] rounded-lg p-[16px] w-[380px] border border-[#42498F]"
             >
               <Image
@@ -83,11 +93,11 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
                 <h3 className="flex text-wrap w-full text-[#9747FF] font-bold break-words text-[16px]">
                   {solution.solution_name}
                 </h3>
-                <p className="flex text-wrap w-full text-[#D9D9D9] mt-[4px] break-words text-[16px] leading-tight">
-                  {solution.header_description}
+                <p className="flex text-wrap w-full text-[#DAF0FF] mt-[4px] break-words text-[16px] leading-tight">
+                  {solution.header_title}
                 </p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

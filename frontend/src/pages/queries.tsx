@@ -3,10 +3,11 @@ import { gql } from "graphql-request";
 export type Solution = {
   solution_name: string;
   header_title?: string;
-  header_description: string;
+  header_description?: string;
   logo_svg: {
     url: string;
   };
+  url: string;
 };
 
 export type ResourceSection = {
@@ -62,6 +63,7 @@ export const navLinksQueryDocument = gql`
         logo_svg {
           url
         }
+        url
       }
       resource_sections {
         title
