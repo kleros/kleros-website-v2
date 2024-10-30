@@ -1,19 +1,26 @@
 import { useState, useEffect, useRef } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
-import { NavLink } from "@/queries/navbar";
+
+import { NavLink, ResourceSection, Solution } from "@/queries/navbar";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
+
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
 
 interface DesktopNavigationProps {
   pathname: string;
   navLinks: NavLink[];
+  solutions: Solution[];
+  resourceSections: ResourceSection[];
 }
 
 const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   pathname,
   navLinks,
+  solutions,
+  resourceSections,
 }) => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null
@@ -54,7 +61,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
 
   return (
     <div className="hidden md:flex flex-row gap-x-[32px] my-2 whitespace-nowrap">
-      {navLinks.map((navLink, index) => (
+      {navLinks?.map((navLink, index) => (
         <div
           key={navLink.path_name || navLink.title}
           className="relative"
@@ -92,16 +99,12 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
 
               {openDropdownIndex === index && navLink.is_dropdown && (
                 <>
-                  {navLink?.solutions && navLink?.solutions.length > 0 && (
-                    <AppsDropdownContent solutions={navLink.solutions} />
+                  {navLink.title === "Apps" && (
+                    <AppsDropdownContent {...{ solutions }} />
                   )}
-
-                  {navLink?.resource_sections &&
-                  navLink?.resource_sections.length > 0 ? (
-                    <ResourcesDropdownContent
-                      resourceSections={navLink.resource_sections}
-                    />
-                  ) : null}
+                  {navLink.title === "Resources" && (
+                    <ResourcesDropdownContent {...{ resourceSections }} />
+                  )}
                 </>
               )}
             </>

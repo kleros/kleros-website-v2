@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { responsiveSize } from "@/styles/responsiveSize";
 import HamburgerIcon from "@/assets/svgs/icons/Hamburger.svg";
-import { HeaderButton, KlerosLogo, NavLink } from "@/queries/navbar";
+import { NavbarQueryType } from "@/queries/navbar";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,16 +11,20 @@ import { usePathname } from "next/navigation";
 import DesktopNavigation from "./DesktopNavigation";
 import MobileMenu from "./MobileMenu";
 
-interface IHeader {
-  klerosLogo: KlerosLogo;
-  navLinks: NavLink[];
-  headerButton: HeaderButton;
+interface INavbar {
+  navbarData: NavbarQueryType;
 }
 
-const Header: React.FC<IHeader> = ({ klerosLogo, navLinks, headerButton }) => {
+const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const klerosLogo = navbarData.klerosLogo;
+  const navLinks = navbarData.navbarNavlinksSection?.Navlink;
+  const navbarButton = navbarData.navbarButton;
+  const resourceSections = navbarData.navbarResourcesSection?.Section;
+  const solutions = navbarData.solutions;
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -87,13 +91,19 @@ const Header: React.FC<IHeader> = ({ klerosLogo, navLinks, headerButton }) => {
       </button>
 
       <div className="hidden lg:flex">
-        <DesktopNavigation {...{ pathname, navLinks }} />
+        <DesktopNavigation
+          {...{ pathname, navLinks, solutions, resourceSections }}
+        />
       </div>
 
       <div className="hidden lg:flex items-center">
-        <a href={headerButton.url} rel="noopener noreferrer" target="_blank">
+        <a
+          href={navbarButton?.link.url}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <button className="w-[122px] px-4 py-2 bg-blue-500 rounded-full">
-            {headerButton.name}
+            {navbarButton?.link.name}
           </button>
         </a>
       </div>
@@ -102,9 +112,13 @@ const Header: React.FC<IHeader> = ({ klerosLogo, navLinks, headerButton }) => {
         <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-end">
           <div ref={menuRef}>
             <MobileMenu
-              navLinks={navLinks}
-              headerButton={headerButton}
-              pathname={pathname}
+              {...{
+                pathname,
+                navLinks,
+                solutions,
+                resourceSections,
+                navbarButton,
+              }}
             />
           </div>
         </div>
@@ -113,4 +127,4 @@ const Header: React.FC<IHeader> = ({ klerosLogo, navLinks, headerButton }) => {
   );
 };
 
-export default Header;
+export default Navbar;

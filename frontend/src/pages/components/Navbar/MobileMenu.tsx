@@ -2,7 +2,12 @@ import { useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import { HeaderButton, NavLink } from "@/queries/navbar";
+import {
+  NavbarButton,
+  NavLink,
+  ResourceSection,
+  Solution,
+} from "@/queries/navbar";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 
 import AppsDropdownContent from "./AppsDropdownContent";
@@ -11,13 +16,17 @@ import ResourcesDropdownContent from "./ResourcesDropdownContent";
 interface MobileMenuProps {
   pathname: string;
   navLinks: NavLink[];
-  headerButton: HeaderButton;
+  solutions: Solution[];
+  resourceSections: ResourceSection[];
+  navbarButton: NavbarButton;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
   pathname,
   navLinks,
-  headerButton,
+  solutions,
+  resourceSections,
+  navbarButton,
 }) => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null
@@ -30,7 +39,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   return (
     <div className="fixed w-[250px] top-[80px] right-0 bg-black p-6 rounded-lg shadow-lg z-50">
       <nav className="flex flex-col gap-y-4">
-        {navLinks.map((navLink, index) => (
+        {navLinks?.map((navLink, index) => (
           <div key={navLink.path_name || navLink.title} className="relative">
             {!navLink.is_dropdown ? (
               <Link
@@ -57,15 +66,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                 </button>
                 {openDropdownIndex === index && navLink.is_dropdown && (
                   <div className="mt-2">
-                    {navLink?.solutions && navLink?.solutions.length > 0 && (
-                      <AppsDropdownContent solutions={navLink.solutions} />
-                    )}
+                    {navLink?.is_dropdown && navLink?.title === "Apps" ? (
+                      <AppsDropdownContent {...{ solutions }} />
+                    ) : null}
 
-                    {navLink?.resource_sections &&
-                    navLink?.resource_sections.length > 0 ? (
-                      <ResourcesDropdownContent
-                        resourceSections={navLink.resource_sections}
-                      />
+                    {navLink?.is_dropdown && navLink?.title === "Resources" ? (
+                      <ResourcesDropdownContent {...{ resourceSections }} />
                     ) : null}
                   </div>
                 )}
@@ -76,9 +82,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       </nav>
 
       <div className="mt-6">
-        <a href={headerButton.url} rel="noopener noreferrer" target="_blank">
+        <a href={navbarButton?.link.url} rel="noopener noreferrer" target="_blank">
           <button className="w-[122px] px-4 py-2 bg-blue-500 text-white rounded-full">
-            {headerButton.name}
+            {navbarButton?.link.name}
           </button>
         </a>
       </div>
