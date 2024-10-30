@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "navbar_navlinks_sections",
+  "info": {
+    "singularName": "navbar-navlinks-section",
+    "pluralName": "navbar-navlinks-sections",
+    "displayName": "NavbarNavlinksSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Navlink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.navlink"
+    }
+  }
+}

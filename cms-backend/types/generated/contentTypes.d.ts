@@ -572,34 +572,6 @@ export interface ApiFooterSubscribeCtaFooterSubscribeCta
   };
 }
 
-export interface ApiHeaderButtonHeaderButton extends Struct.SingleTypeSchema {
-  collectionName: 'header_button';
-  info: {
-    singularName: 'header-button';
-    pluralName: 'header-buttons';
-    displayName: 'HeaderButton';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Schema.Attribute.String;
-    url: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::header-button.header-button'
-    >;
-  };
-}
-
 export interface ApiKlerosLogoKlerosLogo extends Struct.SingleTypeSchema {
   collectionName: 'kleros_logo';
   info: {
@@ -654,25 +626,18 @@ export interface ApiLinkLink extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiNavLinkNavLink extends Struct.CollectionTypeSchema {
-  collectionName: 'nav_links';
+export interface ApiNavbarButtonNavbarButton extends Struct.SingleTypeSchema {
+  collectionName: 'navbar_button';
   info: {
-    singularName: 'nav-link';
-    pluralName: 'nav-links';
-    displayName: 'NavLink';
+    singularName: 'navbar-button';
+    pluralName: 'navbar-buttons';
+    displayName: 'NavbarButton';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    path_name: Schema.Attribute.String;
-    is_dropdown: Schema.Attribute.Boolean & Schema.Attribute.Required;
-    solutions: Schema.Attribute.Relation<'oneToMany', 'api::solution.solution'>;
-    resource_sections: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::resource-section.resource-section'
-    >;
+    link: Schema.Attribute.Relation<'oneToOne', 'api::link.link'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -683,7 +648,63 @@ export interface ApiNavLinkNavLink extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::nav-link.nav-link'
+      'api::navbar-button.navbar-button'
+    >;
+  };
+}
+
+export interface ApiNavbarNavlinksSectionNavbarNavlinksSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'navbar_navlinks_sections';
+  info: {
+    singularName: 'navbar-navlinks-section';
+    pluralName: 'navbar-navlinks-sections';
+    displayName: 'NavbarNavlinksSection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Navlink: Schema.Attribute.Component<'content.navlink', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::navbar-navlinks-section.navbar-navlinks-section'
+    >;
+  };
+}
+
+export interface ApiNavbarResourcesSectionNavbarResourcesSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'navbar_resources_sections';
+  info: {
+    singularName: 'navbar-resources-section';
+    pluralName: 'navbar-resources-sections';
+    displayName: 'NavbarResourcesSection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Section: Schema.Attribute.Component<'content.section', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::navbar-resources-section.navbar-resources-section'
     >;
   };
 }
@@ -714,103 +735,6 @@ export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::partner.partner'
-    >;
-  };
-}
-
-export interface ApiResourceLinkResourceLink
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'resource_links';
-  info: {
-    singularName: 'resource-link';
-    pluralName: 'resource-links';
-    displayName: 'Resource Link';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
-    resource_section: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::resource-section.resource-section'
-    > &
-      Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::resource-link.resource-link'
-    >;
-  };
-}
-
-export interface ApiResourceSectionResourceSection
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'resource_sections';
-  info: {
-    singularName: 'resource-section';
-    pluralName: 'resource-sections';
-    displayName: 'Resource Section';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    resource_links: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::resource-link.resource-link'
-    > &
-      Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::resource-section.resource-section'
-    >;
-  };
-}
-
-export interface ApiResourceSocialResourceSocial
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'resource_socials';
-  info: {
-    singularName: 'resource-social';
-    pluralName: 'resource-socials';
-    displayName: 'Resource Social';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    url: Schema.Attribute.String & Schema.Attribute.Required;
-    logo_svg: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::resource-social.resource-social'
     >;
   };
 }
@@ -1259,14 +1183,12 @@ declare module '@strapi/strapi' {
       'api::footer-links-section.footer-links-section': ApiFooterLinksSectionFooterLinksSection;
       'api::footer-socials-section.footer-socials-section': ApiFooterSocialsSectionFooterSocialsSection;
       'api::footer-subscribe-cta.footer-subscribe-cta': ApiFooterSubscribeCtaFooterSubscribeCta;
-      'api::header-button.header-button': ApiHeaderButtonHeaderButton;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
       'api::link.link': ApiLinkLink;
-      'api::nav-link.nav-link': ApiNavLinkNavLink;
+      'api::navbar-button.navbar-button': ApiNavbarButtonNavbarButton;
+      'api::navbar-navlinks-section.navbar-navlinks-section': ApiNavbarNavlinksSectionNavbarNavlinksSection;
+      'api::navbar-resources-section.navbar-resources-section': ApiNavbarResourcesSectionNavbarResourcesSection;
       'api::partner.partner': ApiPartnerPartner;
-      'api::resource-link.resource-link': ApiResourceLinkResourceLink;
-      'api::resource-section.resource-section': ApiResourceSectionResourceSection;
-      'api::resource-social.resource-social': ApiResourceSocialResourceSocial;
       'api::social.social': ApiSocialSocial;
       'api::solution.solution': ApiSolutionSolution;
       'admin::permission': AdminPermission;
