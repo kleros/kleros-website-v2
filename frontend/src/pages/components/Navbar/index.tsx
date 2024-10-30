@@ -72,7 +72,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
       <Link href="/" className="flex items-center">
         <Image
           alt="Kleros"
-          src={klerosLogo.logo_svg.url}
+          src={klerosLogo?.logo_svg.url}
           width={184}
           height={48}
         />
