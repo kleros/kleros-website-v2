@@ -6,7 +6,7 @@ interface AppsDropdownContentProps {
 }
 
 const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
-  solutions,
+  solutions = [],
 }) => {
   const columnOne = solutions.slice(0, 1);
   const columnTwo = solutions.slice(1, 3);
@@ -16,7 +16,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
     <div className="flex fixed w-screen left-[50%] transform translate-x-[-50%] mt-[27px] py-[48px] bg-[#220050] justify-center items-center">
       <div className="grid grid-cols-3 gap-4 w-[1172px]">
         <div className="flex flex-col gap-4 h-full">
-          {columnOne.map((solution: Solution) => (
+          {columnOne?.map((solution) => (
             <a
               key={solution.solution_name}
               href={solution.url}
@@ -43,7 +43,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
           ))}
         </div>
         <div className="flex flex-col gap-[16px]">
-          {columnTwo.map((solution: Solution) => (
+          {columnTwo?.map((solution) => (
             <a
               key={solution.solution_name}
               href={solution.url}
@@ -74,7 +74,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
           ))}
         </div>
         <div className="flex flex-col gap-4">
-          {columnThree.map((solution: Solution) => (
+          {columnThree?.map((solution) => (
             <a
               key={solution.solution_name}
               href={solution.url}

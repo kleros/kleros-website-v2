@@ -20,7 +20,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const klerosLogo = navbarData.klerosLogo;
+  const klerosLogo = navbarData?.klerosLogo;
   const navLinks = navbarData.navbarNavlinksSection?.Navlink;
   const navbarButton = navbarData.navbarButton;
   const resourceSections = navbarData.navbarResourcesSection?.Section;
