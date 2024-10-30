@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import { responsiveSize } from "@/styles/responsiveSize";
-import HamburgerIcon from "@/assets/svgs/icons/Hamburger.svg";
+import HamburgerIcon from "@/assets/svgs/icons/hamburger.svg";
 import { NavbarQueryType } from "@/queries/navbar";
 
 import Link from "next/link";
