@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "navbar_button",
+  "info": {
+    "singularName": "navbar-button",
+    "pluralName": "navbar-buttons",
+    "displayName": "NavbarButton"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "link": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::link.link"
+    }
+  }
+}

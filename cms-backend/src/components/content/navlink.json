@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_content_navlinks",
+  "info": {
+    "displayName": "NavLink"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "path_name": {
+      "type": "string"
+    },
+    "is_dropdown": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}
