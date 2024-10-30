@@ -21,10 +21,10 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const klerosLogo = navbarData?.klerosLogo;
-  const navLinks = navbarData.navbarNavlinksSection?.Navlink;
-  const navbarButton = navbarData.navbarButton;
-  const resourceSections = navbarData.navbarResourcesSection?.Section;
-  const solutions = navbarData.solutions;
+  const navLinks = navbarData?.navbarNavlinksSection?.Navlink;
+  const navbarButton = navbarData?.navbarButton;
+  const resourceSections = navbarData?.navbarResourcesSection?.Section;
+  const solutions = navbarData?.solutions;
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
