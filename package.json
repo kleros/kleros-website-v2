@@ -4,5 +4,8 @@
   "workspaces": [
     "cms-backend",
     "frontend"
-  ]
+  ],
+  "devDependencies": {
+    "husky": "^9.1.6"
+  }
 }

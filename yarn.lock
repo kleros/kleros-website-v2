@@ -9499,7 +9499,6 @@ __metadata:
     eslint-config-next: "npm:^15.0.0"
     graphql: "npm:^16.9.0"
     graphql-request: "npm:^7.1.0"
-    husky: "npm:^9.1.6"
     next: "npm:14.2.8"
     postcss: "npm:^8"
     react: "npm:^18"
@@ -11825,6 +11824,8 @@ __metadata:
 "kleros-website-v2@workspace:.":
   version: 0.0.0-use.local
   resolution: "kleros-website-v2@workspace:."
+  dependencies:
+    husky: "npm:^9.1.6"
   languageName: unknown
   linkType: soft
 
