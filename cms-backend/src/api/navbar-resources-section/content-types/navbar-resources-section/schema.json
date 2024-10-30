@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "navbar_resources_sections",
+  "info": {
+    "singularName": "navbar-resources-section",
+    "pluralName": "navbar-resources-sections",
+    "displayName": "NavbarResourcesSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Section": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.section"
+    }
+  }
+}
