@@ -7,6 +7,14 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontSize: {
+      base: ["1rem", "1.188rem"],
+      lg: ["1.5rem", "1.813rem"],
+      xl: ["2rem", "2.375rem"],
+      '2xl': ["3rem", "3.625rem"],
+      '3xl': ["4rem", "4.813rem"],
+      '4xl': ["6rem", "7.188rem"],
+    },
     extend: {
       colors: {
         background: "var(--background)",
