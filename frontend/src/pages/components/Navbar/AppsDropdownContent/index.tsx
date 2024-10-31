@@ -1,5 +1,6 @@
 import { Solution } from "@/queries/navbar";
 import Image from "next/image";
+import { useEffect } from "react";
 
 interface AppsDropdownContentProps {
   solutions: Solution[];
@@ -12,9 +13,17 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
   const columnTwo = solutions.slice(1, 3);
   const columnThree = solutions.slice(3, 7);
 
+  useEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, []);
+
   return (
-    <div className="flex fixed w-screen left-[50%] transform translate-x-[-50%] mt-[27px] py-[48px] bg-[#220050] justify-center items-center">
-      <div className="grid grid-cols-3 gap-4 w-[1172px]">
+    <div className="flex inset-y-[60px] fixed w-screen left-1/2 transform translate-x-[-50%] mt-[20px] py-[48px] bg-[#220050] justify-center overflow-y-auto items-center z-50">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-[80%] lg:w-[1172px] h-[100%] lg:h-auto ">
         <div className="flex flex-col gap-4 h-full">
           {columnOne?.map((solution) => (
             <a
@@ -22,7 +31,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
               href={solution.url}
               rel="noopener noreferrer"
               target="_blank"
-              className="bg-[#220050] gap-[16px] flex flex-wrap flex-col rounded-lg p-[16px] pb-[32px] w-[380px] h-full border border-[#42498F] hover:scale-[1.02] transition-transform"
+              className="bg-[#220050] gap-[16px] flex flex-wrap flex-col rounded-lg p-[16px] pb-[32px] lg:w-[380px] h-full border border-[#42498F] hover:scale-[1.02] transition-transform"
             >
               <Image
                 src={solution.logo_svg.url}
@@ -49,9 +58,9 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
               href={solution.url}
               rel="noopener noreferrer"
               target="_blank"
-              className="bg-[#220050] gap-[12px] flex flex-row rounded-lg p-[16px] w-[380px] border border-[#42498F] h-full hover:scale-[1.02] transition-transform"
+              className="bg-[#220050] gap-[12px] flex flex-row rounded-lg p-[16px] w-full lg:w-[380px] border border-[#42498F] h-full hover:scale-[1.02] transition-transform"
             >
-              <div className="flex flex-col gap-[8px] w-[240px]">
+              <div className="flex flex-col gap-[8px] lg:w-[240px]">
                 <Image
                   src={solution.logo_svg.url}
                   alt={solution.solution_name}
@@ -80,7 +89,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
               href={solution.url}
               rel="noopener noreferrer"
               target="_blank"
-              className="bg-[#220050] flex flex-row gap-[16px] rounded-lg p-[16px] w-[380px] border border-[#42498F] hover:scale-[1.02] transition-transform"
+              className="bg-[#220050] flex flex-row gap-[16px] rounded-lg p-[16px] lg:w-[380px] border border-[#42498F] hover:scale-[1.02] transition-transform"
             >
               <Image
                 className="flex"

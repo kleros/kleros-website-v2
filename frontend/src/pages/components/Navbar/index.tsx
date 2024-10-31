@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 import { responsiveSize } from "@/styles/responsiveSize";
@@ -17,8 +17,8 @@ interface INavbar {
 
 const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const menuRef = useRef<HTMLDivElement>(null);
 
   const klerosLogo = navbarData?.klerosLogo;
   const navLinks = navbarData?.navbarNavlinksSection?.Navlink;
@@ -31,39 +31,31 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpen(false);
-      }
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      setIsScrolled(scrollTop >= 80);
     };
 
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuOpen]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.matchMedia("(min-width: 768px)").matches) {
-        setMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [menuOpen]);
+
   return (
     <header
-      className="min-h-[80px] pt-[8px] pb-[8px] w-full flex justify-between items-center text-white text-[18px] bg-transparent shadow-sm relative"
+      className={`fixed top-0 left-0 right-0 z-50 h-[80px] pt-[8px] pb-[8px] w-full flex justify-between items-center text-white text-[18px] shadow-sm ${
+        isScrolled ? "bg-[#220050]" : "bg-transparent"
+      }`}
       style={{
         paddingLeft: responsiveSize(24, 256, 1024, 1920),
         paddingRight: responsiveSize(24, 256, 1024, 1920),
@@ -109,8 +101,11 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
       </div>
 
       {menuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-end">
-          <div ref={menuRef}>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-end"
+          onClick={() => setMenuOpen(false)}
+        >
+          <div className="relative" onClick={(e) => e.stopPropagation()}>
             <MobileMenu
               {...{
                 pathname,

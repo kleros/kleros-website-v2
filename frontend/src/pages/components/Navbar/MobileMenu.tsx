@@ -37,7 +37,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   };
 
   return (
-    <div className="fixed w-[250px] top-[80px] right-0 bg-black p-6 rounded-lg shadow-lg z-50">
+    <div className="z-50 fixed w-[250px] top-[80px] right-0 bg-[#220050] p-6 rounded-lg shadow-lg overflow-y-auto">
       <nav className="flex flex-col gap-y-4">
         {navLinks?.map((navLink, index) => (
           <div key={navLink.path_name || navLink.title} className="relative">
@@ -64,17 +64,28 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     height={12}
                   />
                 </button>
-                {openDropdownIndex === index && navLink.is_dropdown && (
-                  <div className="mt-2">
-                    {navLink?.is_dropdown && navLink?.title === "Apps" ? (
-                      <AppsDropdownContent {...{ solutions }} />
-                    ) : null}
-
-                    {navLink?.is_dropdown && navLink?.title === "Resources" ? (
-                      <ResourcesDropdownContent {...{ resourceSections }} />
-                    ) : null}
+                {openDropdownIndex === index && navLink.is_dropdown ? (
+                  <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-end"
+                    onClick={() => setOpenDropdownIndex(null)}
+                  >
+                    <div
+                      className="relative"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {navLink?.title === "Apps" ? (
+                        <AppsDropdownContent
+                          solutions={solutions}
+                        />
+                      ) : null}
+                      {navLink?.title === "Resources" ? (
+                        <ResourcesDropdownContent
+                          resourceSections={resourceSections}
+                        />
+                      ) : null}
+                    </div>
                   </div>
-                )}
+                ) : null}
               </>
             )}
           </div>
@@ -82,7 +93,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       </nav>
 
       <div className="mt-6">
-        <a href={navbarButton?.link.url} rel="noopener noreferrer" target="_blank">
+        <a
+          href={navbarButton?.link.url}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <button className="w-[122px] px-4 py-2 bg-blue-500 text-white rounded-full">
             {navbarButton?.link.name}
           </button>

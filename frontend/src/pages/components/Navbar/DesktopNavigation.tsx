@@ -1,11 +1,8 @@
-import { useState, useEffect, useRef } from "react";
-
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
 import { NavLink, ResourceSection, Solution } from "@/queries/navbar";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
-
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
 
@@ -25,50 +22,19 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null
   );
-  const dropdownRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
-
-  const handleDropdownClick = (index: number) => {
-    setOpenDropdownIndex(openDropdownIndex === index ? null : index);
-  };
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      openDropdownIndex !== null &&
-      dropdownRefs.current[openDropdownIndex] &&
-      buttonRefs.current[openDropdownIndex]
-    ) {
-      const dropdownElement = dropdownRefs.current[openDropdownIndex];
-      const buttonElement = buttonRefs.current[openDropdownIndex];
-
-      if (
-        dropdownElement &&
-        !dropdownElement.contains(event.target as Node) &&
-        buttonElement &&
-        !buttonElement.contains(event.target as Node)
-      ) {
-        setOpenDropdownIndex(null);
-      }
-    }
-  };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    if (openDropdownIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
   }, [openDropdownIndex]);
 
   return (
     <div className="hidden md:flex flex-row gap-x-[32px] my-2 whitespace-nowrap">
       {navLinks?.map((navLink, index) => (
-        <div
-          key={navLink.path_name || navLink.title}
-          className="relative"
-          ref={(el) => {
-            dropdownRefs.current[index] = el;
-          }}
-        >
+        <div key={navLink.path_name || navLink.title} className="relative">
           {!navLink.is_dropdown ? (
             <Link
               href={`/${navLink.path_name}`}
@@ -81,11 +47,12 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
           ) : (
             <>
               <button
-                ref={(el) => {
-                  buttonRefs.current[index] = el;
-                }}
                 className="flex items-center"
-                onClick={() => handleDropdownClick(index)}
+                onClick={() =>
+                  setOpenDropdownIndex(
+                    openDropdownIndex === index ? null : index
+                  )
+                }
               >
                 {navLink.title}
                 <Image
@@ -97,16 +64,26 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                 />
               </button>
 
-              {openDropdownIndex === index && navLink.is_dropdown && (
-                <>
-                  {navLink.title === "Apps" && (
-                    <AppsDropdownContent {...{ solutions }} />
-                  )}
-                  {navLink.title === "Resources" && (
-                    <ResourcesDropdownContent {...{ resourceSections }} />
-                  )}
-                </>
-              )}
+              {openDropdownIndex === index && navLink.is_dropdown ? (
+                <div
+                  className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                  onClick={() => setOpenDropdownIndex(null)}
+                >
+                  <div
+                    className="relative"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {navLink?.title === "Apps" ? (
+                      <AppsDropdownContent solutions={solutions} />
+                    ) : null}
+                    {navLink?.title === "Resources" ? (
+                      <ResourcesDropdownContent
+                        resourceSections={resourceSections}
+                      />
+                    ) : null}
+                  </div>
+                </div>
+              ) : null}
             </>
           )}
         </div>
