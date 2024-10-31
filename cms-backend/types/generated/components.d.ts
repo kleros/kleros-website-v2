@@ -27,11 +27,23 @@ export interface ContentNavlink extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentButtonLink extends Struct.ComponentSchema {
+  collectionName: 'components_content_button_links';
+  info: {
+    displayName: 'ButtonLink';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    link: Schema.Attribute.Relation<'oneToOne', 'api::link.link'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'content.section': ContentSection;
       'content.navlink': ContentNavlink;
+      'content.button-link': ContentButtonLink;
     }
   }
 }
