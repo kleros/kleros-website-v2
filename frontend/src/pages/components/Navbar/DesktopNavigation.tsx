@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { NavLink, ResourceSection, Solution } from "@/queries/navbar";
+import { NavLink, ResourceSection, Social, Solution } from "@/queries/navbar";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
@@ -11,6 +11,7 @@ interface DesktopNavigationProps {
   navLinks: NavLink[];
   solutions: Solution[];
   resourceSections: ResourceSection[];
+  socials: Social[];
 }
 
 const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
@@ -18,6 +19,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   navLinks,
   solutions,
   resourceSections,
+  socials,
 }) => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null
@@ -34,7 +36,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   return (
     <div className="hidden md:flex flex-row gap-x-[32px] my-2 whitespace-nowrap">
       {navLinks?.map((navLink, index) => (
-        <div key={navLink.path_name || navLink.title} className="relative">
+        <div key={navLink.path_name || navLink.title} className="relative text-[16px]">
           {!navLink.is_dropdown ? (
             <Link
               href={`/${navLink.path_name}`}
@@ -74,11 +76,11 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                     onClick={(e) => e.stopPropagation()}
                   >
                     {navLink?.title === "Apps" ? (
-                      <AppsDropdownContent solutions={solutions} />
+                      <AppsDropdownContent {...{ solutions }} />
                     ) : null}
                     {navLink?.title === "Resources" ? (
                       <ResourcesDropdownContent
-                        resourceSections={resourceSections}
+                        {...{ resourceSections, socials }}
                       />
                     ) : null}
                   </div>

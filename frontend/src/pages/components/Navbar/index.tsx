@@ -25,6 +25,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const navbarButton = navbarData?.navbarButton;
   const resourceSections = navbarData?.navbarResourcesSection?.Section;
   const solutions = navbarData?.solutions;
+  const socials = navbarData?.socials;
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -53,8 +54,8 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 h-[80px] pt-[8px] pb-[8px] w-full flex justify-between items-center text-white text-[18px] shadow-sm ${
-        isScrolled ? "bg-[#220050]" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 h-[80px] pt-[8px] pb-[8px] w-full flex justify-between items-center text-white text-[16px] shadow-sm ${
+        isScrolled ? "bg-background-2" : "bg-transparent"
       }`}
       style={{
         paddingLeft: responsiveSize(24, 256, 1024, 1920),
@@ -84,7 +85,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
 
       <div className="hidden lg:flex">
         <DesktopNavigation
-          {...{ pathname, navLinks, solutions, resourceSections }}
+          {...{ pathname, navLinks, solutions, resourceSections, socials }}
         />
       </div>
 
@@ -94,7 +95,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <button className="w-[122px] px-4 py-2 bg-blue-500 rounded-full">
+          <button className="w-[122px] px-4 py-2 bg-primary-blue text-background-1 rounded-full">
             {navbarButton?.link.name}
           </button>
         </a>
@@ -112,6 +113,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
                 navLinks,
                 solutions,
                 resourceSections,
+                socials,
                 navbarButton,
               }}
             />

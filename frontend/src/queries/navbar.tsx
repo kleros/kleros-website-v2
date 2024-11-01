@@ -10,6 +10,14 @@ export type Solution = {
   url: string;
 };
 
+export type Social = {
+  name: string;
+  url: string;
+  icon: {
+    url: string;
+  }[];
+};
+
 export type ResourceLink = {
   name: string;
   url: string;
@@ -77,6 +85,13 @@ export const navbarQuery = gql`
         url
       }
     }
+    socials {
+      name
+      url
+      icon {
+        url
+      }
+    }
   }
 `;
 
@@ -90,4 +105,5 @@ export interface NavbarQueryType {
   };
   solutions: Solution[];
   klerosLogo: KlerosLogo;
+  socials: Social[];
 }
