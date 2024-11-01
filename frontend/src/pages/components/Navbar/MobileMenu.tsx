@@ -3,11 +3,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
+  AppsSection,
   NavbarButton,
   NavLink,
   ResourceSection,
   Social,
-  Solution,
 } from "@/queries/navbar";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 
@@ -17,7 +17,7 @@ import ResourcesDropdownContent from "./ResourcesDropdownContent";
 interface MobileMenuProps {
   pathname: string;
   navLinks: NavLink[];
-  solutions: Solution[];
+  appsSection: AppsSection;
   resourceSections: ResourceSection[];
   socials: Social[];
   navbarButton: NavbarButton;
@@ -26,7 +26,7 @@ interface MobileMenuProps {
 const MobileMenu: React.FC<MobileMenuProps> = ({
   pathname,
   navLinks,
-  solutions,
+  appsSection,
   resourceSections,
   socials,
   navbarButton,
@@ -77,7 +77,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                       onClick={(e) => e.stopPropagation()}
                     >
                       {navLink?.title === "Apps" ? (
-                        <AppsDropdownContent {...{ solutions }} />
+                        <AppsDropdownContent {...{ appsSection }} />
                       ) : null}
                       {navLink?.title === "Resources" ? (
                         <ResourcesDropdownContent

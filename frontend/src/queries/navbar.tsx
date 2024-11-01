@@ -1,5 +1,10 @@
 import { gql } from "graphql-request";
 
+export type Link = {
+  name: string;
+  url: string;
+};
+
 export type Solution = {
   solution_name: string;
   header_title?: string;
@@ -8,6 +13,11 @@ export type Solution = {
     url: string;
   };
   url: string;
+};
+
+export type AppsSection = {
+  solutions: Solution[];
+  arrowLink: ArrowLink;
 };
 
 export type Social = {
@@ -35,16 +45,18 @@ export type NavLink = {
 };
 
 export type NavbarButton = {
-  link: {
-    name: string;
-    url: string;
-  };
+  link: Link;
 };
 
 export type KlerosLogo = {
   logo_svg: {
     url: string;
   };
+};
+
+export type ArrowLink = {
+  text: string;
+  link: Link;
 };
 
 export const navbarQuery = gql`
@@ -71,14 +83,22 @@ export const navbarQuery = gql`
         }
       }
     }
-    solutions(sort: "createdAt:asc") {
-      solution_name
-      header_title
-      header_description
-      logo_svg {
+    navbarAppsSection {
+      solutions {
+        solution_name
+        header_title
+        header_description
+        logo_svg {
+          url
+        }
         url
       }
-      url
+      arrowLink {
+        text
+        link {
+          url
+        }
+      }
     }
     klerosLogo {
       logo_svg {
@@ -103,7 +123,7 @@ export interface NavbarQueryType {
   navbarResourcesSection: {
     Section: ResourceSection[];
   };
-  solutions: Solution[];
+  navbarAppsSection: AppsSection;
   klerosLogo: KlerosLogo;
   socials: Social[];
 }

@@ -23,8 +23,8 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const klerosLogo = navbarData?.klerosLogo;
   const navLinks = navbarData?.navbarNavlinksSection?.Navlink;
   const navbarButton = navbarData?.navbarButton;
-  const resourceSections = navbarData?.navbarResourcesSection?.Section;
-  const solutions = navbarData?.solutions;
+  const resourceSections = navbarData?.navbarResourcesSection.Section;
+  const appsSection = navbarData?.navbarAppsSection;
   const socials = navbarData?.socials;
 
   const toggleMenu = () => {
@@ -85,7 +85,13 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
 
       <div className="hidden lg:flex">
         <DesktopNavigation
-          {...{ pathname, navLinks, solutions, resourceSections, socials }}
+          {...{
+            pathname,
+            navLinks,
+            resourceSections,
+            appsSection,
+            socials,
+          }}
         />
       </div>
 
@@ -111,8 +117,8 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
               {...{
                 pathname,
                 navLinks,
-                solutions,
                 resourceSections,
+                appsSection,
                 socials,
                 navbarButton,
               }}

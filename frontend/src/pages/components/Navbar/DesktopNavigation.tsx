@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { NavLink, ResourceSection, Social, Solution } from "@/queries/navbar";
+import {
+  AppsSection,
+  NavLink,
+  ResourceSection,
+  Social,
+} from "@/queries/navbar";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
@@ -9,7 +14,7 @@ import ResourcesDropdownContent from "./ResourcesDropdownContent";
 interface DesktopNavigationProps {
   pathname: string;
   navLinks: NavLink[];
-  solutions: Solution[];
+  appsSection: AppsSection;
   resourceSections: ResourceSection[];
   socials: Social[];
 }
@@ -17,7 +22,7 @@ interface DesktopNavigationProps {
 const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   pathname,
   navLinks,
-  solutions,
+  appsSection,
   resourceSections,
   socials,
 }) => {
@@ -36,7 +41,10 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   return (
     <div className="hidden md:flex flex-row gap-x-[32px] my-2 whitespace-nowrap">
       {navLinks?.map((navLink, index) => (
-        <div key={navLink.path_name || navLink.title} className="relative text-[16px]">
+        <div
+          key={navLink.path_name || navLink.title}
+          className="relative text-[16px]"
+        >
           {!navLink.is_dropdown ? (
             <Link
               href={`/${navLink.path_name}`}
@@ -76,7 +84,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                     onClick={(e) => e.stopPropagation()}
                   >
                     {navLink?.title === "Apps" ? (
-                      <AppsDropdownContent {...{ solutions }} />
+                      <AppsDropdownContent {...{ appsSection }} />
                     ) : null}
                     {navLink?.title === "Resources" ? (
                       <ResourcesDropdownContent

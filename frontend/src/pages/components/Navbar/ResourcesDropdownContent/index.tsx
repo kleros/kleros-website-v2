@@ -15,7 +15,7 @@ interface ResourcesDropdownContentProps {
 }
 
 const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
-  resourceSections = [],
+  resourceSections,
   socials,
 }) => {
   return (

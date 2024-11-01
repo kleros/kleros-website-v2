@@ -1,17 +1,18 @@
-import { Solution } from "@/queries/navbar";
+import { AppsSection } from "@/queries/navbar";
 import Image from "next/image";
+import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
 import { useEffect } from "react";
 
 interface AppsDropdownContentProps {
-  solutions: Solution[];
+  appsSection: AppsSection;
 }
 
 const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
-  solutions = [],
+  appsSection,
 }) => {
-  const columnOne = solutions.slice(0, 1);
-  const columnTwo = solutions.slice(1, 3);
-  const columnThree = solutions.slice(3, 7);
+  const columnOne = appsSection?.solutions.slice(0, 1);
+  const columnTwo = appsSection?.solutions.slice(1, 3);
+  const columnThree = appsSection?.solutions.slice(3, 7);
 
   useEffect(() => {
     const originalStyle = window.getComputedStyle(document.body).overflow;
@@ -107,6 +108,21 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
               </div>
             </a>
           ))}
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href={appsSection?.arrowLink.link.url}
+            className="text-primary-blue self-end"
+          >
+            <span className="mr-4">{appsSection?.arrowLink.text}</span>
+            <Image
+              src={LinkArrow}
+              width="24"
+              height="24"
+              alt="Arrow link image"
+              className="inline"
+            />
+          </a>
         </div>
       </div>
     </div>
