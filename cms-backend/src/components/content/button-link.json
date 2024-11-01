@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_content_button_links",
+  "info": {
+    "displayName": "ButtonLink"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::link.link"
+    }
+  }
+}

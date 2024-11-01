@@ -572,6 +572,41 @@ export interface ApiFooterSubscribeCtaFooterSubscribeCta
   };
 }
 
+export interface ApiHomePageHeroHomePageHero extends Struct.SingleTypeSchema {
+  collectionName: 'home_page_heroes';
+  info: {
+    singularName: 'home-page-hero';
+    pluralName: 'home-page-heroes';
+    displayName: 'HomePageHero';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    primaryButton: Schema.Attribute.Component<'content.button-link', false>;
+    secondaryButton: Schema.Attribute.Component<'content.button-link', false>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page-hero.home-page-hero'
+    >;
+  };
+}
+
 export interface ApiKlerosLogoKlerosLogo extends Struct.SingleTypeSchema {
   collectionName: 'kleros_logo';
   info: {
@@ -1183,6 +1218,7 @@ declare module '@strapi/strapi' {
       'api::footer-links-section.footer-links-section': ApiFooterLinksSectionFooterLinksSection;
       'api::footer-socials-section.footer-socials-section': ApiFooterSocialsSectionFooterSocialsSection;
       'api::footer-subscribe-cta.footer-subscribe-cta': ApiFooterSubscribeCtaFooterSubscribeCta;
+      'api::home-page-hero.home-page-hero': ApiHomePageHeroHomePageHero;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
       'api::link.link': ApiLinkLink;
       'api::navbar-button.navbar-button': ApiNavbarButtonNavbarButton;
