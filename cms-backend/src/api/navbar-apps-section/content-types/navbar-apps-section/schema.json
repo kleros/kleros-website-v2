@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "navbar_apps_sections",
+  "info": {
+    "singularName": "navbar-apps-section",
+    "pluralName": "navbar-apps-sections",
+    "displayName": "NavbarAppsSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "solutions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::solution.solution"
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    }
+  }
+}
