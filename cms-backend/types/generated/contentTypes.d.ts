@@ -661,6 +661,35 @@ export interface ApiLinkLink extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiNavbarAppsSectionNavbarAppsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'navbar_apps_sections';
+  info: {
+    singularName: 'navbar-apps-section';
+    pluralName: 'navbar-apps-sections';
+    displayName: 'NavbarAppsSection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    solutions: Schema.Attribute.Relation<'oneToMany', 'api::solution.solution'>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::navbar-apps-section.navbar-apps-section'
+    >;
+  };
+}
+
 export interface ApiNavbarButtonNavbarButton extends Struct.SingleTypeSchema {
   collectionName: 'navbar_button';
   info: {
@@ -1221,6 +1250,7 @@ declare module '@strapi/strapi' {
       'api::home-page-hero.home-page-hero': ApiHomePageHeroHomePageHero;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
       'api::link.link': ApiLinkLink;
+      'api::navbar-apps-section.navbar-apps-section': ApiNavbarAppsSectionNavbarAppsSection;
       'api::navbar-button.navbar-button': ApiNavbarButtonNavbarButton;
       'api::navbar-navlinks-section.navbar-navlinks-section': ApiNavbarNavlinksSectionNavbarNavlinksSection;
       'api::navbar-resources-section.navbar-resources-section': ApiNavbarResourcesSectionNavbarResourcesSection;
