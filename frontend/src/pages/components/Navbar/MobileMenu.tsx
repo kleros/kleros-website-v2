@@ -16,7 +16,8 @@ import { buttonStyle } from "./index";
 import clsx from "clsx";
 
 const menuContainerStyle = clsx(
-  "z-50 fixed w-screen top-20 right-0 bg-background-2 p-6 rounded-lg shadow-lg overflow-y-auto"
+  "z-50 fixed w-screen top-20 right-0 bg-background-2 p-6 rounded-lg shadow-lg overflow-y-auto",
+  "animate-slideIn"
 );
 
 const linkStyle = clsx("text-white block");
