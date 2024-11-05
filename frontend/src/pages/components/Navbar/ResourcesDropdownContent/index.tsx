@@ -5,7 +5,9 @@ import Image from "next/image";
 const hoverScaleUp = clsx("transform transition duration-75");
 const hoverScaleUpLink = clsx(hoverScaleUp, "hover:scale-[1.01]");
 const hoverScaleUpLogo = clsx(hoverScaleUp, "hover:scale-[1.10]");
-const borderStyle = clsx("border-stroke lg:border-l lg:pl-8 lg:pt-0 pt-5");
+const borderStyle = clsx(
+  "border-stroke border-t lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 pt-5"
+);
 
 interface ResourcesDropdownContentProps {
   resourceSections: ResourceSection[];
@@ -18,7 +20,7 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
 }) => {
   return (
     <div className="w-full max-w-screen bg-background-2 top-[80px] overflow-y-auto lg:overflow-visible z-50 flex flex-col items-center">
-      <div className="max-w-screen-lg w-full py-6 lg:py-12 grid gap-4 grid-cols-1 lg:grid-cols-3">
+      <div className="max-w-screen-lg w-full py-2 lg:py-12 grid gap-4 grid-cols-1 lg:grid-cols-3">
         {resourceSections?.map((section, index) => (
           <div
             key={section.title}

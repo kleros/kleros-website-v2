@@ -42,14 +42,19 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
         <h3 className={headerTextStyle}>{solution?.solution_name}</h3>
 
         <h1
-          className={clsx("text-primary-text font-bold leading-tight mt-1", {
-            "text-base": true,
-            "lg:text-[32px]": variant === "large",
-            "lg:text-[24px]": variant === "medium",
-            "lg:text-base": variant === "small",
-          })}
+          className={clsx(
+            headerTextStyle,
+            "text-primary-text leading-tight mt-1",
+            {
+              "text-base": true,
+              "font-normal": variant === "small",
+              "lg:text-[32px]": variant === "large",
+              "lg:text-[24px]": variant === "medium",
+              "lg:text-base": variant === "small",
+            }
+          )}
         >
-          {solution?.header_title || solution?.solution_name}
+          {solution?.header_title}
         </h1>
 
         {solution?.header_description && (
