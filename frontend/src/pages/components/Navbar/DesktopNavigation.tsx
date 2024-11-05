@@ -80,7 +80,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                   onClick={() => setOpenDropdownIndex(null)}
                 >
                   <div
-                    className="relative"
+                    className="relative bg-background-2 mt-20"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {navLink?.title === "Apps" ? (

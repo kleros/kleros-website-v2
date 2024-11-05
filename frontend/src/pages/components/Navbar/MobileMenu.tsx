@@ -11,7 +11,7 @@ import {
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
-import { buttonStyle, overlayStyle } from "./index";
+import { buttonStyle } from "./index";
 
 import clsx from "clsx";
 
@@ -75,26 +75,18 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     height={12}
                   />
                 </button>
-                {openDropdownIndex === index && navLink.is_dropdown ? (
-                  <div
-                    className={overlayStyle}
-                    onClick={() => setOpenDropdownIndex(null)}
-                  >
-                    <div
-                      className="relative"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {navLink?.title === "Apps" ? (
-                        <AppsDropdownContent {...{ appsSection }} />
-                      ) : null}
-                      {navLink?.title === "Resources" ? (
-                        <ResourcesDropdownContent
-                          {...{ resourceSections, socials }}
-                        />
-                      ) : null}
-                    </div>
+                {openDropdownIndex === index && (
+                  <div className="mt-4 h-80 overflow-y-auto">
+                    {navLink?.title === "Apps" ? (
+                      <AppsDropdownContent {...{ appsSection }} />
+                    ) : null}
+                    {navLink?.title === "Resources" ? (
+                      <ResourcesDropdownContent
+                        {...{ resourceSections, socials }}
+                      />
+                    ) : null}
                   </div>
-                ) : null}
+                )}
               </>
             )}
           </div>

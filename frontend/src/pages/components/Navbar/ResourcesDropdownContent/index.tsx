@@ -17,8 +17,8 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
   socials,
 }) => {
   return (
-    <div className="fixed w-screen lg:w-screen lg:max-h-auto lg:left-1/2 lg:transform lg:translate-x-[-50%] top-[80px] max-h-[calc(100vh-80px)] bg-background-2 overflow-y-auto lg:overflow-visible z-50 flex flex-col items-center">
-      <div className="w-[80%] lg:w-[1172px] py-[24px] grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <div className="w-full max-w-screen bg-background-2 top-[80px] overflow-y-auto lg:overflow-visible z-50 flex flex-col items-center">
+      <div className="max-w-screen-lg w-full py-6 lg:py-12 grid gap-4 grid-cols-1 lg:grid-cols-3">
         {resourceSections?.map((section, index) => (
           <div
             key={section.title}
@@ -48,7 +48,7 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
           </div>
         ))}
       </div>
-      <div className="w-full flex justify-center py-[28px] gap-[24px] lg:gap-[32px] bg-background-1">
+      <div className="w-full flex justify-start lg:justify-center pt-3 pb-3 lg:py-8 gap-[24px] lg:gap-[32px] lg:bg-background-1">
         {socials?.map((social) => (
           <a
             key={social.name}
