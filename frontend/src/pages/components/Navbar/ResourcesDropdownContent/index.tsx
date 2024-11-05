@@ -19,7 +19,7 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
   socials,
 }) => {
   return (
-    <div className="w-full max-w-screen bg-background-2 top-[80px] overflow-y-auto lg:overflow-visible z-50 flex flex-col items-center">
+    <div className="mt-4 lg:mt-0 w-full max-w-screen bg-background-2 top-[80px] overflow-y-auto lg:overflow-visible z-50 flex flex-col items-center">
       <div className="max-w-screen-lg w-full py-2 lg:py-12 grid gap-4 grid-cols-1 lg:grid-cols-3">
         {resourceSections?.map((section, index) => (
           <div

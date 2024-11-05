@@ -26,7 +26,7 @@ body {
   }
 }
 
-@keyframes slideIn {
+@keyframes slideInFromRight {
   from {
     transform: translateX(100%);
   }
@@ -35,6 +35,32 @@ body {
   }
 }
 
-.animate-slideIn {
-  animation: slideIn 0.3s ease-out;
+.animate-slideInFromRight {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-5%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInFromTop {
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+.transition-accordionHeight {
+  max-height: 0;
+  transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+.accordionOpen {
+  max-height: 332px;
+  opacity: 1;
 }

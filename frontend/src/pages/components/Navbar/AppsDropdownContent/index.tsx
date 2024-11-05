@@ -18,7 +18,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
   return (
     <div
       className={clsx(
-        "w-full lg:w-[1172px] py-2 lg:py-12 grid gap-3 lg:gap-4",
+        "mt-4 lg:mt-0 w-full lg:w-[1172px] py-2 lg:py-12 grid gap-3 lg:gap-4",
         "grid-cols-1 lg:grid-cols-3 bg-background-2 mx-auto"
       )}
     >

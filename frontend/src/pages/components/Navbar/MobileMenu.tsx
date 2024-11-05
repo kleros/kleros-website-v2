@@ -12,12 +12,11 @@ import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
 import { buttonStyle } from "./index";
-
 import clsx from "clsx";
 
 const menuContainerStyle = clsx(
   "z-50 fixed w-screen top-20 right-0 bg-background-2 p-6 rounded-lg shadow-lg overflow-y-auto",
-  "animate-slideIn"
+  "animate-slideInFromRight"
 );
 
 const linkStyle = clsx("text-white block");
@@ -76,18 +75,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     height={12}
                   />
                 </button>
-                {openDropdownIndex === index && (
-                  <div className="mt-4 h-80 overflow-y-auto">
-                    {navLink?.title === "Apps" ? (
-                      <AppsDropdownContent {...{ appsSection }} />
-                    ) : null}
-                    {navLink?.title === "Resources" ? (
-                      <ResourcesDropdownContent
-                        {...{ resourceSections, socials }}
-                      />
-                    ) : null}
-                  </div>
-                )}
+                <div
+                  className={clsx(
+                    "h-auto overflow-y-auto transition-accordionHeight",
+                    openDropdownIndex === index && "accordionOpen"
+                  )}
+                >
+                  {navLink?.title === "Apps" ? (
+                    <AppsDropdownContent {...{ appsSection }} />
+                  ) : navLink?.title === "Resources" ? (
+                    <ResourcesDropdownContent
+                      {...{ resourceSections, socials }}
+                    />
+                  ) : null}
+                </div>
               </>
             )}
           </div>

@@ -76,7 +76,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
 
               {openDropdownIndex === index && navLink.is_dropdown ? (
                 <div
-                  className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                  className="fixed inset-0 bg-black bg-opacity-50 z-40 animate-slideInFromTop"
                   onClick={() => setOpenDropdownIndex(null)}
                 >
                   <div
