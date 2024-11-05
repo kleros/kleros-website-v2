@@ -22,8 +22,8 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ solution, variant }) => {
   return (
     <a
-      key={solution.solution_name}
-      href={solution.url}
+      key={solution?.solution_name}
+      href={solution?.url}
       rel="noopener noreferrer"
       target="_blank"
       className={clsx(cardBaseStyle, hoverEffect, "flex-row", "w-full", {
@@ -33,13 +33,13 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
       })}
     >
       <Image
-        src={solution.logo_svg.url}
-        alt={solution.solution_name}
+        src={solution?.logo_svg?.url}
+        alt={solution?.solution_name}
         width={64}
         height={64}
       />
       <div>
-        <h3 className={headerTextStyle}>{solution.solution_name}</h3>
+        <h3 className={headerTextStyle}>{solution?.solution_name}</h3>
 
         <h1
           className={clsx("text-primary-text font-bold leading-tight mt-1", {
@@ -49,17 +49,17 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
             "lg:text-base": variant === "small",
           })}
         >
-          {solution.header_title || solution.solution_name}
+          {solution?.header_title || solution?.solution_name}
         </h1>
 
-        {solution.header_description && (
+        {solution?.header_description && (
           <p
             className={clsx(descriptionTextStyle, "mt-2", {
               hidden: true,
               "lg:block": variant !== "small",
             })}
           >
-            {solution.header_description}
+            {solution?.header_description}
           </p>
         )}
       </div>
