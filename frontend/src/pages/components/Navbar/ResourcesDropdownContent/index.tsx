@@ -2,12 +2,10 @@ import { ResourceSection, Social } from "@/queries/navbar";
 import clsx from "clsx";
 import Image from "next/image";
 
-const hoverScaleUpLink = clsx(
-  "hover:scale-[1.01] transform transition duration-75"
-);
-const hoverScaleUpLogo = clsx(
-  "hover:scale-[1.10] transform transition duration-75"
-);
+const hoverScaleUp = clsx("transform transition duration-75");
+const hoverScaleUpLink = clsx(hoverScaleUp, "hover:scale-[1.01]");
+const hoverScaleUpLogo = clsx(hoverScaleUp, "hover:scale-[1.10]");
+const borderStyle = clsx("border-stroke lg:border-l lg:pl-8 lg:pt-0 pt-5");
 
 interface ResourcesDropdownContentProps {
   resourceSections: ResourceSection[];
@@ -24,11 +22,10 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
         {resourceSections?.map((section, index) => (
           <div
             key={section.title}
-            className={`flex items-start gap-4 ${
-              index !== 0
-                ? "lg:border-l border-t lg:border-t-0 border-stroke lg:pl-[32px] pt-[20px] lg:pt-0"
-                : ""
-            }`}
+            className={clsx(
+              "flex items-start gap-4",
+              index !== 0 && borderStyle
+            )}
           >
             <div className="flex flex-col gap-4 bg-background-2 rounded-lg w-full lg:w-[380px]">
               <h3 className="text-primary-purple font-bold text-[16px]">

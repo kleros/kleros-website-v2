@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -10,9 +9,17 @@ import {
   Social,
 } from "@/queries/navbar";
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
-
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
+import { buttonStyle, overlayStyle } from "./index";
+
+import clsx from "clsx";
+
+const menuContainerStyle = clsx(
+  "z-50 fixed w-screen top-20 right-0 bg-background-2 p-6 rounded-lg shadow-lg overflow-y-auto"
+);
+
+const linkStyle = clsx("text-white block");
 
 interface MobileMenuProps {
   pathname: string;
@@ -40,23 +47,24 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   };
 
   return (
-    <div className="z-50 fixed w-[250px] top-[80px] right-0 bg-background-2 p-6 rounded-lg shadow-lg overflow-y-auto">
+    <div className={menuContainerStyle}>
       <nav className="flex flex-col gap-y-4">
         {navLinks?.map((navLink, index) => (
           <div key={navLink.path_name || navLink.title} className="relative">
             {!navLink.is_dropdown ? (
               <Link
                 href={`/${navLink.path_name}`}
-                className={`${
-                  pathname === `/${navLink.path_name}` ? "font-bold" : ""
-                } block text-white`}
+                className={clsx(
+                  linkStyle,
+                  pathname === `/${navLink.path_name}` && "font-bold"
+                )}
               >
                 {navLink.title}
               </Link>
             ) : (
               <>
                 <button
-                  className="flex items-center justify-between gap-[8px] text-white"
+                  className="flex items-center justify-between gap-2 text-white"
                   onClick={() => handleDropdownClick(index)}
                 >
                   {navLink.title}
@@ -69,7 +77,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                 </button>
                 {openDropdownIndex === index && navLink.is_dropdown ? (
                   <div
-                    className="fixed inset-0 bg-black bg-opacity-50 z-40 flex"
+                    className={overlayStyle}
                     onClick={() => setOpenDropdownIndex(null)}
                   >
                     <div
@@ -99,7 +107,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           rel="noopener noreferrer"
           target="_blank"
         >
-          <button className="w-[122px] px-4 py-2 bg-primary-blue text-background-1 rounded-full">
+          <button className={clsx(buttonStyle, "w-32")}>
             {navbarButton?.link.name}
           </button>
         </a>
