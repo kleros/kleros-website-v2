@@ -84,7 +84,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
       </div>
 
       <div className="hidden lg:flex items-center">
-        <a
+        <Link
           href={navbarButton?.link.url}
           rel="noopener noreferrer"
           target="_blank"
@@ -92,7 +92,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
           <button className={clsx(buttonStyle, "w-32")}>
             {navbarButton?.link.name}
           </button>
-        </a>
+        </Link>
       </div>
 
       {menuOpen && (

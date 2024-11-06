@@ -34,11 +34,11 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   useLockBodyScroll(openDropdownIndex !== null);
 
   return (
-    <div className="hidden md:flex flex-row gap-x-[32px] my-2 whitespace-nowrap">
+    <div className="hidden md:flex flex-row gap-x-8 my-2 whitespace-nowrap">
       {navLinks?.map((navLink, index) => (
         <div
           key={navLink.path_name || navLink.title}
-          className="relative text-[16px]"
+          className="relative text-base"
         >
           {!navLink.is_dropdown ? (
             <Link

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import clsx from "clsx";
 import { Solution } from "@/queries/navbar";
+import Link from "next/link"
 
 const hoverEffect = clsx(
   "hover:scale-[1.01] transform transition duration-100"
@@ -21,7 +22,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ solution, variant }) => {
   return (
-    <a
+    <Link
       key={solution?.solution_name}
       href={solution?.url}
       rel="noopener noreferrer"
@@ -39,9 +40,9 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
         height={64}
       />
       <div>
-        <h3 className={headerTextStyle}>{solution?.solution_name}</h3>
+        <h2 className={headerTextStyle}>{solution?.solution_name}</h2>
 
-        <h1
+        <h3
           className={clsx(
             headerTextStyle,
             "text-primary-text leading-tight mt-1",
@@ -54,7 +55,7 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
           )}
         >
           {solution?.header_title}
-        </h1>
+        </h3>
 
         {solution?.header_description && (
           <p
@@ -67,7 +68,7 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
           </p>
         )}
       </div>
-    </a>
+    </Link>
   );
 };
 

@@ -15,8 +15,8 @@ import { buttonStyle } from "./index";
 import clsx from "clsx";
 
 const menuContainerStyle = clsx(
-  "z-50 fixed w-screen top-20 right-0 bg-background-2 p-6 rounded-lg shadow-lg overflow-y-auto",
-  "animate-slideInFromRight"
+  "z-50 fixed w-screen top-20 right-0 bg-background-2 p-6",
+  "rounded-lg shadow-lg overflow-y-auto animate-slideInFromRight"
 );
 
 const linkStyle = clsx("text-white block");
@@ -96,7 +96,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       </nav>
 
       <div className="mt-6">
-        <a
+        <Link
           href={navbarButton?.link.url}
           rel="noopener noreferrer"
           target="_blank"
@@ -104,7 +104,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           <button className={clsx(buttonStyle, "w-32")}>
             {navbarButton?.link.name}
           </button>
-        </a>
+        </Link>
       </div>
     </div>
   );

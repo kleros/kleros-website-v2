@@ -20,8 +20,18 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
   socials,
 }) => {
   return (
-    <div className="mt-4 lg:mt-0 w-full max-w-screen bg-background-2 top-[80px] overflow-y-auto lg:overflow-visible z-50 flex flex-col items-center">
-      <div className="max-w-screen-lg w-full py-2 lg:py-12 grid gap-4 grid-cols-1 lg:grid-cols-3">
+    <div
+      className={clsx(
+        "flex flex-col mt-4 bg-background-2",
+        "items-center lg:mt-0"
+      )}
+    >
+      <div
+        className={clsx(
+          "w-full grid gap-4 grid-cols-1",
+          "max-w-screen-lg lg:py-12 lg:grid-cols-3"
+        )}
+      >
         {resourceSections?.map((section, index) => (
           <div
             key={section.title}
@@ -30,8 +40,8 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
               index !== 0 && borderStyle
             )}
           >
-            <div className="flex flex-col gap-4 bg-background-2 rounded-lg w-full lg:w-[380px]">
-              <h3 className="text-primary-purple font-bold text-[16px]">
+            <div className="flex flex-col gap-4 bg-background-2 rounded-lg w-full lg:w-96">
+              <h3 className="text-primary-purple font-bold text-base">
                 {section.title}
               </h3>
               <ul className="flex flex-col gap-2">
@@ -51,7 +61,12 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
           </div>
         ))}
       </div>
-      <div className="w-full flex justify-start lg:justify-center pt-3 pb-3 lg:py-8 gap-[24px] lg:gap-[32px] lg:bg-background-1">
+      <div
+        className={clsx(
+          "w-full flex justify-start py-3 gap-6",
+          "lg:py-8 lg:gap-8 lg:bg-background-1 lg:justify-center"
+        )}
+      >
         {socials?.map((social) => (
           <Link
             key={social.name}
