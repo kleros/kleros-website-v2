@@ -46,10 +46,9 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
             headerTextStyle,
             "text-primary-text leading-tight mt-1",
             {
-              "text-base": true,
               "font-normal": variant === "small",
-              "lg:text-[32px]": variant === "large",
-              "lg:text-[24px]": variant === "medium",
+              "lg:text-xl": variant === "large",
+              "lg:text-lg": variant === "medium",
               "lg:text-base": variant === "small",
             }
           )}

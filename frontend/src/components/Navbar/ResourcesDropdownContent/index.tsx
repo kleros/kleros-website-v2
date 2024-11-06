@@ -1,6 +1,7 @@
 import { ResourceSection, Social } from "@/queries/navbar";
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 
 const hoverScaleUp = clsx("transform transition duration-75");
 const hoverScaleUpLink = clsx(hoverScaleUp, "hover:scale-[1.01]");
@@ -36,13 +37,13 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
               <ul className="flex flex-col gap-2">
                 {section.links?.map((link) => (
                   <li key={link.url} className={hoverScaleUpLink}>
-                    <a
+                    <Link
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -52,7 +53,7 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
       </div>
       <div className="w-full flex justify-start lg:justify-center pt-3 pb-3 lg:py-8 gap-[24px] lg:gap-[32px] lg:bg-background-1">
         {socials?.map((social) => (
-          <a
+          <Link
             key={social.name}
             href={social.url}
             target="_blank"
@@ -65,7 +66,7 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
               width={24}
               height={24}
             />
-          </a>
+          </Link>
         ))}
       </div>
     </div>

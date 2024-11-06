@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import Hero from "@/components/home/Hero";
 import TrustedBy from "@/components/TrustedBy";
-import Navbar from "./components/Navbar";
+import Navbar from "@/components/Navbar";
 import { footerQuery, FooterQueryType } from "@/queries/footer";
 import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import { heroQuery, HeroQueryType } from "@/queries/home/hero";

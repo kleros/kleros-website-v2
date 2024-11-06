@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useLockBodyScroll, useWindowScroll } from "react-use";
 import Image from "next/image";
 import { responsiveSize } from "@/styles/responsiveSize";
 import HamburgerIcon from "@/assets/svgs/icons/hamburger.svg";
@@ -18,7 +19,9 @@ export const overlayStyle = clsx(
 );
 
 const headerBaseStyle = clsx(
-  "fixed top-0 left-0 right-0 z-50 h-20 w-full flex justify-between items-center text-white shadow-sm py-2 text-base"
+  "flex fixed top-0 left-0 right-0 z-50 h-20 w-full",
+  "justify-between items-center text-white shadow-sm",
+  "py-2 text-base transition-colors duration-500"
 );
 
 interface INavbar {
@@ -27,7 +30,8 @@ interface INavbar {
 
 const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const { y: scrollY } = useWindowScroll();
+  const isScrolled = scrollY >= 80;
   const pathname = usePathname();
 
   const klerosLogo = navbarData?.klerosLogo;
@@ -39,18 +43,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      setIsScrolled(scrollTop >= 80);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-  }, [menuOpen]);
+  useLockBodyScroll(menuOpen);
 
   return (
     <header

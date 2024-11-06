@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useLockBodyScroll } from "react-use";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -30,13 +31,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     null
   );
 
-  useEffect(() => {
-    if (openDropdownIndex !== null) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [openDropdownIndex]);
+  useLockBodyScroll(openDropdownIndex !== null);
 
   return (
     <div className="hidden md:flex flex-row gap-x-[32px] my-2 whitespace-nowrap">

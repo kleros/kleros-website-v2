@@ -3,6 +3,7 @@ import Card from "./Card";
 import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
 import Image from "next/image";
 import clsx from "clsx";
+import Link from "next/link"
 
 interface AppsDropdownContentProps {
   appsSection: AppsSection;
@@ -48,7 +49,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
             variant="small"
           />
         ))}
-        <a
+        <Link
           rel="noopener noreferrer"
           target="_blank"
           href={appsSection?.arrowLink.link.url}
@@ -62,7 +63,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
             alt="Arrow link"
             className="inline"
           />
-        </a>
+        </Link>
       </div>
     </div>
   );
