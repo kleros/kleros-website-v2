@@ -25,7 +25,7 @@ export type Social = {
   url: string;
   icon: {
     url: string;
-  }[];
+  };
 };
 
 export type ResourceLink = {

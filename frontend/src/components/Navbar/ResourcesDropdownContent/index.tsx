@@ -61,7 +61,7 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
             className={hoverScaleUpLogo}
           >
             <Image
-              src={social.icon[0].url}
+              src={social.icon.url}
               alt={social.name}
               width={24}
               height={24}
