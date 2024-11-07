@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "for_builders_page_heroes",
+  "info": {
+    "singularName": "for-builders-page-hero",
+    "pluralName": "for-builders-page-heroes",
+    "displayName": "ForBuildersPageHero",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "background": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

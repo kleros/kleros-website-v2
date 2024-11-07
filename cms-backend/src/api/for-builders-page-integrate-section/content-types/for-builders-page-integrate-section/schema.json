@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "for_builders_page_integrate_section",
+  "info": {
+    "singularName": "for-builders-page-integrate-section",
+    "pluralName": "for-builders-page-integrate-sections",
+    "displayName": "ForBuildersPageIntegrateSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "appsSection": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::navbar-apps-section.navbar-apps-section"
+    },
+    "getInTouchSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "for-builders-page.get-in-touch-section"
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    }
+  }
+}

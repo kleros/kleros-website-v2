@@ -1,0 +1,20 @@
+{
+  "collectionName": "get_in_touch_sections",
+  "info": {
+    "name": "Get in Touch",
+    "description": "Component for the Get in Touch section of the For Builders' Use Cases page"
+  },
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "background": {
+      "type": "media"
+    }
+  }
+}
