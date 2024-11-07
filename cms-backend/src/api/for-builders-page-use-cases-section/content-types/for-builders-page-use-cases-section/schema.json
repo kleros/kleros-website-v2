@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "for_builders_page_use_cases_section",
+  "info": {
+    "singularName": "for-builders-page-use-cases-section",
+    "pluralName": "for-builders-page-use-cases-sections",
+    "displayName": "ForBuildersPageUseCasesSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "useCases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::use-case.use-case"
+    },
+    "useCaseTitle": {
+      "type": "string"
+    },
+    "useCaseDescription": {
+      "type": "string"
+    },
+    "useCaseBanner": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "keyChallenges": {
+      "type": "component",
+      "repeatable": false,
+      "component": "for-builders-page.key-challenge"
+    },
+    "solutionSections": {
+      "type": "component",
+      "repeatable": false,
+      "component": "for-builders-page.solution-section"
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    }
+  }
+}

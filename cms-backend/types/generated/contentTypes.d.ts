@@ -572,6 +572,122 @@ export interface ApiFooterSubscribeCtaFooterSubscribeCta
   };
 }
 
+export interface ApiForBuildersPageHeroForBuildersPageHero
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_builders_page_heroes';
+  info: {
+    singularName: 'for-builders-page-hero';
+    pluralName: 'for-builders-page-heroes';
+    displayName: 'ForBuildersPageHero';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    button: Schema.Attribute.Component<'content.button-link', false>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-builders-page-hero.for-builders-page-hero'
+    >;
+  };
+}
+
+export interface ApiForBuildersPageIntegrateSectionForBuildersPageIntegrateSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_builders_page_integrate_section';
+  info: {
+    singularName: 'for-builders-page-integrate-section';
+    pluralName: 'for-builders-page-integrate-sections';
+    displayName: 'ForBuildersPageIntegrateSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    appsSection: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::navbar-apps-section.navbar-apps-section'
+    >;
+    getInTouchSection: Schema.Attribute.Component<
+      'for-builders-page.get-in-touch-section',
+      false
+    >;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-builders-page-integrate-section.for-builders-page-integrate-section'
+    >;
+  };
+}
+
+export interface ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_builders_page_use_cases_section';
+  info: {
+    singularName: 'for-builders-page-use-cases-section';
+    pluralName: 'for-builders-page-use-cases-sections';
+    displayName: 'ForBuildersPageUseCasesSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    useCases: Schema.Attribute.Relation<'oneToMany', 'api::use-case.use-case'>;
+    useCaseTitle: Schema.Attribute.String;
+    useCaseDescription: Schema.Attribute.String;
+    useCaseBanner: Schema.Attribute.Media & Schema.Attribute.Required;
+    keyChallenges: Schema.Attribute.Component<
+      'for-builders-page.key-challenge',
+      false
+    >;
+    solutionSections: Schema.Attribute.Component<
+      'for-builders-page.solution-section',
+      false
+    >;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-builders-page-use-cases-section.for-builders-page-use-cases-section'
+    >;
+  };
+}
+
 export interface ApiHomePageHeroHomePageHero extends Struct.SingleTypeSchema {
   collectionName: 'home_page_heroes';
   info: {
@@ -862,6 +978,33 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::solution.solution'
+    >;
+  };
+}
+
+export interface ApiUseCaseUseCase extends Struct.CollectionTypeSchema {
+  collectionName: 'use-case';
+  info: {
+    singularName: 'use-case';
+    pluralName: 'use-cases';
+    displayName: 'UseCase';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::use-case.use-case'
     >;
   };
 }
@@ -1244,6 +1387,9 @@ declare module '@strapi/strapi' {
       'api::footer-links-section.footer-links-section': ApiFooterLinksSectionFooterLinksSection;
       'api::footer-socials-section.footer-socials-section': ApiFooterSocialsSectionFooterSocialsSection;
       'api::footer-subscribe-cta.footer-subscribe-cta': ApiFooterSubscribeCtaFooterSubscribeCta;
+      'api::for-builders-page-hero.for-builders-page-hero': ApiForBuildersPageHeroForBuildersPageHero;
+      'api::for-builders-page-integrate-section.for-builders-page-integrate-section': ApiForBuildersPageIntegrateSectionForBuildersPageIntegrateSection;
+      'api::for-builders-page-use-cases-section.for-builders-page-use-cases-section': ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection;
       'api::home-page-hero.home-page-hero': ApiHomePageHeroHomePageHero;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
       'api::link.link': ApiLinkLink;
@@ -1254,6 +1400,7 @@ declare module '@strapi/strapi' {
       'api::partner.partner': ApiPartnerPartner;
       'api::social.social': ApiSocialSocial;
       'api::solution.solution': ApiSolutionSolution;
+      'api::use-case.use-case': ApiUseCaseUseCase;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;

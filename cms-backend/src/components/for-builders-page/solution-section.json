@@ -1,0 +1,39 @@
+{
+  "collectionName": "solution_sections",
+  "info": {
+    "name": "Solution Section",
+    "description": "The Solution section for the For Builders' Use Cases page"
+  },
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "solutionHeader": {
+      "type": "string",
+      "description": ""
+    },
+    "solution": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::solution.solution"
+    },
+    "partnersHeader": {
+      "type": "string",
+      "description": ""
+    },
+    "partners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partner.partner"
+    }
+  }
+}

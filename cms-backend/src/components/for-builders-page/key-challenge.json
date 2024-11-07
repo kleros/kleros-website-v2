@@ -1,0 +1,17 @@
+{
+  "collectionName": "key_challenges",
+  "info": {
+    "name": "Key Challenge",
+    "description": "Key challenges section of the For Builders' Use Cases page"
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

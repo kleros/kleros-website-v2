@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "use-case",
+  "info": {
+    "singularName": "use-case",
+    "pluralName": "use-cases",
+    "displayName": "UseCase"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
