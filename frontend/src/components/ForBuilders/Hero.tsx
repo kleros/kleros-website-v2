@@ -23,8 +23,8 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button>
-              <span className="text-background-2">{heroData.button.text}</span>
+            <Button variant="secondary">
+              <span>{heroData.button.text}</span>
             </Button>
           </Link>
         </div>
