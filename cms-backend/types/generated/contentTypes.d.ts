@@ -588,7 +588,7 @@ export interface ApiForBuildersPageHeroForBuildersPageHero
     title: Schema.Attribute.String;
     subtitle: Schema.Attribute.String;
     button: Schema.Attribute.Component<'content.button-link', false>;
-    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', true>;
     background: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
