@@ -25,7 +25,7 @@
     },
     "arrowLink": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "content.button-link"
     },
     "background": {
