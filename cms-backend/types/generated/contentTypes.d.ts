@@ -660,6 +660,7 @@ export interface ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection
     draftAndPublish: true;
   };
   attributes: {
+    sectionHeader: Schema.Attribute.String;
     useCases: Schema.Attribute.Relation<'oneToMany', 'api::use-case.use-case'>;
     useCaseTitle: Schema.Attribute.String;
     useCaseDescription: Schema.Attribute.String;
