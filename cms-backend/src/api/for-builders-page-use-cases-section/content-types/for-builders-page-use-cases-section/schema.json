@@ -12,6 +12,9 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "sectionHeader": {
+      "type": "string"
+    },
     "useCases": {
       "type": "relation",
       "relation": "oneToMany",
