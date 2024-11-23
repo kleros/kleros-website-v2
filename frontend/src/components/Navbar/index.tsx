@@ -20,7 +20,7 @@ export const overlayStyle = clsx(
 
 const headerBaseStyle = clsx(
   "flex fixed top-0 left-0 right-0 z-50 h-20 w-full",
-  "justify-between items-center text-white shadow-sm",
+  "justify-between items-center text-white",
   "py-2 text-base transition-colors duration-500"
 );
 
