@@ -1,0 +1,31 @@
+{
+  "collectionName": "kleros_scout_sections",
+  "info": {
+    "name": "Kleros Scout",
+    "description": "Component for the Kleros Scout section in the Curator tab of the Earn page"
+  },
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "productName": {
+      "type": "string"
+    },
+    "productIcon": {
+      "type": "media"
+    },
+    "learnMoreButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "background": {
+      "type": "media"
+    },
+    "arrowLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.button-link"
+    }
+  }
+}

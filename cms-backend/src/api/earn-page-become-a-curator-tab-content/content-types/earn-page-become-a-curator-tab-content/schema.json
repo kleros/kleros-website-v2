@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "earn_page_become_a_curator_tab_contents",
+  "info": {
+    "singularName": "earn-page-become-a-curator-tab-content",
+    "pluralName": "earn-page-become-a-curator-tab-contents",
+    "displayName": "EarnPageBecomeACuratorTabContent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tabName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "ctaCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.cta-card"
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "scoutExplanation": {
+      "type": "string"
+    },
+    "klerosScoutSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "earn-page.kleros-scout-section"
+    }
+  }
+}
