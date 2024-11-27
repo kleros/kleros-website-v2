@@ -3,7 +3,7 @@ import Card from "./Card";
 import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
 import Image from "next/image";
 import clsx from "clsx";
-import Link from "next/link"
+import Link from "next/link";
 
 interface AppsDropdownContentProps {
   appsSection: AppsSection;

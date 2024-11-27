@@ -64,3 +64,25 @@ body {
   max-height: 332px;
   opacity: 1;
 }
+
+.border-gradient-purple-blue {
+  position: relative;
+  border-radius: 9999px;
+  z-index: 1;
+}
+
+.border-gradient-purple-blue::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(to bottom, #9747ff, #27cdfe);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  z-index: -1;
+}

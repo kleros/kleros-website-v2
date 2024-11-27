@@ -7,7 +7,7 @@ const hoverEffect = clsx(
   "hover:scale-[1.01] transform transition duration-100"
 );
 const cardBaseStyle = clsx(
-  "bg-background-2 rounded-lg border border-stroke text-wrap",
+  "bg-background-2 rounded-2xl border border-stroke text-wrap",
   "p-4 flex gap-4 h-full lg:items-start"
 );
 const headerTextStyle = clsx("text-primary-purple font-bold text-base");
