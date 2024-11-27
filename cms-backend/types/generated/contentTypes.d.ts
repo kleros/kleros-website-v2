@@ -485,6 +485,142 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiCourtCourt extends Struct.CollectionTypeSchema {
+  collectionName: 'courts';
+  info: {
+    singularName: 'court';
+    pluralName: 'courts';
+    displayName: 'Court';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::court.court'>;
+  };
+}
+
+export interface ApiEarnPageBecomeACuratorTabContentEarnPageBecomeACuratorTabContent
+  extends Struct.SingleTypeSchema {
+  collectionName: 'earn_page_become_a_curator_tab_contents';
+  info: {
+    singularName: 'earn-page-become-a-curator-tab-content';
+    pluralName: 'earn-page-become-a-curator-tab-contents';
+    displayName: 'EarnPageBecomeACuratorTabContent';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tabName: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    ctaCard: Schema.Attribute.Component<'content.cta-card', true>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    scoutExplanation: Schema.Attribute.String;
+    klerosScoutSection: Schema.Attribute.Component<
+      'earn-page.kleros-scout-section',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::earn-page-become-a-curator-tab-content.earn-page-become-a-curator-tab-content'
+    >;
+  };
+}
+
+export interface ApiEarnPageBecomeAJurorTabContentEarnPageBecomeAJurorTabContent
+  extends Struct.SingleTypeSchema {
+  collectionName: 'earn_page_become_a_juror_tab_contents';
+  info: {
+    singularName: 'earn-page-become-a-juror-tab-content';
+    pluralName: 'earn-page-become-a-juror-tab-contents';
+    displayName: 'EarnPageBecomeAJurorTabContent';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tabName: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    ctaCard: Schema.Attribute.Component<'content.cta-card', true>;
+    enterCourtSection: Schema.Attribute.Component<
+      'earn-page.enter-court-section',
+      false
+    >;
+    mostActiveCourtsHeader: Schema.Attribute.String;
+    mostActiveCourts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::court.court'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::earn-page-become-a-juror-tab-content.earn-page-become-a-juror-tab-content'
+    >;
+  };
+}
+
+export interface ApiEarnPageHeroEarnPageHero extends Struct.SingleTypeSchema {
+  collectionName: 'earn_page_heroes';
+  info: {
+    singularName: 'earn-page-hero';
+    pluralName: 'earn-page-heroes';
+    displayName: 'EarnPageHero';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    statDisplay: Schema.Attribute.Component<'content.stat-display', false>;
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::earn-page-hero.earn-page-hero'
+    >;
+  };
+}
+
 export interface ApiFooterLinksSectionFooterLinksSection
   extends Struct.SingleTypeSchema {
   collectionName: 'footer_links_sections';
@@ -1385,6 +1521,10 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::court.court': ApiCourtCourt;
+      'api::earn-page-become-a-curator-tab-content.earn-page-become-a-curator-tab-content': ApiEarnPageBecomeACuratorTabContentEarnPageBecomeACuratorTabContent;
+      'api::earn-page-become-a-juror-tab-content.earn-page-become-a-juror-tab-content': ApiEarnPageBecomeAJurorTabContentEarnPageBecomeAJurorTabContent;
+      'api::earn-page-hero.earn-page-hero': ApiEarnPageHeroEarnPageHero;
       'api::footer-links-section.footer-links-section': ApiFooterLinksSectionFooterLinksSection;
       'api::footer-socials-section.footer-socials-section': ApiFooterSocialsSectionFooterSocialsSection;
       'api::footer-subscribe-cta.footer-subscribe-cta': ApiFooterSubscribeCtaFooterSubscribeCta;
