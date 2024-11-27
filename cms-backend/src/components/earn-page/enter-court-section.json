@@ -1,0 +1,23 @@
+
+{
+  "collectionName": "enter_court_sections",
+  "info": {
+    "name": "Enter Court",
+    "description": "Component for the Enter Court section in the Juror tab of the Earn page"
+  },
+  "attributes": {
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "background": {
+      "type": "media"
+    }
+  }
+}

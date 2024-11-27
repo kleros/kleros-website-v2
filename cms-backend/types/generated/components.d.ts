@@ -43,6 +43,46 @@ export interface ForBuildersPageGetInTouchSection
   };
 }
 
+export interface EarnPageKlerosScoutSection extends Struct.ComponentSchema {
+  collectionName: 'kleros_scout_sections';
+  info: {
+    name: 'Kleros Scout';
+    description: 'Component for the Kleros Scout section in the Curator tab of the Earn page';
+  };
+  attributes: {
+    header: Schema.Attribute.String;
+    productName: Schema.Attribute.String;
+    productIcon: Schema.Attribute.Media;
+    learnMoreButton: Schema.Attribute.Component<'content.button-link', false>;
+    background: Schema.Attribute.Media;
+    arrowLinks: Schema.Attribute.Component<'content.button-link', true>;
+  };
+}
+
+export interface EarnPageEnterCourtSection extends Struct.ComponentSchema {
+  collectionName: 'enter_court_sections';
+  info: {
+    name: 'Enter Court';
+    description: 'Component for the Enter Court section in the Juror tab of the Earn page';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'content.button-link', false>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    background: Schema.Attribute.Media;
+  };
+}
+
+export interface ContentStatDisplay extends Struct.ComponentSchema {
+  collectionName: 'components_content_stat_display';
+  info: {
+    displayName: 'StatDisplay';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
 export interface ContentSection extends Struct.ComponentSchema {
   collectionName: 'components_content_sections';
   info: {
@@ -70,6 +110,19 @@ export interface ContentNavlink extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentCtaCard extends Struct.ComponentSchema {
+  collectionName: 'components_content_cta_cards';
+  info: {
+    displayName: 'CTACard';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+  };
+}
+
 export interface ContentButtonLink extends Struct.ComponentSchema {
   collectionName: 'components_content_button_links';
   info: {
@@ -87,8 +140,12 @@ declare module '@strapi/strapi' {
       'for-builders-page.solution-section': ForBuildersPageSolutionSection;
       'for-builders-page.key-challenge': ForBuildersPageKeyChallenge;
       'for-builders-page.get-in-touch-section': ForBuildersPageGetInTouchSection;
+      'earn-page.kleros-scout-section': EarnPageKlerosScoutSection;
+      'earn-page.enter-court-section': EarnPageEnterCourtSection;
+      'content.stat-display': ContentStatDisplay;
       'content.section': ContentSection;
       'content.navlink': ContentNavlink;
+      'content.cta-card': ContentCtaCard;
       'content.button-link': ContentButtonLink;
     }
   }

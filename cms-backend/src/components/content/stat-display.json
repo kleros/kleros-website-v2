@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_stat_display",
+  "info": {
+    "displayName": "StatDisplay"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": ["images", "files", "videos"],
+      "type": "media"
+    }
+  }
+}
