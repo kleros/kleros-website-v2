@@ -1,8 +1,9 @@
 import React from "react";
 
 import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
+
+import DAOSection from "./DAOSection";
 import UseCasesCards from "./UseCasesCards";
-import DAOSection from "./DAOSection.tsx";
 
 interface IUseCasesSection {
   useCasesData: UseCasesQueryType["forBuildersPageUseCasesSection"];
