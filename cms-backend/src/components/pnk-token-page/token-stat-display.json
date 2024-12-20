@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_pnk_token_page_token_stat_displays",
+  "info": {
+    "displayName": "TokenStatDisplay"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "stats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::token-stat.token-stat"
+    }
+  }
+}

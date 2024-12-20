@@ -1,5 +1,32 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface PnkTokenPageTokenStatDisplay extends Struct.ComponentSchema {
+  collectionName: 'components_pnk_token_page_token_stat_displays';
+  info: {
+    displayName: 'TokenStatDisplay';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    stats: Schema.Attribute.Relation<'oneToMany', 'api::token-stat.token-stat'>;
+  };
+}
+
+export interface PnkTokenPageBuyCard extends Struct.ComponentSchema {
+  collectionName: 'components_pnk_token_page_buy_cards';
+  info: {
+    displayName: 'buy-card';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    link: Schema.Attribute.Relation<'oneToOne', 'api::link.link'>;
+  };
+}
+
 export interface ForBuildersPageSolutionSection extends Struct.ComponentSchema {
   collectionName: 'solution_sections';
   info: {
@@ -137,6 +164,8 @@ export interface ContentButtonLink extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'pnk-token-page.token-stat-display': PnkTokenPageTokenStatDisplay;
+      'pnk-token-page.buy-card': PnkTokenPageBuyCard;
       'for-builders-page.solution-section': ForBuildersPageSolutionSection;
       'for-builders-page.key-challenge': ForBuildersPageKeyChallenge;
       'for-builders-page.get-in-touch-section': ForBuildersPageGetInTouchSection;

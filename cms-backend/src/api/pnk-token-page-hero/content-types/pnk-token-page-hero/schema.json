@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "pnk_token_page_heroes",
+  "info": {
+    "singularName": "pnk-token-page-hero",
+    "pluralName": "pnk-token-page-heroes",
+    "displayName": "PNKTokenPageHero",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "buyButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "socials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social.social"
+    },
+    "background": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -621,6 +621,34 @@ export interface ApiEarnPageHeroEarnPageHero extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiExchangeExchange extends Struct.CollectionTypeSchema {
+  collectionName: 'exchanges';
+  info: {
+    singularName: 'exchange';
+    pluralName: 'exchanges';
+    displayName: 'Exchange';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    url: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::exchange.exchange'
+    >;
+  };
+}
+
 export interface ApiFooterLinksSectionFooterLinksSection
   extends Struct.SingleTypeSchema {
   collectionName: 'footer_links_sections';
@@ -1056,6 +1084,138 @@ export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPnkTokenPageBuySectionPnkTokenPageBuySection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pnk_token_page_buy_sections';
+  info: {
+    singularName: 'pnk-token-page-buy-section';
+    pluralName: 'pnk-token-page-buy-sections';
+    displayName: 'PNKTokenPageBuySection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header: Schema.Attribute.String;
+    buyCards: Schema.Attribute.Component<'pnk-token-page.buy-card', true>;
+    exchanges: Schema.Attribute.Relation<'oneToMany', 'api::exchange.exchange'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pnk-token-page-buy-section.pnk-token-page-buy-section'
+    >;
+  };
+}
+
+export interface ApiPnkTokenPageHeroPnkTokenPageHero
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pnk_token_page_heroes';
+  info: {
+    singularName: 'pnk-token-page-hero';
+    pluralName: 'pnk-token-page-heroes';
+    displayName: 'PNKTokenPageHero';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    buyButton: Schema.Attribute.Component<'content.button-link', false>;
+    socials: Schema.Attribute.Relation<'oneToMany', 'api::social.social'>;
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pnk-token-page-hero.pnk-token-page-hero'
+    >;
+  };
+}
+
+export interface ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pnk_token_page_need_sections';
+  info: {
+    singularName: 'pnk-token-page-need-section';
+    pluralName: 'pnk-token-page-need-sections';
+    displayName: 'PNKTokenPageNeedSection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    card: Schema.Attribute.Component<'content.cta-card', true>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pnk-token-page-need-section.pnk-token-page-need-section'
+    >;
+  };
+}
+
+export interface ApiPnkTokenPageTokenomicsSectionPnkTokenPageTokenomicsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pnk_token_page_tokenomics_sections';
+  info: {
+    singularName: 'pnk-token-page-tokenomics-section';
+    pluralName: 'pnk-token-page-tokenomics-sections';
+    displayName: 'PNKTokenPageTokenomicsSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    tokenStatDisplay: Schema.Attribute.Component<
+      'pnk-token-page.token-stat-display',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pnk-token-page-tokenomics-section.pnk-token-page-tokenomics-section'
+    >;
+  };
+}
+
 export interface ApiSocialSocial extends Struct.CollectionTypeSchema {
   collectionName: 'socials';
   info: {
@@ -1115,6 +1275,35 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::solution.solution'
+    >;
+  };
+}
+
+export interface ApiTokenStatTokenStat extends Struct.CollectionTypeSchema {
+  collectionName: 'token_stats';
+  info: {
+    singularName: 'token-stat';
+    pluralName: 'token-stats';
+    displayName: 'TokenStat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    key: Schema.Attribute.String;
+    primaryValue: Schema.Attribute.String;
+    secondaryValue: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::token-stat.token-stat'
     >;
   };
 }
@@ -1525,6 +1714,7 @@ declare module '@strapi/strapi' {
       'api::earn-page-become-a-curator-tab-content.earn-page-become-a-curator-tab-content': ApiEarnPageBecomeACuratorTabContentEarnPageBecomeACuratorTabContent;
       'api::earn-page-become-a-juror-tab-content.earn-page-become-a-juror-tab-content': ApiEarnPageBecomeAJurorTabContentEarnPageBecomeAJurorTabContent;
       'api::earn-page-hero.earn-page-hero': ApiEarnPageHeroEarnPageHero;
+      'api::exchange.exchange': ApiExchangeExchange;
       'api::footer-links-section.footer-links-section': ApiFooterLinksSectionFooterLinksSection;
       'api::footer-socials-section.footer-socials-section': ApiFooterSocialsSectionFooterSocialsSection;
       'api::footer-subscribe-cta.footer-subscribe-cta': ApiFooterSubscribeCtaFooterSubscribeCta;
@@ -1539,8 +1729,13 @@ declare module '@strapi/strapi' {
       'api::navbar-navlinks-section.navbar-navlinks-section': ApiNavbarNavlinksSectionNavbarNavlinksSection;
       'api::navbar-resources-section.navbar-resources-section': ApiNavbarResourcesSectionNavbarResourcesSection;
       'api::partner.partner': ApiPartnerPartner;
+      'api::pnk-token-page-buy-section.pnk-token-page-buy-section': ApiPnkTokenPageBuySectionPnkTokenPageBuySection;
+      'api::pnk-token-page-hero.pnk-token-page-hero': ApiPnkTokenPageHeroPnkTokenPageHero;
+      'api::pnk-token-page-need-section.pnk-token-page-need-section': ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection;
+      'api::pnk-token-page-tokenomics-section.pnk-token-page-tokenomics-section': ApiPnkTokenPageTokenomicsSectionPnkTokenPageTokenomicsSection;
       'api::social.social': ApiSocialSocial;
       'api::solution.solution': ApiSolutionSolution;
+      'api::token-stat.token-stat': ApiTokenStatTokenStat;
       'api::use-case.use-case': ApiUseCaseUseCase;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
