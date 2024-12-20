@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "token_stats",
+  "info": {
+    "singularName": "token-stat",
+    "pluralName": "token-stats",
+    "displayName": "TokenStat"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "key": {
+      "type": "string"
+    },
+    "primaryValue": {
+      "type": "string"
+    },
+    "secondaryValue": {
+      "type": "string"
+    }
+  }
+}

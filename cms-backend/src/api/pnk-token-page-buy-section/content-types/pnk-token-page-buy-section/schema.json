@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "pnk_token_page_buy_sections",
+  "info": {
+    "singularName": "pnk-token-page-buy-section",
+    "pluralName": "pnk-token-page-buy-sections",
+    "displayName": "PNKTokenPageBuySection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "buyCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "pnk-token-page.buy-card"
+    },
+    "exchanges": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::exchange.exchange"
+    }
+  }
+}
