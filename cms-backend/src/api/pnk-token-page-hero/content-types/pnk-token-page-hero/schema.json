@@ -23,20 +23,16 @@
       "repeatable": false,
       "component": "content.button-link"
     },
-    "socials": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::social.social"
-    },
     "background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
