@@ -4,25 +4,32 @@
   "info": {
     "singularName": "exchange",
     "pluralName": "exchanges",
-    "displayName": "Exchange"
+    "displayName": "Exchange",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "url": {
-      "type": "string"
-    },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "link": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::link.link"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

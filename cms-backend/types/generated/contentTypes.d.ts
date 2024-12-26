@@ -627,13 +627,15 @@ export interface ApiExchangeExchange extends Struct.CollectionTypeSchema {
     singularName: 'exchange';
     pluralName: 'exchanges';
     displayName: 'Exchange';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    url: Schema.Attribute.String;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Relation<'oneToOne', 'api::link.link'>;
+    name: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1098,8 +1100,11 @@ export interface ApiPnkTokenPageBuySectionPnkTokenPageBuySection
   };
   attributes: {
     header: Schema.Attribute.String;
-    buyCards: Schema.Attribute.Component<'pnk-token-page.buy-card', true>;
     exchanges: Schema.Attribute.Relation<'oneToMany', 'api::exchange.exchange'>;
+    featuredExchanges: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::exchange.exchange'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
