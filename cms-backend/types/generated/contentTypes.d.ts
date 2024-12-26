@@ -1162,6 +1162,7 @@ export interface ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection
     singularName: 'pnk-token-page-need-section';
     pluralName: 'pnk-token-page-need-sections';
     displayName: 'PNKTokenPageNeedSection';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1170,7 +1171,7 @@ export interface ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection
     header: Schema.Attribute.String;
     subtitle: Schema.Attribute.String;
     card: Schema.Attribute.Component<'content.cta-card', true>;
-    arrowLink: Schema.Attribute.Component<'content.button-link', true>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
