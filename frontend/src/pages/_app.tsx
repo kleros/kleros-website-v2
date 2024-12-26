@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import { Urbanist } from "next/font/google";
 
 const urbanist = Urbanist({
-  weight: "400",
+  weight: ["400", "500"],
   subsets: ["latin"]
 })
 
