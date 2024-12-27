@@ -16,7 +16,7 @@ const ExternalLink: React.FC<IExternalLink> = ({ text, url, className }) => {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex gap-4 items-center ${className}`}
+      className={`flex gap-4 items-center hover:brightness-[1.2] ${className}`}
     >
       <span className="text-lg text-primary-blue text-center">{text}</span>
       <Image

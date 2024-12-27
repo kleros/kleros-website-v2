@@ -1,4 +1,5 @@
 import { Exchange } from "@/queries/pnk-token/token-buy";
+import { hoverEffect } from "@/styles";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,6 +22,7 @@ const Exchanges: React.FC<IExchanges> = ({ exchanges }) => {
             height={64}
             src={exchange.icon.url}
             alt={exchange.name}
+            className={hoverEffect}
           />
         </Link>
       ))}
