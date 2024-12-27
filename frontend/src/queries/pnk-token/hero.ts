@@ -11,16 +11,16 @@ export const heroQuery = gql`
           url
         }
       }
-      socials {
-        name
-        url
-        icon {
-          url
-        }
-      }
       background {
         url
       }
+    }
+    tokenExplorers{
+        icon {
+            url
+        }
+        name
+        url
     }
   }
 `;
@@ -35,15 +35,15 @@ export type HeroQueryType = {
         url: string;
       };
     };
-    socials: {
-      name: string;
-      url: string;
-        icon : {
-            url: string;
-        }
-    }[];
     background: {
       url: string;
     };
   };
+  tokenExplorers: {
+    name: string;
+    url: string;
+    icon: {
+      url: string;
+    };
+  }[];
 };

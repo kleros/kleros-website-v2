@@ -1,11 +1,16 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import BuySection from "@/components/PNKToken/BuySection";
 import Hero from "@/components/PNKToken/Hero";
 import TokenNeedSection from "@/components/PNKToken/TokenNeedSection";
 import TokenomicsSection from "@/components/PNKToken/TokenomicsSection";
 import { footerQuery, FooterQueryType } from "@/queries/footer";
 import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import { heroQuery, HeroQueryType } from "@/queries/pnk-token/hero";
+import {
+  buySectionQuery,
+  BuySectionQueryType,
+} from "@/queries/pnk-token/token-buy";
 import {
   tokenNeedSectionQuery,
   TokenNeedSectionQueryType,
@@ -19,7 +24,8 @@ import { graphQLClient } from "@/utils/graphQLClient";
 interface IPNKtoken {
   navbarData: NavbarQueryType;
   footerData: FooterQueryType;
-  heroData: HeroQueryType["pnkTokenPageHero"];
+  heroData: HeroQueryType;
+  buyData: BuySectionQueryType["pnkTokenPageBuySection"];
   tokenNeedData: TokenNeedSectionQueryType["pnkTokenPageNeedSection"];
   tokenomicsData: TokenomicsSectionQueryType["pnkTokenPageTokenomicsSection"];
 }
@@ -27,6 +33,7 @@ interface IPNKtoken {
 const PNKToken: React.FC<IPNKtoken> = ({
   footerData,
   heroData,
+  buyData,
   tokenNeedData,
   tokenomicsData,
   navbarData,
@@ -35,6 +42,7 @@ const PNKToken: React.FC<IPNKtoken> = ({
     <div>
       <Navbar {...{ navbarData }} />
       <Hero {...{ heroData }} />
+      <BuySection {...{ buyData }} />
       <TokenNeedSection {...{ tokenNeedData }} />
       <TokenomicsSection {...{ tokenomicsData }} />
       <Footer {...{ footerData }} />
@@ -47,6 +55,9 @@ export const getStaticProps = async () => {
 
   const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
+  const buyData = await graphQLClient.request<BuySectionQueryType>(
+    buySectionQuery
+  );
   const tokenNeedData = await graphQLClient.request<TokenNeedSectionQueryType>(
     tokenNeedSectionQuery
   );
@@ -54,12 +65,13 @@ export const getStaticProps = async () => {
     await graphQLClient.request<TokenomicsSectionQueryType>(
       tokenomicsSectionQuery
     );
-    
+
   return {
     props: {
       navbarData,
       footerData,
-      heroData: heroData.pnkTokenPageHero,
+      heroData,
+      buyData: buyData.pnkTokenPageBuySection,
       tokenNeedData: tokenNeedData.pnkTokenPageNeedSection,
       tokenomicsData: tokenomicsData.pnkTokenPageTokenomicsSection,
     },

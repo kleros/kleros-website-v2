@@ -5,48 +5,34 @@ import Link from "next/link";
 
 import Button from "@/components/Button";
 import { HeroQueryType } from "@/queries/pnk-token/hero";
+import Explorers from "./Explorers";
 
 interface IHero {
-  heroData: HeroQueryType["pnkTokenPageHero"];
+  heroData: HeroQueryType;
 }
 
 const Hero: React.FC<IHero> = ({ heroData }) => {
+    const {header, subtitle, buyButton, background} = heroData.pnkTokenPageHero
   return (
-    <div className="relative pt-32 lg:pt-52 pb-56 px-6 lg:px-32">
+    <div className="relative pt-52 pb-52 lg:pb-56 px-6 lg:px-32">
       <div className="space-y-8">
-        <h1 className="text-3xl lg:text-4xl font-medium">{heroData.header}</h1>
-        <p className="text-lg">{heroData.subtitle}</p>
+        <h1 className="text-3xl lg:text-4xl font-medium">{header}</h1>
+        <p className="text-lg">{subtitle}</p>
         <div>
           <Link
-            href={heroData.buyButton.link.url}
+            href={buyButton.link.url}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Button variant="secondary">
-              <span>{heroData.buyButton.text}</span>
+              <span>{buyButton.text}</span>
             </Button>
           </Link>
         </div>
-        <div className="flex flex-wrap gap-6 lg:gap-12 space-x-2">
-          {heroData.socials.map((social) => (
-            <Link
-              key={social.name}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block relative h-6 min-w-32"
-            >
-              <Image
-                src={social.icon.url}
-                fill
-                alt="social link image"
-              />
-            </Link>
-          ))}
-        </div>
+       <Explorers explorers={heroData.tokenExplorers}/>
       </div>
       <Image
-        src={heroData.background.url}
+        src={background.url}
         alt="Hero Image Background"
         fill
         className="absolute top-0 left-0 h-full z-[-1] object-cover"

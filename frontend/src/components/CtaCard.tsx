@@ -38,7 +38,7 @@ const CtaCard: React.FC<ICtaCard> = ({
       <ExternalLink
         text={arrowLink.text}
         url={arrowLink.link.url}
-        className=" mt-6"
+        className="mt-6 mb-4"
       />
     </div>
   );
