@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pnk-token-page-need-section",
     "pluralName": "pnk-token-page-need-sections",
-    "displayName": "PNKTokenPageNeedSection"
+    "displayName": "PNKTokenPageNeedSection",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,7 +25,7 @@
     },
     "arrowLink": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "content.button-link"
     }
   }

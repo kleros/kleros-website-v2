@@ -627,13 +627,15 @@ export interface ApiExchangeExchange extends Struct.CollectionTypeSchema {
     singularName: 'exchange';
     pluralName: 'exchanges';
     displayName: 'Exchange';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    url: Schema.Attribute.String;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    url: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1098,8 +1100,11 @@ export interface ApiPnkTokenPageBuySectionPnkTokenPageBuySection
   };
   attributes: {
     header: Schema.Attribute.String;
-    buyCards: Schema.Attribute.Component<'pnk-token-page.buy-card', true>;
     exchanges: Schema.Attribute.Relation<'oneToMany', 'api::exchange.exchange'>;
+    featuredExchanges: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::exchange.exchange'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1131,7 +1136,6 @@ export interface ApiPnkTokenPageHeroPnkTokenPageHero
     header: Schema.Attribute.String;
     subtitle: Schema.Attribute.String;
     buyButton: Schema.Attribute.Component<'content.button-link', false>;
-    socials: Schema.Attribute.Relation<'oneToMany', 'api::social.social'>;
     background: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
@@ -1157,6 +1161,7 @@ export interface ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection
     singularName: 'pnk-token-page-need-section';
     pluralName: 'pnk-token-page-need-sections';
     displayName: 'PNKTokenPageNeedSection';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1165,7 +1170,7 @@ export interface ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection
     header: Schema.Attribute.String;
     subtitle: Schema.Attribute.String;
     card: Schema.Attribute.Component<'content.cta-card', true>;
-    arrowLink: Schema.Attribute.Component<'content.button-link', true>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1275,6 +1280,37 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::solution.solution'
+    >;
+  };
+}
+
+export interface ApiTokenExplorerTokenExplorer
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'token_explorers';
+  info: {
+    singularName: 'token-explorer';
+    pluralName: 'token-explorers';
+    displayName: 'TokenExplorer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::token-explorer.token-explorer'
     >;
   };
 }
@@ -1735,6 +1771,7 @@ declare module '@strapi/strapi' {
       'api::pnk-token-page-tokenomics-section.pnk-token-page-tokenomics-section': ApiPnkTokenPageTokenomicsSectionPnkTokenPageTokenomicsSection;
       'api::social.social': ApiSocialSocial;
       'api::solution.solution': ApiSolutionSolution;
+      'api::token-explorer.token-explorer': ApiTokenExplorerTokenExplorer;
       'api::token-stat.token-stat': ApiTokenStatTokenStat;
       'api::use-case.use-case': ApiUseCaseUseCase;
       'admin::permission': AdminPermission;

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "exchanges",
+  "collectionName": "token_explorers",
   "info": {
-    "singularName": "exchange",
-    "pluralName": "exchanges",
-    "displayName": "Exchange",
+    "singularName": "token-explorer",
+    "pluralName": "token-explorers",
+    "displayName": "TokenExplorer",
     "description": ""
   },
   "options": {
