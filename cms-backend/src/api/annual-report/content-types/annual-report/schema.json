@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "annual_reports",
+  "info": {
+    "singularName": "annual-report",
+    "pluralName": "annual-reports",
+    "displayName": "Annual Report"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "year": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

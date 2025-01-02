@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_cooperative_report_page_learn_more_sections",
+  "info": {
+    "displayName": "LearnMoreSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "background": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
