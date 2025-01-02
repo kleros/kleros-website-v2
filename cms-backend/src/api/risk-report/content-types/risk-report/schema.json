@@ -4,21 +4,36 @@
   "info": {
     "singularName": "risk-report",
     "pluralName": "risk-reports",
-    "displayName": "Risk Report"
+    "displayName": "Risk Report",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "year": {
+    "url": {
       "type": "string"
     },
     "month": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ]
     },
-    "url": {
-      "type": "string"
+    "year": {
+      "type": "integer"
     }
   }
 }

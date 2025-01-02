@@ -556,13 +556,14 @@ export interface ApiAnnualReportAnnualReport
     singularName: 'annual-report';
     pluralName: 'annual-reports';
     displayName: 'Annual Report';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    year: Schema.Attribute.String;
     url: Schema.Attribute.String;
+    year: Schema.Attribute.Integer;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1391,14 +1392,30 @@ export interface ApiRiskReportRiskReport extends Struct.CollectionTypeSchema {
     singularName: 'risk-report';
     pluralName: 'risk-reports';
     displayName: 'Risk Report';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    year: Schema.Attribute.String;
-    month: Schema.Attribute.String;
     url: Schema.Attribute.String;
+    month: Schema.Attribute.Enumeration<
+      [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ]
+    >;
+    year: Schema.Attribute.Integer;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1544,14 +1561,30 @@ export interface ApiTreasuryReportTreasuryReport
     singularName: 'treasury-report';
     pluralName: 'treasury-reports';
     displayName: 'Treasury Report';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    year: Schema.Attribute.String;
-    month: Schema.Attribute.String;
     url: Schema.Attribute.String;
+    month: Schema.Attribute.Enumeration<
+      [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ]
+    >;
+    year: Schema.Attribute.Integer;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

@@ -4,18 +4,19 @@
   "info": {
     "singularName": "annual-report",
     "pluralName": "annual-reports",
-    "displayName": "Annual Report"
+    "displayName": "Annual Report",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "year": {
-      "type": "string"
-    },
     "url": {
       "type": "string"
+    },
+    "year": {
+      "type": "integer"
     }
   }
 }
