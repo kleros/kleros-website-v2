@@ -585,6 +585,7 @@ export interface ApiCooperativePageHeroCooperativePageHero
     singularName: 'cooperative-page-hero';
     pluralName: 'cooperative-page-heroes';
     displayName: 'CooperativePageHero';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -594,6 +595,9 @@ export interface ApiCooperativePageHeroCooperativePageHero
     subtitle: Schema.Attribute.String;
     buttons: Schema.Attribute.Component<'content.button-link', true>;
     arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

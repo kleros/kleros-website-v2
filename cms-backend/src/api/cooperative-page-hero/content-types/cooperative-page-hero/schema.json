@@ -4,7 +4,8 @@
   "info": {
     "singularName": "cooperative-page-hero",
     "pluralName": "cooperative-page-heroes",
-    "displayName": "CooperativePageHero"
+    "displayName": "CooperativePageHero",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,6 +27,16 @@
       "type": "component",
       "repeatable": false,
       "component": "content.button-link"
+    },
+    "background": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
