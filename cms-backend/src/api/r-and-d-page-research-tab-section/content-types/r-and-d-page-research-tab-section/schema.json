@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "r_and_d_page_research_tab_sections",
+  "info": {
+    "singularName": "r-and-d-page-research-tab-section",
+    "pluralName": "r-and-d-page-research-tab-sections",
+    "displayName": "R&DPageResearchTabSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "researchHeader": {
+      "type": "string"
+    },
+    "researchSecondaryHeader": {
+      "type": "string"
+    },
+    "researchParagraph": {
+      "type": "string"
+    },
+    "researchCardLabel": {
+      "type": "string"
+    },
+    "publicationsHeader": {
+      "type": "string"
+    },
+    "publicationsTeamHeader": {
+      "type": "string"
+    },
+    "publications3rdPartyHeader": {
+      "type": "string"
+    },
+    "klerosBook": {
+      "type": "component",
+      "repeatable": false,
+      "component": "r-and-d-page.kleros-book"
+    }
+  }
+}

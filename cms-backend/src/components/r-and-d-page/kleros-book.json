@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_r_and_d_page_kleros_books",
+  "info": {
+    "displayName": "KlerosBook"
+  },
+  "options": {},
+  "attributes": {
+    "subtitle": {
+      "type": "string"
+    },
+    "bookTitle": {
+      "type": "string"
+    },
+    "downloadFormats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.button-link"
+    },
+    "bookCover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1221,6 +1221,104 @@ export interface ApiPnkTokenPageTokenomicsSectionPnkTokenPageTokenomicsSection
   };
 }
 
+export interface ApiRAndDPageHeroRAndDPageHero extends Struct.SingleTypeSchema {
+  collectionName: 'r_and_d_page_heroes';
+  info: {
+    singularName: 'r-and-d-page-hero';
+    pluralName: 'r-and-d-page-heroes';
+    displayName: 'R&DPageHero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    buttons: Schema.Attribute.Component<'content.button-link', true>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', true>;
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-and-d-page-hero.r-and-d-page-hero'
+    >;
+  };
+}
+
+export interface ApiRAndDPageResearchTabSectionRAndDPageResearchTabSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'r_and_d_page_research_tab_sections';
+  info: {
+    singularName: 'r-and-d-page-research-tab-section';
+    pluralName: 'r-and-d-page-research-tab-sections';
+    displayName: 'R&DPageResearchTabSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    researchHeader: Schema.Attribute.String;
+    researchSecondaryHeader: Schema.Attribute.String;
+    researchParagraph: Schema.Attribute.String;
+    researchCardLabel: Schema.Attribute.String;
+    publicationsHeader: Schema.Attribute.String;
+    publicationsTeamHeader: Schema.Attribute.String;
+    publications3rdPartyHeader: Schema.Attribute.String;
+    klerosBook: Schema.Attribute.Component<'r-and-d-page.kleros-book', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-and-d-page-research-tab-section.r-and-d-page-research-tab-section'
+    >;
+  };
+}
+
+export interface ApiResearchResearch extends Struct.CollectionTypeSchema {
+  collectionName: 'researches';
+  info: {
+    singularName: 'research';
+    pluralName: 'researches';
+    displayName: 'research';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    field: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::research.research'
+    >;
+  };
+}
+
 export interface ApiSocialSocial extends Struct.CollectionTypeSchema {
   collectionName: 'socials';
   info: {
@@ -1280,6 +1378,65 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::solution.solution'
+    >;
+  };
+}
+
+export interface ApiTeamPublicationTeamPublication
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'team_publications';
+  info: {
+    singularName: 'team-publication';
+    pluralName: 'team-publications';
+    displayName: 'TeamPublication';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    topic: Schema.Attribute.String;
+    authors: Schema.Attribute.String;
+    paperLink: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-publication.team-publication'
+    >;
+  };
+}
+
+export interface ApiThirdPartyPublicationThirdPartyPublication
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'third_party_publications';
+  info: {
+    singularName: 'third-party-publication';
+    pluralName: 'third-party-publications';
+    displayName: 'ThirdPartyPublication';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Topic: Schema.Attribute.String;
+    paperLink: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::third-party-publication.third-party-publication'
     >;
   };
 }
@@ -1769,8 +1926,13 @@ declare module '@strapi/strapi' {
       'api::pnk-token-page-hero.pnk-token-page-hero': ApiPnkTokenPageHeroPnkTokenPageHero;
       'api::pnk-token-page-need-section.pnk-token-page-need-section': ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection;
       'api::pnk-token-page-tokenomics-section.pnk-token-page-tokenomics-section': ApiPnkTokenPageTokenomicsSectionPnkTokenPageTokenomicsSection;
+      'api::r-and-d-page-hero.r-and-d-page-hero': ApiRAndDPageHeroRAndDPageHero;
+      'api::r-and-d-page-research-tab-section.r-and-d-page-research-tab-section': ApiRAndDPageResearchTabSectionRAndDPageResearchTabSection;
+      'api::research.research': ApiResearchResearch;
       'api::social.social': ApiSocialSocial;
       'api::solution.solution': ApiSolutionSolution;
+      'api::team-publication.team-publication': ApiTeamPublicationTeamPublication;
+      'api::third-party-publication.third-party-publication': ApiThirdPartyPublicationThirdPartyPublication;
       'api::token-explorer.token-explorer': ApiTokenExplorerTokenExplorer;
       'api::token-stat.token-stat': ApiTokenStatTokenStat;
       'api::use-case.use-case': ApiUseCaseUseCase;

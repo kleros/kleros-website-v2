@@ -1,5 +1,18 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface RAndDPageKlerosBook extends Struct.ComponentSchema {
+  collectionName: 'components_r_and_d_page_kleros_books';
+  info: {
+    displayName: 'KlerosBook';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.String;
+    bookTitle: Schema.Attribute.String;
+    downloadFormats: Schema.Attribute.Component<'content.button-link', true>;
+    bookCover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface PnkTokenPageTokenStatDisplay extends Struct.ComponentSchema {
   collectionName: 'components_pnk_token_page_token_stat_displays';
   info: {
@@ -148,6 +161,7 @@ export interface ContentButtonLink extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'r-and-d-page.kleros-book': RAndDPageKlerosBook;
       'pnk-token-page.token-stat-display': PnkTokenPageTokenStatDisplay;
       'for-builders-page.solution-section': ForBuildersPageSolutionSection;
       'for-builders-page.key-challenge': ForBuildersPageKeyChallenge;
