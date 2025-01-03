@@ -2,10 +2,9 @@ import Image from "next/image";
 import clsx from "clsx";
 import { Solution } from "@/queries/navbar";
 import Link from "next/link"
+import { hoverEffect } from "@/styles";
 
-const hoverEffect = clsx(
-  "hover:scale-[1.01] transform transition duration-100"
-);
+
 const cardBaseStyle = clsx(
   "bg-background-2 rounded-2xl border border-stroke text-wrap",
   "p-4 flex gap-4 h-full lg:items-start"

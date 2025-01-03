@@ -52,8 +52,8 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
         isScrolled ? "bg-background-2" : "bg-transparent"
       )}
       style={{
-        paddingLeft: responsiveSize(24, 256, 1024, 1920),
-        paddingRight: responsiveSize(24, 256, 1024, 1920),
+        paddingLeft: responsiveSize(24, 128, 1024, 1920),
+        paddingRight: responsiveSize(24, 128, 1024, 1920),
       }}
     >
       <Link href="/" className="flex items-center">
