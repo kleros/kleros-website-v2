@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Header": {
+    "header": {
       "type": "string"
     },
     "subtitle": {
@@ -23,7 +23,7 @@
       "repeatable": false,
       "component": "cooperative-report-page.learn-more-section"
     },
-    "SecondaryHeader": {
+    "secondaryHeader": {
       "type": "string"
     },
     "arrowLink": {

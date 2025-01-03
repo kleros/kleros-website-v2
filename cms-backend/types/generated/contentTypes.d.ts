@@ -627,13 +627,13 @@ export interface ApiCooperativePageMemberSectionCooperativePageMemberSection
     draftAndPublish: true;
   };
   attributes: {
-    Header: Schema.Attribute.String;
+    header: Schema.Attribute.String;
     subtitle: Schema.Attribute.String;
     learnMoreSection: Schema.Attribute.Component<
       'cooperative-report-page.learn-more-section',
       false
     >;
-    SecondaryHeader: Schema.Attribute.String;
+    secondaryHeader: Schema.Attribute.String;
     arrowLink: Schema.Attribute.Component<'content.button-link', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;

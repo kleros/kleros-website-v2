@@ -1,7 +1,8 @@
 {
   "collectionName": "components_cooperative_report_page_report_cards",
   "info": {
-    "displayName": "ReportCard"
+    "displayName": "ReportCard",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,7 +12,7 @@
     "subtitle": {
       "type": "string"
     },
-    "ReportType": {
+    "reportType": {
       "type": "enumeration",
       "enum": [
         "annual",
@@ -20,14 +21,15 @@
       ]
     },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
