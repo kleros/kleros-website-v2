@@ -83,6 +83,37 @@ export interface EarnPageEnterCourtSection extends Struct.ComponentSchema {
   };
 }
 
+export interface CooperativeReportPageReportCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_cooperative_report_page_report_cards';
+  info: {
+    displayName: 'ReportCard';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    reportType: Schema.Attribute.Enumeration<['annual', 'treasury', 'risk']>;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface CooperativeReportPageLearnMoreSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_cooperative_report_page_learn_more_sections';
+  info: {
+    displayName: 'LearnMoreSection';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    button: Schema.Attribute.Component<'content.button-link', false>;
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+  };
+}
+
 export interface ContentStatDisplay extends Struct.ComponentSchema {
   collectionName: 'components_content_stat_display';
   info: {
@@ -145,36 +176,6 @@ export interface ContentButtonLink extends Struct.ComponentSchema {
   };
 }
 
-export interface CooperativeReportPageReportCard
-  extends Struct.ComponentSchema {
-  collectionName: 'components_cooperative_report_page_report_cards';
-  info: {
-    displayName: 'ReportCard';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    subtitle: Schema.Attribute.String;
-    ReportType: Schema.Attribute.Enumeration<['annual', 'treasury', 'risk']>;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
-export interface CooperativeReportPageLearnMoreSection
-  extends Struct.ComponentSchema {
-  collectionName: 'components_cooperative_report_page_learn_more_sections';
-  info: {
-    displayName: 'LearnMoreSection';
-    description: '';
-  };
-  attributes: {
-    Title: Schema.Attribute.String;
-    button: Schema.Attribute.Component<'content.button-link', false>;
-    background: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -184,13 +185,13 @@ declare module '@strapi/strapi' {
       'for-builders-page.get-in-touch-section': ForBuildersPageGetInTouchSection;
       'earn-page.kleros-scout-section': EarnPageKlerosScoutSection;
       'earn-page.enter-court-section': EarnPageEnterCourtSection;
+      'cooperative-report-page.report-card': CooperativeReportPageReportCard;
+      'cooperative-report-page.learn-more-section': CooperativeReportPageLearnMoreSection;
       'content.stat-display': ContentStatDisplay;
       'content.section': ContentSection;
       'content.navlink': ContentNavlink;
       'content.cta-card': ContentCtaCard;
       'content.button-link': ContentButtonLink;
-      'cooperative-report-page.report-card': CooperativeReportPageReportCard;
-      'cooperative-report-page.learn-more-section': CooperativeReportPageLearnMoreSection;
     }
   }
 }
