@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "cooperative_page_report_sections",
+  "info": {
+    "singularName": "cooperative-page-report-section",
+    "pluralName": "cooperative-page-report-sections",
+    "displayName": "CooperativePageReportSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reports": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cooperative-report-page.report-card"
+    }
+  }
+}
