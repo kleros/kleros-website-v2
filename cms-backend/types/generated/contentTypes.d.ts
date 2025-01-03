@@ -549,6 +549,107 @@ export interface ApiCommunityPageHeroCommunityPageHero
   };
 }
 
+export interface ApiAnnualReportAnnualReport
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'annual_reports';
+  info: {
+    singularName: 'annual-report';
+    pluralName: 'annual-reports';
+    displayName: 'Annual Report';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    url: Schema.Attribute.String;
+    year: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::annual-report.annual-report'
+    >;
+  };
+}
+
+export interface ApiCooperativePageHeroCooperativePageHero
+  extends Struct.SingleTypeSchema {
+  collectionName: 'cooperative_page_heroes';
+  info: {
+    singularName: 'cooperative-page-hero';
+    pluralName: 'cooperative-page-heroes';
+    displayName: 'CooperativePageHero';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    buttons: Schema.Attribute.Component<'content.button-link', true>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cooperative-page-hero.cooperative-page-hero'
+    >;
+  };
+}
+
+export interface ApiCooperativePageMemberSectionCooperativePageMemberSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'cooperative_page_member_sections';
+  info: {
+    singularName: 'cooperative-page-member-section';
+    pluralName: 'cooperative-page-member-sections';
+    displayName: 'CooperativePageMemberSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Header: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    learnMoreSection: Schema.Attribute.Component<
+      'cooperative-report-page.learn-more-section',
+      false
+    >;
+    SecondaryHeader: Schema.Attribute.String;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cooperative-page-member-section.cooperative-page-member-section'
+    >;
+  };
+}
+
 export interface ApiCourtCourt extends Struct.CollectionTypeSchema {
   collectionName: 'courts';
   info: {
@@ -1285,6 +1386,51 @@ export interface ApiPnkTokenPageTokenomicsSectionPnkTokenPageTokenomicsSection
   };
 }
 
+export interface ApiRiskReportRiskReport extends Struct.CollectionTypeSchema {
+  collectionName: 'risk_reports';
+  info: {
+    singularName: 'risk-report';
+    pluralName: 'risk-reports';
+    displayName: 'Risk Report';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    url: Schema.Attribute.String;
+    month: Schema.Attribute.Enumeration<
+      [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ]
+    >;
+    year: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::risk-report.risk-report'
+    >;
+  };
+}
+
 export interface ApiSocialSocial extends Struct.CollectionTypeSchema {
   collectionName: 'socials';
   info: {
@@ -1404,6 +1550,52 @@ export interface ApiTokenStatTokenStat extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::token-stat.token-stat'
+    >;
+  };
+}
+
+export interface ApiTreasuryReportTreasuryReport
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'treasury_reports';
+  info: {
+    singularName: 'treasury-report';
+    pluralName: 'treasury-reports';
+    displayName: 'Treasury Report';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    url: Schema.Attribute.String;
+    month: Schema.Attribute.Enumeration<
+      [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ]
+    >;
+    year: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::treasury-report.treasury-report'
     >;
   };
 }
@@ -1812,6 +2004,9 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::community.community': ApiCommunityCommunity;
       'api::community-page-hero.community-page-hero': ApiCommunityPageHeroCommunityPageHero;
+      'api::annual-report.annual-report': ApiAnnualReportAnnualReport;
+      'api::cooperative-page-hero.cooperative-page-hero': ApiCooperativePageHeroCooperativePageHero;
+      'api::cooperative-page-member-section.cooperative-page-member-section': ApiCooperativePageMemberSectionCooperativePageMemberSection;
       'api::court.court': ApiCourtCourt;
       'api::earn-page-become-a-curator-tab-content.earn-page-become-a-curator-tab-content': ApiEarnPageBecomeACuratorTabContentEarnPageBecomeACuratorTabContent;
       'api::earn-page-become-a-juror-tab-content.earn-page-become-a-juror-tab-content': ApiEarnPageBecomeAJurorTabContentEarnPageBecomeAJurorTabContent;
@@ -1835,10 +2030,12 @@ declare module '@strapi/strapi' {
       'api::pnk-token-page-hero.pnk-token-page-hero': ApiPnkTokenPageHeroPnkTokenPageHero;
       'api::pnk-token-page-need-section.pnk-token-page-need-section': ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection;
       'api::pnk-token-page-tokenomics-section.pnk-token-page-tokenomics-section': ApiPnkTokenPageTokenomicsSectionPnkTokenPageTokenomicsSection;
+      'api::risk-report.risk-report': ApiRiskReportRiskReport;
       'api::social.social': ApiSocialSocial;
       'api::solution.solution': ApiSolutionSolution;
       'api::token-explorer.token-explorer': ApiTokenExplorerTokenExplorer;
       'api::token-stat.token-stat': ApiTokenStatTokenStat;
+      'api::treasury-report.treasury-report': ApiTreasuryReportTreasuryReport;
       'api::use-case.use-case': ApiUseCaseUseCase;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;

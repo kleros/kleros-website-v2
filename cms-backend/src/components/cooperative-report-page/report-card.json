@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_cooperative_report_page_report_cards",
+  "info": {
+    "displayName": "ReportCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "ReportType": {
+      "type": "enumeration",
+      "enum": [
+        "annual",
+        "treasury",
+        "risk"
+      ]
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

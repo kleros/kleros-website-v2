@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "treasury_reports",
+  "info": {
+    "singularName": "treasury-report",
+    "pluralName": "treasury-reports",
+    "displayName": "Treasury Report",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "month": {
+      "type": "enumeration",
+      "enum": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ]
+    },
+    "year": {
+      "type": "integer"
+    }
+  }
+}
