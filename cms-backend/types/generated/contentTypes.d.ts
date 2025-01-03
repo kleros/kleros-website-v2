@@ -485,6 +485,36 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiAnnualReportAnnualReport
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'annual_reports';
+  info: {
+    singularName: 'annual-report';
+    pluralName: 'annual-reports';
+    displayName: 'Annual Report';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    url: Schema.Attribute.String;
+    year: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::annual-report.annual-report'
+    >;
+  };
+}
+
 export interface ApiCommunityCommunity extends Struct.CollectionTypeSchema {
   collectionName: 'communities';
   info: {
@@ -545,36 +575,6 @@ export interface ApiCommunityPageHeroCommunityPageHero
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::community-page-hero.community-page-hero'
-    >;
-  };
-}
-
-export interface ApiAnnualReportAnnualReport
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'annual_reports';
-  info: {
-    singularName: 'annual-report';
-    pluralName: 'annual-reports';
-    displayName: 'Annual Report';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    url: Schema.Attribute.String;
-    year: Schema.Attribute.Integer;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::annual-report.annual-report'
     >;
   };
 }
@@ -646,6 +646,37 @@ export interface ApiCooperativePageMemberSectionCooperativePageMemberSection
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::cooperative-page-member-section.cooperative-page-member-section'
+    >;
+  };
+}
+
+export interface ApiCooperativePageReportSectionCooperativePageReportSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'cooperative_page_report_sections';
+  info: {
+    singularName: 'cooperative-page-report-section';
+    pluralName: 'cooperative-page-report-sections';
+    displayName: 'CooperativePageReportSection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    reports: Schema.Attribute.Component<
+      'cooperative-report-page.report-card',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cooperative-page-report-section.cooperative-page-report-section'
     >;
   };
 }
@@ -2002,11 +2033,12 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::annual-report.annual-report': ApiAnnualReportAnnualReport;
       'api::community.community': ApiCommunityCommunity;
       'api::community-page-hero.community-page-hero': ApiCommunityPageHeroCommunityPageHero;
-      'api::annual-report.annual-report': ApiAnnualReportAnnualReport;
       'api::cooperative-page-hero.cooperative-page-hero': ApiCooperativePageHeroCooperativePageHero;
       'api::cooperative-page-member-section.cooperative-page-member-section': ApiCooperativePageMemberSectionCooperativePageMemberSection;
+      'api::cooperative-page-report-section.cooperative-page-report-section': ApiCooperativePageReportSectionCooperativePageReportSection;
       'api::court.court': ApiCourtCourt;
       'api::earn-page-become-a-curator-tab-content.earn-page-become-a-curator-tab-content': ApiEarnPageBecomeACuratorTabContentEarnPageBecomeACuratorTabContent;
       'api::earn-page-become-a-juror-tab-content.earn-page-become-a-juror-tab-content': ApiEarnPageBecomeAJurorTabContentEarnPageBecomeAJurorTabContent;
