@@ -1,10 +1,10 @@
 import React from "react";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import Button from "@/components/Button";
 import { CooperativeLearnMoreSection } from "@/queries/cooperative/member-section";
-import Image from "next/image";
 
 const LearnMore: React.FC<CooperativeLearnMoreSection> = ({
   title,
@@ -12,7 +12,9 @@ const LearnMore: React.FC<CooperativeLearnMoreSection> = ({
   background,
 }) => {
   return (
-    <div className="relative w-full flex flex-col items-center justify-center mt-16 p-8 ">
+    <div className={
+      "relative w-full flex flex-col items-center justify-center mt-16 p-8"
+    }>
       <h2 className="text-primary-text text-xl mb-8 z-[1]">{title}</h2>
       <Link
         href={button.link.url}
