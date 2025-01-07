@@ -32,7 +32,7 @@
       "component": "content.button-link"
     },
     "scoutExplanation": {
-      "type": "string"
+      "type": "text"
     },
     "klerosScoutSection": {
       "type": "component",

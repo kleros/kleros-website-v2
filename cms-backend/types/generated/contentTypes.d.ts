@@ -723,7 +723,7 @@ export interface ApiEarnPageBecomeACuratorTabContentEarnPageBecomeACuratorTabCon
     description: Schema.Attribute.Text;
     ctaCard: Schema.Attribute.Component<'content.cta-card', true>;
     arrowLink: Schema.Attribute.Component<'content.button-link', false>;
-    scoutExplanation: Schema.Attribute.String;
+    scoutExplanation: Schema.Attribute.Text;
     klerosScoutSection: Schema.Attribute.Component<
       'earn-page.kleros-scout-section',
       false
