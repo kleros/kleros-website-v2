@@ -162,11 +162,12 @@ export interface ContentCtaCard extends Struct.ComponentSchema {
   collectionName: 'components_content_cta_cards';
   info: {
     displayName: 'CTACard';
+    description: '';
   };
   attributes: {
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     title: Schema.Attribute.String;
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     arrowLink: Schema.Attribute.Component<'content.button-link', false>;
   };
 }
