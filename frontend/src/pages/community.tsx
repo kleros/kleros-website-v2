@@ -13,7 +13,7 @@ interface ICommunity {
   heroData: HeroQueryType;
 }
 
-const ForBuilders: React.FC<ICommunity> = ({
+const Community: React.FC<ICommunity> = ({
   footerData,
   heroData,
   navbarData,
@@ -42,4 +42,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default ForBuilders;
+export default Community;
