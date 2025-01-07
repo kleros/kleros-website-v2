@@ -121,10 +121,13 @@ export interface ContentStatDisplay extends Struct.ComponentSchema {
   collectionName: 'components_content_stat_display';
   info: {
     displayName: 'StatDisplay';
+    description: '';
   };
   attributes: {
-    title: Schema.Attribute.String;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    statName: Schema.Attribute.String;
+    statValue: Schema.Attribute.String;
+    statValueSuffix: Schema.Attribute.String;
   };
 }
 
