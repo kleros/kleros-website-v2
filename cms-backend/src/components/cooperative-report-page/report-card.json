@@ -30,6 +30,15 @@
         "videos",
         "audios"
       ]
+    },
+    "yearDropdownLabel": {
+      "type": "string"
+    },
+    "monthDropdownLabel": {
+      "type": "string"
+    },
+    "downloadButtonText": {
+      "type": "string"
     }
   }
 }

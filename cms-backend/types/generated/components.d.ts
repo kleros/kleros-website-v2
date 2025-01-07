@@ -95,6 +95,9 @@ export interface CooperativeReportPageReportCard
     subtitle: Schema.Attribute.String;
     reportType: Schema.Attribute.Enumeration<['annual', 'treasury', 'risk']>;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    yearDropdownLabel: Schema.Attribute.String;
+    monthDropdownLabel: Schema.Attribute.String;
+    downloadButtonText: Schema.Attribute.String;
   };
 }
 
