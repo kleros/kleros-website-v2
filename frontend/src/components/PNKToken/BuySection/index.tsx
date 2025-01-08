@@ -1,7 +1,8 @@
+import { BuySectionQueryType } from "@/queries/pnk-token/token-buy";
+
 import Exchanges from "./Exchanges";
 import FeaturedExchange from "./FeaturedExchange";
 
-import { BuySectionQueryType } from "@/queries/pnk-token/token-buy";
 
 interface IBuySection {
   buyData: BuySectionQueryType["pnkTokenPageBuySection"];

@@ -1,7 +1,8 @@
-import Image from "next/image";
 import clsx from "clsx";
-import { Solution } from "@/queries/navbar";
+import Image from "next/image";
 import Link from "next/link"
+
+import { Solution } from "@/queries/navbar";
 import { hoverEffect } from "@/styles";
 
 

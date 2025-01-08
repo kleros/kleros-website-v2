@@ -1,5 +1,6 @@
-import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
 import React from "react";
+
+import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
 
 interface IUseCasesCards {
   useCasesData: UseCasesQueryType["forBuildersPageUseCasesSection"];

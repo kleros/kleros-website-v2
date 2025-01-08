@@ -1,10 +1,11 @@
 import React from "react";
 
-import KeyChallenges from "./KeyChallenges";
+import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
+
 import Header from "./Header";
+import KeyChallenges from "./KeyChallenges";
 import LearnMore from "./LearnMore";
 
-import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
 
 interface IDAOSection {
   useCasesData: UseCasesQueryType["forBuildersPageUseCasesSection"];

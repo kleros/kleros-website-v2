@@ -1,7 +1,8 @@
-import TokenStatDisplay from "./TokenStatDisplay";
 
 import ExternalLink from "@/components/ExternalLink";
 import { TokenomicsSectionQueryType } from "@/queries/pnk-token/tokenomics";
+
+import TokenStatDisplay from "./TokenStatDisplay";
 
 interface ITokenomicsSection {
   tokenomicsData: TokenomicsSectionQueryType["pnkTokenPageTokenomicsSection"];

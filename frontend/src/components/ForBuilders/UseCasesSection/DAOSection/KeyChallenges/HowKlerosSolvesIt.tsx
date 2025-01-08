@@ -1,10 +1,11 @@
 import React from "react";
 
-import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
-import Card from "@/components/Navbar/AppsDropdownContent/Card";
-import Image from "next/image";
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
+
+import Card from "@/components/Navbar/AppsDropdownContent/Card";
+import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
 
 const hoverEffect = clsx(
   "hover:scale-[1.03] transform transition duration-100"
