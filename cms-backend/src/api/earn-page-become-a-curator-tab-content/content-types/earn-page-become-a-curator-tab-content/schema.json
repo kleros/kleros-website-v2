@@ -19,7 +19,7 @@
       "type": "string"
     },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "ctaCard": {
       "type": "component",
@@ -32,7 +32,7 @@
       "component": "content.button-link"
     },
     "scoutExplanation": {
-      "type": "string"
+      "type": "text"
     },
     "klerosScoutSection": {
       "type": "component",
