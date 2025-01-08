@@ -769,6 +769,7 @@ export interface ApiEarnPageBecomeAJurorTabContentEarnPageBecomeAJurorTabContent
       'oneToMany',
       'api::court.court'
     >;
+    courtsButton: Schema.Attribute.Component<'content.button-link', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
