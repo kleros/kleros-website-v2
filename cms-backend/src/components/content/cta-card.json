@@ -1,19 +1,26 @@
 {
   "collectionName": "components_content_cta_cards",
   "info": {
-    "displayName": "CTACard"
+    "displayName": "CTACard",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "icon": {
-      "allowedTypes": ["images", "files", "videos"],
-      "type": "media"
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "title": {
       "type": "string"
     },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "arrowLink": {
       "type": "component",
