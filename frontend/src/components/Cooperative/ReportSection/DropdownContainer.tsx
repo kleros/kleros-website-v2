@@ -1,7 +1,9 @@
-import Dropdown from "@/components/Dropdown";
-import { Reports } from "./ReportCard";
 import { useEffect, useMemo, useState } from "react";
+
+import Dropdown from "@/components/Dropdown";
 import { Report } from "@/queries/cooperative/report-section";
+
+import { Reports } from "./ReportCard";
 
 interface IDropdownContainer
   extends Pick<Report, "yearDropdownLabel" | "monthDropdownLabel"> {
@@ -9,58 +11,62 @@ interface IDropdownContainer
   setReportUrl: (url?: string) => void;
 }
 
+type IProcessedReports = Record<number, Array<string>>;
+
 const DropdownContainer: React.FC<IDropdownContainer> = ({
   reports,
   setReportUrl,
   yearDropdownLabel,
   monthDropdownLabel,
 }) => {
-  const [year, setYear] = useState<number>();
-  const [month, setMonth] = useState<string>();
-
-  const yearsSet = useMemo(
+  const processedReports = useMemo<IProcessedReports>(
     () =>
-      reports.reduce<Set<number>>((acc, current) => {
-        acc.add(current.year);
+      reports.reduce<IProcessedReports>((acc, report: Reports[number]) => {
+        const months = acc[report.year] ?? [];
+        if (report.month) {
+          acc[report.year] = [...months, report.month];
+        } else {
+          acc[report.year] = months;
+        }
         return acc;
-      }, new Set([])),
+      }, {}),
     [reports]
   );
 
   const years = useMemo(
     () =>
-      Array.from(new Set(yearsSet))
-        .sort((a, b) => a - b)
+      Object.keys(processedReports)
+        .map((key) => parseInt(key))
+        .sort((a, b) => b - a)
         .map((year) => ({
           key: year,
           value: year,
         })),
-    [yearsSet]
+    [processedReports]
   );
 
-  const monthsSet = useMemo(
-    () =>
-      reports.reduce<Set<string>>((acc, current) => {
-        if (current.month) {
-          acc.add(current.month);
-        }
-        return acc;
-      }, new Set([])),
-    [reports]
-  );
+  const firstYear = years[0].value;
+
+  const [year, setYear] = useState<number>(firstYear);
 
   const months = useMemo(
     () =>
-      Array.from(new Set(monthsSet))
+      processedReports[year]
         .sort((a, b) => monthOrder.indexOf(a) - monthOrder.indexOf(b))
         .map((month) => ({
           key: month,
           value: month,
         })),
-    [monthsSet]
+    [year, processedReports]
   );
 
-  const isMonthInfo = months.length !== 0;
+  const [month, setMonth] = useState<string>();
+
+  const isMonthInfo = months.length > 0;
+
+  useEffect(() => {
+    setMonth(undefined);
+  }, [year]);
 
   useEffect(() => {
     const selectedReport = reports.find(
@@ -68,10 +74,12 @@ const DropdownContainer: React.FC<IDropdownContainer> = ({
         (isMonthInfo ? report.month === month : true) && report.year === year
     );
     setReportUrl(selectedReport?.url);
-  }, [month, year]);
+  }, [isMonthInfo, month, year, reports, setReportUrl]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
+    <div className={
+      "flex flex-col md:flex-row gap-8 items-start md:items-center"
+    }>
       <div className="flex gap-4 items-center">
         <label className="text-lg text-secondary-text">
           {yearDropdownLabel}
@@ -112,4 +120,5 @@ const monthOrder = [
   "November",
   "December",
 ];
+
 export default DropdownContainer;

@@ -7,7 +7,8 @@ const baseStyle = clsx("px-8 py-2 rounded-full transition duration-75");
 const primaryStyle = clsx(
   baseStyle,
   "bg-primary-blue",
-  "hover:bg-primary-blue/90"
+  "hover:bg-primary-blue/90",
+  "disabled:bg-stroke"
 );
 
 const secondaryStyle = clsx(
@@ -17,7 +18,7 @@ const secondaryStyle = clsx(
 );
 
 
-interface IButton {
+interface IButton extends React.ComponentProps<"button"> {
   children: React.ReactNode;
   onClick?: () => void;
   variant?: "primary" | "secondary";
@@ -28,13 +29,14 @@ const Button: React.FC<IButton> = ({
   children,
   onClick,
   className,
-  variant = "primary"
+  variant = "primary",
+  ...props
 }) => (
   <button
     className={
         clsx(variant === "primary" ? primaryStyle : secondaryStyle, className)
       }
-    {...{ onClick }}
+    {...{ onClick, ...props }}
   >
     {children}
   </button>

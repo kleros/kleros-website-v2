@@ -3,9 +3,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import ExternalLink from "../ExternalLink";
-
 import Button from "@/components/Button";
+import ExternalLink from "@/components/ExternalLink";
 import { HeroQueryType } from "@/queries/cooperative/hero";
 
 interface IHero {
@@ -27,10 +26,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button
-                variant="secondary"
-                className=" hover:!bg-primary-blue hover:!border-primary-blue hover:!text-background-2"
-              >
+              <Button variant="secondary">
                 <span>{button.text}</span>
               </Button>
             </Link>

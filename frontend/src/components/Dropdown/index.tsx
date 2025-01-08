@@ -1,16 +1,12 @@
-import DownArrowIcon from "@/assets/svgs/icons/down-arrow-blue.svg";
+import { useCallback, useMemo, useRef } from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import DropdownItemButton from "./DropdownItemButton";
+import { useToggle, useClickAway } from "react-use";
 
-const dropwdownContainerBaseStyle = clsx(
-  "absolute bg-background-1 z-10 mt-2 rounded-2xl border border-stroke"
-);
-const dropdownContainerContentStyle = clsx(
-  "flex flex-col gap-4 p-[10px] overflow-scroll w-[200px] md:w-[348px]"
-);
+import DownArrowIcon from "@/assets/svgs/icons/down-arrow-blue.svg";
+
+import DropdownItemButton from "./DropdownItemButton";
 
 export type DropdownItem = {
   key: string | number;
@@ -24,7 +20,7 @@ interface IDropwdownProps {
 }
 
 const Dropdown: React.FC<IDropwdownProps> = ({ items, value, onChange }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, toggleDropdown] = useToggle(false);
 
   const keyFromValue = useMemo(
     () => items.find((item) => item.value === value)?.key ?? "Select",
@@ -32,25 +28,9 @@ const Dropdown: React.FC<IDropwdownProps> = ({ items, value, onChange }) => {
   );
 
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const handleClickOutside = (event: any) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  const toggleDropdown = () => {
-    setIsOpen((prev) => !prev);
-  };
+  useClickAway(dropdownRef, () => {
+    toggleDropdown(false);
+  });
 
   const handleClick = useCallback(
     (value: DropdownItem["value"]) => {
@@ -77,8 +57,8 @@ const Dropdown: React.FC<IDropwdownProps> = ({ items, value, onChange }) => {
       </button>
       <div
         className={clsx(
-          dropwdownContainerBaseStyle,
-          dropdownContainerContentStyle,
+          "absolute bg-background-1 z-10 mt-2 rounded-2xl border border-stroke",
+          "flex flex-col gap-4 p-[10px] max-h-[300px] w-[200px] md:w-[348px]",
           isOpen ? "visible" : "hidden"
         )}
       >
