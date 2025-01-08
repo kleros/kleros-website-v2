@@ -1,16 +1,20 @@
-import ReportCard from "./ReportCard";
+import { useCallback } from "react";
+
+import clsx from "clsx";
 
 import {
   CooperativePageReportQueryType,
   ReportType,
 } from "@/queries/cooperative/report-section";
 
+import ReportCard from "./ReportCard";
+
 interface IReportSection {
   reportsData: CooperativePageReportQueryType;
 }
 
 const ReportSection: React.FC<IReportSection> = ({ reportsData }) => {
-  const getReports = (reportType: ReportType) => {
+  const getReports = useCallback((reportType: ReportType) => {
     switch (reportType) {
       case "annual":
         return reportsData.annualReports;
@@ -19,9 +23,13 @@ const ReportSection: React.FC<IReportSection> = ({ reportsData }) => {
       default:
         return reportsData.treasuryReports;
     }
-  };
+  }, [reportsData]);
+
   return (
-    <div className="bg-background-2 py-12 lg:py-24 px-6 lg:px-32 flex flex-col gap-24">
+    <div className={clsx(
+      "bg-background-2 py-12 lg:py-24 px-6 lg:px-32",
+      "flex flex-col gap-12 md:gap-24"
+    )}>
       {reportsData.cooperativePageReportSection.reports.map((report, i) => (
         <ReportCard
           key={i}

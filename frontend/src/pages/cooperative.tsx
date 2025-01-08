@@ -4,7 +4,10 @@ import ReportSection from "@/components/Cooperative/ReportSection";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { heroQuery, HeroQueryType } from "@/queries/cooperative/hero";
-import { cooperativePageMemberQuery, CooperativePageMemberQueryType } from "@/queries/cooperative/member-section";
+import {
+  cooperativePageMemberQuery,
+  CooperativePageMemberQueryType,
+} from "@/queries/cooperative/member-section";
 import {
   cooperativePageReportQuery,
   CooperativePageReportQueryType,

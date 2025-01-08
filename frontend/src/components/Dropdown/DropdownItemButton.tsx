@@ -1,13 +1,6 @@
 import clsx from "clsx";
-import { DropdownItem } from ".";
 
-const dropwdownItemBaseStyle = clsx(
-  "w-full rounded-lg text-secondary-text text-left py-3 px-4"
-);
-const selectedStyle = clsx("!text-primary-blue bg-background-2");
-const dropdownItemHoverStyle = clsx(
-  "hover:text-primary-blue hover:bg-background-2 cursor-pointer"
-);
+import { DropdownItem } from ".";
 
 interface IDropdownItem {
   item: DropdownItem;
@@ -21,9 +14,11 @@ const DropdownItemButton: React.FC<IDropdownItem> = ({
 }) => (
   <button
     className={clsx(
-      dropwdownItemBaseStyle,
-      dropdownItemHoverStyle,
-      value === item.value ? selectedStyle : ""
+      "w-full rounded-lg text-left py-3 px-4",
+      value === item.value
+        ? "text-primary-blue bg-background-2"
+        : "text-secondary-text",
+      "hover:text-primary-blue hover:bg-background-2 cursor-pointer"
     )}
     onClick={() => handleClick(item.value)}
   >
