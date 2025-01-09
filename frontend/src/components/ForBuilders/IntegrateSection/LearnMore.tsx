@@ -1,10 +1,9 @@
 import React from "react";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
-
 import { IntegrateQueryType } from "@/queries/for-builders/integrate";
 
 interface ILearnMore {

@@ -1,8 +1,9 @@
 import clsx from "clsx";
 
+import { Community } from "@/queries/community/hero";
+
 import CommunityCard from "./CommunityCard";
 
-import { Community } from "@/queries/community/hero";
 
 const baseStyle = clsx(
   "-translate-y-40 lg:-translate-y-44 grid grid-cols-1 lg:grid-cols-3 gap-6"

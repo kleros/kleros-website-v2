@@ -1,6 +1,7 @@
+import Image from "next/image";
+
 import { TokenStatDisplay as ITokenStatDisplay } from "@/queries/pnk-token/tokenomics";
 
-import Image from "next/image";
 
 import Stat from "./Stat";
 

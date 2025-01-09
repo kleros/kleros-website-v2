@@ -1,10 +1,10 @@
 import Footer from "@/components/Footer";
 import Hero from "@/components/home/Hero";
-import TrustedBy from "@/components/TrustedBy";
 import Navbar from "@/components/Navbar";
+import TrustedBy from "@/components/TrustedBy";
 import { footerQuery, FooterQueryType } from "@/queries/footer";
-import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import { heroQuery, HeroQueryType } from "@/queries/home/hero";
+import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import { partnersQuery, PartnersQueryType } from "@/queries/partners";
 import { graphQLClient } from "@/utils/graphQLClient";
 

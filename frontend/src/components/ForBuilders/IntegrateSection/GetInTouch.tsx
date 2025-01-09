@@ -4,7 +4,6 @@ import Link from "next/link";
 // import Image from "next/image";
 
 import Button from "@/components/Button";
-
 import { IntegrateQueryType } from "@/queries/for-builders/integrate";
 
 interface IGetInTouch {
