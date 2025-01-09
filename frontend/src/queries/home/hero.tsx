@@ -32,28 +32,28 @@ export const heroQuery = gql`
 
 export type HeroQueryType = {
   homePageHero: {
-    title: string,
-    subtitle: string,
+    title: string;
+    subtitle: string;
     primaryButton: {
-      text: string,
+      text: string;
       link: {
-        url: string,
-      },
-    },
+        url: string;
+      };
+    };
     secondaryButton: {
-      text: string,
+      text: string;
       link: {
-        url: string,
-      },
-    },
+        url: string;
+      };
+    };
     arrowLink: {
-      text: string,
+      text: string;
       link: {
-        url: string,
-      },
-    },
+        url: string;
+      };
+    };
     background: {
-      url: string,
-    },
-  },
+      url: string;
+    };
+  };
 };

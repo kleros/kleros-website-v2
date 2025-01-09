@@ -30,16 +30,16 @@ export const tokenomicsSectionQuery = gql`
 `;
 
 export type TokenStat = {
-    key: string;
-    primaryValue: string;
-    secondaryValue: string;
-}
+  key: string;
+  primaryValue: string;
+  secondaryValue: string;
+};
 
 export type TokenStatDisplay = {
-    icon : {
-        url: string;
-    };
-    stats: TokenStat[];
+  icon: {
+    url: string;
+  };
+  stats: TokenStat[];
 };
 
 export type TokenomicsSectionQueryType = {

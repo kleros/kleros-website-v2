@@ -12,10 +12,12 @@ const LearnMore: React.FC<CooperativeLearnMoreSection> = ({
   background,
 }) => {
   return (
-    <div className={
-      "relative w-full flex flex-col items-center justify-center mt-16 p-8"
-    }>
-      <h2 className="text-primary-text text-xl mb-8 z-[1]">{title}</h2>
+    <div
+      className={
+        "relative mt-16 flex w-full flex-col items-center justify-center p-8"
+      }
+    >
+      <h2 className="z-[1] mb-8 text-xl text-primary-text">{title}</h2>
       <Link
         href={button.link.url}
         target="_blank"
@@ -30,7 +32,7 @@ const LearnMore: React.FC<CooperativeLearnMoreSection> = ({
         src={background.url}
         alt="Learn more Image Background"
         fill
-        className="object-cover rounded-2xl"
+        className="rounded-2xl object-cover"
       />
     </div>
   );

@@ -10,7 +10,7 @@ interface IExchanges {
 
 const Exchanges: React.FC<IExchanges> = ({ exchanges }) => {
   return (
-    <div className="w-full flex flex-wrap justify-center gap-6 md:gap-16 lg:gap-20 mb-8 md:mb-0">
+    <div className="mb-8 flex w-full flex-wrap justify-center gap-6 md:mb-0 md:gap-16 lg:gap-20">
       {exchanges.map((exchange) => (
         <Link
           href={exchange.url}

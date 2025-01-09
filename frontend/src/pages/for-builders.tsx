@@ -46,12 +46,10 @@ export const getStaticProps = async () => {
   const navbarData = await graphQLClient.request<NavbarQueryType>(navbarQuery);
   const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
-  const useCasesData = await graphQLClient.request<UseCasesQueryType>(
-    useCasesQuery
-  );
-  const integrateData = await graphQLClient.request<IntegrateQueryType>(
-    integrateQuery
-  );
+  const useCasesData =
+    await graphQLClient.request<UseCasesQueryType>(useCasesQuery);
+  const integrateData =
+    await graphQLClient.request<IntegrateQueryType>(integrateQuery);
 
   return {
     props: {

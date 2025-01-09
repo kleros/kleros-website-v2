@@ -17,11 +17,11 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
   return (
     <div
       className={clsx(
-        "bg-background-1 rounded-2xl",
-        "flex flex-col gap-8 py-8 md:py-12 px-6 md:px-8"
+        "rounded-2xl bg-background-1",
+        "flex flex-col gap-8 px-6 py-8 md:px-8 md:py-12",
       )}
     >
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col gap-6 md:flex-row">
         <Image
           width={128}
           height={128}
@@ -30,7 +30,7 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
         />
         <div className="flex flex-col gap-4">
           <div className="text-lg text-primary-purple">{header}</div>
-          <div className="text-xl md:text-2xl text-primary-text">
+          <div className="text-xl text-primary-text md:text-2xl">
             {productName}
           </div>
         </div>
@@ -38,9 +38,9 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
       <div
         style={{ backgroundImage: `url(${background.url})` }}
         className={clsx(
-          "relative h-[308px] md:h-[380px] rounded-2xl",
-          "bg-[#bca2df] bg-[-314px] md:bg-[0px] bg-cover  bg-blend-luminosity",
-          "flex justify-center items-center pt-3 md:pt-0"
+          "relative h-[308px] rounded-2xl md:h-[380px]",
+          "bg-[#bca2df] bg-cover bg-[-314px] bg-blend-luminosity md:bg-[0px]",
+          "flex items-center justify-center pt-3 md:pt-0",
         )}
       >
         <Link
@@ -52,7 +52,7 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
           <Button className="text-background-1">{learnMoreButton.text}</Button>
         </Link>
       </div>
-      <div className="flex flex-col md:flex-row items-center gap-8">
+      <div className="flex flex-col items-center gap-8 md:flex-row">
         {arrowLinks.map((arrowLink) => (
           <ExternalLink
             key={arrowLink.text}

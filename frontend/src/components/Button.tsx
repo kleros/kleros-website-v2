@@ -8,21 +8,20 @@ const primaryStyle = clsx(
   baseStyle,
   "bg-primary-blue",
   "hover:bg-primary-blue/90",
-  "disabled:bg-stroke"
+  "disabled:bg-stroke",
 );
 
 const secondaryStyle = clsx(
   baseStyle,
   "bg-transparent border-2 border-white",
-  "hover:bg-primary-blue hover:border-primary-blue hover:text-background-2"
+  "hover:bg-primary-blue hover:border-primary-blue hover:text-background-2",
 );
 
 const tertiaryStyle = clsx(
   baseStyle,
   "bg-transparent border-2 border-white",
-  "hover:bg-white/10"
+  "hover:bg-white/10",
 );
-
 
 interface IButton extends React.ComponentProps<"button"> {
   children: React.ReactNode;
@@ -43,7 +42,7 @@ const Button: React.FC<IButton> = ({
       variant === "primary" && primaryStyle,
       variant === "secondary" && secondaryStyle,
       variant === "tertiary" && tertiaryStyle,
-      className
+      className,
     )}
     {...{ onClick, ...props }}
   >

@@ -6,7 +6,6 @@ import Header from "./Header";
 import KeyChallenges from "./KeyChallenges";
 import LearnMore from "./LearnMore";
 
-
 interface IDAOSection {
   useCasesData: UseCasesQueryType["forBuildersPageUseCasesSection"];
 }

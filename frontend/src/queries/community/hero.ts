@@ -1,13 +1,13 @@
 import { gql } from "graphql-request";
 
 export type Community = {
-    title: string;
-    subtitle: string;
+  title: string;
+  subtitle: string;
+  url: string;
+  icon: {
     url: string;
-    icon: {
-        url: string;
-        name: string;
-    }
+    name: string;
+  };
 };
 
 export const heroQuery = gql`
@@ -51,5 +51,5 @@ export type HeroQueryType = {
       url: string;
     };
   };
-  communities: Community[]
+  communities: Community[];
 };

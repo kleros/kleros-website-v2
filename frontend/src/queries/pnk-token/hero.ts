@@ -15,12 +15,12 @@ export const heroQuery = gql`
         url
       }
     }
-    tokenExplorers{
-        icon {
-            url
-        }
-        name
+    tokenExplorers {
+      icon {
         url
+      }
+      name
+      url
     }
   }
 `;

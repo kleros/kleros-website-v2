@@ -30,12 +30,14 @@ const ReportCard: React.FC<IReportCard> = ({
   const [reportUrl, setReportUrl] = useState<string>();
 
   return (
-    <div className={clsx(
-      "bg-background-2 md:pb-7",
-      "flex flex-col md:flex-row gap-16 justify-between"
-    )}>
-      <div className="flex flex-col gap-8 items-start">
-        <h2 className="text-2xl md:text-3xl font-medium text-primary-text">
+    <div
+      className={clsx(
+        "bg-background-2 md:pb-7",
+        "flex flex-col justify-between gap-16 md:flex-row",
+      )}
+    >
+      <div className="flex flex-col items-start gap-8">
+        <h2 className="text-2xl font-medium text-primary-text md:text-3xl">
           {title}
         </h2>
         <p className="text-lg text-secondary-text">{subtitle}</p>
@@ -60,9 +62,11 @@ const ReportCard: React.FC<IReportCard> = ({
         </Link>
       </div>
 
-      <div className={
-        "relative w-32 h-32 md:w-56 md:h-56 flex-shrink-0 hidden md:block"
-      }>
+      <div
+        className={
+          "relative hidden h-32 w-32 flex-shrink-0 md:block md:h-56 md:w-56"
+        }
+      >
         <Image src={icon.url} alt={icon.name} fill className="object-contain" />
       </div>
     </div>
