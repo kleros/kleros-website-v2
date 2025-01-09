@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import Button from "@/components/Button";
 import ExternalLink from "@/components/ExternalLink";
-import { klerosScoutSection as IKlerosScoutSection } from "@/queries/earn/tabs-data";
+import { KlerosScoutSection as IKlerosScoutSection } from "@/queries/earn/tabs-data";
 
 const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
   header,
@@ -46,7 +46,7 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
         <Link
           href={learnMoreButton.link.url}
           target="_blank"
-          rel="noreferrer nooppener"
+          rel="noreferrer noopener"
           className="z-[1] mt-16 md:mt-0"
         >
           <Button className="text-background-1">{learnMoreButton.text}</Button>

@@ -1,4 +1,5 @@
 import { gql } from "graphql-request";
+
 import { ArrowLink } from "../navbar";
 
 export const tabSectionQuery = gql`
@@ -125,7 +126,7 @@ export type EnterCourtSection = {
   background: { url: string };
 };
 
-export type klerosScoutSection = {
+export type KlerosScoutSection = {
   header: string;
   productName: string;
   productIcon: { url: string };
@@ -152,7 +153,7 @@ export type EarnPageBecomeACuratorTab = {
   ctaCard: CtaCard[];
   arrowLink: ArrowLink;
   scoutExplanation: string;
-  klerosScoutSection: klerosScoutSection;
+  klerosScoutSection: KlerosScoutSection;
 };
 
 export type TabSectionQueryType = {

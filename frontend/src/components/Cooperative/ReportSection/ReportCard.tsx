@@ -49,7 +49,7 @@ const ReportCard: React.FC<IReportCard> = ({
           }}
         />
 
-        <Link href={reportUrl ?? ""} target="_blank" rel="noreferrer noopenner">
+        <Link href={reportUrl ?? ""} target="_blank" rel="noreferrer noopener">
           <Button
             variant="primary"
             className="text-background-1"

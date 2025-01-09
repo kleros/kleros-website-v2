@@ -1,8 +1,9 @@
-import Tag from "@/components/Tag";
-import { Court } from "@/queries/earn/tabs-data";
 import Image from "next/image";
 import Link from "next/link";
+
 import PlusIcon from "@/assets/svgs/icons/plus-icon.svg";
+import Tag from "@/components/Tag";
+import { Court } from "@/queries/earn/tabs-data";
 import { ArrowLink } from "@/queries/navbar";
 
 interface ICourtsSection {
@@ -21,9 +22,9 @@ const CourtsSection: React.FC<ICourtsSection> = ({
         {mostActiveCourtsHeader}
       </h2>
       <div className="flex flex-row flex-wrap items-center gap-4">
-        {mostActiveCourts.map((court, index) => (
+        {mostActiveCourts.map((court) => (
           <Tag
-            key={index}
+            key={court.name}
             text={court.name}
             className="!text-base leading-none"
           />
@@ -31,14 +32,14 @@ const CourtsSection: React.FC<ICourtsSection> = ({
         <Link
           href={courtsButton.link.url}
           target="_blank"
-          rel="noreferrer noopenner"
+          rel="noreferrer noopener"
         >
           <button className="w-12 h-12 border-gradient-purple-blue">
             <Image
               src={PlusIcon}
               width="24"
               height="18"
-              alt="Arrow link image"
+              alt="Plus icon"
               className="inline"
             />
           </button>
