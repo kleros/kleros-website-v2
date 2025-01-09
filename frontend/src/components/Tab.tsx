@@ -29,7 +29,7 @@ const Tab = <T,>({ items, currentValue, callback, className }: ITab<T>) => {
       {items.map((item, i) => (
         <div
           role="tab"
-          tabIndex={i}
+          tabIndex={i + 1}
           aria-selected={item.value === currentValue}
           key={item.text}
           className={clsx(
