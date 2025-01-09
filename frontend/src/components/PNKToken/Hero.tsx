@@ -15,10 +15,10 @@ interface IHero {
 const Hero: React.FC<IHero> = ({ heroData }) => {
     const {header, subtitle, buyButton, background} = heroData.pnkTokenPageHero
   return (
-    <div className="relative pt-52 pb-52 lg:pb-56 px-6 lg:px-32">
+    <div className="relative pt-44 md:pt-52 pb-52 lg:pb-60 px-6 lg:px-32">
       <div className="space-y-8">
-        <h1 className="text-3xl lg:text-4xl font-medium">{header}</h1>
-        <p className="text-lg">{subtitle}</p>
+        <h1 className="text-3xl lg:text-4xl font-medium pt-1 lg:pt-3">{header}</h1>
+        <p className="max-w-[685px] text-lg">{subtitle}</p>
         <div>
           <Link
             href={buyButton.link.url}

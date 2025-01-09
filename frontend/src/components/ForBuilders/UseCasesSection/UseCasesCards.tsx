@@ -1,5 +1,6 @@
 import React from "react";
 
+import Tag from "@/components/Tag";
 import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
 
 interface IUseCasesCards {
@@ -10,16 +11,7 @@ const UseCasesCards: React.FC<IUseCasesCards> = ({ useCasesData }) => {
   return (
     <div className="flex mb-12 flex-row flex-wrap gap-4">
       {useCasesData.useCases.map((useCase, index) => (
-        <div
-          key={useCase.name}
-          className={`${
-            index === 0
-              ? "bg-primary-purple text-lg text-white px-8 py-4 rounded-full"
-              : "border-gradient-purple-blue text-lg text-secondary-text px-8 py-4"
-          }`}
-        >
-          {useCase.name}
-        </div>
+        <Tag key={index} text={useCase.name} selected={index === 0} />
       ))}
     </div>
   );

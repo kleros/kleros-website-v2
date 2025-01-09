@@ -29,6 +29,7 @@ const config: Config = {
         "secondary-blue": "#7CE2FF",
         "background-1": "#1B003F",
         "background-2": "#220050",
+        "background-translucent": "rgba(34, 0, 80, 0.24)"
       },
     },
   },

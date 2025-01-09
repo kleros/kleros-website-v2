@@ -29,17 +29,19 @@ const CtaCard: React.FC<ICtaCard> = ({
         width={90}
         height={90}
         src={icon.url}
-        className="object-contain mb-4"
+        className="object-contain mb-4 aspect-square"
         alt="Icon"
       />
       <h2 className="text-xl text-primary-text font-medium mb-6">{title}</h2>
       <p className="text-lg text-secondary-text mb-6">{description}</p>
-      <Divider />
-      <ExternalLink
-        text={arrowLink.text}
-        url={arrowLink.link.url}
-        className="mt-6 mb-4"
-      />
+      <div className="w-full mt-auto">
+        <Divider />
+        <ExternalLink
+          text={arrowLink.text}
+          url={arrowLink.link.url}
+          className="mt-6 mb-1 flex-wrap justify-start"
+        />
+      </div>
     </div>
   );
 };

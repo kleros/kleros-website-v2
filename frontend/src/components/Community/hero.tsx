@@ -14,9 +14,11 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
   const { header, subtitle, communityButtons, background } =
     heroData;
   return (
-    <div className="relative pt-52 pb-[277px] lg:pb-[331px] px-6 lg:px-32">
+    <div className="relative pt-44 pb-[277px] lg:pb-[331px] px-6 lg:px-32">
       <div className="space-y-8">
-        <h1 className="text-3xl lg:text-4xl font-medium">{header}</h1>
+        <h1 className="text-3xl lg:text-4xl font-medium pt-1 lg:pt-3">
+          {header}
+        </h1>
         <p className="text-lg">{subtitle}</p>
         <div className="flex flex-wrap gap-6 items-center">
           {communityButtons.map((button) => (
@@ -26,7 +28,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="secondary" className=" hover:!bg-primary-blue hover:!border-primary-blue hover:!text-background-2">
+              <Button variant="secondary">
                 <span>{button.text}</span>
               </Button>
             </Link>
