@@ -1,9 +1,11 @@
-import { AppsSection } from "@/queries/navbar";
-import Card from "./Card";
-import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
-import Image from "next/image";
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
+
+import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
+import { AppsSection } from "@/queries/navbar";
+
+import Card from "./Card";
 
 interface AppsDropdownContentProps {
   appsSection: AppsSection;

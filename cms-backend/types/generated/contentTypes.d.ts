@@ -720,10 +720,10 @@ export interface ApiEarnPageBecomeACuratorTabContentEarnPageBecomeACuratorTabCon
   attributes: {
     tabName: Schema.Attribute.String;
     title: Schema.Attribute.String;
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     ctaCard: Schema.Attribute.Component<'content.cta-card', true>;
     arrowLink: Schema.Attribute.Component<'content.button-link', false>;
-    scoutExplanation: Schema.Attribute.String;
+    scoutExplanation: Schema.Attribute.Text;
     klerosScoutSection: Schema.Attribute.Component<
       'earn-page.kleros-scout-section',
       false
@@ -769,6 +769,7 @@ export interface ApiEarnPageBecomeAJurorTabContentEarnPageBecomeAJurorTabContent
       'oneToMany',
       'api::court.court'
     >;
+    courtsButton: Schema.Attribute.Component<'content.button-link', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

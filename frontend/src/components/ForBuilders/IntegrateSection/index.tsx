@@ -1,8 +1,8 @@
 import React from "react";
 
 import AppsDropdownContent from "@/components/Navbar/AppsDropdownContent";
-
 import { IntegrateQueryType } from "@/queries/for-builders/integrate";
+
 import GetInTouch from "./GetInTouch";
 import LearnMore from "./LearnMore";
 

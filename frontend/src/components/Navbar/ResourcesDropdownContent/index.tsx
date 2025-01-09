@@ -1,7 +1,8 @@
-import { ResourceSection, Social } from "@/queries/navbar";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+
+import { ResourceSection, Social } from "@/queries/navbar";
 
 const hoverScaleUp = clsx("transform transition duration-75");
 const hoverScaleUpLink = clsx(hoverScaleUp, "hover:scale-[1.01]");

@@ -1,14 +1,19 @@
 import { useState } from "react";
-import { useLockBodyScroll, useWindowScroll } from "react-use";
+
+import clsx from "clsx";
 import Image from "next/image";
-import { responsiveSize } from "@/styles/responsiveSize";
-import HamburgerIcon from "@/assets/svgs/icons/hamburger.svg";
-import { NavbarQueryType } from "@/queries/navbar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLockBodyScroll, useWindowScroll } from "react-use";
+
+import HamburgerIcon from "@/assets/svgs/icons/hamburger.svg";
+import { NavbarQueryType } from "@/queries/navbar";
+import { responsiveSize } from "@/styles/responsiveSize";
+
+
 import DesktopNavigation from "./DesktopNavigation";
 import MobileMenu from "./MobileMenu";
-import clsx from "clsx";
+
 
 export const buttonStyle = clsx(
   "px-4 py-2 bg-primary-blue text-background-1 rounded-full"

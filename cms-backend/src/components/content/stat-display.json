@@ -1,16 +1,29 @@
 {
   "collectionName": "components_content_stat_display",
   "info": {
-    "displayName": "StatDisplay"
+    "displayName": "StatDisplay",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "statName": {
       "type": "string"
     },
-    "icon": {
-      "allowedTypes": ["images", "files", "videos"],
-      "type": "media"
+    "statValue": {
+      "type": "string"
+    },
+    "statValueSuffix": {
+      "type": "string"
     }
   }
 }

@@ -1,8 +1,8 @@
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Exchange } from "@/queries/pnk-token/token-buy";
-import clsx from "clsx";
 import { hoverEffect } from "@/styles";
 
 interface IFeaturedExchange {

@@ -1,6 +1,7 @@
-import { HeroQueryType } from "@/queries/pnk-token/hero";
 import Image from "next/image";
 import Link from "next/link";
+
+import { HeroQueryType } from "@/queries/pnk-token/hero";
 
 interface IExplorers {
   explorers: HeroQueryType["tokenExplorers"];

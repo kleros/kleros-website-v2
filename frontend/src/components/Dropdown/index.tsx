@@ -1,0 +1,76 @@
+import { useCallback, useMemo, useRef } from "react";
+
+import clsx from "clsx";
+import Image from "next/image";
+import { useToggle, useClickAway } from "react-use";
+
+import DownArrowIcon from "@/assets/svgs/icons/down-arrow-blue.svg";
+
+import DropdownItemButton from "./DropdownItemButton";
+
+export type DropdownItem = {
+  key: string | number;
+  value: string | number;
+};
+
+interface IDropwdownProps {
+  items: DropdownItem[];
+  value?: DropdownItem["value"];
+  onChange: (value: DropdownItem["value"]) => void;
+}
+
+const Dropdown: React.FC<IDropwdownProps> = ({ items, value, onChange }) => {
+  const [isOpen, toggleDropdown] = useToggle(false);
+
+  const keyFromValue = useMemo(
+    () => items.find((item) => item.value === value)?.key ?? "Select",
+    [items, value]
+  );
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  useClickAway(dropdownRef, () => {
+    toggleDropdown(false);
+  });
+
+  const handleClick = useCallback(
+    (value: DropdownItem["value"]) => {
+      onChange(value);
+      toggleDropdown();
+    },
+    [toggleDropdown, onChange]
+  );
+
+  return (
+    <div className="relative h-fit" ref={dropdownRef}>
+      <button
+        className="flex flex-row gap-2 items-center"
+        onClick={toggleDropdown}
+      >
+        <span className="text-primary-blue text-lg">{keyFromValue}</span>
+        <Image
+          src={DownArrowIcon}
+          alt="Down Arrow"
+          width={16}
+          height={16}
+          className="ml-1 fill-primary-blue"
+        />
+      </button>
+      <div
+        className={clsx(
+          "absolute bg-background-1 z-10 mt-2 rounded-2xl border border-stroke",
+          "flex flex-col gap-4 p-[10px] max-h-[300px] w-[200px] md:w-[348px]",
+          isOpen ? "visible" : "hidden"
+        )}
+      >
+        {items.map((item) => (
+          <DropdownItemButton
+            key={item.key}
+            {...{ item, value, handleClick }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Dropdown;

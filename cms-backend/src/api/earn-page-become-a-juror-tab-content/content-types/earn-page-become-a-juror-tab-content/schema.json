@@ -37,6 +37,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::court.court"
+    },
+    "courtsButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
     }
   }
 }

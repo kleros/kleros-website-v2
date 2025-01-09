@@ -1,6 +1,10 @@
 import { useState } from "react";
-import Link from "next/link";
+
+import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
+
+import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 import {
   AppsSection,
   NavbarButton,
@@ -8,11 +12,12 @@ import {
   ResourceSection,
   Social,
 } from "@/queries/navbar";
-import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
+
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
+
 import { buttonStyle } from "./index";
-import clsx from "clsx";
+
 
 const menuContainerStyle = clsx(
   "z-50 fixed w-screen top-20 right-0 bg-background-2 p-6",

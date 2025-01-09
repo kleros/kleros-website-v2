@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { useLockBodyScroll } from "react-use";
-import Link from "next/link";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useLockBodyScroll } from "react-use";
+
+import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 import {
   AppsSection,
   NavLink,
   ResourceSection,
   Social,
 } from "@/queries/navbar";
-import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
+
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
 

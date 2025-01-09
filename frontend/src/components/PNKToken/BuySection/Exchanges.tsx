@@ -1,7 +1,8 @@
-import { Exchange } from "@/queries/pnk-token/token-buy";
-import { hoverEffect } from "@/styles";
 import Image from "next/image";
 import Link from "next/link";
+
+import { Exchange } from "@/queries/pnk-token/token-buy";
+import { hoverEffect } from "@/styles";
 
 interface IExchanges {
   exchanges: Exchange[];
