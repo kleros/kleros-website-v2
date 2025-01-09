@@ -9,7 +9,7 @@ interface IExplorers {
 
 const Explorers: React.FC<IExplorers> = ({ explorers }) => {
   return (
-    <div className="flex flex-wrap gap-6 lg:gap-12">
+    <div className="flex flex-wrap gap-6 lg:gap-12 pb-2 lg:pb-1">
       {explorers.map((explorer) => (
         <Link
           key={explorer.name}

@@ -14,9 +14,11 @@ interface IHero {
 const Hero: React.FC<IHero> = ({ heroData }) => {
   const { header, subtitle, buttons, arrowLink, background } = heroData;
   return (
-    <div className="relative pt-52 pb-52 lg:pb-56 px-6 lg:px-32">
+    <div className="relative pt-44 lg:pt-52 pb-52 lg:pb-56 px-6 lg:px-32">
       <div className="space-y-8">
-        <h1 className="text-3xl lg:text-4xl font-medium">{header}</h1>
+        <h1 className="text-3xl lg:text-4xl font-medium pt-1 lg:pt-3">
+          {header}
+        </h1>
         <p className="text-lg max-w-[685px]">{subtitle}</p>
         <div className="flex flex-wrap gap-6 items-center">
           {buttons.map((button) => (
@@ -35,7 +37,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         <ExternalLink
           url={arrowLink.link.url}
           text={arrowLink.text}
-          className="[&>span]:text-primary-text [&>span]:text-base"
+          className="[&>span]:text-primary-text [&>span]:text-base lg:pb-6"
         />
       </div>
       <Image

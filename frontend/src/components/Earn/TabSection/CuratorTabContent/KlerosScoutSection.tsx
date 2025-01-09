@@ -1,9 +1,10 @@
-import Button from "@/components/Button";
-import ExternalLink from "@/components/ExternalLink";
-import { klerosScoutSection as IKlerosScoutSection } from "@/queries/earn/tabs-data";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+
+import Button from "@/components/Button";
+import ExternalLink from "@/components/ExternalLink";
+import { klerosScoutSection as IKlerosScoutSection } from "@/queries/earn/tabs-data";
 
 const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
   header,
@@ -14,7 +15,12 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
   arrowLinks,
 }) => {
   return (
-    <div className=" bg-background-1 rounded-2xl flex flex-col gap-8 py-8 md:py-12 px-6 md:px-8">
+    <div
+      className={clsx(
+        "bg-background-1 rounded-2xl",
+        "flex flex-col gap-8 py-8 md:py-12 px-6 md:px-8"
+      )}
+    >
       <div className="flex flex-col md:flex-row gap-6">
         <Image
           width={128}
@@ -43,9 +49,7 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
           rel="noreferrer nooppener"
           className="z-[1] mt-16 md:mt-0"
         >
-          <Button variant="primary" className="text-background-1">
-            {learnMoreButton.text}
-          </Button>
+          <Button className="text-background-1">{learnMoreButton.text}</Button>
         </Link>
       </div>
       <div className="flex flex-col md:flex-row items-center gap-8">
