@@ -4,7 +4,8 @@
   "info": {
     "singularName": "research",
     "pluralName": "researches",
-    "displayName": "research"
+    "displayName": "research",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,20 +13,21 @@
   "pluginOptions": {},
   "attributes": {
     "field": {
-      "type": "string"
+      "type": "text"
     },
     "url": {
       "type": "string"
     },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

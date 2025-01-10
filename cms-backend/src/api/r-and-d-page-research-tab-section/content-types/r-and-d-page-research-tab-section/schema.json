@@ -19,7 +19,7 @@
       "type": "string"
     },
     "researchParagraph": {
-      "type": "string"
+      "type": "text"
     },
     "researchCardLabel": {
       "type": "string"
@@ -37,6 +37,9 @@
       "type": "component",
       "repeatable": false,
       "component": "r-and-d-page.kleros-book"
+    },
+    "tabName": {
+      "type": "string"
     }
   }
 }

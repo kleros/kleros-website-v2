@@ -4,7 +4,8 @@
   "info": {
     "singularName": "third-party-publication",
     "pluralName": "third-party-publications",
-    "displayName": "ThirdPartyPublication"
+    "displayName": "ThirdPartyPublication",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "Topic": {
-      "type": "string"
+      "type": "text"
     },
     "paperLink": {
       "type": "component",
