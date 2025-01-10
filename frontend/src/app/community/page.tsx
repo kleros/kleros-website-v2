@@ -7,17 +7,11 @@ import { footerQuery, FooterQueryType } from "@/queries/footer";
 import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import { graphQLClient } from "@/utils/graphQLClient";
 
-interface ICommunity {
-  navbarData: NavbarQueryType;
-  footerData: FooterQueryType;
-  heroData: HeroQueryType;
-}
+const Community: React.FC = async () => {
+  const navbarData = await graphQLClient.request<NavbarQueryType>(navbarQuery);
+  const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
+  const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
 
-const Community: React.FC<ICommunity> = ({
-  footerData,
-  heroData,
-  navbarData,
-}) => {
   return (
     <div>
       <Navbar {...{ navbarData }} />
@@ -26,20 +20,6 @@ const Community: React.FC<ICommunity> = ({
       <Footer {...{ footerData }} />
     </div>
   );
-};
-
-export const getStaticProps = async () => {
-  const navbarData = await graphQLClient.request<NavbarQueryType>(navbarQuery);
-  const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
-  const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
-
-  return {
-    props: {
-      navbarData,
-      footerData,
-      heroData: heroData,
-    },
-  };
 };
 
 export default Community;

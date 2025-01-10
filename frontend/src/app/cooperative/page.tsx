@@ -16,33 +16,7 @@ import { footerQuery, FooterQueryType } from "@/queries/footer";
 import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import { graphQLClient } from "@/utils/graphQLClient";
 
-interface ICooperative {
-  navbarData: NavbarQueryType;
-  footerData: FooterQueryType;
-  heroData: HeroQueryType["cooperativePageHero"];
-  reportData: CooperativePageReportQueryType;
-  memberSectionData: CooperativePageMemberQueryType["cooperativePageMemberSection"];
-}
-
-const Cooperative: React.FC<ICooperative> = ({
-  footerData,
-  heroData,
-  navbarData,
-  reportData,
-  memberSectionData,
-}) => {
-  return (
-    <div>
-      <Navbar {...{ navbarData }} />
-      <Hero heroData={heroData} />
-      <ReportSection reportsData={reportData} />
-      <MemberSection memberData={memberSectionData} />
-      <Footer {...{ footerData }} />
-    </div>
-  );
-};
-
-export const getStaticProps = async () => {
+const Cooperative: React.FC = async () => {
   const navbarData = await graphQLClient.request<NavbarQueryType>(navbarQuery);
   const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
@@ -54,16 +28,17 @@ export const getStaticProps = async () => {
     await graphQLClient.request<CooperativePageMemberQueryType>(
       cooperativePageMemberQuery,
     );
-
-  return {
-    props: {
-      navbarData,
-      footerData,
-      heroData: heroData.cooperativePageHero,
-      reportData,
-      memberSectionData: memberSectionData.cooperativePageMemberSection,
-    },
-  };
+  return (
+    <div>
+      <Navbar {...{ navbarData }} />
+      <Hero heroData={heroData.cooperativePageHero} />
+      <ReportSection reportsData={reportData} />
+      <MemberSection
+        memberData={memberSectionData.cooperativePageMemberSection}
+      />
+      <Footer {...{ footerData }} />
+    </div>
+  );
 };
 
 export default Cooperative;

@@ -16,33 +16,7 @@ import {
 import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import { graphQLClient } from "@/utils/graphQLClient";
 
-interface IForBuilders {
-  navbarData: NavbarQueryType;
-  footerData: FooterQueryType;
-  heroData: HeroQueryType["forBuildersPageHero"];
-  useCasesData: UseCasesQueryType["forBuildersPageUseCasesSection"];
-  integrateData: IntegrateQueryType["forBuildersPageIntegrateSection"];
-}
-
-const ForBuilders: React.FC<IForBuilders> = ({
-  footerData,
-  heroData,
-  navbarData,
-  useCasesData,
-  integrateData,
-}) => {
-  return (
-    <div>
-      <Navbar {...{ navbarData }} />
-      <Hero {...{ heroData }} />
-      <UseCasesSection {...{ useCasesData }} />
-      <IntegrateSection {...{ integrateData }} />
-      <Footer {...{ footerData }} />
-    </div>
-  );
-};
-
-export const getStaticProps = async () => {
+const ForBuilders: React.FC = async () => {
   const navbarData = await graphQLClient.request<NavbarQueryType>(navbarQuery);
   const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
@@ -50,16 +24,19 @@ export const getStaticProps = async () => {
     await graphQLClient.request<UseCasesQueryType>(useCasesQuery);
   const integrateData =
     await graphQLClient.request<IntegrateQueryType>(integrateQuery);
-
-  return {
-    props: {
-      navbarData,
-      footerData,
-      heroData: heroData.forBuildersPageHero,
-      useCasesData: useCasesData.forBuildersPageUseCasesSection,
-      integrateData: integrateData.forBuildersPageIntegrateSection,
-    },
-  };
+  return (
+    <div>
+      <Navbar {...{ navbarData }} />
+      <Hero {...{ heroData: heroData.forBuildersPageHero }} />
+      <UseCasesSection
+        {...{ useCasesData: useCasesData.forBuildersPageUseCasesSection }}
+      />
+      <IntegrateSection
+        {...{ integrateData: integrateData.forBuildersPageIntegrateSection }}
+      />
+      <Footer {...{ footerData }} />
+    </div>
+  );
 };
 
 export default ForBuilders;

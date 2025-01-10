@@ -21,38 +21,8 @@ import {
 } from "@/queries/pnk-token/tokenomics";
 import { graphQLClient } from "@/utils/graphQLClient";
 
-interface IPNKtoken {
-  navbarData: NavbarQueryType;
-  footerData: FooterQueryType;
-  heroData: HeroQueryType;
-  buyData: BuySectionQueryType["pnkTokenPageBuySection"];
-  tokenNeedData: TokenNeedSectionQueryType["pnkTokenPageNeedSection"];
-  tokenomicsData: TokenomicsSectionQueryType["pnkTokenPageTokenomicsSection"];
-}
-
-const PNKToken: React.FC<IPNKtoken> = ({
-  footerData,
-  heroData,
-  buyData,
-  tokenNeedData,
-  tokenomicsData,
-  navbarData,
-}) => {
-  return (
-    <div>
-      <Navbar {...{ navbarData }} />
-      <Hero {...{ heroData }} />
-      <BuySection {...{ buyData }} />
-      <TokenNeedSection {...{ tokenNeedData }} />
-      <TokenomicsSection {...{ tokenomicsData }} />
-      <Footer {...{ footerData }} />
-    </div>
-  );
-};
-
-export const getStaticProps = async () => {
+const PNKToken: React.FC = async () => {
   const navbarData = await graphQLClient.request<NavbarQueryType>(navbarQuery);
-
   const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
   const buyData =
@@ -64,17 +34,20 @@ export const getStaticProps = async () => {
     await graphQLClient.request<TokenomicsSectionQueryType>(
       tokenomicsSectionQuery,
     );
-
-  return {
-    props: {
-      navbarData,
-      footerData,
-      heroData,
-      buyData: buyData.pnkTokenPageBuySection,
-      tokenNeedData: tokenNeedData.pnkTokenPageNeedSection,
-      tokenomicsData: tokenomicsData.pnkTokenPageTokenomicsSection,
-    },
-  };
+  return (
+    <div>
+      <Navbar {...{ navbarData }} />
+      <Hero {...{ heroData }} />
+      <BuySection {...{ buyData: buyData.pnkTokenPageBuySection }} />
+      <TokenNeedSection
+        {...{ tokenNeedData: tokenNeedData.pnkTokenPageNeedSection }}
+      />
+      <TokenomicsSection
+        {...{ tokenomicsData: tokenomicsData.pnkTokenPageTokenomicsSection }}
+      />
+      <Footer {...{ footerData }} />
+    </div>
+  );
 };
 
 export default PNKToken;
