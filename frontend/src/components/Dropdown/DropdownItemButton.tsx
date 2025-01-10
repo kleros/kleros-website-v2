@@ -14,11 +14,11 @@ const DropdownItemButton: React.FC<IDropdownItem> = ({
 }) => (
   <button
     className={clsx(
-      "w-full rounded-lg text-left py-3 px-4",
+      "w-full rounded-lg px-4 py-3 text-left",
       value === item.value
-        ? "text-primary-blue bg-background-2"
+        ? "bg-background-2 text-primary-blue"
         : "text-secondary-text",
-      "hover:text-primary-blue hover:bg-background-2 cursor-pointer"
+      "cursor-pointer hover:bg-background-2 hover:text-primary-blue",
     )}
     onClick={() => handleClick(item.value)}
   >

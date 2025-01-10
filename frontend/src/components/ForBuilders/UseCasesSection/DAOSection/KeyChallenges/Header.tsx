@@ -9,10 +9,10 @@ interface IHeader {
 const Header: React.FC<IHeader> = ({ useCasesData }) => {
   return (
     <div>
-      <h2 className="text-xl mb-6 text-primary-text">
+      <h2 className="mb-6 text-xl text-primary-text">
         {useCasesData.keyChallenges.title}
       </h2>
-      <p className="text-lg mb-12 text-secondary-text">
+      <p className="mb-12 text-lg text-secondary-text">
         {useCasesData.keyChallenges.description}
       </p>
     </div>

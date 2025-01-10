@@ -18,10 +18,9 @@ import ResourcesDropdownContent from "./ResourcesDropdownContent";
 
 import { buttonStyle } from "./index";
 
-
 const menuContainerStyle = clsx(
   "z-50 fixed w-screen top-20 right-0 bg-background-2 p-6",
-  "rounded-lg shadow-lg overflow-y-auto animate-slideInFromRight"
+  "rounded-lg shadow-lg overflow-y-auto animate-slideInFromRight",
 );
 
 const linkStyle = clsx("text-white block");
@@ -44,7 +43,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   navbarButton,
 }) => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
-    null
+    null,
   );
 
   const handleDropdownClick = (index: number) => {
@@ -61,7 +60,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                 href={`/${navLink.path_name}`}
                 className={clsx(
                   linkStyle,
-                  pathname === `/${navLink.path_name}` && "font-bold"
+                  pathname === `/${navLink.path_name}` && "font-bold",
                 )}
               >
                 {navLink.title}
@@ -82,8 +81,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                 </button>
                 <div
                   className={clsx(
-                    "h-auto overflow-y-auto transition-accordionHeight",
-                    openDropdownIndex === index && "accordionOpen"
+                    "transition-accordionHeight h-auto overflow-y-auto",
+                    openDropdownIndex === index && "accordionOpen",
                   )}
                 >
                   {navLink?.title === "Apps" ? (

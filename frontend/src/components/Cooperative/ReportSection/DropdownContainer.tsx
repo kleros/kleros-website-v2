@@ -30,7 +30,7 @@ const DropdownContainer: React.FC<IDropdownContainer> = ({
         }
         return acc;
       }, {}),
-    [reports]
+    [reports],
   );
 
   const years = useMemo(
@@ -42,7 +42,7 @@ const DropdownContainer: React.FC<IDropdownContainer> = ({
           key: year,
           value: year,
         })),
-    [processedReports]
+    [processedReports],
   );
 
   const firstYear = years[0].value;
@@ -57,7 +57,7 @@ const DropdownContainer: React.FC<IDropdownContainer> = ({
           key: month,
           value: month,
         })),
-    [year, processedReports]
+    [year, processedReports],
   );
 
   const [month, setMonth] = useState<string>();
@@ -71,16 +71,16 @@ const DropdownContainer: React.FC<IDropdownContainer> = ({
   useEffect(() => {
     const selectedReport = reports.find(
       (report) =>
-        (isMonthInfo ? report.month === month : true) && report.year === year
+        (isMonthInfo ? report.month === month : true) && report.year === year,
     );
     setReportUrl(selectedReport?.url);
   }, [isMonthInfo, month, year, reports, setReportUrl]);
 
   return (
-    <div className={
-      "flex flex-col md:flex-row gap-8 items-start md:items-center"
-    }>
-      <div className="flex gap-4 items-center">
+    <div
+      className={"flex flex-col items-start gap-8 md:flex-row md:items-center"}
+    >
+      <div className="flex items-center gap-4">
         <label className="text-lg text-secondary-text">
           {yearDropdownLabel}
         </label>
@@ -91,7 +91,7 @@ const DropdownContainer: React.FC<IDropdownContainer> = ({
         />
       </div>
       {isMonthInfo ? (
-        <div className="flex gap-4 items-center">
+        <div className="flex items-center gap-4">
           <label className="text-lg text-secondary-text">
             {monthDropdownLabel}
           </label>

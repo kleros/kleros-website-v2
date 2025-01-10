@@ -14,11 +14,11 @@ interface ICourtsSection {
 const CourtsSection: React.FC<ICourtsSection> = ({
   mostActiveCourtsHeader,
   mostActiveCourts,
-  courtsButton
+  courtsButton,
 }) => {
   return (
     <>
-      <h2 className="text-lg md:text-xlfont-medium md:font-normal ">
+      <h2 className="md:text-xlfont-medium text-lg md:font-normal">
         {mostActiveCourtsHeader}
       </h2>
       <div className="flex flex-row flex-wrap items-center gap-4">
@@ -34,7 +34,7 @@ const CourtsSection: React.FC<ICourtsSection> = ({
           target="_blank"
           rel="noreferrer noopener"
         >
-          <button className="w-12 h-12 border-gradient-purple-blue">
+          <button className="border-gradient-purple-blue h-12 w-12">
             <Image
               src={PlusIcon}
               width="24"

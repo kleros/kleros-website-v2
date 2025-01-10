@@ -12,11 +12,11 @@ interface IIntegrateSection {
 
 const IntegrateSection: React.FC<IIntegrateSection> = ({ integrateData }) => {
   return (
-    <div className="bg-background-2 pt-12 pb-16 px-6">
-      <h2 className="text-lg text-primary-purple mb-8">
+    <div className="bg-background-2 px-6 pb-16 pt-12">
+      <h2 className="mb-8 text-lg text-primary-purple">
         {integrateData.header}
       </h2>
-      <h1 className="text-2xl text-primary-text mb-8">{integrateData.title}</h1>
+      <h1 className="mb-8 text-2xl text-primary-text">{integrateData.title}</h1>
       <p className="text-lg text-secondary-text">{integrateData.description}</p>
       <AppsDropdownContent appsSection={integrateData.appsSection} />
       <GetInTouch {...{ integrateData }} />

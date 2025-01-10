@@ -1,18 +1,17 @@
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link"
+import Link from "next/link";
 
 import { Solution } from "@/queries/navbar";
 import { hoverEffect } from "@/styles";
 
-
 const cardBaseStyle = clsx(
   "bg-background-2 rounded-2xl border border-stroke text-wrap",
-  "p-4 flex gap-4 h-full lg:items-start"
+  "p-4 flex gap-4 h-full lg:items-start",
 );
 const headerTextStyle = clsx("text-primary-purple font-bold text-base");
 const descriptionTextStyle = clsx(
-  "text-secondary-text text-base leading-tight"
+  "text-secondary-text text-base leading-tight",
 );
 
 interface CardProps {
@@ -45,13 +44,13 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
         <h3
           className={clsx(
             headerTextStyle,
-            "text-primary-text leading-tight mt-1",
+            "mt-1 leading-tight text-primary-text",
             {
               "font-normal": variant === "small",
               "lg:text-xl": variant === "large",
               "lg:text-lg": variant === "medium",
               "lg:text-base": variant === "small",
-            }
+            },
           )}
         >
           {solution?.header_title}

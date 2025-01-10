@@ -12,7 +12,7 @@ interface IEarn {
   navbarData: NavbarQueryType;
   footerData: FooterQueryType;
   heroData: HeroQueryType;
-  tabsData: TabSectionQueryType
+  tabsData: TabSectionQueryType;
 }
 
 const Earn: React.FC<IEarn> = ({
@@ -24,8 +24,8 @@ const Earn: React.FC<IEarn> = ({
   return (
     <div>
       <Navbar {...{ navbarData }} />
-      <Hero {...{heroData}}/>
-      <TabSection {...{tabsData}}/>
+      <Hero {...{ heroData }} />
+      <TabSection {...{ tabsData }} />
       <Footer {...{ footerData }} />
     </div>
   );
@@ -35,14 +35,15 @@ export const getStaticProps = async () => {
   const navbarData = await graphQLClient.request<NavbarQueryType>(navbarQuery);
   const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
-  const tabsData = await graphQLClient.request<TabSectionQueryType>(tabSectionQuery);
+  const tabsData =
+    await graphQLClient.request<TabSectionQueryType>(tabSectionQuery);
 
   return {
     props: {
       navbarData,
       footerData,
       heroData: heroData,
-      tabsData
+      tabsData,
     },
   };
 };

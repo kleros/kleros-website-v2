@@ -1,7 +1,8 @@
 import CtaCard from "@/components/CtaCard";
 import { EarnPageBecomeAJurorTab } from "@/queries/earn/tabs-data";
-import EnterCourtSection from "./EnterCourtSection";
+
 import CourtsSection from "./CourtsSection";
+import EnterCourtSection from "./EnterCourtSection";
 
 const JurorTabContent: React.FC<EarnPageBecomeAJurorTab> = ({
   title,
@@ -10,15 +11,15 @@ const JurorTabContent: React.FC<EarnPageBecomeAJurorTab> = ({
   enterCourtSection,
   mostActiveCourtsHeader,
   mostActiveCourts,
-  courtsButton
+  courtsButton,
 }) => {
   return (
-    <div className="pt-[88px] pb-7 lg:pt-24 lg:pb-12 space-y-12">
-      <div className="text-2xl md:text-3xl font-medium text-primary-text">
+    <div className="space-y-12 pb-7 pt-[88px] lg:pb-12 lg:pt-24">
+      <div className="text-2xl font-medium text-primary-text md:text-3xl">
         {title}
       </div>
       <div className="text-lg text-secondary-text">{description}</div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {ctaCard.map((card) => (
           <CtaCard key={card.title} {...card} />
         ))}

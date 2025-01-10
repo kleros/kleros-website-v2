@@ -50,7 +50,7 @@ export const tabSectionQuery = gql`
       courtsButton {
         text
         link {
-            url
+          url
         }
       }
     }
@@ -132,7 +132,7 @@ export type KlerosScoutSection = {
   productIcon: { url: string };
   learnMoreButton: ArrowLink;
   background: { url: string };
-  arrowLinks: ArrowLink[]
+  arrowLinks: ArrowLink[];
 };
 
 export type EarnPageBecomeAJurorTab = {

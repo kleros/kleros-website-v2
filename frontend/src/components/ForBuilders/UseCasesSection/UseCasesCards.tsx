@@ -9,7 +9,7 @@ interface IUseCasesCards {
 
 const UseCasesCards: React.FC<IUseCasesCards> = ({ useCasesData }) => {
   return (
-    <div className="flex mb-12 flex-row flex-wrap gap-4">
+    <div className="mb-12 flex flex-row flex-wrap gap-4">
       {useCasesData.useCases.map((useCase, index) => (
         <Tag key={index} text={useCase.name} selected={index === 0} />
       ))}

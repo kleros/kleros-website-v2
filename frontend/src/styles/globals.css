@@ -56,7 +56,9 @@ body {
 
 .transition-accordionHeight {
   max-height: 0;
-  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  transition:
+    max-height 0.3s ease-out,
+    opacity 0.3s ease-out;
   opacity: 0;
 }
 
@@ -81,8 +83,12 @@ body {
   border-radius: inherit;
   padding: 2px;
   background: linear-gradient(to bottom, #9747ff, #27cdfe);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   mask-composite: exclude;
   z-index: -1;
 }

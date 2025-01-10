@@ -9,7 +9,7 @@ import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
 interface IExternalLink {
   text: string;
   url: string;
-  className?: HTMLAttributes<HTMLDivElement>["className"]
+  className?: HTMLAttributes<HTMLDivElement>["className"];
 }
 const ExternalLink: React.FC<IExternalLink> = ({ text, url, className }) => {
   return (
@@ -18,11 +18,11 @@ const ExternalLink: React.FC<IExternalLink> = ({ text, url, className }) => {
       target="_blank"
       rel="noopener noreferrer"
       className={clsx(
-        "flex gap-4 items-center hover:brightness-[1.2]",
-        className
+        "flex items-center gap-4 hover:brightness-[1.2]",
+        className,
       )}
     >
-      <span className="text-lg text-primary-blue text-center">{text}</span>
+      <span className="text-center text-lg text-primary-blue">{text}</span>
       <Image
         src={LinkArrow}
         width="24"

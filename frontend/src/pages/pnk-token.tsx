@@ -55,15 +55,14 @@ export const getStaticProps = async () => {
 
   const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
-  const buyData = await graphQLClient.request<BuySectionQueryType>(
-    buySectionQuery
-  );
+  const buyData =
+    await graphQLClient.request<BuySectionQueryType>(buySectionQuery);
   const tokenNeedData = await graphQLClient.request<TokenNeedSectionQueryType>(
-    tokenNeedSectionQuery
+    tokenNeedSectionQuery,
   );
   const tokenomicsData =
     await graphQLClient.request<TokenomicsSectionQueryType>(
-      tokenomicsSectionQuery
+      tokenomicsSectionQuery,
     );
 
   return {
