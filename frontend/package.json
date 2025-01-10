@@ -15,15 +15,15 @@
     "clsx": "^2.1.1",
     "graphql": "^16.9.0",
     "graphql-request": "^7.1.0",
-    "next": "14.2.8",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-use": "^17.5.1"
+    "next": "^15.1.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-use": "^17.6.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.4",
+    "@types/react-dom": "^19.0.2",
     "eslint": "^8",
     "eslint-config-next": "^15.0.0",
     "lint-staged": "^15.3.0",
