@@ -11,9 +11,9 @@ const config: Config = {
       base: ["1rem", "1.188rem"],
       lg: ["1.5rem", "1.813rem"],
       xl: ["2rem", "2.375rem"],
-      '2xl': ["3rem", "3.625rem"],
-      '3xl': ["4rem", "4.813rem"],
-      '4xl': ["6rem", "7.188rem"],
+      "2xl": ["3rem", "3.625rem"],
+      "3xl": ["4rem", "4.813rem"],
+      "4xl": ["6rem", "7.188rem"],
     },
     extend: {
       colors: {
@@ -21,7 +21,7 @@ const config: Config = {
         foreground: "var(--foreground)",
         "primary-text": "#DAF0FF",
         "secondary-text": "#BECCE5",
-        "stroke": "#42498F",
+        stroke: "#42498F",
         "primary-purple": "#9747FF",
         "secondary-purple": "#BA75FE",
         "dark-purple": "#230079",
@@ -29,7 +29,16 @@ const config: Config = {
         "secondary-blue": "#7CE2FF",
         "background-1": "#1B003F",
         "background-2": "#220050",
-        "background-translucent": "rgba(34, 0, 80, 0.24)"
+        "background-translucent": "rgba(34, 0, 80, 0.24)",
+      },
+      keyframes: {
+        "h-scroll": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      animation: {
+        "h-scroll": "h-scroll 10s linear infinite",
       },
     },
   },

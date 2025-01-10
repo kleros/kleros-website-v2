@@ -24,6 +24,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .hover-pause-child-animation:hover {
+    & > * {
+      animation-play-state: paused;
+    }
+  }
 }
 
 @keyframes slideInFromRight {
