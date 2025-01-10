@@ -4,7 +4,6 @@ import Link from "next/link";
 // import Image from "next/image";
 
 import Button from "@/components/Button";
-
 import { IntegrateQueryType } from "@/queries/for-builders/integrate";
 
 interface IGetInTouch {
@@ -14,8 +13,8 @@ interface IGetInTouch {
 const GetInTouch: React.FC<IGetInTouch> = ({ integrateData }) => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center flex-column mt-16">
-        <h2 className="text-primary-text text-xl mb-8">
+      <div className="flex-column mt-16 flex flex-col items-center justify-center">
+        <h2 className="mb-8 text-xl text-primary-text">
           {integrateData.getInTouchSection.header}
         </h2>
         <Link

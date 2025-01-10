@@ -96,14 +96,51 @@ export interface EarnPageEnterCourtSection extends Struct.ComponentSchema {
   };
 }
 
+export interface CooperativeReportPageReportCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_cooperative_report_page_report_cards';
+  info: {
+    displayName: 'ReportCard';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    reportType: Schema.Attribute.Enumeration<['annual', 'treasury', 'risk']>;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    yearDropdownLabel: Schema.Attribute.String;
+    monthDropdownLabel: Schema.Attribute.String;
+    downloadButtonText: Schema.Attribute.String;
+  };
+}
+
+export interface CooperativeReportPageLearnMoreSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_cooperative_report_page_learn_more_sections';
+  info: {
+    displayName: 'LearnMoreSection';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    button: Schema.Attribute.Component<'content.button-link', false>;
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+  };
+}
+
 export interface ContentStatDisplay extends Struct.ComponentSchema {
   collectionName: 'components_content_stat_display';
   info: {
     displayName: 'StatDisplay';
+    description: '';
   };
   attributes: {
-    title: Schema.Attribute.String;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    statName: Schema.Attribute.String;
+    statValue: Schema.Attribute.String;
+    statValueSuffix: Schema.Attribute.String;
   };
 }
 
@@ -138,11 +175,12 @@ export interface ContentCtaCard extends Struct.ComponentSchema {
   collectionName: 'components_content_cta_cards';
   info: {
     displayName: 'CTACard';
+    description: '';
   };
   attributes: {
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     title: Schema.Attribute.String;
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     arrowLink: Schema.Attribute.Component<'content.button-link', false>;
   };
 }
@@ -168,6 +206,8 @@ declare module '@strapi/strapi' {
       'for-builders-page.get-in-touch-section': ForBuildersPageGetInTouchSection;
       'earn-page.kleros-scout-section': EarnPageKlerosScoutSection;
       'earn-page.enter-court-section': EarnPageEnterCourtSection;
+      'cooperative-report-page.report-card': CooperativeReportPageReportCard;
+      'cooperative-report-page.learn-more-section': CooperativeReportPageLearnMoreSection;
       'content.stat-display': ContentStatDisplay;
       'content.section': ContentSection;
       'content.navlink': ContentNavlink;

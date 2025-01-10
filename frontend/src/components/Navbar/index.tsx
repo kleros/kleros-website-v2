@@ -1,27 +1,30 @@
 import { useState } from "react";
-import { useLockBodyScroll, useWindowScroll } from "react-use";
+
+import clsx from "clsx";
 import Image from "next/image";
-import { responsiveSize } from "@/styles/responsiveSize";
-import HamburgerIcon from "@/assets/svgs/icons/hamburger.svg";
-import { NavbarQueryType } from "@/queries/navbar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLockBodyScroll, useWindowScroll } from "react-use";
+
+import HamburgerIcon from "@/assets/svgs/icons/hamburger.svg";
+import { NavbarQueryType } from "@/queries/navbar";
+import { responsiveSize } from "@/styles/responsiveSize";
+
 import DesktopNavigation from "./DesktopNavigation";
 import MobileMenu from "./MobileMenu";
-import clsx from "clsx";
 
 export const buttonStyle = clsx(
-  "px-4 py-2 bg-primary-blue text-background-1 rounded-full"
+  "px-4 py-2 bg-primary-blue text-background-1 rounded-full",
 );
 
 export const overlayStyle = clsx(
-  "fixed inset-0 bg-black bg-opacity-50 z-40 flex"
+  "fixed inset-0 bg-black bg-opacity-50 z-40 flex",
 );
 
 const headerBaseStyle = clsx(
   "flex fixed top-0 left-0 right-0 z-50 h-20 w-full",
   "justify-between items-center text-white",
-  "py-2 text-base transition-colors duration-500"
+  "py-2 text-base transition-colors duration-500",
 );
 
 interface INavbar {
@@ -49,11 +52,11 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
     <header
       className={clsx(
         headerBaseStyle,
-        isScrolled ? "bg-background-2" : "bg-transparent"
+        isScrolled ? "bg-background-2" : "bg-transparent",
       )}
       style={{
-        paddingLeft: responsiveSize(24, 256, 1024, 1920),
-        paddingRight: responsiveSize(24, 256, 1024, 1920),
+        paddingLeft: responsiveSize(24, 128, 1024, 1920),
+        paddingRight: responsiveSize(24, 128, 1024, 1920),
       }}
     >
       <Link href="/" className="flex items-center">
@@ -66,7 +69,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
       </Link>
 
       <button
-        className="block lg:hidden ml-auto text-white"
+        className="ml-auto block text-white lg:hidden"
         onClick={toggleMenu}
       >
         <Image
@@ -83,7 +86,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
         />
       </div>
 
-      <div className="hidden lg:flex items-center">
+      <div className="hidden items-center lg:flex">
         <Link
           href={navbarButton?.link.url}
           rel="noopener noreferrer"

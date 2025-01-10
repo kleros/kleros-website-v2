@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { useLockBodyScroll } from "react-use";
-import Link from "next/link";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useLockBodyScroll } from "react-use";
+
+import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 import {
   AppsSection,
   NavLink,
   ResourceSection,
   Social,
 } from "@/queries/navbar";
-import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
+
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
 
@@ -28,13 +31,13 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   socials,
 }) => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
-    null
+    null,
   );
 
   useLockBodyScroll(openDropdownIndex !== null);
 
   return (
-    <div className="hidden md:flex flex-row gap-x-8 my-2 whitespace-nowrap">
+    <div className="my-2 hidden flex-row gap-x-8 whitespace-nowrap md:flex">
       {navLinks?.map((navLink, index) => (
         <div
           key={navLink.path_name || navLink.title}
@@ -55,7 +58,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                 className="flex items-center"
                 onClick={() =>
                   setOpenDropdownIndex(
-                    openDropdownIndex === index ? null : index
+                    openDropdownIndex === index ? null : index,
                   )
                 }
               >
@@ -71,11 +74,11 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
 
               {openDropdownIndex === index && navLink.is_dropdown ? (
                 <div
-                  className="fixed inset-0 bg-black bg-opacity-50 z-40 animate-slideInFromTop"
+                  className="animate-slideInFromTop fixed inset-0 z-40 bg-black bg-opacity-50"
                   onClick={() => setOpenDropdownIndex(null)}
                 >
                   <div
-                    className="relative bg-background-2 mt-20"
+                    className="relative mt-20 bg-background-2"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {navLink?.title === "Apps" ? (

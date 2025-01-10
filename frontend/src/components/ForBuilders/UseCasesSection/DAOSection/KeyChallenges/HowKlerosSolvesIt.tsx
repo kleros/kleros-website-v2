@@ -1,13 +1,14 @@
 import React from "react";
 
-import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
-import Card from "@/components/Navbar/AppsDropdownContent/Card";
-import Image from "next/image";
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 
+import Card from "@/components/Navbar/AppsDropdownContent/Card";
+import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
+
 const hoverEffect = clsx(
-  "hover:scale-[1.03] transform transition duration-100"
+  "hover:scale-[1.03] transform transition duration-100",
 );
 
 interface IHowKlerosSolvesIt {
@@ -17,15 +18,15 @@ interface IHowKlerosSolvesIt {
 const HowKlerosSolvesIt: React.FC<IHowKlerosSolvesIt> = ({ useCasesData }) => {
   return (
     <div>
-      <h2 className="text-xl mb-6 text-primary-purple">
+      <h2 className="mb-6 text-xl text-primary-purple">
         {useCasesData.solutionSections.header}
       </h2>
-      <div className="bg-background-2 border border-stroke rounded-2xl p-6">
-        <h2 className="text-xl mb-4">{useCasesData.solutionSections.title}</h2>
-        <div className="text-lg text-secondary-text mb-8">
+      <div className="rounded-2xl border border-stroke bg-background-2 p-6">
+        <h2 className="mb-4 text-xl">{useCasesData.solutionSections.title}</h2>
+        <div className="mb-8 text-lg text-secondary-text">
           {useCasesData.solutionSections.description}
         </div>
-        <div className="text-secondary-text mb-4">
+        <div className="mb-4 text-secondary-text">
           {useCasesData.solutionSections.solutionHeader}
         </div>
         <div className="mb-6">
@@ -35,10 +36,10 @@ const HowKlerosSolvesIt: React.FC<IHowKlerosSolvesIt> = ({ useCasesData }) => {
             variant="small"
           />
         </div>
-        <div className="text-secondary-text mb-4">
+        <div className="mb-4 text-secondary-text">
           {useCasesData.solutionSections.partnersHeader}
         </div>
-        <div className="flex flex-row border border-stroke rounded-2xl p-4 gap-x-6">
+        <div className="flex flex-row gap-x-6 rounded-2xl border border-stroke p-4">
           {useCasesData.solutionSections.partners.map((partner) => (
             <Link
               key={partner?.name}

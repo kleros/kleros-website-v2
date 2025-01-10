@@ -13,8 +13,8 @@ export const footerQuery = gql`
     }
     footerSocialsSection {
       socials {
-        name,
-        url,
+        name
+        url
         icon_white {
           url
         }
@@ -34,28 +34,28 @@ export const footerQuery = gql`
 export type FooterQueryType = {
   footerLinksSection: {
     Section: {
-      title: string,
+      title: string;
       links: {
-        name: string,
-        url: string,
-      }[],
-    }[],
-  },
+        name: string;
+        url: string;
+      }[];
+    }[];
+  };
   footerSocialsSection: {
     socials: {
-      name: string,
-      url: string,
+      name: string;
+      url: string;
       icon_white: {
-        url: string
-      },
-    }[],
-  },
+        url: string;
+      };
+    }[];
+  };
   footerSubscribeCta: {
     logo: {
-      url: string
-    },
-    notice: string,
-    cta_text: string,
-    cta_button: string,
-  },
+      url: string;
+    };
+    notice: string;
+    cta_text: string;
+    cta_button: string;
+  };
 };

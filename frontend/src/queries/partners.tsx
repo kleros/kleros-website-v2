@@ -13,9 +13,9 @@ export const partnersQuery = gql`
 
 export type PartnersQueryType = {
   partners: {
-    name: string,
+    name: string;
     icon_svg: {
-      url: string
-    }
-  }[]
+      url: string;
+    };
+  }[];
 };

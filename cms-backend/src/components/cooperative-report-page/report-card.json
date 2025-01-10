@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_cooperative_report_page_report_cards",
+  "info": {
+    "displayName": "ReportCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "reportType": {
+      "type": "enumeration",
+      "enum": [
+        "annual",
+        "treasury",
+        "risk"
+      ]
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "yearDropdownLabel": {
+      "type": "string"
+    },
+    "monthDropdownLabel": {
+      "type": "string"
+    },
+    "downloadButtonText": {
+      "type": "string"
+    }
+  }
+}
