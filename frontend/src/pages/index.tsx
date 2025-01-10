@@ -25,17 +25,16 @@ const Home: React.FC<IHome> = ({
     <div>
       <Navbar {...{ navbarData }} />
       <Hero {...{ heroData }} />
-      <TrustedBy {...{ partnersData }}/>
-      <Footer {...{ footerData }}/>
+      <TrustedBy {...{ partnersData }} />
+      <Footer {...{ footerData }} />
     </div>
   );
 };
 
 export const getStaticProps = async () => {
   const navbarData = await graphQLClient.request<NavbarQueryType>(navbarQuery);
-  const partnersData = await graphQLClient.request<PartnersQueryType>(
-    partnersQuery
-  );
+  const partnersData =
+    await graphQLClient.request<PartnersQueryType>(partnersQuery);
   const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
 

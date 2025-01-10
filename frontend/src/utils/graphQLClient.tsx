@@ -6,10 +6,6 @@ const endpoint = getStrapiURL("/graphql");
 
 const token = process.env.STRAPI_TOKEN;
 
-export const graphQLClient = new GraphQLClient(
-  endpoint,
-  {
-    headers: { Authorization: `Bearer ${token}` }
-  }
-);
-
+export const graphQLClient = new GraphQLClient(endpoint, {
+  headers: { Authorization: `Bearer ${token}` },
+});

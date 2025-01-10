@@ -8,7 +8,7 @@ const hoverScaleUp = clsx("transform transition duration-75");
 const hoverScaleUpLink = clsx(hoverScaleUp, "hover:scale-[1.01]");
 const hoverScaleUpLogo = clsx(hoverScaleUp, "hover:scale-[1.10]");
 const borderStyle = clsx(
-  "border-stroke border-t lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 pt-5"
+  "border-stroke border-t lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 pt-5",
 );
 
 interface ResourcesDropdownContentProps {
@@ -23,14 +23,14 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
   return (
     <div
       className={clsx(
-        "flex flex-col mt-4 bg-background-2",
-        "items-center lg:mt-0"
+        "mt-4 flex flex-col bg-background-2",
+        "items-center lg:mt-0",
       )}
     >
       <div
         className={clsx(
-          "w-full grid gap-4 grid-cols-1",
-          "max-w-screen-lg lg:py-12 lg:grid-cols-3"
+          "grid w-full grid-cols-1 gap-4",
+          "max-w-screen-lg lg:grid-cols-3 lg:py-12",
         )}
       >
         {resourceSections?.map((section, index) => (
@@ -38,11 +38,11 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
             key={section.title}
             className={clsx(
               "flex items-start gap-4",
-              index !== 0 && borderStyle
+              index !== 0 && borderStyle,
             )}
           >
-            <div className="flex flex-col gap-4 bg-background-2 rounded-lg w-full lg:w-96">
-              <h3 className="text-primary-purple font-bold text-base">
+            <div className="flex w-full flex-col gap-4 rounded-lg bg-background-2 lg:w-96">
+              <h3 className="text-base font-bold text-primary-purple">
                 {section.title}
               </h3>
               <ul className="flex flex-col gap-2">
@@ -64,8 +64,8 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
       </div>
       <div
         className={clsx(
-          "w-full flex justify-start py-3 gap-6",
-          "lg:py-8 lg:gap-8 lg:bg-background-1 lg:justify-center"
+          "flex w-full justify-start gap-6 py-3",
+          "lg:justify-center lg:gap-8 lg:bg-background-1 lg:py-8",
         )}
       >
         {socials?.map((social) => (

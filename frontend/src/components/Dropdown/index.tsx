@@ -24,7 +24,7 @@ const Dropdown: React.FC<IDropwdownProps> = ({ items, value, onChange }) => {
 
   const keyFromValue = useMemo(
     () => items.find((item) => item.value === value)?.key ?? "Select",
-    [items, value]
+    [items, value],
   );
 
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -37,16 +37,16 @@ const Dropdown: React.FC<IDropwdownProps> = ({ items, value, onChange }) => {
       onChange(value);
       toggleDropdown();
     },
-    [toggleDropdown, onChange]
+    [toggleDropdown, onChange],
   );
 
   return (
     <div className="relative h-fit" ref={dropdownRef}>
       <button
-        className="flex flex-row gap-2 items-center"
+        className="flex flex-row items-center gap-2"
         onClick={toggleDropdown}
       >
-        <span className="text-primary-blue text-lg">{keyFromValue}</span>
+        <span className="text-lg text-primary-blue">{keyFromValue}</span>
         <Image
           src={DownArrowIcon}
           alt="Down Arrow"
@@ -57,9 +57,9 @@ const Dropdown: React.FC<IDropwdownProps> = ({ items, value, onChange }) => {
       </button>
       <div
         className={clsx(
-          "absolute bg-background-1 z-10 mt-2 rounded-2xl border border-stroke",
-          "flex flex-col gap-4 p-[10px] max-h-[300px] w-[200px] md:w-[348px]",
-          isOpen ? "visible" : "hidden"
+          "absolute z-10 mt-2 rounded-2xl border border-stroke bg-background-1",
+          "flex max-h-[300px] w-[200px] flex-col gap-4 p-[10px] md:w-[348px]",
+          isOpen ? "visible" : "hidden",
         )}
       >
         {items.map((item) => (

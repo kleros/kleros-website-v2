@@ -11,9 +11,9 @@ const Tag: React.FC<ITag> = ({ text, selected, className }) => {
       className={clsx(
         "rounded-full px-8 py-4 text-center",
         selected
-          ? "bg-primary-purple text-lg text-white "
+          ? "bg-primary-purple text-lg text-white"
           : "border-gradient-purple-blue text-lg text-secondary-text",
-        className
+        className,
       )}
     >
       {text}

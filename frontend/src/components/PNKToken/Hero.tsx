@@ -13,11 +13,13 @@ interface IHero {
 }
 
 const Hero: React.FC<IHero> = ({ heroData }) => {
-    const {header, subtitle, buyButton, background} = heroData.pnkTokenPageHero
+  const { header, subtitle, buyButton, background } = heroData.pnkTokenPageHero;
   return (
-    <div className="relative pt-44 md:pt-52 pb-52 lg:pb-60 px-6 lg:px-32">
+    <div className="relative px-6 pb-52 pt-44 md:pt-52 lg:px-32 lg:pb-60">
       <div className="space-y-8">
-        <h1 className="text-3xl lg:text-4xl font-medium pt-1 lg:pt-3">{header}</h1>
+        <h1 className="pt-1 text-3xl font-medium lg:pt-3 lg:text-4xl">
+          {header}
+        </h1>
         <p className="max-w-[685px] text-lg">{subtitle}</p>
         <div>
           <Link
@@ -30,13 +32,13 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
             </Button>
           </Link>
         </div>
-       <Explorers explorers={heroData.tokenExplorers}/>
+        <Explorers explorers={heroData.tokenExplorers} />
       </div>
       <Image
         src={background.url}
         alt="Hero Image Background"
         fill
-        className="absolute top-0 left-0 h-full z-[-1] object-cover"
+        className="absolute left-0 top-0 z-[-1] h-full object-cover"
       />
     </div>
   );

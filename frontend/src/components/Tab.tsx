@@ -21,11 +21,11 @@ const Tab = <T,>({ items, currentValue, callback, className }: ITab<T>) => {
         callback(value);
       }
     },
-    [callback]
+    [callback],
   );
 
   return (
-    <div role="tablist" className={`h-fit w-full flex ${className}`}>
+    <div role="tablist" className={`flex h-fit w-full ${className}`}>
       {items.map((item, i) => (
         <div
           role="tab"
@@ -34,12 +34,12 @@ const Tab = <T,>({ items, currentValue, callback, className }: ITab<T>) => {
           key={item.text}
           className={clsx(
             "min-h-14",
-            "hover:text-primary-blue hover:border-b-[3px] hover:border-b-primary-blue hover:cursor-pointer transition-all",
-            "flex items-center justify-center flex-grow pb-6",
-            "text-lg text-center font-medium",
+            "transition-all hover:cursor-pointer hover:border-b-[3px] hover:border-b-primary-blue hover:text-primary-blue",
+            "flex flex-grow items-center justify-center pb-6",
+            "text-center text-lg font-medium",
             item.value === currentValue
-              ? "text-primary-blue border-b-[3px] border-b-primary-blue"
-              : "text-secondary-text border-b border-b-stroke"
+              ? "border-b-[3px] border-b-primary-blue text-primary-blue"
+              : "border-b border-b-stroke text-secondary-text",
           )}
           onClick={() => callback(item.value)}
           onKeyDown={(e) => handleKeyDown(e, item.value)}

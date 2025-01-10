@@ -9,13 +9,13 @@ interface IMemberSection {
 
 const MemberSection: React.FC<IMemberSection> = ({ memberData }) => {
   return (
-    <div className="bg-background-1 py-12 lg:py-24 px-6 lg:px-32">
-      <h1 className="text-2xl lg:text-3xl text-primary-text font-medium mb-8">
+    <div className="bg-background-1 px-6 py-12 lg:px-32 lg:py-24">
+      <h1 className="mb-8 text-2xl font-medium text-primary-text lg:text-3xl">
         {memberData.header}
       </h1>
-      <p className="text-lg text-secondary-text mb-16">{memberData.subtitle}</p>
+      <p className="mb-16 text-lg text-secondary-text">{memberData.subtitle}</p>
       <LearnMore {...memberData.learnMoreSection} />
-      <h1 className="text-2xl lg:text-3xl text-primary-text font-medium mb-8 mt-16">
+      <h1 className="mb-8 mt-16 text-2xl font-medium text-primary-text lg:text-3xl">
         {memberData.secondaryHeader}
       </h1>
       <ExternalLink

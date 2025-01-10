@@ -21,8 +21,8 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
   return (
     <div
       className={clsx(
-        "mt-4 lg:mt-0 w-full lg:w-[1172px] py-2 lg:py-12 grid gap-3 lg:gap-4",
-        "grid-cols-1 lg:grid-cols-3 bg-background-2 mx-auto"
+        "mt-4 grid w-full gap-3 py-2 lg:mt-0 lg:w-[1172px] lg:gap-4 lg:py-12",
+        "mx-auto grid-cols-1 bg-background-2 lg:grid-cols-3",
       )}
     >
       <div className="flex flex-col gap-3 lg:gap-4">
@@ -55,7 +55,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
           rel="noopener noreferrer"
           target="_blank"
           href={appsSection?.arrowLink.link.url}
-          className="text-primary-blue self-start lg:self-end"
+          className="self-start text-primary-blue lg:self-end"
         >
           <span className="mr-4">{appsSection?.arrowLink.text}</span>
           <Image

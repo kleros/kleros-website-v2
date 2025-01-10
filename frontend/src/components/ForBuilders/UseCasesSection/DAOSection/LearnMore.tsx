@@ -16,9 +16,11 @@ const LearnMore: React.FC<ILearnMore> = ({ useCasesData }) => {
       href={useCasesData.arrowLink.link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="block mt-16 text-center"
+      className="mt-16 block text-center"
     >
-      <span className="mr-4 text-lg text-primary-blue">{useCasesData.arrowLink.text}</span>
+      <span className="mr-4 text-lg text-primary-blue">
+        {useCasesData.arrowLink.text}
+      </span>
       <Image
         src={LinkArrow}
         width="24"

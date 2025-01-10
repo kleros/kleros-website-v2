@@ -24,22 +24,22 @@ const CtaCard: React.FC<ICtaCard> = ({
   arrowLink,
 }) => {
   return (
-    <div className="flex flex-col items-start border border-stroke rounded-2xl p-6">
+    <div className="flex flex-col items-start rounded-2xl border border-stroke p-6">
       <Image
         width={90}
         height={90}
         src={icon.url}
-        className="object-contain mb-4 aspect-square"
+        className="mb-4 aspect-square object-contain"
         alt="Icon"
       />
-      <h2 className="text-xl text-primary-text font-medium mb-6">{title}</h2>
-      <p className="text-lg text-secondary-text mb-6">{description}</p>
-      <div className="w-full mt-auto">
+      <h2 className="mb-6 text-xl font-medium text-primary-text">{title}</h2>
+      <p className="mb-6 text-lg text-secondary-text">{description}</p>
+      <div className="mt-auto w-full">
         <Divider />
         <ExternalLink
           text={arrowLink.text}
           url={arrowLink.link.url}
-          className="mt-6 mb-1 flex-wrap justify-start"
+          className="mb-1 mt-6 flex-wrap justify-start"
         />
       </div>
     </div>

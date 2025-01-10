@@ -9,14 +9,14 @@ interface IExplorers {
 
 const Explorers: React.FC<IExplorers> = ({ explorers }) => {
   return (
-    <div className="flex flex-wrap gap-6 lg:gap-12 pb-2 lg:pb-1">
+    <div className="flex flex-wrap gap-6 pb-2 lg:gap-12 lg:pb-1">
       {explorers.map((explorer) => (
         <Link
           key={explorer.name}
           href={explorer.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="block relative h-6 min-w-32 items-start"
+          className="relative block h-6 min-w-32 items-start"
         >
           <Image
             src={explorer.icon.url}

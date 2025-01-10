@@ -11,7 +11,12 @@ interface IFeaturedExchange {
 const FeaturedExchange: React.FC<IFeaturedExchange> = ({ exchange }) => {
   return (
     <Link href={exchange.url} target="_blank" rel="noopener noreferrer">
-      <div className={clsx("h-40 flex flex-col gap-5 items-center justify-center border border-stroke rounded-2xl px-2 ", hoverEffect)}>
+      <div
+        className={clsx(
+          "flex h-40 flex-col items-center justify-center gap-5 rounded-2xl border border-stroke px-2",
+          hoverEffect,
+        )}
+      >
         <div className="relative h-16 w-60">
           <Image src={exchange.icon.url} alt={exchange.name} fill />
         </div>

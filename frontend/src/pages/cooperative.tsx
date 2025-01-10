@@ -29,14 +29,14 @@ const Cooperative: React.FC<ICooperative> = ({
   heroData,
   navbarData,
   reportData,
-  memberSectionData
+  memberSectionData,
 }) => {
   return (
     <div>
       <Navbar {...{ navbarData }} />
       <Hero heroData={heroData} />
-      <ReportSection reportsData={reportData}/>
-      <MemberSection memberData={memberSectionData}/>
+      <ReportSection reportsData={reportData} />
+      <MemberSection memberData={memberSectionData} />
       <Footer {...{ footerData }} />
     </div>
   );
@@ -48,11 +48,11 @@ export const getStaticProps = async () => {
   const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
   const reportData =
     await graphQLClient.request<CooperativePageReportQueryType>(
-      cooperativePageReportQuery
+      cooperativePageReportQuery,
     );
   const memberSectionData =
     await graphQLClient.request<CooperativePageMemberQueryType>(
-      cooperativePageMemberQuery
+      cooperativePageMemberQuery,
     );
 
   return {
