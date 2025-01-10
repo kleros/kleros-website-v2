@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fellows",
+  "info": {
+    "singularName": "fellow",
+    "pluralName": "fellows",
+    "displayName": "Fellow"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "profession": {
+      "type": "string"
+    },
+    "workText": {
+      "type": "string"
+    },
+    "arrowLinkText": {
+      "type": "string"
+    },
+    "reportUrl": {
+      "type": "string"
+    },
+    "profilePic": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
