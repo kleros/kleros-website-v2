@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_publications",
+  "info": {
+    "singularName": "team-publication",
+    "pluralName": "team-publications",
+    "displayName": "TeamPublication"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "topic": {
+      "type": "string"
+    },
+    "authors": {
+      "type": "string"
+    },
+    "paperLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    }
+  }
+}

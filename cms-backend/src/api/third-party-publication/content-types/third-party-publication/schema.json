@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "third_party_publications",
+  "info": {
+    "singularName": "third-party-publication",
+    "pluralName": "third-party-publications",
+    "displayName": "ThirdPartyPublication",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Topic": {
+      "type": "text"
+    },
+    "paperLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    }
+  }
+}
