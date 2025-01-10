@@ -1,11 +1,7 @@
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import BuySection from "@/components/PNKToken/BuySection";
 import Hero from "@/components/PNKToken/Hero";
 import TokenNeedSection from "@/components/PNKToken/TokenNeedSection";
 import TokenomicsSection from "@/components/PNKToken/TokenomicsSection";
-import { footerQuery, FooterQueryType } from "@/queries/footer";
-import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import { heroQuery, HeroQueryType } from "@/queries/pnk-token/hero";
 import {
   buySectionQuery,
@@ -22,8 +18,6 @@ import {
 import { graphQLClient } from "@/utils/graphQLClient";
 
 const PNKToken: React.FC = async () => {
-  const navbarData = await graphQLClient.request<NavbarQueryType>(navbarQuery);
-  const footerData = await graphQLClient.request<FooterQueryType>(footerQuery);
   const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
   const buyData =
     await graphQLClient.request<BuySectionQueryType>(buySectionQuery);
@@ -34,9 +28,9 @@ const PNKToken: React.FC = async () => {
     await graphQLClient.request<TokenomicsSectionQueryType>(
       tokenomicsSectionQuery,
     );
+
   return (
-    <div>
-      <Navbar {...{ navbarData }} />
+    <>
       <Hero {...{ heroData }} />
       <BuySection {...{ buyData: buyData.pnkTokenPageBuySection }} />
       <TokenNeedSection
@@ -45,8 +39,7 @@ const PNKToken: React.FC = async () => {
       <TokenomicsSection
         {...{ tokenomicsData: tokenomicsData.pnkTokenPageTokenomicsSection }}
       />
-      <Footer {...{ footerData }} />
-    </div>
+    </>
   );
 };
 
