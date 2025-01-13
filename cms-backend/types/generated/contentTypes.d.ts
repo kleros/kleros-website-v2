@@ -1467,6 +1467,10 @@ export interface ApiRAndDPageFellowshipTabSectionRAndDPageFellowshipTabSection
     testimonialsHeader: Schema.Attribute.String;
     fellowsHeader: Schema.Attribute.String;
     tabName: Schema.Attribute.String;
+    waitlistSection: Schema.Attribute.Component<
+      'r-and-d-page.waitlist-section',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1478,37 +1482,6 @@ export interface ApiRAndDPageFellowshipTabSectionRAndDPageFellowshipTabSection
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::r-and-d-page-fellowship-tab-section.r-and-d-page-fellowship-tab-section'
-    >;
-  };
-}
-
-export interface ApiRAndDPageFellowshipWaitlistSectionRAndDPageFellowshipWaitlistSection
-  extends Struct.SingleTypeSchema {
-  collectionName: 'r_and_d_page_fellowship_waitlist_sections';
-  info: {
-    singularName: 'r-and-d-page-fellowship-waitlist-section';
-    pluralName: 'r-and-d-page-fellowship-waitlist-sections';
-    displayName: 'R&DPageFellowshipWaitlistSection';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    header: Schema.Attribute.String;
-    applyButton: Schema.Attribute.Component<'content.button-link', false>;
-    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::r-and-d-page-fellowship-waitlist-section.r-and-d-page-fellowship-waitlist-section'
     >;
   };
 }
@@ -1588,7 +1561,7 @@ export interface ApiResearchResearch extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'research';
     pluralName: 'researches';
-    displayName: 'research';
+    displayName: 'Research';
     description: '';
   };
   options: {
@@ -1792,7 +1765,7 @@ export interface ApiThirdPartyPublicationThirdPartyPublication
     draftAndPublish: true;
   };
   attributes: {
-    Topic: Schema.Attribute.Text;
+    topic: Schema.Attribute.Text;
     paperLink: Schema.Attribute.Component<'content.button-link', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -2348,7 +2321,6 @@ declare module '@strapi/strapi' {
       'api::pnk-token-page-need-section.pnk-token-page-need-section': ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection;
       'api::pnk-token-page-tokenomics-section.pnk-token-page-tokenomics-section': ApiPnkTokenPageTokenomicsSectionPnkTokenPageTokenomicsSection;
       'api::r-and-d-page-fellowship-tab-section.r-and-d-page-fellowship-tab-section': ApiRAndDPageFellowshipTabSectionRAndDPageFellowshipTabSection;
-      'api::r-and-d-page-fellowship-waitlist-section.r-and-d-page-fellowship-waitlist-section': ApiRAndDPageFellowshipWaitlistSectionRAndDPageFellowshipWaitlistSection;
       'api::r-and-d-page-hero.r-and-d-page-hero': ApiRAndDPageHeroRAndDPageHero;
       'api::r-and-d-page-research-tab-section.r-and-d-page-research-tab-section': ApiRAndDPageResearchTabSectionRAndDPageResearchTabSection;
       'api::research.research': ApiResearchResearch;
