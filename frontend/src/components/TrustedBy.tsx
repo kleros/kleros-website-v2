@@ -3,20 +3,18 @@ import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
 
-import { PartnersQueryType } from "@/queries/partners";
+import { partnersQuery, PartnersQueryType } from "@/queries/partners";
+import { request } from "@/utils/graphQLClient";
 
-interface ITrustedBy {
-  partnersData: PartnersQueryType;
-}
-
-const TrustedBy: React.FC<ITrustedBy> = ({ partnersData }) => {
+const TrustedBy: React.FC = async () => {
+  const partnersData = await request<PartnersQueryType>(partnersQuery);
   const partners = partnersData.partners;
 
   return (
-    <div className="bg-background-2 px-6 py-4">
-      <p className="mx-auto mb-2 w-max text-2xl text-secondary-text">
+    <div className="bg-background-2 px-6 py-12">
+      <h3 className="mx-auto mb-8 w-max text-lg text-secondary-text">
         Trusted By
-      </p>
+      </h3>
       <div
         className={clsx(
           "hover-pause-child-animation",
