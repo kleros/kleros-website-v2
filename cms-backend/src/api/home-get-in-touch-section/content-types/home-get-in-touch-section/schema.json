@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home-get-in-touch-section",
     "pluralName": "home-get-in-touch-sections",
-    "displayName": "HomeGetInTouchSection"
+    "displayName": "HomeGetInTouchSection",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,24 +19,21 @@
     "subtitle": {
       "type": "string"
     },
-    "link": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::link.link"
-    },
-    "cta_text": {
-      "type": "string",
-      "required": true
-    },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
     }
   }
 }

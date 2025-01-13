@@ -37,17 +37,15 @@ export interface PnkTokenPageTokenStatDisplay extends Struct.ComponentSchema {
   };
 }
 
-export interface HomePageCard extends Struct.ComponentSchema {
-  collectionName: 'components_home_page_cards';
+export interface HomeIntroduction extends Struct.ComponentSchema {
+  collectionName: 'components_home_introductions';
   info: {
-    displayName: 'Card';
-    description: '';
+    displayName: 'introduction';
   };
   attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    url: Schema.Attribute.String;
+    heading_text: Schema.Attribute.String;
+    link: Schema.Attribute.Component<'content.button-link', false>;
+    closing_text: Schema.Attribute.String;
   };
 }
 
@@ -198,6 +196,20 @@ export interface ContentNavlink extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentLinkCard extends Struct.ComponentSchema {
+  collectionName: 'components_content_link_cards';
+  info: {
+    displayName: 'LinkCard';
+    description: '';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String;
+    link: Schema.Attribute.Component<'content.button-link', false>;
+  };
+}
+
 export interface ContentCtaCard extends Struct.ComponentSchema {
   collectionName: 'components_content_cta_cards';
   info: {
@@ -229,7 +241,7 @@ declare module '@strapi/strapi' {
       'r-and-d-page.waitlist-section': RAndDPageWaitlistSection;
       'r-and-d-page.kleros-book': RAndDPageKlerosBook;
       'pnk-token-page.token-stat-display': PnkTokenPageTokenStatDisplay;
-      'home-page.card': HomePageCard;
+      'home.introduction': HomeIntroduction;
       'for-builders-page.solution-section': ForBuildersPageSolutionSection;
       'for-builders-page.key-challenge': ForBuildersPageKeyChallenge;
       'for-builders-page.get-in-touch-section': ForBuildersPageGetInTouchSection;
@@ -240,6 +252,7 @@ declare module '@strapi/strapi' {
       'content.stat-display': ContentStatDisplay;
       'content.section': ContentSection;
       'content.navlink': ContentNavlink;
+      'content.link-card': ContentLinkCard;
       'content.cta-card': ContentCtaCard;
       'content.button-link': ContentButtonLink;
     }

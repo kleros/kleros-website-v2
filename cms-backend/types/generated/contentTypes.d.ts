@@ -515,37 +515,6 @@ export interface ApiAnnualReportAnnualReport
   };
 }
 
-export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
-  collectionName: 'blog_posts';
-  info: {
-    singularName: 'blog-post';
-    pluralName: 'blog-posts';
-    displayName: 'BlogPost';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    subtitle: Schema.Attribute.String;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
-    urlName: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::blog-post.blog-post'
-    >;
-  };
-}
-
 export interface ApiCommunityCommunity extends Struct.CollectionTypeSchema {
   collectionName: 'communities';
   info: {
@@ -1128,10 +1097,6 @@ export interface ApiHomeCaseStudiesSectionHomeCaseStudiesSection
   attributes: {
     title: Schema.Attribute.String & Schema.Attribute.Required;
     subtitle: Schema.Attribute.Text;
-    blog_posts: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::blog-post.blog-post'
-    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1154,6 +1119,7 @@ export interface ApiHomeGetInTouchSectionHomeGetInTouchSection
     singularName: 'home-get-in-touch-section';
     pluralName: 'home-get-in-touch-sections';
     displayName: 'HomeGetInTouchSection';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1161,9 +1127,8 @@ export interface ApiHomeGetInTouchSectionHomeGetInTouchSection
   attributes: {
     title: Schema.Attribute.String & Schema.Attribute.Required;
     subtitle: Schema.Attribute.String;
-    link: Schema.Attribute.Relation<'oneToOne', 'api::link.link'>;
-    cta_text: Schema.Attribute.String & Schema.Attribute.Required;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Component<'content.button-link', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1186,6 +1151,7 @@ export interface ApiHomeHowKlerosWorksSectionHomeHowKlerosWorksSection
     singularName: 'home-how-kleros-works-section';
     pluralName: 'home-how-kleros-works-sections';
     displayName: 'HomeHowKlerosWorksSection';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1198,6 +1164,9 @@ export interface ApiHomeHowKlerosWorksSectionHomeHowKlerosWorksSection
       'images' | 'files' | 'videos' | 'audios'
     > &
       Schema.Attribute.Required;
+    explainer_desktop: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1220,6 +1189,7 @@ export interface ApiHomeLearnPostsSectionHomeLearnPostsSection
     singularName: 'home-learn-posts-section';
     pluralName: 'home-learn-posts-sections';
     displayName: 'HomeLearnPostsSection';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1227,10 +1197,8 @@ export interface ApiHomeLearnPostsSectionHomeLearnPostsSection
   attributes: {
     title: Schema.Attribute.String & Schema.Attribute.Required;
     subtitle: Schema.Attribute.String;
-    blog_posts: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::blog-post.blog-post'
-    >;
+    cards: Schema.Attribute.Component<'content.link-card', true>;
+    introduction: Schema.Attribute.Component<'home.introduction', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1296,8 +1264,8 @@ export interface ApiHomeStartEarningSectionHomeStartEarningSection
   attributes: {
     title: Schema.Attribute.String & Schema.Attribute.Required;
     subtitle: Schema.Attribute.String;
-    Cards: Schema.Attribute.Component<'home-page.card', true>;
     cta: Schema.Attribute.Component<'content.section', true>;
+    cards: Schema.Attribute.Component<'content.link-card', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2486,7 +2454,6 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::annual-report.annual-report': ApiAnnualReportAnnualReport;
-      'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::community.community': ApiCommunityCommunity;
       'api::community-page-hero.community-page-hero': ApiCommunityPageHeroCommunityPageHero;
       'api::cooperative-page-hero.cooperative-page-hero': ApiCooperativePageHeroCooperativePageHero;

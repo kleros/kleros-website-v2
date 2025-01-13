@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home-learn-posts-section",
     "pluralName": "home-learn-posts-sections",
-    "displayName": "HomeLearnPostsSection"
+    "displayName": "HomeLearnPostsSection",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,10 +19,16 @@
     "subtitle": {
       "type": "string"
     },
-    "blog_posts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::blog-post.blog-post"
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.link-card"
+    },
+    "introduction": {
+      "displayName": "introduction",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.introduction"
     }
   }
 }

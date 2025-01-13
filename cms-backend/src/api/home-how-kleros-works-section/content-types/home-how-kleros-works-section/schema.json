@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home-how-kleros-works-section",
     "pluralName": "home-how-kleros-works-sections",
-    "displayName": "HomeHowKlerosWorksSection"
+    "displayName": "HomeHowKlerosWorksSection",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,6 +25,17 @@
       "required": true
     },
     "explainer": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "explainer_desktop": {
       "allowedTypes": [
         "images",
         "files",
@@ -31,8 +43,7 @@
         "audios"
       ],
       "type": "media",
-      "multiple": false,
-      "required": true
+      "multiple": false
     }
   }
 }

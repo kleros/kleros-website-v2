@@ -1,19 +1,11 @@
 {
-  "collectionName": "components_home_page_cards",
+  "collectionName": "components_content_link_cards",
   "info": {
-    "displayName": "Card",
+    "displayName": "LinkCard",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "subtitle": {
-      "type": "string",
-      "required": true
-    },
     "icon": {
       "type": "media",
       "multiple": false,
@@ -25,8 +17,17 @@
         "audios"
       ]
     },
-    "url": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
       "type": "string"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
     }
   }
 }

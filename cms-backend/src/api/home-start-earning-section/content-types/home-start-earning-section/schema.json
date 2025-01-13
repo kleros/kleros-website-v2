@@ -19,15 +19,15 @@
     "subtitle": {
       "type": "string"
     },
-    "Cards": {
-      "type": "component",
-      "repeatable": true,
-      "component": "home-page.card"
-    },
     "cta": {
       "type": "component",
       "repeatable": true,
       "component": "content.section"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.link-card"
     }
   }
 }
