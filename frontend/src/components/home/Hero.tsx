@@ -17,7 +17,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
       <div className="space-y-6">
         <h1 className="w-min text-3xl">{heroData.title}</h1>
         <p className="text-lg">{heroData.subtitle}</p>
-        <div>
+        <div className="lg:hidden">
           <Link
             href={heroData.primaryButton.link.url}
             target="_blank"

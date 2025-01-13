@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 import clsx from "clsx";
@@ -5,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
+import Button from "@/components/Button";
 import {
   AppsSection,
   NavbarButton,
@@ -15,8 +18,6 @@ import {
 
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
-
-import { buttonStyle } from "./index";
 
 const menuContainerStyle = clsx(
   "z-50 fixed w-screen top-20 right-0 bg-background-2 p-6",
@@ -105,9 +106,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           rel="noopener noreferrer"
           target="_blank"
         >
-          <button className={clsx(buttonStyle, "w-32")}>
+          <Button className="text-background-2">
             {navbarButton?.link.name}
-          </button>
+          </Button>
         </Link>
       </div>
     </div>

@@ -1,31 +1,20 @@
+"use client";
+
 import { useState } from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLockBodyScroll, useWindowScroll } from "react-use";
+import { useLockBodyScroll } from "react-use";
 
 import HamburgerIcon from "@/assets/svgs/icons/hamburger.svg";
+import Button from "@/components/Button";
 import { NavbarQueryType } from "@/queries/navbar";
 import { responsiveSize } from "@/styles/responsiveSize";
 
 import DesktopNavigation from "./DesktopNavigation";
 import MobileMenu from "./MobileMenu";
-
-export const buttonStyle = clsx(
-  "px-4 py-2 bg-primary-blue text-background-1 rounded-full",
-);
-
-export const overlayStyle = clsx(
-  "fixed inset-0 bg-black bg-opacity-50 z-40 flex",
-);
-
-const headerBaseStyle = clsx(
-  "flex fixed top-0 left-0 right-0 z-50 h-20 w-full",
-  "justify-between items-center text-white",
-  "py-2 text-base transition-colors duration-500",
-);
 
 interface INavbar {
   navbarData: NavbarQueryType;
@@ -33,8 +22,6 @@ interface INavbar {
 
 const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { y: scrollY } = useWindowScroll();
-  const isScrolled = scrollY >= 80;
   const pathname = usePathname();
 
   const klerosLogo = navbarData?.klerosLogo;
@@ -51,8 +38,9 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   return (
     <header
       className={clsx(
-        headerBaseStyle,
-        isScrolled ? "bg-background-2" : "bg-transparent",
+        "fixed left-0 right-0 top-0 z-50 flex h-20 w-full",
+        "items-center justify-between bg-black/35 px-2 py-2",
+        "text-base text-white backdrop-blur-md",
       )}
       style={{
         paddingLeft: responsiveSize(24, 128, 1024, 1920),
@@ -92,14 +80,17 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <button className={clsx(buttonStyle, "w-32")}>
+          <Button className="text-background-2">
             {navbarButton?.link.name}
-          </button>
+          </Button>
         </Link>
       </div>
 
       {menuOpen && (
-        <div className={overlayStyle} onClick={() => setMenuOpen(false)}>
+        <div
+          className={"fixed inset-0 z-40 flex bg-black bg-opacity-50"}
+          onClick={() => setMenuOpen(false)}
+        >
           <div className="relative" onClick={(e) => e.stopPropagation()}>
             <MobileMenu
               {...{
