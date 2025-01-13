@@ -26,6 +26,11 @@
     },
     "tabName": {
       "type": "string"
+    },
+    "waitlistSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "r-and-d-page.waitlist-section"
     }
   }
 }
