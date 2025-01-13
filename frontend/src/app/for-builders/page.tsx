@@ -10,14 +10,12 @@ import {
   useCasesQuery,
   UseCasesQueryType,
 } from "@/queries/for-builders/use-cases";
-import { graphQLClient } from "@/utils/graphQLClient";
+import { request } from "@/utils/graphQLClient";
 
 const ForBuilders: React.FC = async () => {
-  const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
-  const useCasesData =
-    await graphQLClient.request<UseCasesQueryType>(useCasesQuery);
-  const integrateData =
-    await graphQLClient.request<IntegrateQueryType>(integrateQuery);
+  const heroData = await request<HeroQueryType>(heroQuery);
+  const useCasesData = await request<UseCasesQueryType>(useCasesQuery);
+  const integrateData = await request<IntegrateQueryType>(integrateQuery);
 
   return (
     <>
