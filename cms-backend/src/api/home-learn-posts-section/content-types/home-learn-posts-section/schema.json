@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_learn_posts_sections",
+  "info": {
+    "singularName": "home-learn-posts-section",
+    "pluralName": "home-learn-posts-sections",
+    "displayName": "HomeLearnPostsSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "blog_posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-post.blog-post"
+    }
+  }
+}

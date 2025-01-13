@@ -24,6 +24,20 @@ export interface PnkTokenPageTokenStatDisplay extends Struct.ComponentSchema {
   };
 }
 
+export interface HomePageCard extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_cards';
+  info: {
+    displayName: 'Card';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface ForBuildersPageSolutionSection extends Struct.ComponentSchema {
   collectionName: 'solution_sections';
   info: {
@@ -201,6 +215,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'r-and-d-page.kleros-book': RAndDPageKlerosBook;
       'pnk-token-page.token-stat-display': PnkTokenPageTokenStatDisplay;
+      'home-page.card': HomePageCard;
       'for-builders-page.solution-section': ForBuildersPageSolutionSection;
       'for-builders-page.key-challenge': ForBuildersPageKeyChallenge;
       'for-builders-page.get-in-touch-section': ForBuildersPageGetInTouchSection;

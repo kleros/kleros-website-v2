@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_case_studies_sections",
+  "info": {
+    "singularName": "home-case-studies-section",
+    "pluralName": "home-case-studies-sections",
+    "displayName": "HomeCaseStudiesSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": false
+    },
+    "blog_posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-post.blog-post"
+    }
+  }
+}

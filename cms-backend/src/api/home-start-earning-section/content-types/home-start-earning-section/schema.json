@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_start_earning_sections",
+  "info": {
+    "singularName": "home-start-earning-section",
+    "pluralName": "home-start-earning-sections",
+    "displayName": "HomeStartEarningSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "Cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.card"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.section"
+    }
+  }
+}
