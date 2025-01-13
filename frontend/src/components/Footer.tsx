@@ -6,18 +6,18 @@ import Link from "next/link";
 
 import Button from "@/components/Button";
 import { FooterQueryType, footerQuery } from "@/queries/footer";
-import { graphQLClient } from "@/utils/graphQLClient";
+import { request } from "@/utils/graphQLClient";
 
 const hoverScaleUp = clsx("hover:scale-105 transform transition duration-75");
 
 const Footer: React.FC = async () => {
-  const { socials, sections, cta } = await graphQLClient
-    .request<FooterQueryType>(footerQuery)
-    .then((result) => ({
-      socials: result.footerSocialsSection.socials,
-      sections: result.footerLinksSection.Section,
-      cta: result.footerSubscribeCta,
-    }));
+  const { socials, sections, cta } = await request<FooterQueryType>(
+    footerQuery,
+  ).then((result) => ({
+    socials: result.footerSocialsSection.socials,
+    sections: result.footerLinksSection.Section,
+    cta: result.footerSubscribeCta,
+  }));
   return (
     <div>
       <div

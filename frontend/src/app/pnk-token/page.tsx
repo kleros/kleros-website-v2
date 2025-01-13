@@ -15,19 +15,17 @@ import {
   TokenomicsSectionQueryType,
   tokenomicsSectionQuery,
 } from "@/queries/pnk-token/tokenomics";
-import { graphQLClient } from "@/utils/graphQLClient";
+import { request } from "@/utils/graphQLClient";
 
 const PNKToken: React.FC = async () => {
-  const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
-  const buyData =
-    await graphQLClient.request<BuySectionQueryType>(buySectionQuery);
-  const tokenNeedData = await graphQLClient.request<TokenNeedSectionQueryType>(
+  const heroData = await request<HeroQueryType>(heroQuery);
+  const buyData = await request<BuySectionQueryType>(buySectionQuery);
+  const tokenNeedData = await request<TokenNeedSectionQueryType>(
     tokenNeedSectionQuery,
   );
-  const tokenomicsData =
-    await graphQLClient.request<TokenomicsSectionQueryType>(
-      tokenomicsSectionQuery,
-    );
+  const tokenomicsData = await request<TokenomicsSectionQueryType>(
+    tokenomicsSectionQuery,
+  );
 
   return (
     <>

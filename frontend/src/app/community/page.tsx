@@ -1,10 +1,10 @@
 import CommunitiesSection from "@/components/Community/CommunitiesSection";
 import Hero from "@/components/Community/hero";
 import { heroQuery, HeroQueryType } from "@/queries/community/hero";
-import { graphQLClient } from "@/utils/graphQLClient";
+import { request } from "@/utils/graphQLClient";
 
 const Community: React.FC = async () => {
-  const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
+  const heroData = await request<HeroQueryType>(heroQuery);
 
   return (
     <>

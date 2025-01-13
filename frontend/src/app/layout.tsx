@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import "@/styles/globals.css";
-import { graphQLClient } from "@/utils/graphQLClient";
+import { request } from "@/utils/graphQLClient";
 
 const urbanist = Urbanist({
   weight: ["400", "500"],
@@ -18,7 +18,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const navbarData = await graphQLClient.request<NavbarQueryType>(navbarQuery);
+  const navbarData = await request<NavbarQueryType>(navbarQuery);
 
   return (
     <html lang="en">

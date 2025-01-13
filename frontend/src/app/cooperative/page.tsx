@@ -10,18 +10,17 @@ import {
   cooperativePageReportQuery,
   CooperativePageReportQueryType,
 } from "@/queries/cooperative/report-section";
-import { graphQLClient } from "@/utils/graphQLClient";
+import { request } from "@/utils/graphQLClient";
 
 const Cooperative: React.FC = async () => {
-  const heroData = await graphQLClient.request<HeroQueryType>(heroQuery);
-  const reportData =
-    await graphQLClient.request<CooperativePageReportQueryType>(
-      cooperativePageReportQuery,
-    );
-  const memberSectionData =
-    await graphQLClient.request<CooperativePageMemberQueryType>(
-      cooperativePageMemberQuery,
-    );
+  const heroData = await request<HeroQueryType>(heroQuery);
+  const reportData = await request<CooperativePageReportQueryType>(
+    cooperativePageReportQuery,
+  );
+  const memberSectionData = await request<CooperativePageMemberQueryType>(
+    cooperativePageMemberQuery,
+  );
+
   return (
     <>
       <Hero heroData={heroData.cooperativePageHero} />
