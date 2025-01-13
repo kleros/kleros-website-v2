@@ -1,5 +1,18 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface RAndDPageWaitlistSection extends Struct.ComponentSchema {
+  collectionName: 'components_r_and_d_page_waitlist_sections';
+  info: {
+    displayName: 'WaitlistSection';
+  };
+  attributes: {
+    header: Schema.Attribute.String;
+    applyButton: Schema.Attribute.Component<'content.button-link', false>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface RAndDPageKlerosBook extends Struct.ComponentSchema {
   collectionName: 'components_r_and_d_page_kleros_books';
   info: {
@@ -213,6 +226,7 @@ export interface ContentButtonLink extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'r-and-d-page.waitlist-section': RAndDPageWaitlistSection;
       'r-and-d-page.kleros-book': RAndDPageKlerosBook;
       'pnk-token-page.token-stat-display': PnkTokenPageTokenStatDisplay;
       'home-page.card': HomePageCard;
