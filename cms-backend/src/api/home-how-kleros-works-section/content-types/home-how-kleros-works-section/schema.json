@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_how_kleros_works_sections",
+  "info": {
+    "singularName": "home-how-kleros-works-section",
+    "pluralName": "home-how-kleros-works-sections",
+    "displayName": "HomeHowKlerosWorksSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "explainer": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "explainer_desktop": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

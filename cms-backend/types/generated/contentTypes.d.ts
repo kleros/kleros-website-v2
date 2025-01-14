@@ -1083,6 +1083,137 @@ export interface ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection
   };
 }
 
+export interface ApiHomeCaseStudiesSectionHomeCaseStudiesSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'home_case_studies_sections';
+  info: {
+    singularName: 'home-case-studies-section';
+    pluralName: 'home-case-studies-sections';
+    displayName: 'HomeCaseStudiesSection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-case-studies-section.home-case-studies-section'
+    >;
+  };
+}
+
+export interface ApiHomeGetInTouchSectionHomeGetInTouchSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'home_get_in_touch_sections';
+  info: {
+    singularName: 'home-get-in-touch-section';
+    pluralName: 'home-get-in-touch-sections';
+    displayName: 'HomeGetInTouchSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-get-in-touch-section.home-get-in-touch-section'
+    >;
+  };
+}
+
+export interface ApiHomeHowKlerosWorksSectionHomeHowKlerosWorksSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'home_how_kleros_works_sections';
+  info: {
+    singularName: 'home-how-kleros-works-section';
+    pluralName: 'home-how-kleros-works-sections';
+    displayName: 'HomeHowKlerosWorksSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    explainer: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    explainer_desktop: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-how-kleros-works-section.home-how-kleros-works-section'
+    >;
+  };
+}
+
+export interface ApiHomeLearnPostsSectionHomeLearnPostsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'home_learn_posts_sections';
+  info: {
+    singularName: 'home-learn-posts-section';
+    pluralName: 'home-learn-posts-sections';
+    displayName: 'HomeLearnPostsSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String;
+    cards: Schema.Attribute.Component<'content.link-card', true>;
+    introduction: Schema.Attribute.Component<'home.introduction', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-learn-posts-section.home-learn-posts-section'
+    >;
+  };
+}
+
 export interface ApiHomePageHeroHomePageHero extends Struct.SingleTypeSchema {
   collectionName: 'home_page_heroes';
   info: {
@@ -1114,6 +1245,38 @@ export interface ApiHomePageHeroHomePageHero extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::home-page-hero.home-page-hero'
+    >;
+  };
+}
+
+export interface ApiHomeStartEarningSectionHomeStartEarningSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'home_start_earning_sections';
+  info: {
+    singularName: 'home-start-earning-section';
+    pluralName: 'home-start-earning-sections';
+    displayName: 'HomeStartEarningSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String;
+    cta: Schema.Attribute.Component<'content.section', true>;
+    cards: Schema.Attribute.Component<'content.link-card', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-start-earning-section.home-start-earning-section'
     >;
   };
 }
@@ -2308,7 +2471,12 @@ declare module '@strapi/strapi' {
       'api::for-builders-page-hero.for-builders-page-hero': ApiForBuildersPageHeroForBuildersPageHero;
       'api::for-builders-page-integrate-section.for-builders-page-integrate-section': ApiForBuildersPageIntegrateSectionForBuildersPageIntegrateSection;
       'api::for-builders-page-use-cases-section.for-builders-page-use-cases-section': ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection;
+      'api::home-case-studies-section.home-case-studies-section': ApiHomeCaseStudiesSectionHomeCaseStudiesSection;
+      'api::home-get-in-touch-section.home-get-in-touch-section': ApiHomeGetInTouchSectionHomeGetInTouchSection;
+      'api::home-how-kleros-works-section.home-how-kleros-works-section': ApiHomeHowKlerosWorksSectionHomeHowKlerosWorksSection;
+      'api::home-learn-posts-section.home-learn-posts-section': ApiHomeLearnPostsSectionHomeLearnPostsSection;
       'api::home-page-hero.home-page-hero': ApiHomePageHeroHomePageHero;
+      'api::home-start-earning-section.home-start-earning-section': ApiHomeStartEarningSectionHomeStartEarningSection;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
       'api::link.link': ApiLinkLink;
       'api::navbar-apps-section.navbar-apps-section': ApiNavbarAppsSectionNavbarAppsSection;
