@@ -1,5 +1,30 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BrandAssetsPageColorCard extends Struct.ComponentSchema {
+  collectionName: 'components_brand_assets_page_color_cards';
+  info: {
+    displayName: 'colorCard';
+  };
+  attributes: {
+    hexColor: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+  };
+}
+
+export interface BrandAssetsPageImageDownload extends Struct.ComponentSchema {
+  collectionName: 'components_brand_assets_page_image_downloads';
+  info: {
+    description: '';
+    displayName: 'imageDownload';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    pngDownloadLink: Schema.Attribute.String;
+    svgDownloadLink: Schema.Attribute.String;
+  };
+}
+
 export interface ContentButtonLink extends Struct.ComponentSchema {
   collectionName: 'components_content_button_links';
   info: {
@@ -238,6 +263,8 @@ export interface RAndDPageWaitlistSection extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'brand-assets-page.color-card': BrandAssetsPageColorCard;
+      'brand-assets-page.image-download': BrandAssetsPageImageDownload;
       'content.button-link': ContentButtonLink;
       'content.cta-card': ContentCtaCard;
       'content.link-card': ContentLinkCard;
