@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "brand_assets_page_styled_images_sections",
+  "info": {
+    "singularName": "brand-assets-page-styled-images-section",
+    "pluralName": "brand-assets-page-styled-images-sections",
+    "displayName": "BrandAssetsPageStyledImagesSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "wallpapersHeader": {
+      "type": "string"
+    },
+    "wallpapersSubtitle": {
+      "type": "string"
+    },
+    "wallpapersImageDownloads": {
+      "type": "component",
+      "repeatable": true,
+      "component": "brand-assets-page.image-download"
+    },
+    "productMockupsHeader": {
+      "type": "string"
+    },
+    "productMockupsSubtitle": {
+      "type": "string"
+    },
+    "productMockupsImageDownloads": {
+      "type": "component",
+      "repeatable": true,
+      "component": "brand-assets-page.image-download"
+    }
+  }
+}

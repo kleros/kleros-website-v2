@@ -400,6 +400,280 @@ export interface ApiAnnualReportAnnualReport
   };
 }
 
+export interface ApiBrandAssetsPageHeroBrandAssetsPageHero
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_heroes';
+  info: {
+    description: '';
+    displayName: 'BrandAssetsPageHero';
+    pluralName: 'brand-assets-page-heroes';
+    singularName: 'brand-assets-page-hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    button: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-hero.brand-assets-page-hero'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageKlerosBadgesSectionBrandAssetsPageKlerosBadgesSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_kleros_badges_sections';
+  info: {
+    displayName: 'BrandAssetsPageKlerosBadgesSection';
+    pluralName: 'brand-assets-page-kleros-badges-sections';
+    singularName: 'brand-assets-page-kleros-badges-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    imageDownloads: Schema.Attribute.Component<
+      'brand-assets-page.image-download',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-kleros-badges-section.brand-assets-page-kleros-badges-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageKlerosColorsSectionBrandAssetsPageKlerosColorsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_kleros_colors_sections';
+  info: {
+    description: '';
+    displayName: 'BrandAssetsPageKlerosColorsSection';
+    pluralName: 'brand-assets-page-kleros-colors-sections';
+    singularName: 'brand-assets-page-kleros-colors-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    colorCards: Schema.Attribute.Component<
+      'brand-assets-page.color-card',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-kleros-colors-section.brand-assets-page-kleros-colors-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageKlerosFontsSectionBrandAssetsPageKlerosFontsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_kleros_fonts_sections';
+  info: {
+    displayName: 'BrandAssetsPageKlerosFontsSection';
+    pluralName: 'brand-assets-page-kleros-fonts-sections';
+    singularName: 'brand-assets-page-kleros-fonts-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    linkCard: Schema.Attribute.Component<'content.link-card', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-kleros-fonts-section.brand-assets-page-kleros-fonts-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageKlerosLogoSectionBrandAssetsPageKlerosLogoSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_kleros_logo_sections';
+  info: {
+    displayName: 'BrandAssetsPageKlerosLogoSection';
+    pluralName: 'brand-assets-page-kleros-logo-sections';
+    singularName: 'brand-assets-page-kleros-logo-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    imageDownloads: Schema.Attribute.Component<
+      'brand-assets-page.image-download',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-kleros-logo-section.brand-assets-page-kleros-logo-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageLogosPackageSectionBrandAssetsPageLogosPackageSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_logos_package_sections';
+  info: {
+    displayName: 'BrandAssetsPageLogosPackageSection';
+    pluralName: 'brand-assets-page-logos-package-sections';
+    singularName: 'brand-assets-page-logos-package-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    button: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-logos-package-section.brand-assets-page-logos-package-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPagePnkTokenSectionBrandAssetsPagePnkTokenSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_pnk_token_sections';
+  info: {
+    displayName: 'BrandAssetsPagePNKTokenSection';
+    pluralName: 'brand-assets-page-pnk-token-sections';
+    singularName: 'brand-assets-page-pnk-token-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    imageDownload: Schema.Attribute.Component<
+      'brand-assets-page.image-download',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-pnk-token-section.brand-assets-page-pnk-token-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageStyledImagesSectionBrandAssetsPageStyledImagesSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_styled_images_sections';
+  info: {
+    displayName: 'BrandAssetsPageStyledImagesSection';
+    pluralName: 'brand-assets-page-styled-images-sections';
+    singularName: 'brand-assets-page-styled-images-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-styled-images-section.brand-assets-page-styled-images-section'
+    > &
+      Schema.Attribute.Private;
+    productMockupsHeader: Schema.Attribute.String;
+    productMockupsImageDownloads: Schema.Attribute.Component<
+      'brand-assets-page.image-download',
+      true
+    >;
+    productMockupsSubtitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    wallpapersHeader: Schema.Attribute.String;
+    wallpapersImageDownloads: Schema.Attribute.Component<
+      'brand-assets-page.image-download',
+      true
+    >;
+    wallpapersSubtitle: Schema.Attribute.String;
+  };
+}
+
 export interface ApiCommunityPageHeroCommunityPageHero
   extends Struct.SingleTypeSchema {
   collectionName: 'community_page_heroes';
@@ -2527,6 +2801,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::annual-report.annual-report': ApiAnnualReportAnnualReport;
+      'api::brand-assets-page-hero.brand-assets-page-hero': ApiBrandAssetsPageHeroBrandAssetsPageHero;
+      'api::brand-assets-page-kleros-badges-section.brand-assets-page-kleros-badges-section': ApiBrandAssetsPageKlerosBadgesSectionBrandAssetsPageKlerosBadgesSection;
+      'api::brand-assets-page-kleros-colors-section.brand-assets-page-kleros-colors-section': ApiBrandAssetsPageKlerosColorsSectionBrandAssetsPageKlerosColorsSection;
+      'api::brand-assets-page-kleros-fonts-section.brand-assets-page-kleros-fonts-section': ApiBrandAssetsPageKlerosFontsSectionBrandAssetsPageKlerosFontsSection;
+      'api::brand-assets-page-kleros-logo-section.brand-assets-page-kleros-logo-section': ApiBrandAssetsPageKlerosLogoSectionBrandAssetsPageKlerosLogoSection;
+      'api::brand-assets-page-logos-package-section.brand-assets-page-logos-package-section': ApiBrandAssetsPageLogosPackageSectionBrandAssetsPageLogosPackageSection;
+      'api::brand-assets-page-pnk-token-section.brand-assets-page-pnk-token-section': ApiBrandAssetsPagePnkTokenSectionBrandAssetsPagePnkTokenSection;
+      'api::brand-assets-page-styled-images-section.brand-assets-page-styled-images-section': ApiBrandAssetsPageStyledImagesSectionBrandAssetsPageStyledImagesSection;
       'api::community-page-hero.community-page-hero': ApiCommunityPageHeroCommunityPageHero;
       'api::community.community': ApiCommunityCommunity;
       'api::cooperative-page-hero.cooperative-page-hero': ApiCooperativePageHeroCooperativePageHero;

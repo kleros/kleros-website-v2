@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "brand_assets_page_heroes",
+  "info": {
+    "singularName": "brand-assets-page-hero",
+    "pluralName": "brand-assets-page-heroes",
+    "displayName": "BrandAssetsPageHero",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "background": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
