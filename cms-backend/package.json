@@ -33,5 +33,6 @@
   },
   "strapi": {
     "uuid": "0bf590e7-2f35-4bb0-b67c-230ca856765f"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }
