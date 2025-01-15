@@ -39,7 +39,7 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
         style={{ backgroundImage: `url(${background.url})` }}
         className={clsx(
           "relative h-[308px] rounded-2xl md:h-[380px]",
-          "bg-[#bca2df] bg-cover bg-[-314px] bg-blend-luminosity md:bg-[0px]",
+          "bg-cover bg-[-314px] md:bg-[0px]",
           "flex items-center justify-center pt-3 md:pt-0",
         )}
       >

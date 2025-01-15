@@ -1,0 +1,34 @@
+import clsx from "clsx";
+
+interface IPagination {
+  currentPage: number;
+  numPages: number;
+  callback: (newPage: number) => void;
+  className?: string;
+}
+
+const Pagination: React.FC<IPagination> = ({
+  currentPage,
+  numPages,
+  callback,
+  className,
+}) => {
+  return (
+    <div className={clsx("flex items-center gap-8", className)}>
+      {Array.from(Array(numPages), (_, index) => (
+        <button
+          key={index}
+          className={clsx(
+            "h-4 w-4 rounded-full transition-all",
+            currentPage === index + 1
+              ? "scale-110 bg-primary-blue"
+              : "bg-stroke",
+          )}
+          onClick={() => callback(index + 1)}
+        ></button>
+      ))}
+    </div>
+  );
+};
+
+export default Pagination;
