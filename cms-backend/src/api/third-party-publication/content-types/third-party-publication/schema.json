@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Topic": {
+    "topic": {
       "type": "text"
     },
     "paperLink": {

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_home_introductions",
+  "info": {
+    "displayName": "introduction"
+  },
+  "options": {},
+  "attributes": {
+    "heading_text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    },
+    "closing_text": {
+      "type": "string"
+    }
+  }
+}

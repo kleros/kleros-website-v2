@@ -11,11 +11,11 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.0.0",
+    "@strapi/plugin-cloud": "5.7.0",
     "@strapi/plugin-graphql": "^5.0.6",
-    "@strapi/plugin-users-permissions": "5.0.0",
-    "@strapi/strapi": "5.0.0",
-    "better-sqlite3": "9.4.3",
+    "@strapi/plugin-users-permissions": "5.7.0",
+    "@strapi/strapi": "5.7.0",
+    "better-sqlite3": "11.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -33,5 +33,6 @@
   },
   "strapi": {
     "uuid": "0bf590e7-2f35-4bb0-b67c-230ca856765f"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }

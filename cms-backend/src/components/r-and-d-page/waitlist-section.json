@@ -1,15 +1,9 @@
 {
-  "kind": "singleType",
-  "collectionName": "r_and_d_page_fellowship_waitlist_sections",
+  "collectionName": "components_r_and_d_page_waitlist_sections",
   "info": {
-    "singularName": "r-and-d-page-fellowship-waitlist-section",
-    "pluralName": "r-and-d-page-fellowship-waitlist-sections",
-    "displayName": "R&DPageFellowshipWaitlistSection"
+    "displayName": "WaitlistSection"
   },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {},
+  "options": {},
   "attributes": {
     "header": {
       "type": "string"

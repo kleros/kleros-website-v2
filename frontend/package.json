@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "codegen": "graffle generate --schema http://localhost:1337/graphql --output src/graffle",
-    "prepare": "cd .. && husky frontend/.husky"
+    "prepare": "husky"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -28,11 +28,17 @@
     "eslint-config-next": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.7",
     "lint-staged": "^15.3.0",
     "postcss": "^8",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  }
+  },
+  "volta": {
+    "node": "22.13.0",
+    "yarn": "4.6.0"
+  },
+  "packageManager": "yarn@4.6.0"
 }
