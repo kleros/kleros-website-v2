@@ -2,8 +2,8 @@ import { gql } from "graphql-request";
 
 export const heroQuery = gql`
   {
-    forBuildersPageHero {
-      title
+    brandAssetsPageHero {
+      header
       subtitle
       button {
         text
@@ -19,8 +19,8 @@ export const heroQuery = gql`
 `;
 
 export type HeroQueryType = {
-  forBuildersPageHero: {
-    title: string;
+  brandAssetsPageHero: {
+    header: string;
     subtitle: string;
     button: {
       text: string;
@@ -28,12 +28,6 @@ export type HeroQueryType = {
         url: string;
       };
     };
-    arrowLink: {
-      text: string;
-      link: {
-        url: string;
-      };
-    }[];
     background: {
       url: string;
     };
