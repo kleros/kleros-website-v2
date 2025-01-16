@@ -20,12 +20,7 @@ const Footer: React.FC = async () => {
   }));
   return (
     <div>
-      <div
-        className={clsx([
-          "bg-gradient-to-b from-secondary-blue to-primary-purple to-[27.74%]",
-          "py-16",
-        ])}
-      >
+      <div className={"bg-primary-purple py-16"}>
         <div className="flex flex-col gap-12 px-6">
           {sections.map(({ title, links }) => (
             <div key={title} className="flex flex-col gap-4">

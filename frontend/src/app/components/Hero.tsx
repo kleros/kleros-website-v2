@@ -5,49 +5,55 @@ import Link from "next/link";
 
 import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
 import Button from "@/components/Button";
-import { HeroQueryType } from "@/queries/home/hero";
+import { request } from "@/utils/graphQLClient";
 
-interface IHero {
-  heroData: HeroQueryType["homePageHero"];
-}
+import { HeroQueryType, heroQuery } from "../queries/hero";
 
-const Hero: React.FC<IHero> = ({ heroData }) => {
+const Hero: React.FC = async () => {
+  const heroData = await request<HeroQueryType>(heroQuery);
+  const {
+    title,
+    subtitle,
+    primaryButton,
+    secondaryButton,
+    arrowLink,
+    background,
+  } = heroData.homePageHero;
+
   return (
     <div className="relative h-[835px] px-6 pb-28 pt-44">
       <div className="space-y-6">
-        <h1 className="w-min text-3xl">{heroData.title}</h1>
-        <p className="text-lg">{heroData.subtitle}</p>
+        <h1 className="w-min text-3xl">{title}</h1>
+        <p className="text-lg">{subtitle}</p>
         <div className="lg:hidden">
           <Link
-            href={heroData.primaryButton.link.url}
+            href={primaryButton.link.url}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Button>
-              <span className="text-background-2">
-                {heroData.primaryButton.text}
-              </span>
+              <span className="text-background-2"> {primaryButton.text} </span>
             </Button>
           </Link>
         </div>
         <div>
           <Link
-            href={heroData.secondaryButton.link.url}
+            href={secondaryButton.link.url}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Button variant="secondary">
-              <span>{heroData.secondaryButton.text}</span>
+              <span>{secondaryButton.text}</span>
             </Button>
           </Link>
         </div>
         <div>
           <Link
-            href={heroData.arrowLink.link.url}
+            href={arrowLink.link.url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="mr-4">{heroData.arrowLink.text}</span>
+            <span className="mr-4">{arrowLink.text}</span>
             <Image
               src={LinkArrow}
               width="24"
@@ -59,7 +65,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         </div>
       </div>
       <Image
-        src={heroData.background.url}
+        src={background.url}
         alt="Hero Image Background"
         width="1440"
         height="835"

@@ -1,15 +1,18 @@
-import Hero from "@/components/home/Hero";
 import TrustedBy from "@/components/TrustedBy";
-import { heroQuery, HeroQueryType } from "@/queries/home/hero";
-import { request } from "@/utils/graphQLClient";
+import UseCasesCards from "@/components/UseCasesCards";
+
+import CaseStudies from "./components/CaseStudies";
+import Hero from "./components/Hero";
+import HowKlerosWorks from "./components/HowKlerosWorks";
 
 const Home: React.FC = async () => {
-  const heroData = await request<HeroQueryType>(heroQuery);
-
   return (
     <>
-      <Hero {...{ heroData: heroData.homePageHero }} />
+      <Hero />
       <TrustedBy />
+      <HowKlerosWorks />
+      <CaseStudies />
+      <UseCasesCards />
     </>
   );
 };
