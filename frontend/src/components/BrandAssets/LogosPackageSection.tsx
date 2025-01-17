@@ -16,7 +16,9 @@ const LogosPackageSection: React.FC<ILogosPackageSection> = ({
     <div className="relative bg-background-2 px-6 pb-12 pt-32">
       <div className="space-y-6">
         <h1 className="w-min text-3xl">{logosPackageData.header}</h1>
-        <p className="text-lg">{logosPackageData.subtitle}</p>
+        <p className="text-lg text-secondary-text">
+          {logosPackageData.subtitle}
+        </p>
         <div>
           <Link
             href={logosPackageData.button?.link?.url}

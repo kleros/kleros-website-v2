@@ -1,9 +1,10 @@
 import { gql } from "graphql-request";
 
-export const klerosLogoSectionQuery = gql`
+export const klerosBadgesSectionQuery = gql`
   {
-    brandAssetsPageKlerosLogoSection {
+    brandAssetsPageKlerosBadgesSection {
       header
+      subtitle
       imageDownloads {
         name
         image {
@@ -16,9 +17,10 @@ export const klerosLogoSectionQuery = gql`
   }
 `;
 
-export type KlerosLogoSectionQueryType = {
-  brandAssetsPageKlerosLogoSection: {
+export type KlerosBadgesSectionQueryType = {
+  brandAssetsPageKlerosBadgesSection: {
     header: string;
+    subtitle: string;
     imageDownloads: ImageDownloadType[];
   };
 };
@@ -28,6 +30,6 @@ export type ImageDownloadType = {
   image: {
     url: string;
   };
-  svgDownloadLink?: string;
-  pngDownloadLink?: string;
+  svgDownloadLink: string;
+  pngDownloadLink: string;
 };
