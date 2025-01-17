@@ -24,7 +24,7 @@ const ThirdPartyPublications: React.FC<{
         itemsPerPage * (page - 1),
         Math.min(thirdPartyPublications.length, itemsPerPage * page),
       ),
-    [itemsPerPage, page],
+    [thirdPartyPublications, itemsPerPage, page],
   );
 
   return (

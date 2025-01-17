@@ -18,6 +18,8 @@ const Pagination: React.FC<IPagination> = ({
       {Array.from(Array(numPages), (_, index) => (
         <button
           key={index}
+          aria-label={`Go to page ${index + 1}`}
+          aria-current={currentPage === index + 1 ? "page" : undefined}
           className={clsx(
             "h-4 w-4 rounded-full transition-all",
             currentPage === index + 1

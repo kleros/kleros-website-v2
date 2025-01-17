@@ -12,14 +12,12 @@ interface IPublicationCard {
 const PublicationCard: React.FC<IPublicationCard> = ({ publication }) => {
   return (
     <div className="flex flex-col items-start rounded-2xl border border-stroke p-6">
-      {(publication as TeamPublication)?.authors ? (
+      {isTeamPublication(publication) ? (
         <>
           <h2 className="mb-6 text-xl font-medium text-primary-text">
             {publication.topic}
           </h2>
-          <p className="mb-8 text-secondary-text">
-            {(publication as TeamPublication).authors}
-          </p>
+          <p className="mb-8 text-secondary-text">{publication.authors}</p>
         </>
       ) : (
         <p className="mb-8 text-secondary-text">{publication.topic}</p>
@@ -36,3 +34,9 @@ const PublicationCard: React.FC<IPublicationCard> = ({ publication }) => {
   );
 };
 export default PublicationCard;
+
+function isTeamPublication(
+  publication: TeamPublication | ThirdPartyPublication,
+): publication is TeamPublication {
+  return "authors" in publication;
+}
