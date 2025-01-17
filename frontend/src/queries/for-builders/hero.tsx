@@ -14,6 +14,12 @@ export const heroQuery = gql`
       background {
         url
       }
+      arrowLink {
+        text
+        link {
+          url
+        }
+      }
     }
   }
 `;
