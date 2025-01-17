@@ -15,7 +15,7 @@ const UseCasesSection: React.FC<IUseCasesSection> = ({ useCasesData }) => {
       <h1 className="mb-12 text-3xl font-medium">
         {useCasesData.sectionHeader}
       </h1>
-      <UseCasesCards />
+      <UseCasesCards selectedIndex={0} />
       <DAOSection {...{ useCasesData }} />
     </div>
   );

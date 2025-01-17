@@ -18,6 +18,9 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Urbanist, Helvetica, sans-serif;
+  fong-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
 }
 
 @layer utilities {

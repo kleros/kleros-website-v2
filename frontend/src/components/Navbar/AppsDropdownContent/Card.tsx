@@ -27,9 +27,9 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
       rel="noopener noreferrer"
       target="_blank"
       className={clsx(cardBaseStyle, hoverEffect, "flex-row", "w-full", {
-        "lg:flex-col lg:pb-8": variant === "large",
-        "lg:flex-row": variant === "medium" || variant === "small",
-        "lg:w-[380px]": true,
+        "xl:flex-col xl:pb-8": variant === "large",
+        "xl:flex-row": variant === "medium" || variant === "small",
+        "xl:w-[380px]": true,
       })}
     >
       <Image
@@ -47,9 +47,9 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
             "mt-1 leading-tight text-primary-text",
             {
               "font-normal": variant === "small",
-              "lg:text-xl": variant === "large",
-              "lg:text-lg": variant === "medium",
-              "lg:text-base": variant === "small",
+              "xl:text-xl": variant === "large",
+              "xl:text-lg": variant === "medium",
+              "xl:text-base": variant === "small",
             },
           )}
         >

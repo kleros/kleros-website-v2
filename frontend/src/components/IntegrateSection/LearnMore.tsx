@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
-import { IntegrateQueryType } from "@/queries/for-builders/integrate";
+import { IntegrateQueryType } from "@/queries/integrate";
 
 interface ILearnMore {
   integrateData: IntegrateQueryType["forBuildersPageIntegrateSection"];

@@ -7,7 +7,11 @@ import {
 } from "@/queries/use-cases-cards";
 import { request } from "@/utils/graphQLClient";
 
-const UseCasesCards: React.FC = async () => {
+interface IUseCasesCards {
+  selectedIndex?: number;
+}
+
+const UseCasesCards: React.FC<IUseCasesCards> = async ({ selectedIndex }) => {
   const useCasesData =
     await request<UseCasesCardsQueryType>(useCasesCardsQuery);
 
@@ -16,7 +20,11 @@ const UseCasesCards: React.FC = async () => {
   return (
     <div className="mb-12 flex flex-row flex-wrap gap-4">
       {useCases.map((useCase, index) => (
-        <Tag key={index} text={useCase.name} selected={index === 0} />
+        <Tag
+          key={index}
+          text={useCase.name}
+          selected={index === selectedIndex}
+        />
       ))}
     </div>
   );
