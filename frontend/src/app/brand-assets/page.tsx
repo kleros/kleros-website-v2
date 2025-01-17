@@ -4,8 +4,13 @@ import KlerosColorsSection from "@/components/BrandAssets/KlerosColorsSection/in
 import KlerosFontsSection from "@/components/BrandAssets/KlerosFontsSection";
 import KlerosLogoSection from "@/components/BrandAssets/KlerosLogoSection";
 import LogosPackageSection from "@/components/BrandAssets/LogosPackageSection";
+import PnkTokenSection from "@/components/BrandAssets/PnkTokenSection";
 import StyledImagesSection from "@/components/BrandAssets/StyledImagesSection";
 import { heroQuery, HeroQueryType } from "@/queries/brand-assets/hero";
+import {
+  klerosBadgesSectionQuery,
+  KlerosBadgesSectionQueryType,
+} from "@/queries/brand-assets/kleros-badges-section";
 import {
   klerosColorsSectionQuery,
   KlerosColorsSectionQueryType,
@@ -23,21 +28,14 @@ import {
   LogosPackageSectionQueryType,
 } from "@/queries/brand-assets/logos-package-section";
 import {
-  klerosBadgesSectionQuery,
-  KlerosBadgesSectionQueryType,
-} from "@/queries/brand-assets/kleros-badges-section";
+  pnkTokenSectionQuery,
+  PnkTokenSectionQueryType,
+} from "@/queries/brand-assets/pnk-token-section";
 import {
   styledImagesSectionQuery,
   StyledImagesSectionQueryType,
 } from "@/queries/brand-assets/styled-images-section";
-// import {
-//   pnkTokenSectionQuery,
-//   PnkTokenSectionQueryType,
-// } from "@/queries/brand-assets/pnk-token-section";
-
 import { request } from "@/utils/graphQLClient";
-
-// import PnkTokenSection from "@/components/BrandAssets/PnkTokenSection";
 
 const BrandAssets: React.FC = async () => {
   const heroData = await request<HeroQueryType>(heroQuery);
@@ -59,9 +57,8 @@ const BrandAssets: React.FC = async () => {
   const styledImagesSection = await request<StyledImagesSectionQueryType>(
     styledImagesSectionQuery,
   );
-  // const pnkTokenSection = await request<PnkTokenSectionQueryType>(
-  //   pnkTokenSectionQuery,
-  // );
+  const pnkTokenSection =
+    await request<PnkTokenSectionQueryType>(pnkTokenSectionQuery);
 
   return (
     <>
@@ -89,6 +86,9 @@ const BrandAssets: React.FC = async () => {
         styledImagesData={
           styledImagesSection.brandAssetsPageStyledImagesSection
         }
+      />
+      <PnkTokenSection
+        pnkTokenData={pnkTokenSection.brandAssetsPagePnkTokenSection}
       />
     </>
   );
