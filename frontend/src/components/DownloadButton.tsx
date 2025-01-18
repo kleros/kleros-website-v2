@@ -7,16 +7,6 @@ import Image from "next/image";
 
 import DownloadIcon from "@/assets/svgs/icons/download.svg";
 
-const baseStyle = clsx("px-4 py-1 rounded transition duration-75");
-
-const primaryStyle = clsx(
-  baseStyle,
-  "bg-primary-blue",
-  "hover:bg-primary-blue/90",
-  "disabled:bg-stroke",
-  "text-background-2",
-);
-
 interface IDownloadButton {
   name: string;
   url: string;
@@ -47,7 +37,14 @@ const DownloadButton: React.FC<IDownloadButton> = ({ name, url }) => {
   return (
     <button
       onClick={handleDownload}
-      className={clsx(primaryStyle, "flex flex-row gap-2")}
+      className={clsx(
+        "rounded px-4 py-1 transition duration-75",
+        "bg-primary-blue",
+        "hover:bg-primary-blue/90",
+        "disabled:bg-stroke",
+        "text-background-2",
+        "flex flex-row gap-2",
+      )}
     >
       {name}
       <Image src={DownloadIcon} alt={name} width="14" height="14" />

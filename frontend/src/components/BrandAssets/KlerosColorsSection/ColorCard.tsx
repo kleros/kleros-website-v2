@@ -8,7 +8,7 @@ interface IColorCard {
 const ColorCard: React.FC<IColorCard> = ({ name, hexColor }) => {
   return (
     <div
-      className="flex h-[200px] w-[380px] flex-col items-center justify-center gap-3 rounded-lg shadow-md"
+      className="flex h-[200px] w-[380px] flex-col items-center justify-center gap-3 rounded-2xl shadow-md"
       style={{ backgroundColor: hexColor }}
     >
       <span className="text-lg text-white">{name}</span>
