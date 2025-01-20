@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_table_tables",
+  "info": {
+    "displayName": "Table"
+  },
+  "options": {},
+  "attributes": {
+    "tableHeadings": {
+      "type": "component",
+      "repeatable": true,
+      "component": "table.table-heading"
+    },
+    "tableRows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "table.table-row"
+    }
+  }
+}

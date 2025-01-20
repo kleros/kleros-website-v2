@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_highlight_texts",
+  "info": {
+    "displayName": "HighlightText"
+  },
+  "options": {},
+  "attributes": {
+    "fullText": {
+      "type": "string"
+    },
+    "highlightedText": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "for_lawyers_page_kleros_escrow_sections",
+  "info": {
+    "singularName": "for-lawyers-page-kleros-escrow-section",
+    "pluralName": "for-lawyers-page-kleros-escrow-sections",
+    "displayName": "ForLawyersPageKlerosEscrowSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "flowchartLabel": {
+      "type": "string"
+    },
+    "flowchart": {
+      "type": "component",
+      "repeatable": true,
+      "component": "for-lawyers-page.step"
+    },
+    "secondHeader": {
+      "type": "string"
+    },
+    "secondSubtitle": {
+      "type": "text"
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    }
+  }
+}

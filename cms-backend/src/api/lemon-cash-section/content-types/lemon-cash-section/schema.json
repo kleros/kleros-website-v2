@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "lemon_cash_sections",
+  "info": {
+    "singularName": "lemon-cash-section",
+    "pluralName": "lemon-cash-sections",
+    "displayName": "LemonCashSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "primarySubtitle": {
+      "type": "string"
+    },
+    "secondarySubtitle": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "testimony": {
+      "type": "text"
+    },
+    "testimonyAuthor": {
+      "type": "string"
+    }
+  }
+}

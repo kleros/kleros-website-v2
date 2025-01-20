@@ -50,6 +50,17 @@ export interface ContentCtaCard extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentHighlightText extends Struct.ComponentSchema {
+  collectionName: 'components_content_highlight_texts';
+  info: {
+    displayName: 'HighlightText';
+  };
+  attributes: {
+    fullText: Schema.Attribute.String;
+    highlightedText: Schema.Attribute.String;
+  };
+}
+
 export interface ContentLinkCard extends Struct.ComponentSchema {
   collectionName: 'components_content_link_cards';
   info: {
@@ -211,6 +222,51 @@ export interface ForBuildersPageSolutionSection extends Struct.ComponentSchema {
   };
 }
 
+export interface ForLawyersPageArbitrationMethodCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_for_lawyers_page_arbitration_method_cards';
+  info: {
+    description: '';
+    displayName: 'ArbitrationMethodCard';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    items: Schema.Attribute.Component<
+      'for-lawyers-page.arbitration-method-item',
+      true
+    >;
+    methodType: Schema.Attribute.Enumeration<['kleros', 'other']>;
+    name: Schema.Attribute.String;
+  };
+}
+
+export interface ForLawyersPageArbitrationMethodItem
+  extends Struct.ComponentSchema {
+  collectionName: 'components_for_lawyers_page_arbitration_method_items';
+  info: {
+    description: '';
+    displayName: 'ArbitrationMethodItem';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface ForLawyersPageStep extends Struct.ComponentSchema {
+  collectionName: 'components_for_lawyers_page_steps';
+  info: {
+    description: '';
+    displayName: 'FlowchartItem';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    index: Schema.Attribute.Integer;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface HomeIntroduction extends Struct.ComponentSchema {
   collectionName: 'components_home_introductions';
   info: {
@@ -260,6 +316,49 @@ export interface RAndDPageWaitlistSection extends Struct.ComponentSchema {
   };
 }
 
+export interface TableTable extends Struct.ComponentSchema {
+  collectionName: 'components_table_tables';
+  info: {
+    displayName: 'Table';
+  };
+  attributes: {
+    tableHeadings: Schema.Attribute.Component<'table.table-heading', true>;
+    tableRows: Schema.Attribute.Component<'table.table-row', true>;
+  };
+}
+
+export interface TableTableData extends Struct.ComponentSchema {
+  collectionName: 'components_table_table_data';
+  info: {
+    displayName: 'TableData';
+  };
+  attributes: {
+    primaryValue: Schema.Attribute.String;
+    secondaryValue: Schema.Attribute.String;
+  };
+}
+
+export interface TableTableHeading extends Struct.ComponentSchema {
+  collectionName: 'components_table_table_headings';
+  info: {
+    displayName: 'TableHeading';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface TableTableRow extends Struct.ComponentSchema {
+  collectionName: 'components_table_table_rows';
+  info: {
+    displayName: 'TableRow';
+  };
+  attributes: {
+    rowData: Schema.Attribute.Component<'table.table-data', true>;
+    rowHeading: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -267,6 +366,7 @@ declare module '@strapi/strapi' {
       'brand-assets-page.image-download': BrandAssetsPageImageDownload;
       'content.button-link': ContentButtonLink;
       'content.cta-card': ContentCtaCard;
+      'content.highlight-text': ContentHighlightText;
       'content.link-card': ContentLinkCard;
       'content.navlink': ContentNavlink;
       'content.section': ContentSection;
@@ -278,10 +378,17 @@ declare module '@strapi/strapi' {
       'for-builders-page.get-in-touch-section': ForBuildersPageGetInTouchSection;
       'for-builders-page.key-challenge': ForBuildersPageKeyChallenge;
       'for-builders-page.solution-section': ForBuildersPageSolutionSection;
+      'for-lawyers-page.arbitration-method-card': ForLawyersPageArbitrationMethodCard;
+      'for-lawyers-page.arbitration-method-item': ForLawyersPageArbitrationMethodItem;
+      'for-lawyers-page.step': ForLawyersPageStep;
       'home.introduction': HomeIntroduction;
       'pnk-token-page.token-stat-display': PnkTokenPageTokenStatDisplay;
       'r-and-d-page.kleros-book': RAndDPageKlerosBook;
       'r-and-d-page.waitlist-section': RAndDPageWaitlistSection;
+      'table.table': TableTable;
+      'table.table-data': TableTableData;
+      'table.table-heading': TableTableHeading;
+      'table.table-row': TableTableRow;
     }
   }
 }
