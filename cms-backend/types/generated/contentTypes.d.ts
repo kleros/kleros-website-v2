@@ -1719,7 +1719,7 @@ export interface ApiHomeStartEarningSectionHomeStartEarningSection
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cta: Schema.Attribute.Component<'content.section', true>;
+    cta: Schema.Attribute.Component<'home.cta', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1760,6 +1760,36 @@ export interface ApiHomeUseCasesSectionHomeUseCasesSection
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInstitutionInstitution extends Struct.CollectionTypeSchema {
+  collectionName: 'institutions';
+  info: {
+    displayName: 'Institution';
+    pluralName: 'institutions';
+    singularName: 'institution';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Relation<'oneToOne', 'api::link.link'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::institution.institution'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3175,6 +3205,7 @@ declare module '@strapi/strapi' {
       'api::home-page-hero.home-page-hero': ApiHomePageHeroHomePageHero;
       'api::home-start-earning-section.home-start-earning-section': ApiHomeStartEarningSectionHomeStartEarningSection;
       'api::home-use-cases-section.home-use-cases-section': ApiHomeUseCasesSectionHomeUseCasesSection;
+      'api::institution.institution': ApiInstitutionInstitution;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
       'api::lemon-cash-section.lemon-cash-section': ApiLemonCashSectionLemonCashSection;
       'api::link.link': ApiLinkLink;
