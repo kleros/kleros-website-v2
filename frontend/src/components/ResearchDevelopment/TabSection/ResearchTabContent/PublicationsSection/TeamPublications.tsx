@@ -24,7 +24,7 @@ const TeamPublications: React.FC<{ teamPublications: TeamPublication[] }> = ({
         itemsPerPage * (page - 1),
         Math.min(teamPublications.length, itemsPerPage * page),
       ),
-    [itemsPerPage, page],
+    [teamPublications, itemsPerPage, page],
   );
 
   return (

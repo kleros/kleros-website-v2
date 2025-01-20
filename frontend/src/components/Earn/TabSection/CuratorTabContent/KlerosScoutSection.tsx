@@ -25,6 +25,7 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
         <Image
           width={128}
           height={128}
+          priority
           src={productIcon.url}
           alt="Product Icon"
         />
