@@ -7,6 +7,12 @@ export const startEarningQuery = gql`
       subtitle
       cta {
         title
+        buttonLink {
+          text
+          link {
+            url
+          }
+        }
         background {
           url
         }
@@ -32,12 +38,18 @@ export type IStartEarningQuery = {
   homeStartEarningSection: {
     title: string;
     subtitle: string;
-    cta: Array<{
+    cta: {
       title: string;
+      buttonLink: Array<{
+        text: string;
+        link: {
+          url: string;
+        };
+      }>;
       background: {
         url: string;
       };
-    }>;
+    };
     cards: Array<{
       icon: {
         url: string;

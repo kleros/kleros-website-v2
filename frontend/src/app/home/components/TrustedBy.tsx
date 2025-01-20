@@ -2,13 +2,15 @@ import React from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 
-import { partnersQuery, PartnersQueryType } from "@/queries/partners";
 import { request } from "@/utils/graphQLClient";
 
+import { partnersQuery, PartnersQueryType } from "../queries/trusted-by";
+
 const TrustedBy: React.FC = async () => {
-  const partnersData = await request<PartnersQueryType>(partnersQuery);
-  const partners = partnersData.partners;
+  const { partners, institutions } =
+    await request<PartnersQueryType>(partnersQuery);
 
   return (
     <div className="bg-background-2 px-6 py-12">
@@ -23,6 +25,29 @@ const TrustedBy: React.FC = async () => {
       >
         <PartnersCarousel {...{ partners }} />
         <BlurredBorders />
+      </div>
+      <div
+        className={clsx(
+          "mt-16 grid grid-cols-1 items-center justify-items-center gap-8",
+          "lg:grid-cols-3",
+        )}
+      >
+        {institutions.map(({ name, link, image }) => (
+          <Link
+            key={name}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src={image.url}
+              alt={name}
+              width="1"
+              height="1"
+              className="h-auto w-auto"
+            />
+          </Link>
+        ))}
       </div>
     </div>
   );

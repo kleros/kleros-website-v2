@@ -30,9 +30,9 @@ const LearnPosts: React.FC = async () => {
         </div>
       </div>
       <CtaBox
-        background={cta[0].background}
-        header={cta[0].title}
-        button={{ text: "Learn More", link: { url: "https://google.com" } }}
+        background={cta.background}
+        header={cta.title}
+        button={{ text: cta.buttonLink[0].text, link: cta.buttonLink[0].link }}
       />
     </div>
   );
