@@ -58,7 +58,7 @@ const Dropdown: React.FC<IDropwdownProps> = ({ items, value, onChange }) => {
       <div
         className={clsx(
           "absolute z-10 mt-2 rounded-2xl border border-stroke bg-background-1",
-          "flex max-h-[300px] w-[200px] flex-col gap-4 overflow-scroll p-[10px] md:w-[348px]",
+          "flex max-h-[300px] w-[200px] flex-col gap-4 overflow-auto p-[10px] md:w-[348px]",
           isOpen ? "visible" : "hidden",
         )}
       >
