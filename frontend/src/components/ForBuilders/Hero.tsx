@@ -29,7 +29,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
           </Link>
         </div>
         <div className="block space-x-2">
-          {heroData.arrowLink.map((arrowLink) => (
+          {heroData.arrowLink?.map((arrowLink) => (
             <Link
               key={arrowLink.text}
               href={arrowLink.link.url}

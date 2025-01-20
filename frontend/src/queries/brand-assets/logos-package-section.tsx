@@ -1,18 +1,15 @@
 import { gql } from "graphql-request";
 
-export const heroQuery = gql`
+export const logosPackageSectionQuery = gql`
   {
-    forBuildersPageHero {
-      title
+    brandAssetsPageLogosPackageSection {
+      header
       subtitle
       button {
         text
         link {
           url
         }
-      }
-      background {
-        url
       }
       arrowLink {
         text
@@ -24,9 +21,9 @@ export const heroQuery = gql`
   }
 `;
 
-export type HeroQueryType = {
-  forBuildersPageHero: {
-    title: string;
+export type LogosPackageSectionQueryType = {
+  brandAssetsPageLogosPackageSection: {
+    header: string;
     subtitle: string;
     button: {
       text: string;
@@ -37,11 +34,9 @@ export type HeroQueryType = {
     arrowLink: {
       text: string;
       link: {
+        name: string;
         url: string;
       };
-    }[];
-    background: {
-      url: string;
     };
   };
 };
