@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_use_cases_sections",
+  "info": {
+    "singularName": "home-use-cases-section",
+    "pluralName": "home-use-cases-sections",
+    "displayName": "HomeUseCasesSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    }
+  }
+}
