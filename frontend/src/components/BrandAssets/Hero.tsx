@@ -1,0 +1,42 @@
+import React from "react";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import Button from "@/components/Button";
+import { HeroQueryType } from "@/queries/brand-assets/hero";
+
+interface IHero {
+  heroData: HeroQueryType["brandAssetsPageHero"];
+}
+
+const Hero: React.FC<IHero> = ({ heroData }) => {
+  return (
+    <div className="relative px-6 pb-12 pt-32">
+      <div className="space-y-6">
+        <h1 className="w-min text-3xl">{heroData.header}</h1>
+        <p className="text-lg">{heroData.subtitle}</p>
+        <div>
+          <Link
+            href={heroData.button?.link?.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="secondary">
+              <span>{heroData.button?.text}</span>
+            </Button>
+          </Link>
+        </div>
+      </div>
+      <Image
+        src={heroData.background?.url}
+        alt="Hero Image Background"
+        width="1440"
+        height="835"
+        className="absolute left-0 top-0 z-[-1] h-full object-cover object-left"
+      />
+    </div>
+  );
+};
+
+export default Hero;
