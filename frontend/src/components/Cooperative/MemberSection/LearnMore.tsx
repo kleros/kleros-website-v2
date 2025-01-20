@@ -32,6 +32,7 @@ const LearnMore: React.FC<CooperativeLearnMoreSection> = ({
         src={background.url}
         alt="Learn more Image Background"
         fill
+        priority
         className="rounded-2xl object-cover"
       />
     </div>

@@ -20,7 +20,13 @@ const KlerosBook: React.FC<IKlerosBook> = ({
       )}
     >
       <div className="max-w-457 relative h-[536px] w-full flex-shrink-0 lg:h-[717px] lg:w-[457px]">
-        <Image src={bookCover.url} alt="Book Cover" fill className="!w-fit" />
+        <Image
+          src={bookCover.url}
+          alt="Book Cover"
+          fill
+          priority
+          className="!w-fit"
+        />
       </div>
       <div className="space-y-16">
         <div className="space-y-6">

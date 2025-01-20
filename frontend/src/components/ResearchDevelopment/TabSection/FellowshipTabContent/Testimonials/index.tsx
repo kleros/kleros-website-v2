@@ -24,7 +24,7 @@ const Testimonials: React.FC<{ testimonials: Testimonial[] }> = ({
         itemsPerPage * (page - 1),
         Math.min(testimonials.length, itemsPerPage * page),
       ),
-    [itemsPerPage, page],
+    [testimonials, itemsPerPage, page],
   );
 
   return (

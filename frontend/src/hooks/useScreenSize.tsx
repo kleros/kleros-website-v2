@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 type ScreenSize = "sm" | "md" | "lg";
 
 export const useScreenSize = () => {
-  const [screenSize, setScreenSize] = useState<ScreenSize>();
+  const [screenSize, setScreenSize] = useState<ScreenSize>("lg");
 
   useEffect(() => {
     const handleResize = () => {

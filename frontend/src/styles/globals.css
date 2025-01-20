@@ -18,6 +18,27 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Urbanist, Helvetica, sans-serif;
+
+  /* scollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #42498f;
+    border-radius: 16px;
+    transition:
+      opacity 0.15s,
+      background-color 0.15s,
+      border-color 0.15s,
+      width 0.15s;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: #42498f transparent;
 }
 
 @layer utilities {
