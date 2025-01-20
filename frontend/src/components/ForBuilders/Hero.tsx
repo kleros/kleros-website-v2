@@ -29,7 +29,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
           </Link>
         </div>
         <div className="block space-x-2">
-          {heroData.arrowLink.map((arrowLink) => (
+          {heroData.arrowLink?.map((arrowLink) => (
             <Link
               key={arrowLink.text}
               href={arrowLink.link.url}
@@ -53,6 +53,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         alt="Hero Image Background"
         width="1440"
         height="835"
+        priority
         className="absolute left-0 top-0 z-[-1] h-full object-cover object-left"
       />
     </div>

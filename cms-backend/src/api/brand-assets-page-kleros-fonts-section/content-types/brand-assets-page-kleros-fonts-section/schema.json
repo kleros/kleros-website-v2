@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "brand_assets_page_kleros_fonts_sections",
+  "info": {
+    "singularName": "brand-assets-page-kleros-fonts-section",
+    "pluralName": "brand-assets-page-kleros-fonts-sections",
+    "displayName": "BrandAssetsPageKlerosFontsSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "linkCard": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.link-card"
+    }
+  }
+}

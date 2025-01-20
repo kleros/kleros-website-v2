@@ -19,15 +19,16 @@
     "subtitle": {
       "type": "string"
     },
-    "cta": {
-      "type": "component",
-      "repeatable": true,
-      "component": "content.section"
-    },
     "cards": {
       "type": "component",
       "repeatable": true,
       "component": "content.link-card"
+    },
+    "cta": {
+      "displayName": "cta",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.cta"
     }
   }
 }

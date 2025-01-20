@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_brand_assets_page_image_downloads",
+  "info": {
+    "displayName": "imageDownload",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "svgDownloadLink": {
+      "type": "string"
+    },
+    "pngDownloadLink": {
+      "type": "string"
+    }
+  }
+}

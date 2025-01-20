@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_table_table_data",
+  "info": {
+    "displayName": "TableData"
+  },
+  "options": {},
+  "attributes": {
+    "primaryValue": {
+      "type": "string"
+    },
+    "secondaryValue": {
+      "type": "string"
+    }
+  }
+}

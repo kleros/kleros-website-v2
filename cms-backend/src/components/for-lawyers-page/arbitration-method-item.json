@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_for_lawyers_page_arbitration_method_items",
+  "info": {
+    "displayName": "ArbitrationMethodItem",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

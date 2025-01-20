@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_table_table_rows",
+  "info": {
+    "displayName": "TableRow"
+  },
+  "options": {},
+  "attributes": {
+    "rowHeading": {
+      "type": "string"
+    },
+    "rowData": {
+      "type": "component",
+      "repeatable": true,
+      "component": "table.table-data"
+    }
+  }
+}

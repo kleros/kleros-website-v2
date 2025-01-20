@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "for_lawyers_page_participate_sections",
+  "info": {
+    "singularName": "for-lawyers-page-participate-section",
+    "pluralName": "for-lawyers-page-participate-sections",
+    "displayName": "ForLawyersPageParticipateSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headerSubtitle": {
+      "type": "string"
+    },
+    "header": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "starterKitSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cooperative-report-page.learn-more-section"
+    }
+  }
+}

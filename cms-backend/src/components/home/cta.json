@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_home_ctas",
+  "info": {
+    "displayName": "cta"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.button-link"
+    },
+    "background": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

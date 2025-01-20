@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "for_lawyers_page_dispute_resolution_with_kleros_sections",
+  "info": {
+    "singularName": "for-lawyers-page-dispute-resolution-with-kleros-section",
+    "pluralName": "for-lawyers-page-dispute-resolution-with-kleros-sections",
+    "displayName": "ForLawyersPageDisputeResolutionWithKlerosSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headerSubtitle": {
+      "type": "string"
+    },
+    "header": {
+      "type": "string"
+    },
+    "arbitrationMethodTable": {
+      "type": "component",
+      "repeatable": true,
+      "component": "for-lawyers-page.arbitration-method-card"
+    },
+    "secondHeader": {
+      "type": "string"
+    },
+    "secondSubtitle": {
+      "type": "text"
+    },
+    "publications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team-publication.team-publication"
+    },
+    "thirdHeader": {
+      "type": "string"
+    },
+    "thirdSubtitle": {
+      "type": "text"
+    }
+  }
+}

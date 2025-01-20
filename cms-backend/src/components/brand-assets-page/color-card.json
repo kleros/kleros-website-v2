@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_brand_assets_page_color_cards",
+  "info": {
+    "displayName": "colorCard"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "hexColor": {
+      "type": "string"
+    }
+  }
+}

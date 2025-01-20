@@ -5,7 +5,7 @@ import Divider from "./Divider";
 import ExternalLink from "./ExternalLink";
 
 export interface ICtaCard {
-  icon: {
+  icon?: {
     url: string;
   };
   title: string;
@@ -33,13 +33,15 @@ const CtaCard: React.FC<ICtaCard> = ({
         "flex flex-col items-start rounded-2xl border border-stroke p-6",
       )}
     >
-      <Image
-        width={90}
-        height={90}
-        src={icon.url}
-        className="mb-4 aspect-square object-contain"
-        alt="Icon"
-      />
+      {icon ? (
+        <Image
+          width={90}
+          height={90}
+          src={icon.url}
+          className="mb-4 aspect-square object-contain"
+          alt="Icon"
+        />
+      ) : null}
       <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
         {title}
       </h2>

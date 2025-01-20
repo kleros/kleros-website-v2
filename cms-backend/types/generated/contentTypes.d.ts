@@ -400,6 +400,280 @@ export interface ApiAnnualReportAnnualReport
   };
 }
 
+export interface ApiBrandAssetsPageHeroBrandAssetsPageHero
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_heroes';
+  info: {
+    description: '';
+    displayName: 'BrandAssetsPageHero';
+    pluralName: 'brand-assets-page-heroes';
+    singularName: 'brand-assets-page-hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    button: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-hero.brand-assets-page-hero'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageKlerosBadgesSectionBrandAssetsPageKlerosBadgesSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_kleros_badges_sections';
+  info: {
+    displayName: 'BrandAssetsPageKlerosBadgesSection';
+    pluralName: 'brand-assets-page-kleros-badges-sections';
+    singularName: 'brand-assets-page-kleros-badges-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    imageDownloads: Schema.Attribute.Component<
+      'brand-assets-page.image-download',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-kleros-badges-section.brand-assets-page-kleros-badges-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageKlerosColorsSectionBrandAssetsPageKlerosColorsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_kleros_colors_sections';
+  info: {
+    description: '';
+    displayName: 'BrandAssetsPageKlerosColorsSection';
+    pluralName: 'brand-assets-page-kleros-colors-sections';
+    singularName: 'brand-assets-page-kleros-colors-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    colorCards: Schema.Attribute.Component<
+      'brand-assets-page.color-card',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-kleros-colors-section.brand-assets-page-kleros-colors-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageKlerosFontsSectionBrandAssetsPageKlerosFontsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_kleros_fonts_sections';
+  info: {
+    displayName: 'BrandAssetsPageKlerosFontsSection';
+    pluralName: 'brand-assets-page-kleros-fonts-sections';
+    singularName: 'brand-assets-page-kleros-fonts-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    linkCard: Schema.Attribute.Component<'content.link-card', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-kleros-fonts-section.brand-assets-page-kleros-fonts-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageKlerosLogoSectionBrandAssetsPageKlerosLogoSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_kleros_logo_sections';
+  info: {
+    displayName: 'BrandAssetsPageKlerosLogoSection';
+    pluralName: 'brand-assets-page-kleros-logo-sections';
+    singularName: 'brand-assets-page-kleros-logo-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    imageDownloads: Schema.Attribute.Component<
+      'brand-assets-page.image-download',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-kleros-logo-section.brand-assets-page-kleros-logo-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageLogosPackageSectionBrandAssetsPageLogosPackageSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_logos_package_sections';
+  info: {
+    displayName: 'BrandAssetsPageLogosPackageSection';
+    pluralName: 'brand-assets-page-logos-package-sections';
+    singularName: 'brand-assets-page-logos-package-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    button: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-logos-package-section.brand-assets-page-logos-package-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPagePnkTokenSectionBrandAssetsPagePnkTokenSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_pnk_token_sections';
+  info: {
+    displayName: 'BrandAssetsPagePNKTokenSection';
+    pluralName: 'brand-assets-page-pnk-token-sections';
+    singularName: 'brand-assets-page-pnk-token-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    imageDownload: Schema.Attribute.Component<
+      'brand-assets-page.image-download',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-pnk-token-section.brand-assets-page-pnk-token-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBrandAssetsPageStyledImagesSectionBrandAssetsPageStyledImagesSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_styled_images_sections';
+  info: {
+    displayName: 'BrandAssetsPageStyledImagesSection';
+    pluralName: 'brand-assets-page-styled-images-sections';
+    singularName: 'brand-assets-page-styled-images-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-styled-images-section.brand-assets-page-styled-images-section'
+    > &
+      Schema.Attribute.Private;
+    productMockupsHeader: Schema.Attribute.String;
+    productMockupsImageDownloads: Schema.Attribute.Component<
+      'brand-assets-page.image-download',
+      true
+    >;
+    productMockupsSubtitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    wallpapersHeader: Schema.Attribute.String;
+    wallpapersImageDownloads: Schema.Attribute.Component<
+      'brand-assets-page.image-download',
+      true
+    >;
+    wallpapersSubtitle: Schema.Attribute.String;
+  };
+}
+
 export interface ApiCommunityPageHeroCommunityPageHero
   extends Struct.SingleTypeSchema {
   collectionName: 'community_page_heroes';
@@ -988,10 +1262,278 @@ export interface ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection
   };
 }
 
+export interface ApiForLawyersPageBecomeAFellowSectionForLawyersPageBecomeAFellowSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_lawyers_page_become_a_fellow_sections';
+  info: {
+    displayName: 'ForLawyersPageBecomeAFellowSection';
+    pluralName: 'for-lawyers-page-become-a-fellow-sections';
+    singularName: 'for-lawyers-page-become-a-fellow-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fellowImages: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    firstSubtitle: Schema.Attribute.Text;
+    header: Schema.Attribute.String;
+    headerSubtitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-lawyers-page-become-a-fellow-section.for-lawyers-page-become-a-fellow-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    secondSubtitle: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForLawyersPageDisputeResolutionWithKlerosSectionForLawyersPageDisputeResolutionWithKlerosSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_lawyers_page_dispute_resolution_with_kleros_sections';
+  info: {
+    description: '';
+    displayName: 'ForLawyersPageDisputeResolutionWithKlerosSection';
+    pluralName: 'for-lawyers-page-dispute-resolution-with-kleros-sections';
+    singularName: 'for-lawyers-page-dispute-resolution-with-kleros-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    arbitrationMethodTable: Schema.Attribute.Component<
+      'for-lawyers-page.arbitration-method-card',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    headerSubtitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-lawyers-page-dispute-resolution-with-kleros-section.for-lawyers-page-dispute-resolution-with-kleros-section'
+    > &
+      Schema.Attribute.Private;
+    publications: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-publication.team-publication'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    secondHeader: Schema.Attribute.String;
+    secondSubtitle: Schema.Attribute.Text;
+    thirdHeader: Schema.Attribute.String;
+    thirdSubtitle: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForLawyersPageHeroForLawyersPageHero
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_lawyers_page_heroes';
+  info: {
+    displayName: 'ForLawyersPageHero';
+    pluralName: 'for-lawyers-page-heroes';
+    singularName: 'for-lawyers-page-hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    buttons: Schema.Attribute.Component<'content.button-link', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-lawyers-page-hero.for-lawyers-page-hero'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForLawyersPageKlerosEnterpriseSectionForLawyersPageKlerosEnterpriseSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_lawyers_page_kleros_enterprise_sections';
+  info: {
+    description: '';
+    displayName: 'ForLawyersPageKlerosEnterpriseSection';
+    pluralName: 'for-lawyers-page-kleros-enterprise-sections';
+    singularName: 'for-lawyers-page-kleros-enterprise-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articleLink: Schema.Attribute.Relation<'oneToOne', 'api::link.link'>;
+    cards: Schema.Attribute.Component<'content.cta-card', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    disputeResolutionProcessHeader: Schema.Attribute.Component<
+      'content.highlight-text',
+      false
+    >;
+    header: Schema.Attribute.String;
+    headerSubtitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-lawyers-page-kleros-enterprise-section.for-lawyers-page-kleros-enterprise-section'
+    > &
+      Schema.Attribute.Private;
+    processDiagram: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    processDiagramDesktop: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.Component<'content.highlight-text', false>;
+    table: Schema.Attribute.Component<'table.table', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForLawyersPageKlerosEscrowSectionForLawyersPageKlerosEscrowSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_lawyers_page_kleros_escrow_sections';
+  info: {
+    description: '';
+    displayName: 'ForLawyersPageKlerosEscrowSection';
+    pluralName: 'for-lawyers-page-kleros-escrow-sections';
+    singularName: 'for-lawyers-page-kleros-escrow-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    flowchart: Schema.Attribute.Component<'for-lawyers-page.step', true>;
+    flowchartLabel: Schema.Attribute.String;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-lawyers-page-kleros-escrow-section.for-lawyers-page-kleros-escrow-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    secondHeader: Schema.Attribute.String;
+    secondSubtitle: Schema.Attribute.Text;
+    subtitle: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForLawyersPageMediationSectionForLawyersPageMediationSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_lawyers_page_mediation_sections';
+  info: {
+    description: '';
+    displayName: 'ForLawyersPageMediationSection';
+    pluralName: 'for-lawyers-page-mediation-sections';
+    singularName: 'for-lawyers-page-mediation-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    benefitsHeader: Schema.Attribute.String;
+    cards: Schema.Attribute.Component<'content.cta-card', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    flowchart: Schema.Attribute.Component<'for-lawyers-page.step', true>;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-lawyers-page-mediation-section.for-lawyers-page-mediation-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForLawyersPageParticipateSectionForLawyersPageParticipateSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_lawyers_page_participate_sections';
+  info: {
+    description: '';
+    displayName: 'ForLawyersPageParticipateSection';
+    pluralName: 'for-lawyers-page-participate-sections';
+    singularName: 'for-lawyers-page-participate-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    headerSubtitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-lawyers-page-participate-section.for-lawyers-page-participate-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    starterKitSection: Schema.Attribute.Component<
+      'cooperative-report-page.learn-more-section',
+      false
+    >;
+    subtitle: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeCaseStudiesSectionHomeCaseStudiesSection
   extends Struct.SingleTypeSchema {
   collectionName: 'home_case_studies_sections';
   info: {
+    description: '';
     displayName: 'HomeCaseStudiesSection';
     pluralName: 'home-case-studies-sections';
     singularName: 'home-case-studies-section';
@@ -1000,6 +1542,7 @@ export interface ApiHomeCaseStudiesSectionHomeCaseStudiesSection
     draftAndPublish: true;
   };
   attributes: {
+    cards: Schema.Attribute.Component<'content.link-card', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1176,7 +1719,7 @@ export interface ApiHomeStartEarningSectionHomeStartEarningSection
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cta: Schema.Attribute.Component<'content.section', true>;
+    cta: Schema.Attribute.Component<'home.cta', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1186,6 +1729,67 @@ export interface ApiHomeStartEarningSectionHomeStartEarningSection
     publishedAt: Schema.Attribute.DateTime;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomeUseCasesSectionHomeUseCasesSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'home_use_cases_sections';
+  info: {
+    description: '';
+    displayName: 'HomeUseCasesSection';
+    pluralName: 'home-use-cases-sections';
+    singularName: 'home-use-cases-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-use-cases-section.home-use-cases-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInstitutionInstitution extends Struct.CollectionTypeSchema {
+  collectionName: 'institutions';
+  info: {
+    displayName: 'Institution';
+    pluralName: 'institutions';
+    singularName: 'institution';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Relation<'oneToOne', 'api::link.link'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::institution.institution'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1214,6 +1818,41 @@ export interface ApiKlerosLogoKlerosLogo extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     logo_svg: Schema.Attribute.Media<'images' | 'files'>;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLemonCashSectionLemonCashSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'lemon_cash_sections';
+  info: {
+    description: '';
+    displayName: 'LemonCashSection';
+    pluralName: 'lemon-cash-sections';
+    singularName: 'lemon-cash-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lemon-cash-section.lemon-cash-section'
+    > &
+      Schema.Attribute.Private;
+    primarySubtitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    secondarySubtitle: Schema.Attribute.String;
+    testimony: Schema.Attribute.Text;
+    testimonyAuthor: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2527,6 +3166,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::annual-report.annual-report': ApiAnnualReportAnnualReport;
+      'api::brand-assets-page-hero.brand-assets-page-hero': ApiBrandAssetsPageHeroBrandAssetsPageHero;
+      'api::brand-assets-page-kleros-badges-section.brand-assets-page-kleros-badges-section': ApiBrandAssetsPageKlerosBadgesSectionBrandAssetsPageKlerosBadgesSection;
+      'api::brand-assets-page-kleros-colors-section.brand-assets-page-kleros-colors-section': ApiBrandAssetsPageKlerosColorsSectionBrandAssetsPageKlerosColorsSection;
+      'api::brand-assets-page-kleros-fonts-section.brand-assets-page-kleros-fonts-section': ApiBrandAssetsPageKlerosFontsSectionBrandAssetsPageKlerosFontsSection;
+      'api::brand-assets-page-kleros-logo-section.brand-assets-page-kleros-logo-section': ApiBrandAssetsPageKlerosLogoSectionBrandAssetsPageKlerosLogoSection;
+      'api::brand-assets-page-logos-package-section.brand-assets-page-logos-package-section': ApiBrandAssetsPageLogosPackageSectionBrandAssetsPageLogosPackageSection;
+      'api::brand-assets-page-pnk-token-section.brand-assets-page-pnk-token-section': ApiBrandAssetsPagePnkTokenSectionBrandAssetsPagePnkTokenSection;
+      'api::brand-assets-page-styled-images-section.brand-assets-page-styled-images-section': ApiBrandAssetsPageStyledImagesSectionBrandAssetsPageStyledImagesSection;
       'api::community-page-hero.community-page-hero': ApiCommunityPageHeroCommunityPageHero;
       'api::community.community': ApiCommunityCommunity;
       'api::cooperative-page-hero.cooperative-page-hero': ApiCooperativePageHeroCooperativePageHero;
@@ -2544,13 +3191,23 @@ declare module '@strapi/strapi' {
       'api::for-builders-page-hero.for-builders-page-hero': ApiForBuildersPageHeroForBuildersPageHero;
       'api::for-builders-page-integrate-section.for-builders-page-integrate-section': ApiForBuildersPageIntegrateSectionForBuildersPageIntegrateSection;
       'api::for-builders-page-use-cases-section.for-builders-page-use-cases-section': ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection;
+      'api::for-lawyers-page-become-a-fellow-section.for-lawyers-page-become-a-fellow-section': ApiForLawyersPageBecomeAFellowSectionForLawyersPageBecomeAFellowSection;
+      'api::for-lawyers-page-dispute-resolution-with-kleros-section.for-lawyers-page-dispute-resolution-with-kleros-section': ApiForLawyersPageDisputeResolutionWithKlerosSectionForLawyersPageDisputeResolutionWithKlerosSection;
+      'api::for-lawyers-page-hero.for-lawyers-page-hero': ApiForLawyersPageHeroForLawyersPageHero;
+      'api::for-lawyers-page-kleros-enterprise-section.for-lawyers-page-kleros-enterprise-section': ApiForLawyersPageKlerosEnterpriseSectionForLawyersPageKlerosEnterpriseSection;
+      'api::for-lawyers-page-kleros-escrow-section.for-lawyers-page-kleros-escrow-section': ApiForLawyersPageKlerosEscrowSectionForLawyersPageKlerosEscrowSection;
+      'api::for-lawyers-page-mediation-section.for-lawyers-page-mediation-section': ApiForLawyersPageMediationSectionForLawyersPageMediationSection;
+      'api::for-lawyers-page-participate-section.for-lawyers-page-participate-section': ApiForLawyersPageParticipateSectionForLawyersPageParticipateSection;
       'api::home-case-studies-section.home-case-studies-section': ApiHomeCaseStudiesSectionHomeCaseStudiesSection;
       'api::home-get-in-touch-section.home-get-in-touch-section': ApiHomeGetInTouchSectionHomeGetInTouchSection;
       'api::home-how-kleros-works-section.home-how-kleros-works-section': ApiHomeHowKlerosWorksSectionHomeHowKlerosWorksSection;
       'api::home-learn-posts-section.home-learn-posts-section': ApiHomeLearnPostsSectionHomeLearnPostsSection;
       'api::home-page-hero.home-page-hero': ApiHomePageHeroHomePageHero;
       'api::home-start-earning-section.home-start-earning-section': ApiHomeStartEarningSectionHomeStartEarningSection;
+      'api::home-use-cases-section.home-use-cases-section': ApiHomeUseCasesSectionHomeUseCasesSection;
+      'api::institution.institution': ApiInstitutionInstitution;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
+      'api::lemon-cash-section.lemon-cash-section': ApiLemonCashSectionLemonCashSection;
       'api::link.link': ApiLinkLink;
       'api::navbar-apps-section.navbar-apps-section': ApiNavbarAppsSectionNavbarAppsSection;
       'api::navbar-button.navbar-button': ApiNavbarButtonNavbarButton;
