@@ -24,7 +24,7 @@ const CtaBox: React.FC<ICtaBox> = ({ background, header, button }) => {
     <div className="relative">
       <Image
         src={background.url}
-        alt="Get In Touch Image Background"
+        alt="Background Image"
         fill
         className="rounded-2xl object-cover"
       />
@@ -34,7 +34,9 @@ const CtaBox: React.FC<ICtaBox> = ({ background, header, button }) => {
           "justify-center py-9",
         )}
       >
-        <h2 className="mb-8 text-xl text-primary-text"> {header} </h2>
+        <h2 className="mb-8 text-center text-lg text-primary-text lg:text-xl">
+          {header}
+        </h2>
         <Link href={button.link.url} target="_blank" rel="noopener noreferrer">
           <Button>
             <span className="text-background-2"> {button.text} </span>

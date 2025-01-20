@@ -2,13 +2,22 @@ import React from "react";
 
 import ExternalLink from "@/components/ExternalLink";
 import UseCasesCards from "@/components/UseCasesCards";
+import { request } from "@/utils/graphQLClient";
 
-const UseCases: React.FC = () => (
-  <div className="space-y-8 bg-background-2 px-6 pb-12">
-    <h3 className="semibold text-2xl">Title</h3>
-    <UseCasesCards />
-    <ExternalLink text="Explore" url="google.com" />
-  </div>
-);
+import { useCasesQuery, IUseCasesQuery } from "../queries/use-cases";
+
+const UseCases: React.FC = async () => {
+  const { title, arrowLink } = await request<IUseCasesQuery>(
+    useCasesQuery,
+  ).then((res) => res.homeUseCasesSection);
+
+  return (
+    <div className="space-y-8 bg-background-2 px-6 pb-12">
+      <h3 className="text-xl font-semibold lg:text-2xl"> {title} </h3>
+      <UseCasesCards />
+      <ExternalLink text={arrowLink.text} url={arrowLink.link.url} />
+    </div>
+  );
+};
 
 export default UseCases;

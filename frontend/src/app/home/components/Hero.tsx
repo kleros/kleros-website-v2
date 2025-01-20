@@ -23,7 +23,7 @@ const Hero: React.FC = async () => {
   return (
     <div className="relative h-[835px] px-6 pb-28 pt-44">
       <div className="space-y-6">
-        <h1 className="w-min text-3xl">{title}</h1>
+        <h1 className="text-2xl lg:text-3xl">{title}</h1>
         <p className="text-lg">{subtitle}</p>
         <div className="lg:hidden">
           <Link
@@ -67,9 +67,8 @@ const Hero: React.FC = async () => {
       <Image
         src={background.url}
         alt="Hero Image Background"
-        width="1440"
-        height="835"
-        className="absolute left-0 top-0 z-[-1] h-full object-cover object-left"
+        fill
+        className="absolute left-0 top-0 z-[-1] h-full object-cover"
       />
     </div>
   );

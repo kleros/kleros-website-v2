@@ -19,8 +19,8 @@ const LearnPosts: React.FC = async () => {
   return (
     <div className="bg-background-1 px-6 py-12">
       <div className="flex flex-col gap-8">
-        <h3 className="text-2xl font-semibold">{title}</h3>
-        <p className="text-lg">{subtitle}</p>
+        <h3 className="text-xl font-semibold lg:text-2xl">{title}</h3>
+        <p className="text-base lg:text-lg">{subtitle}</p>
         <div className="mx-auto flex flex-wrap gap-4">
           {cards.map(({ icon, title, subtitle, link }) => (
             <CtaCard
@@ -31,7 +31,7 @@ const LearnPosts: React.FC = async () => {
           ))}
         </div>
         <div>
-          <p className="text-center text-lg">
+          <p className="text-center text-base lg:text-lg">
             {introduction.heading_text}
             <br />
             <Link

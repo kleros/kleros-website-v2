@@ -17,10 +17,7 @@ const ExternalLink: React.FC<IExternalLink> = ({ text, url, className }) => {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={clsx(
-        "flex w-max items-center gap-4 hover:brightness-[1.2]",
-        className,
-      )}
+      className={clsx("block hover:brightness-[1.2]", className)}
     >
       <span className="text-center text-base text-primary-blue lg:text-lg">
         {text}
@@ -30,7 +27,7 @@ const ExternalLink: React.FC<IExternalLink> = ({ text, url, className }) => {
         width="24"
         height="24"
         alt="Arrow link image"
-        className="inline"
+        className="ml-4 inline"
       />
     </Link>
   );

@@ -19,9 +19,9 @@ const HowKlerosWorks: React.FC = async () => {
   return (
     <div className="bg-background-1 px-6 py-12">
       <div className="flex flex-col gap-8">
-        <label className="text-primary-purple">{label}</label>
-        <h3 className="text-2xl font-semibold">{title}</h3>
-        <p className="text-lg">{subtitle}</p>
+        <label className="text-base text-primary-purple">{label}</label>
+        <h3 className="text-xl font-semibold lg:text-2xl">{title}</h3>
+        <p className="text-base lg:text-lg">{subtitle}</p>
       </div>
       <Image
         className="mx-auto mt-12"

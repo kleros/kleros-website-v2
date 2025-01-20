@@ -20,7 +20,7 @@ const GetInTouch: React.FC = async () => {
         <ExternalLink className="mb-16" text={link.text} url={link.link.url} />
       </div>
       <Image
-        className="mx-auto"
+        className="mx-auto mb-20"
         alt="Kleros Logo"
         src={icon.url}
         width="296"

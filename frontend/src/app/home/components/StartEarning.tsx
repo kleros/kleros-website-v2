@@ -1,8 +1,6 @@
 import React from "react";
 
-// import Link from "next/link";
-
-// import CtaBox from "@/components/CtaBox";
+import CtaBox from "@/components/CtaBox";
 import CtaCard from "@/components/CtaCard";
 import { request } from "@/utils/graphQLClient";
 
@@ -12,7 +10,7 @@ import {
 } from "../queries/start-earning";
 
 const LearnPosts: React.FC = async () => {
-  const { title, subtitle, cards } = await request<IStartEarningQuery>(
+  const { title, subtitle, cards, cta } = await request<IStartEarningQuery>(
     startEarningQuery,
   ).then((res) => res.homeStartEarningSection);
 
@@ -31,6 +29,11 @@ const LearnPosts: React.FC = async () => {
           ))}
         </div>
       </div>
+      <CtaBox
+        background={cta[0].background}
+        header={cta[0].title}
+        button={{ text: "Learn More", link: { url: "https://google.com" } }}
+      />
     </div>
   );
 };
