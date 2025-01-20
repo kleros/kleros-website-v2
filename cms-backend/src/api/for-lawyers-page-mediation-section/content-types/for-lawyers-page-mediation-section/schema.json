@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "for_lawyers_page_mediation_sections",
+  "info": {
+    "singularName": "for-lawyers-page-mediation-section",
+    "pluralName": "for-lawyers-page-mediation-sections",
+    "displayName": "ForLawyersPageMediationSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "flowchart": {
+      "type": "component",
+      "repeatable": true,
+      "component": "for-lawyers-page.step"
+    },
+    "benefitsHeader": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.cta-card"
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    }
+  }
+}

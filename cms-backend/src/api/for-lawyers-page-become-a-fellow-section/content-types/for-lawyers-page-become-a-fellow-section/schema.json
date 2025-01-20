@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "for_lawyers_page_become_a_fellow_sections",
+  "info": {
+    "singularName": "for-lawyers-page-become-a-fellow-section",
+    "pluralName": "for-lawyers-page-become-a-fellow-sections",
+    "displayName": "ForLawyersPageBecomeAFellowSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headerSubtitle": {
+      "type": "string"
+    },
+    "header": {
+      "type": "string"
+    },
+    "firstSubtitle": {
+      "type": "text"
+    },
+    "secondSubtitle": {
+      "type": "text"
+    },
+    "fellowImages": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
+    }
+  }
+}

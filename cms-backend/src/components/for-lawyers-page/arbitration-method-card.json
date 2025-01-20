@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_for_lawyers_page_arbitration_method_cards",
+  "info": {
+    "displayName": "ArbitrationMethodCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "methodType": {
+      "type": "enumeration",
+      "enum": [
+        "kleros",
+        "other"
+      ]
+    },
+    "items": {
+      "displayName": "ArbitrationMethodItem",
+      "type": "component",
+      "repeatable": true,
+      "component": "for-lawyers-page.arbitration-method-item"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

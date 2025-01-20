@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_for_lawyers_page_steps",
+  "info": {
+    "displayName": "FlowchartItem",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "index": {
+      "type": "integer"
+    }
+  }
+}
