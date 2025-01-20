@@ -13,11 +13,19 @@ const GetInTouch: React.FC = async () => {
   ).then((res) => res.homeGetInTouchSection);
 
   return (
-    <div className="bg-background-1 px-6 py-12">
-      <h3 className="mb-8 text-xl font-semibold lg:text-2xl">{title}</h3>
-      <p className="mb-6 lg:text-lg">{subtitle}</p>
-      <ExternalLink className="mb-16" text={link.text} url={link.link.url} />
-      <Image alt="Kleros Logo" src={icon.url} width="296" height="267" />
+    <div className="bg-background-1 px-6 py-12 md:grid md:grid-cols-2">
+      <div>
+        <h3 className="mb-8 text-xl font-semibold lg:text-2xl">{title}</h3>
+        <p className="mb-6 lg:text-lg">{subtitle}</p>
+        <ExternalLink className="mb-16" text={link.text} url={link.link.url} />
+      </div>
+      <Image
+        className="mx-auto"
+        alt="Kleros Logo"
+        src={icon.url}
+        width="296"
+        height="267"
+      />
     </div>
   );
 };
