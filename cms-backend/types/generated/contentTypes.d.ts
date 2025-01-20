@@ -1533,6 +1533,7 @@ export interface ApiHomeCaseStudiesSectionHomeCaseStudiesSection
   extends Struct.SingleTypeSchema {
   collectionName: 'home_case_studies_sections';
   info: {
+    description: '';
     displayName: 'HomeCaseStudiesSection';
     pluralName: 'home-case-studies-sections';
     singularName: 'home-case-studies-section';
@@ -1541,6 +1542,7 @@ export interface ApiHomeCaseStudiesSectionHomeCaseStudiesSection
     draftAndPublish: true;
   };
   attributes: {
+    cards: Schema.Attribute.Component<'content.link-card', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1727,6 +1729,37 @@ export interface ApiHomeStartEarningSectionHomeStartEarningSection
     publishedAt: Schema.Attribute.DateTime;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomeUseCasesSectionHomeUseCasesSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'home_use_cases_sections';
+  info: {
+    description: '';
+    displayName: 'HomeUseCasesSection';
+    pluralName: 'home-use-cases-sections';
+    singularName: 'home-use-cases-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-use-cases-section.home-use-cases-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3141,6 +3174,7 @@ declare module '@strapi/strapi' {
       'api::home-learn-posts-section.home-learn-posts-section': ApiHomeLearnPostsSectionHomeLearnPostsSection;
       'api::home-page-hero.home-page-hero': ApiHomePageHeroHomePageHero;
       'api::home-start-earning-section.home-start-earning-section': ApiHomeStartEarningSectionHomeStartEarningSection;
+      'api::home-use-cases-section.home-use-cases-section': ApiHomeUseCasesSectionHomeUseCasesSection;
       'api::kleros-logo.kleros-logo': ApiKlerosLogoKlerosLogo;
       'api::lemon-cash-section.lemon-cash-section': ApiLemonCashSectionLemonCashSection;
       'api::link.link': ApiLinkLink;

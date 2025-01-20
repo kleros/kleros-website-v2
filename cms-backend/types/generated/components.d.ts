@@ -92,9 +92,13 @@ export interface ContentNavlink extends Struct.ComponentSchema {
 export interface ContentSection extends Struct.ComponentSchema {
   collectionName: 'components_content_sections';
   info: {
+    description: '';
     displayName: 'section';
   };
   attributes: {
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     links: Schema.Attribute.Relation<'oneToMany', 'api::link.link'>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
