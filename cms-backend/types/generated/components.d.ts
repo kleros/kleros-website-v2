@@ -271,6 +271,20 @@ export interface ForLawyersPageStep extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeCta extends Struct.ComponentSchema {
+  collectionName: 'components_home_ctas';
+  info: {
+    displayName: 'cta';
+  };
+  attributes: {
+    background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    buttonLink: Schema.Attribute.Component<'content.button-link', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface HomeIntroduction extends Struct.ComponentSchema {
   collectionName: 'components_home_introductions';
   info: {
@@ -385,6 +399,7 @@ declare module '@strapi/strapi' {
       'for-lawyers-page.arbitration-method-card': ForLawyersPageArbitrationMethodCard;
       'for-lawyers-page.arbitration-method-item': ForLawyersPageArbitrationMethodItem;
       'for-lawyers-page.step': ForLawyersPageStep;
+      'home.cta': HomeCta;
       'home.introduction': HomeIntroduction;
       'pnk-token-page.token-stat-display': PnkTokenPageTokenStatDisplay;
       'r-and-d-page.kleros-book': RAndDPageKlerosBook;
