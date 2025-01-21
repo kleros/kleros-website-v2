@@ -50,11 +50,6 @@
         "audios"
       ]
     },
-    "articleLink": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::link.link"
-    },
     "table": {
       "type": "component",
       "repeatable": false,
@@ -64,6 +59,11 @@
       "type": "component",
       "repeatable": false,
       "component": "content.highlight-text"
+    },
+    "arrowLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
     }
   }
 }
