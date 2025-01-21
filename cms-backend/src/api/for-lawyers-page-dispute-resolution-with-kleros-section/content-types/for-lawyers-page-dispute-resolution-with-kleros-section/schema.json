@@ -39,6 +39,9 @@
     },
     "thirdSubtitle": {
       "type": "text"
+    },
+    "subtitle": {
+      "type": "text"
     }
   }
 }
