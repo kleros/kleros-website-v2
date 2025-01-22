@@ -15,6 +15,7 @@ const KlerosDisputeResolutionSection: React.FC = async () => {
   const {
     headerSubtitle,
     header,
+    subtitle,
     secondHeader,
     secondSubtitle,
     thirdHeader,
@@ -41,12 +42,7 @@ const KlerosDisputeResolutionSection: React.FC = async () => {
         <h1 className="text-xl font-medium text-primary-text lg:text-3xl">
           {header}
         </h1>
-        <p className="text-secondary-text lg:text-lg">
-          {/* TODO: article not updated in dashboard */}
-          Incorporate Kleros dispute resolution clauses in your contracts to
-          provide clients with a modern, quick, and reliable dispute resolution
-          method.
-        </p>
+        <p className="text-secondary-text lg:text-lg">{subtitle}</p>
       </div>
 
       <ArbitrationMethodTable table={arbitrationMethodTable} />

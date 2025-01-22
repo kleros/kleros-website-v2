@@ -1,5 +1,7 @@
 import { gql } from "graphql-request";
 
+import { ArrowLink } from "@/queries/navbar";
+
 export const forLawyersPageKlerosEnterpriseSectionQuery = gql`
   {
     forLawyersPageKlerosEnterpriseSection {
@@ -15,6 +17,12 @@ export const forLawyersPageKlerosEnterpriseSectionQuery = gql`
         title
         description
         icon {
+          url
+        }
+      }
+      arrowLink {
+        text
+        link {
           url
         }
       }
@@ -80,6 +88,7 @@ export type ForLawyersPageKlerosEnterpiseSectionType = {
     header: string;
     subtitle: HighlightedText;
     cards: Card[];
+    arrowLink: ArrowLink;
     disputeResolutionProcessHeader: HighlightedText;
     processDiagram: {
       url: string;

@@ -7,6 +7,7 @@ export const forLawyersPageDisputeResolutionSectionQuery = gql`
     forLawyersPageDisputeResolutionWithKlerosSection {
       headerSubtitle
       header
+      subtitle
       secondHeader
       secondSubtitle
       thirdHeader
@@ -60,6 +61,7 @@ export type ForLawyersPageDisputeResolutionSectionQueryType = {
   forLawyersPageDisputeResolutionWithKlerosSection: {
     headerSubtitle: string;
     header: string;
+    subtitle: string;
     secondHeader: string;
     secondSubtitle: string;
     thirdHeader: string;

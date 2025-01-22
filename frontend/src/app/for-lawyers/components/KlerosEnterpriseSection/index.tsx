@@ -1,5 +1,6 @@
 import clsx from "clsx";
 
+import ExternalLink from "@/components/ExternalLink";
 import { request } from "@/utils/graphQLClient";
 
 import {
@@ -23,6 +24,7 @@ const KlerosEnterpriseSection: React.FC = async () => {
     processDiagram,
     processDiagramDesktop,
     table,
+    arrowLink,
   } = (
     await request<ForLawyersPageKlerosEnterpiseSectionType>(
       forLawyersPageKlerosEnterpriseSectionQuery,
@@ -59,6 +61,11 @@ const KlerosEnterpriseSection: React.FC = async () => {
       />
 
       <LemonCashSection />
+      <ExternalLink
+        url={arrowLink.link.url}
+        text={arrowLink.text}
+        className="flex-wrap justify-center"
+      />
       <MethodsTable {...{ table }} />
     </div>
   );
