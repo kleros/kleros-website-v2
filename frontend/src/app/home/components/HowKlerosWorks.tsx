@@ -20,7 +20,7 @@ const HowKlerosWorks: React.FC = async () => {
     <div className="bg-background-1 px-6 py-12">
       <div className="flex flex-col gap-8">
         <label className="text-base text-primary-purple">{label}</label>
-        <h3 className="text-xl font-semibold lg:text-2xl">{title}</h3>
+        <h3 className="text-xl font-medium lg:text-2xl">{title}</h3>
         <p className="text-base lg:text-lg">{subtitle}</p>
       </div>
       <Image

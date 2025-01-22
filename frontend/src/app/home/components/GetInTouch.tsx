@@ -15,7 +15,7 @@ const GetInTouch: React.FC = async () => {
   return (
     <div className="bg-background-1 px-6 py-12 md:grid md:grid-cols-2">
       <div>
-        <h3 className="mb-8 text-xl font-semibold lg:text-2xl">{title}</h3>
+        <h3 className="mb-8 text-xl font-medium lg:text-2xl">{title}</h3>
         <p className="mb-6 lg:text-lg">{subtitle}</p>
         <ExternalLink className="mb-16" text={link.text} url={link.link.url} />
       </div>

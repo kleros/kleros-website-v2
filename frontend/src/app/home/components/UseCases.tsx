@@ -13,7 +13,7 @@ const UseCases: React.FC = async () => {
 
   return (
     <div className="space-y-8 bg-background-2 px-6 pb-12">
-      <h3 className="text-xl font-semibold lg:text-2xl"> {title} </h3>
+      <h3 className="text-xl font-medium lg:text-2xl"> {title} </h3>
       <UseCasesCards />
       <ExternalLink text={arrowLink.text} url={arrowLink.link.url} />
     </div>
