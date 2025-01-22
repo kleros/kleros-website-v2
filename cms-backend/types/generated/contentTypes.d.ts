@@ -1334,6 +1334,7 @@ export interface ApiForLawyersPageDisputeResolutionWithKlerosSectionForLawyersPa
     publishedAt: Schema.Attribute.DateTime;
     secondHeader: Schema.Attribute.String;
     secondSubtitle: Schema.Attribute.Text;
+    subtitle: Schema.Attribute.Text;
     thirdHeader: Schema.Attribute.String;
     thirdSubtitle: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -1390,7 +1391,7 @@ export interface ApiForLawyersPageKlerosEnterpriseSectionForLawyersPageKlerosEnt
     draftAndPublish: true;
   };
   attributes: {
-    articleLink: Schema.Attribute.Relation<'oneToOne', 'api::link.link'>;
+    arrowLink: Schema.Attribute.Component<'content.button-link', false>;
     cards: Schema.Attribute.Component<'content.cta-card', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
