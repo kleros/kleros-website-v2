@@ -21,11 +21,7 @@ const LearnPosts: React.FC = async () => {
         <p className="text-base lg:text-lg">{subtitle}</p>
         <div className="mx-auto grid grid-cols-1 gap-4 md:grid-cols-2">
           {cards.map(({ icon, title, subtitle }) => (
-            <CtaCard
-              className=""
-              key={title}
-              {...{ icon, title, description: subtitle }}
-            />
+            <CtaCard key={title} {...{ icon, title, description: subtitle }} />
           ))}
         </div>
       </div>
