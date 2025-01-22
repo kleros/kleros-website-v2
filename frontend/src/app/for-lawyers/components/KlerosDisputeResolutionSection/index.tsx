@@ -1,0 +1,67 @@
+import clsx from "clsx";
+
+import { request } from "@/utils/graphQLClient";
+
+import {
+  forLawyersPageDisputeResolutionSectionQuery,
+  ForLawyersPageDisputeResolutionSectionQueryType,
+} from "../../queries/kleros-dispute-resolution-section";
+
+import ArbitrationMethodTable from "./ArbitrationMethodTable";
+import KlerosEscrowSection from "./KlerosEscrowSection";
+import ResearchSection from "./ResearchSection";
+
+const KlerosDisputeResolutionSection: React.FC = async () => {
+  const {
+    headerSubtitle,
+    header,
+    secondHeader,
+    secondSubtitle,
+    thirdHeader,
+    thirdSubtitle,
+    arbitrationMethodTable,
+    publications,
+  } = (
+    await request<ForLawyersPageDisputeResolutionSectionQueryType>(
+      forLawyersPageDisputeResolutionSectionQuery,
+    )
+  ).forLawyersPageDisputeResolutionWithKlerosSection;
+  return (
+    <div
+      className={clsx(
+        "bg-background-2",
+        "flex flex-col gap-16",
+        "px-6 py-12 lg:px-32 lg:py-24",
+      )}
+    >
+      <div className="flex flex-col gap-6">
+        <h3 className="mb-6 text-primary-purple lg:text-lg">
+          {headerSubtitle}
+        </h3>
+        <h1 className="text-xl font-medium text-primary-text lg:text-3xl">
+          {header}
+        </h1>
+        <p className="text-secondary-text lg:text-lg">
+          {/* TODO: article not updated in dashboard */}
+          Incorporate Kleros dispute resolution clauses in your contracts to
+          provide clients with a modern, quick, and reliable dispute resolution
+          method.
+        </p>
+      </div>
+
+      <ArbitrationMethodTable table={arbitrationMethodTable} />
+      <ResearchSection {...{ secondHeader, secondSubtitle, publications }} />
+
+      <div className="my-4">
+        <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
+          {thirdHeader}
+        </h2>
+        <p className="text-secondary-text lg:text-lg">{thirdSubtitle}</p>
+      </div>
+
+      <KlerosEscrowSection />
+    </div>
+  );
+};
+
+export default KlerosDisputeResolutionSection;

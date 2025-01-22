@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 import Divider from "@/components/Divider";
 import ExternalLink from "@/components/ExternalLink";
 import {
@@ -7,11 +9,21 @@ import {
 
 interface IPublicationCard {
   publication: TeamPublication | ThirdPartyPublication;
+  className?: string;
 }
 
-const PublicationCard: React.FC<IPublicationCard> = ({ publication }) => {
+const PublicationCard: React.FC<IPublicationCard> = ({
+  publication,
+  className,
+}) => {
   return (
-    <div className="flex flex-col items-start rounded-2xl border border-stroke p-6">
+    <div
+      className={clsx(
+        "rounded-2xl border border-stroke p-6",
+        "flex flex-col items-start",
+        className,
+      )}
+    >
       {isTeamPublication(publication) ? (
         <>
           <h2 className="mb-6 text-xl font-medium text-primary-text">
