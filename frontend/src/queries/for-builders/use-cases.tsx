@@ -4,9 +4,6 @@ export const useCasesQuery = gql`
   {
     forBuildersPageUseCasesSection {
       sectionHeader
-      useCases {
-        name
-      }
       useCaseTitle
       useCaseDescription
       useCaseBanner {
@@ -52,9 +49,6 @@ export const useCasesQuery = gql`
 export type UseCasesQueryType = {
   forBuildersPageUseCasesSection: {
     sectionHeader: string;
-    useCases: {
-      name: string;
-    }[];
     useCaseTitle: string;
     useCaseDescription: string;
     useCaseBanner: {

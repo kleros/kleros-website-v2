@@ -1,6 +1,6 @@
 import { gql } from "graphql-request";
 
-import { AppsSection } from "../navbar";
+import { AppsSection } from "@/queries/navbar";
 
 export const integrateQuery = gql`
   {

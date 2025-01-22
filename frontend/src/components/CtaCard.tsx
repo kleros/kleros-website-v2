@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Image from "next/image";
 
 import Divider from "./Divider";
@@ -9,12 +10,13 @@ export interface ICtaCard {
   };
   title: string;
   description: string;
-  arrowLink: {
+  arrowLink?: {
     text: string;
     link: {
       url: string;
     };
   };
+  className?: string;
 }
 
 const CtaCard: React.FC<ICtaCard> = ({
@@ -22,9 +24,15 @@ const CtaCard: React.FC<ICtaCard> = ({
   title,
   description,
   arrowLink,
+  className,
 }) => {
   return (
-    <div className="flex flex-col items-start rounded-2xl border border-stroke bg-background-2 p-6">
+    <div
+      className={clsx(
+        className,
+        "flex flex-col items-start rounded-2xl border border-stroke p-6",
+      )}
+    >
       {icon ? (
         <Image
           width={90}
@@ -34,16 +42,20 @@ const CtaCard: React.FC<ICtaCard> = ({
           alt="Icon"
         />
       ) : null}
-      <h2 className="mb-6 text-xl font-medium text-primary-text">{title}</h2>
-      <p className="mb-6 text-lg text-secondary-text">{description}</p>
-      <div className="mt-auto w-full">
-        <Divider />
-        <ExternalLink
-          text={arrowLink.text}
-          url={arrowLink.link.url}
-          className="mb-1 mt-6 flex-wrap justify-start"
-        />
-      </div>
+      <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
+        {title}
+      </h2>
+      <p className="text-base text-secondary-text lg:text-lg">{description}</p>
+      {typeof arrowLink !== "undefined" ? (
+        <div className="mt-6 w-full">
+          <Divider />
+          <ExternalLink
+            text={arrowLink.text}
+            url={arrowLink.link.url}
+            className="mb-1 mt-6 flex-wrap justify-start"
+          />
+        </div>
+      ) : null}
     </div>
   );
 };

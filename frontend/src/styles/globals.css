@@ -18,6 +18,9 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Urbanist, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
 
   /* scollbar */
   ::-webkit-scrollbar {
@@ -44,6 +47,12 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .hover-pause-child-animation:hover {
+    & > * {
+      animation-play-state: paused;
+    }
   }
 }
 

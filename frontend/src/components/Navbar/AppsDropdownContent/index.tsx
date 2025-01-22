@@ -21,11 +21,11 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
   return (
     <div
       className={clsx(
-        "mt-4 grid w-full gap-3 py-2 lg:mt-0 lg:w-[1172px] lg:gap-4 lg:py-12",
-        "mx-auto grid-cols-1 bg-background-2 lg:grid-cols-3",
+        "mt-4 grid w-full gap-3 py-2 xl:mt-0 xl:w-[1172px] xl:gap-4 xl:py-12",
+        "mx-auto grid-cols-1 bg-background-2 xl:grid-cols-3",
       )}
     >
-      <div className="flex flex-col gap-3 lg:gap-4">
+      <div className="flex flex-col gap-3 xl:gap-4">
         {columnOne?.map((solution) => (
           <Card
             key={solution.solution_name}
@@ -34,7 +34,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
           />
         ))}
       </div>
-      <div className="flex flex-col gap-3 lg:gap-4">
+      <div className="flex flex-col gap-3 xl:gap-4">
         {columnTwo?.map((solution) => (
           <Card
             key={solution.solution_name}
@@ -43,7 +43,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
           />
         ))}
       </div>
-      <div className="flex flex-col gap-3 lg:gap-4">
+      <div className="flex flex-col gap-3 xl:gap-4">
         {columnThree?.map((solution) => (
           <Card
             key={solution.solution_name}
@@ -55,7 +55,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
           rel="noopener noreferrer"
           target="_blank"
           href={appsSection?.arrowLink.link.url}
-          className="self-start text-primary-blue lg:self-end"
+          className="self-start text-primary-blue xl:self-end"
         >
           <span className="mr-4">{appsSection?.arrowLink.text}</span>
           <Image
