@@ -1,19 +1,5 @@
-import Hero from "@/components/home/Hero";
-import TrustedBy from "@/components/TrustedBy";
-import { heroQuery, HeroQueryType } from "@/queries/home/hero";
-import { partnersQuery, PartnersQueryType } from "@/queries/partners";
-import { request } from "@/utils/graphQLClient";
+import React from "react";
 
-const Home: React.FC = async () => {
-  const partnersData = await request<PartnersQueryType>(partnersQuery);
-  const heroData = await request<HeroQueryType>(heroQuery);
+const Page: React.FC = () => <div></div>;
 
-  return (
-    <>
-      <Hero {...{ heroData: heroData.homePageHero }} />
-      <TrustedBy {...{ partnersData }} />
-    </>
-  );
-};
-
-export default Home;
+export default Page;

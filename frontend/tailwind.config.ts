@@ -8,6 +8,7 @@ const config: Config = {
   ],
   theme: {
     fontSize: {
+      sm: ["0.9rem", "1.063rem"],
       base: ["1rem", "1.188rem"],
       lg: ["1.5rem", "1.813rem"],
       xl: ["2rem", "2.375rem"],
@@ -31,6 +32,15 @@ const config: Config = {
         "background-2": "#220050",
         "background-translucent": "rgba(34, 0, 80, 0.24)",
         success: "#00F068",
+      },
+      keyframes: {
+        "h-scroll": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      animation: {
+        "h-scroll": "h-scroll 10s linear infinite",
       },
     },
   },

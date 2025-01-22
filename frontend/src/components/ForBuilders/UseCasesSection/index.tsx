@@ -1,9 +1,9 @@
 import React from "react";
 
+import UseCasesCards from "@/components/UseCasesCards";
 import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
 
 import DAOSection from "./DAOSection";
-import UseCasesCards from "./UseCasesCards";
 
 interface IUseCasesSection {
   useCasesData: UseCasesQueryType["forBuildersPageUseCasesSection"];
@@ -15,7 +15,7 @@ const UseCasesSection: React.FC<IUseCasesSection> = ({ useCasesData }) => {
       <h1 className="mb-12 text-3xl font-medium">
         {useCasesData.sectionHeader}
       </h1>
-      <UseCasesCards {...{ useCasesData }} />
+      <UseCasesCards selectedIndex={0} />
       <DAOSection {...{ useCasesData }} />
     </div>
   );
