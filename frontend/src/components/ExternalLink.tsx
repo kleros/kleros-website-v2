@@ -19,15 +19,13 @@ const ExternalLink: React.FC<IExternalLink> = ({ text, url, className }) => {
       rel="noopener noreferrer"
       className={clsx("block hover:brightness-[1.2]", className)}
     >
-      <span className="text-center text-base text-primary-blue lg:text-lg">
-        {text}
-      </span>
+      <span className="text-center text-primary-blue md:text-lg">{text}</span>
       <Image
         src={LinkArrow}
         width="24"
         height="24"
         alt="Arrow link image"
-        className="ml-4 inline"
+        className="inline aspect-square w-4 md:w-6"
       />
     </Link>
   );

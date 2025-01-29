@@ -14,7 +14,12 @@ const Pagination: React.FC<IPagination> = ({
   className,
 }) => {
   return (
-    <div className={clsx("flex items-center gap-8", className)}>
+    <div
+      className={clsx(
+        "flex w-full items-center justify-center gap-8",
+        className,
+      )}
+    >
       {Array.from(Array(numPages), (_, index) => (
         <button
           key={index}

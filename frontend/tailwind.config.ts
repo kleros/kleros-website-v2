@@ -31,6 +31,7 @@ const config: Config = {
         "background-1": "#1B003F",
         "background-2": "#220050",
         "background-translucent": "rgba(34, 0, 80, 0.24)",
+        success: "#00F068",
       },
       keyframes: {
         "h-scroll": {

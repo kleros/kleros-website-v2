@@ -1,7 +1,6 @@
 import ExternalLink from "@/components/ExternalLink";
+import LearnMore from "@/components/LearnMore";
 import { CooperativePageMemberQueryType } from "@/queries/cooperative/member-section";
-
-import LearnMore from "./LearnMore";
 
 interface IMemberSection {
   memberData: CooperativePageMemberQueryType["cooperativePageMemberSection"];
