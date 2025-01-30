@@ -1863,6 +1863,7 @@ export interface ApiLemonCashSectionLemonCashSection
 export interface ApiLinkLink extends Struct.CollectionTypeSchema {
   collectionName: 'links';
   info: {
+    description: '';
     displayName: 'Link';
     pluralName: 'links';
     singularName: 'link';
@@ -1874,6 +1875,7 @@ export interface ApiLinkLink extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    isInternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::link.link'> &
       Schema.Attribute.Private;
