@@ -1,10 +1,11 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
 import { IntegrateQueryType } from "@/queries/integrate";
+
+import CustomLink from "../CustomLink";
 
 interface ILearnMore {
   integrateData: IntegrateQueryType["forBuildersPageIntegrateSection"];
@@ -12,10 +13,8 @@ interface ILearnMore {
 
 const LearnMore: React.FC<ILearnMore> = ({ integrateData }) => {
   return (
-    <Link
+    <CustomLink
       href={integrateData.arrowLink.link.url}
-      target="_blank"
-      rel="noopener noreferrer"
       className="mt-16 block text-center"
     >
       <span className="mr-4 text-lg text-primary-blue">
@@ -28,7 +27,7 @@ const LearnMore: React.FC<ILearnMore> = ({ integrateData }) => {
         alt="Arrow link image"
         className="inline"
       />
-    </Link>
+    </CustomLink>
   );
 };
 export default LearnMore;

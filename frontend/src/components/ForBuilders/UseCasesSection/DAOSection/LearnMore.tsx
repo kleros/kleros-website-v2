@@ -1,9 +1,9 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
+import CustomLink from "@/components/CustomLink";
 import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
 
 interface ILearnMore {
@@ -12,10 +12,8 @@ interface ILearnMore {
 
 const LearnMore: React.FC<ILearnMore> = ({ useCasesData }) => {
   return (
-    <Link
+    <CustomLink
       href={useCasesData.arrowLink.link.url}
-      target="_blank"
-      rel="noopener noreferrer"
       className="mt-16 block text-center"
     >
       <span className="mr-4 text-lg text-primary-blue">
@@ -28,7 +26,7 @@ const LearnMore: React.FC<ILearnMore> = ({ useCasesData }) => {
         alt="Arrow link image"
         className="inline"
       />
-    </Link>
+    </CustomLink>
   );
 };
 export default LearnMore;

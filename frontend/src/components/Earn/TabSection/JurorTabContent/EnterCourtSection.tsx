@@ -1,9 +1,9 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
+import CustomLink from "@/components/CustomLink";
 import ExternalLink from "@/components/ExternalLink";
 import { EnterCourtSection as IEnterCourtSection } from "@/queries/earn/tabs-data";
 
@@ -14,16 +14,11 @@ const EnterCourtSection: React.FC<IEnterCourtSection> = ({
 }) => {
   return (
     <div className="relative mt-16 flex w-full flex-col items-center justify-center p-8">
-      <Link
-        href={button.link.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="z-[1] mb-8"
-      >
+      <CustomLink href={button.link.url} className="z-[1] mb-8">
         <Button>
           <span className="text-background-2">{button.text}</span>
         </Button>
-      </Link>
+      </CustomLink>
       <ExternalLink
         url={arrowLink.link.url}
         text={arrowLink.text}

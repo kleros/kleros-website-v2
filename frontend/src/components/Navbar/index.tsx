@@ -13,6 +13,8 @@ import Button from "@/components/Button";
 import { NavbarQueryType } from "@/queries/navbar";
 import { responsiveSize } from "@/styles/responsiveSize";
 
+import CustomLink from "../CustomLink";
+
 import DesktopNavigation from "./DesktopNavigation";
 import MobileMenu from "./MobileMenu";
 
@@ -75,15 +77,11 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
       </div>
 
       <div className="hidden items-center lg:flex">
-        <Link
-          href={navbarButton?.link.url}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <CustomLink href={navbarButton?.link.url}>
           <Button className="text-background-2">
             {navbarButton?.link.name}
           </Button>
-        </Link>
+        </CustomLink>
       </div>
 
       {menuOpen && (

@@ -2,11 +2,12 @@ import React from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
 import { FooterQueryType, footerQuery } from "@/queries/footer";
 import { request } from "@/utils/graphQLClient";
+
+import CustomLink from "./CustomLink";
 
 const hoverScaleUp = clsx("hover:scale-105 transform transition duration-75");
 
@@ -26,15 +27,13 @@ const Footer: React.FC = async () => {
             <div key={title} className="flex flex-col gap-4">
               <h2 className="text-background-2">{title}</h2>
               {links.map(({ name, url }) => (
-                <Link
+                <CustomLink
                   className={clsx(hoverScaleUp, "w-max")}
                   key={name}
                   href={url}
-                  target={/^https?:\/\//.test(url) ? "_blank" : undefined}
-                  rel="noopener noreferrer"
                 >
                   {name}
-                </Link>
+                </CustomLink>
               ))}
             </div>
           ))}
@@ -42,15 +41,9 @@ const Footer: React.FC = async () => {
         <hr className="mx-6 mb-6 mt-16 h-0.5 border-t-0 bg-secondary-purple" />
         <div className="flex items-center justify-center gap-8">
           {socials.map(({ name, icon_white: icon, url }) => (
-            <Link
-              className={hoverScaleUp}
-              key={name}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <CustomLink className={hoverScaleUp} key={name} href={url}>
               <Image src={icon.url} alt={name} width="24" height="24" />
-            </Link>
+            </CustomLink>
           ))}
         </div>
       </div>

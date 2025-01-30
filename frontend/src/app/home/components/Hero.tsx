@@ -1,10 +1,10 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
 import Button from "@/components/Button";
+import CustomLink from "@/components/CustomLink";
 import { request } from "@/utils/graphQLClient";
 
 import { HeroQueryType, heroQuery } from "../queries/hero";
@@ -26,33 +26,21 @@ const Hero: React.FC = async () => {
         <h1 className="text-2xl lg:text-3xl">{title}</h1>
         <p className="text-lg">{subtitle}</p>
         <div className="lg:hidden">
-          <Link
-            href={primaryButton.link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <CustomLink href={primaryButton.link.url}>
             <Button>
               <span className="text-background-2"> {primaryButton.text} </span>
             </Button>
-          </Link>
+          </CustomLink>
         </div>
         <div>
-          <Link
-            href={secondaryButton.link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <CustomLink href={secondaryButton.link.url}>
             <Button variant="secondary">
               <span>{secondaryButton.text}</span>
             </Button>
-          </Link>
+          </CustomLink>
         </div>
         <div>
-          <Link
-            href={arrowLink.link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <CustomLink href={arrowLink.link.url}>
             <span className="mr-4">{arrowLink.text}</span>
             <Image
               src={LinkArrow}
@@ -61,7 +49,7 @@ const Hero: React.FC = async () => {
               alt="Arrow link image"
               className="inline"
             />
-          </Link>
+          </CustomLink>
         </div>
       </div>
       <Image

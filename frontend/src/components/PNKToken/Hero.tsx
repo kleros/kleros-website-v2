@@ -1,10 +1,11 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
 import { HeroQueryType } from "@/queries/pnk-token/hero";
+
+import CustomLink from "../CustomLink";
 
 import Explorers from "./Explorers";
 
@@ -22,15 +23,11 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         </h1>
         <p className="max-w-[685px] text-lg">{subtitle}</p>
         <div>
-          <Link
-            href={buyButton.link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <CustomLink href={buyButton.link.url}>
             <Button variant="secondary">
               <span>{buyButton.text}</span>
             </Button>
-          </Link>
+          </CustomLink>
         </div>
         <Explorers explorers={heroData.tokenExplorers} />
       </div>

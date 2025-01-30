@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 
+import CustomLink from "@/components/CustomLink";
 import { Testimonial } from "@/queries/research-development/tabs-data";
 
 const TestimonialCard: React.FC<Testimonial> = ({ url, thumbnail }) => (
-  <Link href={url} target="_blank" rel="noreferrer noopener">
+  <CustomLink href={url}>
     <div className="relative h-[203px] w-full overflow-hidden rounded-2xl">
       <Image
         src={thumbnail.url}
@@ -13,7 +13,7 @@ const TestimonialCard: React.FC<Testimonial> = ({ url, thumbnail }) => (
         className="object-cover"
       />
     </div>
-  </Link>
+  </CustomLink>
 );
 
 export default TestimonialCard;

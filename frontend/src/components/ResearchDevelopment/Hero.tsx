@@ -1,11 +1,11 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
 import { HeroQueryType } from "@/queries/research-development/hero";
 
+import CustomLink from "../CustomLink";
 import ExternalLink from "../ExternalLink";
 
 interface IHero {
@@ -24,16 +24,11 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         <p className="max-w-[685px] text-lg">{subtitle}</p>
         <div className="flex flex-wrap gap-6">
           {buttons.map((button) => (
-            <Link
-              key={button.text}
-              href={button.link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <CustomLink key={button.text} href={button.link.url}>
               <Button variant="secondary">
                 <span>{button.text}</span>
               </Button>
-            </Link>
+            </CustomLink>
           ))}
         </div>
         <div className="flex flex-wrap gap-8">

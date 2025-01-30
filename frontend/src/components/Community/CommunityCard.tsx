@@ -1,11 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import { Community } from "@/queries/community/hero";
 
+import CustomLink from "../CustomLink";
+
 const CommunityCard: React.FC<Community> = ({ title, subtitle, icon, url }) => {
   return (
-    <Link href={url} target="_blank" rel="noreferrer noopener">
+    <CustomLink href={url}>
       <div className="flex min-h-[326px] flex-col items-center justify-center rounded-2xl border border-stroke bg-background-2 hover:scale-[1.01]">
         <Image
           src={icon.url}
@@ -19,7 +20,7 @@ const CommunityCard: React.FC<Community> = ({ title, subtitle, icon, url }) => {
         </h2>
         <label className="text-base text-secondary-text">{subtitle}</label>
       </div>
-    </Link>
+    </CustomLink>
   );
 };
 

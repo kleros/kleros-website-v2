@@ -16,6 +16,8 @@ import {
   Social,
 } from "@/queries/navbar";
 
+import CustomLink from "../CustomLink";
+
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
 
@@ -101,15 +103,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       </nav>
 
       <div className="mt-6">
-        <Link
-          href={navbarButton?.link.url}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <CustomLink href={navbarButton?.link.url}>
           <Button className="text-background-2">
             {navbarButton?.link.name}
           </Button>
-        </Link>
+        </CustomLink>
       </div>
     </div>
   );

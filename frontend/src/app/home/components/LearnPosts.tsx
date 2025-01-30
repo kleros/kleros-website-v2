@@ -1,8 +1,7 @@
 import React from "react";
 
-import Link from "next/link";
-
 import CtaCard from "@/components/CtaCard";
+import CustomLink from "@/components/CustomLink";
 import { request } from "@/utils/graphQLClient";
 
 import {
@@ -34,12 +33,12 @@ const LearnPosts: React.FC = async () => {
           <p className="text-center text-base lg:text-lg">
             {introduction.heading_text}
             <br />
-            <Link
+            <CustomLink
               className="text-primary-blue"
               href={introduction.link.link.url}
             >
               {introduction.link.text}
-            </Link>
+            </CustomLink>
             <br />
             {introduction.closing_text}
           </p>

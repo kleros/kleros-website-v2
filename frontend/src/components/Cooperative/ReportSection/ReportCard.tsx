@@ -4,9 +4,9 @@ import { useState } from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
+import CustomLink from "@/components/CustomLink";
 import { Report } from "@/queries/cooperative/report-section";
 
 import DropdownContainer from "./DropdownContainer";
@@ -53,7 +53,7 @@ const ReportCard: React.FC<IReportCard> = ({
           }}
         />
 
-        <Link href={reportUrl ?? ""} target="_blank" rel="noreferrer noopener">
+        <CustomLink href={reportUrl ?? ""}>
           <Button
             variant="primary"
             className="text-background-1"
@@ -61,7 +61,7 @@ const ReportCard: React.FC<IReportCard> = ({
           >
             {downloadButtonText}
           </Button>
-        </Link>
+        </CustomLink>
       </div>
 
       <div

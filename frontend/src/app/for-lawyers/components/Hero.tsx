@@ -2,9 +2,9 @@ import React from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
+import CustomLink from "@/components/CustomLink";
 import ExternalLink from "@/components/ExternalLink";
 import { request } from "@/utils/graphQLClient";
 
@@ -24,16 +24,11 @@ const Hero: React.FC = async () => {
         <p className="max-w-[685px] text-lg">{subtitle}</p>
         <div className="flex flex-wrap gap-6">
           {buttons.map((button) => (
-            <Link
-              key={button.text}
-              href={button.link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <CustomLink key={button.text} href={button.link.url}>
               <Button variant="secondary">
                 <span>{button.text}</span>
               </Button>
-            </Link>
+            </CustomLink>
           ))}
         </div>
         <ExternalLink
