@@ -1,5 +1,6 @@
 import React from "react";
 
+import clsx from "clsx";
 import { Urbanist } from "next/font/google";
 
 import Footer from "@/components/Footer";
@@ -22,10 +23,10 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className="antialiased">
-        <main className={urbanist.className}>
+      <body className="bg-background-1 antialiased">
+        <main className={clsx(urbanist.className)}>
           <Navbar {...{ navbarData }} />
-          {children}
+          <div className="mx-auto max-w-7xl"> {children} </div>
           <Footer />
         </main>
       </body>
