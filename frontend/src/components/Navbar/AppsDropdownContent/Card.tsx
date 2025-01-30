@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
+import CustomLink from "@/components/CustomLink";
 import { Solution } from "@/queries/navbar";
 import { hoverEffect } from "@/styles";
 
@@ -21,11 +21,9 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ solution, variant }) => {
   return (
-    <Link
+    <CustomLink
       key={solution?.solution_name}
       href={solution?.url}
-      rel="noopener noreferrer"
-      target="_blank"
       className={clsx(cardBaseStyle, hoverEffect, "flex-row", "w-full", {
         "xl:flex-col xl:pb-8": variant === "large",
         "xl:flex-row": variant === "medium" || variant === "small",
@@ -67,7 +65,7 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
           </p>
         )}
       </div>
-    </Link>
+    </CustomLink>
   );
 };
 

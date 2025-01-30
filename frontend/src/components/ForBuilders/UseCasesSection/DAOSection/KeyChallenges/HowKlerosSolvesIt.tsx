@@ -2,8 +2,8 @@ import React from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
+import CustomLink from "@/components/CustomLink";
 import Card from "@/components/Navbar/AppsDropdownContent/Card";
 import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
 
@@ -41,11 +41,9 @@ const HowKlerosSolvesIt: React.FC<IHowKlerosSolvesIt> = ({ useCasesData }) => {
         </div>
         <div className="flex flex-row gap-x-6 rounded-2xl border border-stroke p-4">
           {useCasesData.solutionSections.partners.map((partner) => (
-            <Link
+            <CustomLink
               key={partner?.name}
               href={partner?.url}
-              rel="noopener noreferrer"
-              target="_blank"
               className={clsx(hoverEffect, "cursor-pointer")}
             >
               <Image
@@ -55,7 +53,7 @@ const HowKlerosSolvesIt: React.FC<IHowKlerosSolvesIt> = ({ useCasesData }) => {
                 width={64}
                 height={64}
               />
-            </Link>
+            </CustomLink>
           ))}
         </div>
       </div>

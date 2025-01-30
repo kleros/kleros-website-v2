@@ -1,10 +1,11 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
 import { HeroQueryType } from "@/queries/brand-assets/hero";
+
+import CustomLink from "../CustomLink";
 
 interface IHero {
   heroData: HeroQueryType["brandAssetsPageHero"];
@@ -17,15 +18,11 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         <h1 className="w-min text-3xl">{heroData.header}</h1>
         <p className="text-lg">{heroData.subtitle}</p>
         <div>
-          <Link
-            href={heroData.button?.link?.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <CustomLink href={heroData.button?.link?.url}>
             <Button variant="secondary">
               <span>{heroData.button?.text}</span>
             </Button>
-          </Link>
+          </CustomLink>
         </div>
       </div>
       <Image

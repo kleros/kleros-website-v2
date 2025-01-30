@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import PlusIcon from "@/assets/svgs/icons/plus-icon.svg";
+import CustomLink from "@/components/CustomLink";
 import Tag from "@/components/Tag";
 import { Court } from "@/queries/earn/tabs-data";
 import { ArrowLink } from "@/queries/navbar";
@@ -29,11 +29,7 @@ const CourtsSection: React.FC<ICourtsSection> = ({
             className="!text-base leading-none"
           />
         ))}
-        <Link
-          href={courtsButton.link.url}
-          target="_blank"
-          rel="noreferrer noopener"
-        >
+        <CustomLink href={courtsButton.link.url}>
           <button className="border-gradient-purple-blue h-12 w-12">
             <Image
               src={PlusIcon}
@@ -43,7 +39,7 @@ const CourtsSection: React.FC<ICourtsSection> = ({
               className="inline"
             />
           </button>
-        </Link>
+        </CustomLink>
       </div>
     </>
   );

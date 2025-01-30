@@ -1,10 +1,11 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
 import { HeroQueryType } from "@/queries/community/hero";
+
+import CustomLink from "../CustomLink";
 
 interface IHero {
   heroData: HeroQueryType["communityPageHero"];
@@ -21,16 +22,11 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         <p className="text-lg">{subtitle}</p>
         <div className="flex flex-wrap items-center gap-6">
           {communityButtons.map((button) => (
-            <Link
-              key={button.text}
-              href={button.link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <CustomLink key={button.text} href={button.link.url}>
               <Button variant="secondary">
                 <span>{button.text}</span>
               </Button>
-            </Link>
+            </CustomLink>
           ))}
         </div>
       </div>

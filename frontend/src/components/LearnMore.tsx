@@ -1,10 +1,11 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
 import { ArrowLink } from "@/queries/navbar";
+
+import CustomLink from "./CustomLink";
 
 interface ILearnMore {
   title: string;
@@ -24,16 +25,11 @@ const LearnMore: React.FC<ILearnMore> = ({ title, button, background }) => {
       <h2 className="z-[1] mb-8 text-center text-lg text-primary-text lg:text-xl">
         {title}
       </h2>
-      <Link
-        href={button.link.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="z-[1]"
-      >
+      <CustomLink href={button.link.url} className="z-[1]">
         <Button>
           <span className="text-background-2">{button.text}</span>
         </Button>
-      </Link>
+      </CustomLink>
       <Image
         src={background.url}
         alt="Learn more Image Background"

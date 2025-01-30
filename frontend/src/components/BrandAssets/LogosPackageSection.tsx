@@ -1,8 +1,7 @@
-import Link from "next/link";
-
 import { LogosPackageSectionQueryType } from "@/queries/brand-assets/logos-package-section";
 
 import Button from "../Button";
+import CustomLink from "../CustomLink";
 import ExternalLink from "../ExternalLink";
 
 interface ILogosPackageSection {
@@ -17,17 +16,13 @@ const LogosPackageSection: React.FC<ILogosPackageSection> = ({
       <h1 className="w-min text-3xl">{logosPackageData.header}</h1>
       <p className="text-lg text-secondary-text">{logosPackageData.subtitle}</p>
       <div>
-        <Link
-          href={logosPackageData.button?.link?.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <CustomLink href={logosPackageData.button?.link?.url}>
           <Button variant="primary">
             <span className="text-background-2">
               {logosPackageData.button?.text}
             </span>
           </Button>
-        </Link>
+        </CustomLink>
       </div>
       <ExternalLink
         url={logosPackageData.arrowLink.link.url}

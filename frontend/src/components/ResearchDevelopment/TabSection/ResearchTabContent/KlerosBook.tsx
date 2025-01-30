@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
+import CustomLink from "@/components/CustomLink";
 import { KlerosBook as IKlerosBook } from "@/queries/research-development/tabs-data";
 
 const KlerosBook: React.FC<IKlerosBook> = ({
@@ -35,14 +35,9 @@ const KlerosBook: React.FC<IKlerosBook> = ({
         </div>
         <div className="flex flex-wrap gap-4">
           {downloadFormats.map((format) => (
-            <Link
-              key={format.text}
-              href={format.link.url}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <CustomLink key={format.text} href={format.link.url}>
               <Button className="text-background-1">{format.text}</Button>
-            </Link>
+            </CustomLink>
           ))}
         </div>
       </div>

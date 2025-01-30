@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
+import CustomLink from "@/components/CustomLink";
 import ExternalLink from "@/components/ExternalLink";
 import { KlerosScoutSection as IKlerosScoutSection } from "@/queries/earn/tabs-data";
 
@@ -44,14 +44,12 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
           "flex items-center justify-center pt-3 md:pt-0",
         )}
       >
-        <Link
+        <CustomLink
           href={learnMoreButton.link.url}
-          target="_blank"
-          rel="noreferrer noopener"
           className="z-[1] mt-16 md:mt-0"
         >
           <Button className="text-background-1">{learnMoreButton.text}</Button>
-        </Link>
+        </CustomLink>
       </div>
       <div className="flex flex-col items-center gap-8 md:flex-row">
         {arrowLinks.map((arrowLink) => (

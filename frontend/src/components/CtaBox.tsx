@@ -2,9 +2,10 @@ import React from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
 import Button from "@/components/Button";
+
+import CustomLink from "./CustomLink";
 
 interface ICtaBox {
   background: {
@@ -37,11 +38,11 @@ const CtaBox: React.FC<ICtaBox> = ({ background, header, button }) => {
         <h2 className="mb-8 text-center text-lg text-primary-text lg:text-xl">
           {header}
         </h2>
-        <Link href={button.link.url} target="_blank" rel="noopener noreferrer">
+        <CustomLink href={button.link.url}>
           <Button>
             <span className="text-background-2"> {button.text} </span>
           </Button>
-        </Link>
+        </CustomLink>
       </div>
     </div>
   );

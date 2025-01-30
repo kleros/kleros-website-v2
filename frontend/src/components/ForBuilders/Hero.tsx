@@ -1,11 +1,12 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
 import Button from "@/components/Button";
 import { HeroQueryType } from "@/queries/for-builders/hero";
+
+import CustomLink from "../CustomLink";
 
 interface IHero {
   heroData: HeroQueryType["forBuildersPageHero"];
@@ -18,24 +19,15 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         <h1 className="w-min text-3xl">{heroData.title}</h1>
         <p className="text-lg">{heroData.subtitle}</p>
         <div>
-          <Link
-            href={heroData.button.link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <CustomLink href={heroData.button.link.url}>
             <Button variant="secondary">
               <span>{heroData.button.text}</span>
             </Button>
-          </Link>
+          </CustomLink>
         </div>
         <div className="block space-x-2">
           {heroData.arrowLink?.map((arrowLink) => (
-            <Link
-              key={arrowLink.text}
-              href={arrowLink.link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <CustomLink key={arrowLink.text} href={arrowLink.link.url}>
               <span className="mr-2">{arrowLink.text}</span>
               <Image
                 src={LinkArrow}
@@ -44,7 +36,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
                 alt="Arrow link image"
                 className="inline"
               />
-            </Link>
+            </CustomLink>
           ))}
         </div>
       </div>

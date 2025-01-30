@@ -2,9 +2,10 @@ import React, { HTMLAttributes } from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
 import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
+
+import CustomLink from "./CustomLink";
 
 interface IExternalLink {
   text: string;
@@ -13,10 +14,8 @@ interface IExternalLink {
 }
 const ExternalLink: React.FC<IExternalLink> = ({ text, url, className }) => {
   return (
-    <Link
+    <CustomLink
       href={url}
-      target="_blank"
-      rel="noopener noreferrer"
       className={clsx("block hover:brightness-[1.2]", className)}
     >
       <span className="text-center text-primary-blue md:text-lg">{text}</span>
@@ -27,7 +26,7 @@ const ExternalLink: React.FC<IExternalLink> = ({ text, url, className }) => {
         alt="Arrow link image"
         className="inline aspect-square w-4 md:w-6"
       />
-    </Link>
+    </CustomLink>
   );
 };
 export default ExternalLink;

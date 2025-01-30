@@ -2,8 +2,8 @@ import React from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
+import CustomLink from "@/components/CustomLink";
 import { request } from "@/utils/graphQLClient";
 
 import { partnersQuery, PartnersQueryType } from "../queries/trusted-by";
@@ -33,12 +33,7 @@ const TrustedBy: React.FC = async () => {
         )}
       >
         {institutions.map(({ name, link, image }) => (
-          <Link
-            key={name}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <CustomLink key={name} href={link.url}>
             <Image
               src={image.url}
               alt={name}
@@ -46,7 +41,7 @@ const TrustedBy: React.FC = async () => {
               height="1"
               className="h-auto w-auto"
             />
-          </Link>
+          </CustomLink>
         ))}
       </div>
     </div>

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
+import CustomLink from "@/components/CustomLink";
 import { Exchange } from "@/queries/pnk-token/token-buy";
 import { hoverEffect } from "@/styles";
 
@@ -10,7 +10,7 @@ interface IFeaturedExchange {
 }
 const FeaturedExchange: React.FC<IFeaturedExchange> = ({ exchange }) => {
   return (
-    <Link href={exchange.url} target="_blank" rel="noopener noreferrer">
+    <CustomLink href={exchange.url}>
       <div
         className={clsx(
           "flex h-40 flex-col items-center justify-center gap-5 rounded-2xl border border-stroke px-2",
@@ -23,7 +23,7 @@ const FeaturedExchange: React.FC<IFeaturedExchange> = ({ exchange }) => {
 
         <p className="text-secondary-text">{exchange.name}</p>
       </div>
-    </Link>
+    </CustomLink>
   );
 };
 
