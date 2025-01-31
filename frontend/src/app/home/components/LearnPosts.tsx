@@ -23,7 +23,7 @@ const LearnPosts: React.FC = async () => {
         <div className="mx-auto flex flex-wrap gap-4">
           {cards.map(({ icon, title, subtitle, link }) => (
             <CtaCard
-              className="flex-grow xl:max-h-[378px] xl:max-w-[364px]"
+              className="flex-grow xl:max-h-[364px] xl:max-w-[378px]"
               key={title}
               {...{ icon, title, description: subtitle, arrowLink: link }}
             />
