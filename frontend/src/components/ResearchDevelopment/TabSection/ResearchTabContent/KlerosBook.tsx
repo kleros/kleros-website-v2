@@ -35,8 +35,8 @@ const KlerosBook: React.FC<IKlerosBook> = ({
         </div>
         <div className="flex flex-wrap gap-4">
           {downloadFormats.map((format) => (
-            <CustomLink key={format.text} href={format.link.url}>
-              <Button className="text-background-1">{format.text}</Button>
+            <CustomLink key={format.name} href={format.file.url}>
+              <Button className="text-background-1">{format.name}</Button>
             </CustomLink>
           ))}
         </div>

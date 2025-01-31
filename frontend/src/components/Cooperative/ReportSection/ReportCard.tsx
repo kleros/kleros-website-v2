@@ -12,7 +12,7 @@ import { Report } from "@/queries/cooperative/report-section";
 import DropdownContainer from "./DropdownContainer";
 
 export type Reports = {
-  url: string;
+  file: { url: string };
   month?: string;
   year: number;
 }[];

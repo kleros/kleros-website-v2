@@ -75,7 +75,7 @@ const DropdownContainer: React.FC<IDropdownContainer> = ({
       (report) =>
         (isMonthInfo ? report.month === month : true) && report.year === year,
     );
-    setReportUrl(selectedReport?.url);
+    setReportUrl(selectedReport?.file.url);
   }, [isMonthInfo, month, year, reports, setReportUrl]);
 
   return (
