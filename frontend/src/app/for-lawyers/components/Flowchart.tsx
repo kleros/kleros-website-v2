@@ -32,7 +32,7 @@ const FlowchartItem: React.FC<IFlowchartItem> = ({
             "relative h-7 w-[100%-14px] bg-primary-blue",
             "flex items-center justify-center",
             //start-arrow
-            "before:absolute before:left-0 before:top-0 before:border-b-[14px] before:border-l-[14px] before:border-t-[14px]",
+            "before:absolute before:-left-[1px] before:top-0 before:border-b-[14px] before:border-l-[14px] before:border-t-[14px]",
             "before:border-b-transparent before:border-t-transparent",
             background === "primary"
               ? "before:border-l-background-1"
@@ -60,7 +60,7 @@ interface IFlowchart {
 
 const Flowchart: React.FC<IFlowchart> = ({ items, background }) => {
   return (
-    <div className="flex w-full flex-wrap justify-center gap-4 md:justify-start">
+    <div className="flex w-full flex-wrap justify-center gap-4 md:justify-center">
       {items.map((item) => (
         <FlowchartItem key={item.name} {...item} background={background} />
       ))}

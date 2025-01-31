@@ -45,9 +45,11 @@ const CtaCard: React.FC<ICtaCard> = ({
       <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
         {title}
       </h2>
-      <p className="text-base text-secondary-text lg:text-lg">{description}</p>
+      <p className="mb-6 text-base text-secondary-text lg:text-lg">
+        {description}
+      </p>
       {typeof arrowLink !== "undefined" ? (
-        <div className="mt-6 w-full">
+        <div className="mt-auto w-full">
           <Divider />
           <ExternalLink
             text={arrowLink.text}

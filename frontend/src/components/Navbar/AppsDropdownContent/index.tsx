@@ -1,8 +1,6 @@
 import clsx from "clsx";
-import Image from "next/image";
 
-import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
-import CustomLink from "@/components/CustomLink";
+import ExternalLink from "@/components/ExternalLink";
 import { AppsSection } from "@/queries/navbar";
 
 import Card from "./Card";
@@ -51,19 +49,11 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
             variant="small"
           />
         ))}
-        <CustomLink
-          href={appsSection?.arrowLink.link.url}
-          className="self-start text-primary-blue xl:self-end"
-        >
-          <span className="mr-4">{appsSection?.arrowLink.text}</span>
-          <Image
-            src={LinkArrow}
-            width={24}
-            height={24}
-            alt="Arrow link"
-            className="inline"
-          />
-        </CustomLink>
+        <ExternalLink
+          url={appsSection?.arrowLink.link.url}
+          text={appsSection?.arrowLink.text}
+          className="self-start xl:self-end"
+        />
       </div>
     </div>
   );
