@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_r_and_d_page_downloadable_formats",
+  "info": {
+    "displayName": "DownloadableFormat"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "file": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
