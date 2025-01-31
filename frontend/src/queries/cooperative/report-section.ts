@@ -32,18 +32,24 @@ export const cooperativePageReportQuery = gql`
     }
 
     annualReports {
-      url
+      file {
+        url
+      }
       year
     }
 
     riskReports {
-      url
+      file {
+        url
+      }
       month
       year
     }
 
     treasuryReports {
-      url
+      file {
+        url
+      }
       month
       year
     }
@@ -56,18 +62,18 @@ export type CooperativePageReportQueryType = {
   };
 
   annualReports: {
-    url: string;
+    file: { url: string };
     year: number;
   }[];
 
   riskReports: {
-    url: string;
+    file: { url: string };
     month: string;
     year: number;
   }[];
 
   treasuryReports: {
-    url: string;
+    file: { url: string };
     month: string;
     year: number;
   }[];

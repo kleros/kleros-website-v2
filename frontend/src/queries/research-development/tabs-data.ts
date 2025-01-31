@@ -20,8 +20,8 @@ export const tabSectionQuery = gql`
         subtitle
         bookTitle
         downloadFormats {
-          text
-          link {
+          name
+          file {
             url
           }
         }
@@ -140,7 +140,10 @@ export type Fellow = {
 export type KlerosBook = {
   subtitle: string;
   bookTitle: string;
-  downloadFormats: ArrowLink[];
+  downloadFormats: Array<{
+    name: string;
+    file: { url: string };
+  }>;
   bookCover: {
     url: string;
   };

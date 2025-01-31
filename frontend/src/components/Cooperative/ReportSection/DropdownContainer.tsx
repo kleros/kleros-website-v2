@@ -10,14 +10,14 @@ import { Reports } from "./ReportCard";
 interface IDropdownContainer
   extends Pick<Report, "yearDropdownLabel" | "monthDropdownLabel"> {
   reports: Reports;
-  setReportUrl: (url?: string) => void;
+  setSelectedReport: (report?: Reports[number]) => void;
 }
 
 type IProcessedReports = Record<number, Array<string>>;
 
 const DropdownContainer: React.FC<IDropdownContainer> = ({
   reports,
-  setReportUrl,
+  setSelectedReport,
   yearDropdownLabel,
   monthDropdownLabel,
 }) => {
@@ -75,8 +75,8 @@ const DropdownContainer: React.FC<IDropdownContainer> = ({
       (report) =>
         (isMonthInfo ? report.month === month : true) && report.year === year,
     );
-    setReportUrl(selectedReport?.url);
-  }, [isMonthInfo, month, year, reports, setReportUrl]);
+    setSelectedReport(selectedReport);
+  }, [isMonthInfo, month, year, reports, setSelectedReport]);
 
   return (
     <div
