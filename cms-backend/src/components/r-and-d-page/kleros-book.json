@@ -1,7 +1,8 @@
 {
   "collectionName": "components_r_and_d_page_kleros_books",
   "info": {
-    "displayName": "KlerosBook"
+    "displayName": "KlerosBook",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,20 +12,21 @@
     "bookTitle": {
       "type": "string"
     },
-    "downloadFormats": {
-      "type": "component",
-      "repeatable": true,
-      "component": "content.button-link"
-    },
     "bookCover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "downloadFormats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "r-and-d-page.downloadable-format"
     }
   }
 }
