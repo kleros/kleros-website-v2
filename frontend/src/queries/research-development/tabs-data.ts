@@ -20,7 +20,7 @@ export const tabSectionQuery = gql`
         subtitle
         bookTitle
         downloadFormats {
-          text
+          name
           file {
             url
           }
