@@ -6,7 +6,6 @@ import clsx from "clsx";
 import Image from "next/image";
 
 import Button from "@/components/Button";
-import CustomLink from "@/components/CustomLink";
 import { Report } from "@/queries/cooperative/report-section";
 
 import DropdownContainer from "./DropdownContainer";
@@ -29,7 +28,35 @@ const ReportCard: React.FC<IReportCard> = ({
   monthDropdownLabel,
   downloadButtonText,
 }) => {
-  const [reportUrl, setReportUrl] = useState<string>();
+  const [selectedReport, setSelectedReport] = useState<Reports[number]>();
+
+  const handleDownload = () => {
+    if (!selectedReport || !selectedReport.file.url) return;
+    fetch(selectedReport.file.url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+
+        const contentType = blob.type;
+
+        const extension = contentType.split("/")[1] || "octet-stream";
+        const fileExtension = extension === "json" ? "json" : extension;
+
+        link.download = `${selectedReport.month ? selectedReport.month + "-" : ""}${selectedReport.year}.${fileExtension}`;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      })
+      .catch((error) => {
+        console.error("Error fetching the file:", error);
+      });
+  };
 
   return (
     <div
@@ -47,21 +74,20 @@ const ReportCard: React.FC<IReportCard> = ({
         <DropdownContainer
           {...{
             reports,
-            setReportUrl,
+            setSelectedReport,
             yearDropdownLabel,
             monthDropdownLabel,
           }}
         />
 
-        <CustomLink href={reportUrl ?? ""}>
-          <Button
-            variant="primary"
-            className="text-background-1"
-            disabled={typeof reportUrl === "undefined"}
-          >
-            {downloadButtonText}
-          </Button>
-        </CustomLink>
+        <Button
+          variant="primary"
+          className="text-background-1"
+          disabled={typeof selectedReport === "undefined"}
+          onClick={handleDownload}
+        >
+          {downloadButtonText}
+        </Button>
       </div>
 
       <div

@@ -2,7 +2,6 @@ import clsx from "clsx";
 import Image from "next/image";
 
 import Button from "@/components/Button";
-import CustomLink from "@/components/CustomLink";
 import { KlerosBook as IKlerosBook } from "@/queries/research-development/tabs-data";
 
 const KlerosBook: React.FC<IKlerosBook> = ({
@@ -11,6 +10,33 @@ const KlerosBook: React.FC<IKlerosBook> = ({
   bookTitle,
   downloadFormats,
 }) => {
+  const handleDownload = (url: string) => {
+    fetch(url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+
+        const contentType = blob.type;
+
+        const extension = contentType.split("/")[1] || "octet-stream";
+        const fileExtension = extension === "json" ? "json" : extension;
+
+        link.download = `KlerosBook.${fileExtension}`;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      })
+      .catch((error) => {
+        console.error("Error fetching the file:", error);
+      });
+  };
+
   return (
     <div
       className={clsx(
@@ -35,9 +61,13 @@ const KlerosBook: React.FC<IKlerosBook> = ({
         </div>
         <div className="flex flex-wrap gap-4">
           {downloadFormats.map((format) => (
-            <CustomLink key={format.name} href={format.file.url}>
-              <Button className="text-background-1">{format.name}</Button>
-            </CustomLink>
+            <Button
+              key={format.name}
+              className="text-background-1"
+              onClick={() => handleDownload(format.file.url)}
+            >
+              {format.name}
+            </Button>
           ))}
         </div>
       </div>
