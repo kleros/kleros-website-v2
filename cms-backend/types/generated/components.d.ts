@@ -311,13 +311,11 @@ export interface PnkTokenPageTokenStatDisplay extends Struct.ComponentSchema {
 export interface RAndDPageDownloadableFormat extends Struct.ComponentSchema {
   collectionName: 'components_r_and_d_page_downloadable_formats';
   info: {
+    description: '';
     displayName: 'DownloadableFormat';
   };
   attributes: {
-    file: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     name: Schema.Attribute.String;
   };
 }
