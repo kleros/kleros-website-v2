@@ -4,16 +4,13 @@ import { useState } from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLockBodyScroll } from "react-use";
 
 import HamburgerIcon from "@/assets/svgs/icons/hamburger.svg";
 import Button from "@/components/Button";
+import CustomLink from "@/components/CustomLink";
 import { NavbarQueryType } from "@/queries/navbar";
-import { responsiveSize } from "@/styles/responsiveSize";
-
-import CustomLink from "../CustomLink";
 
 import DesktopNavigation from "./DesktopNavigation";
 import MobileMenu from "./MobileMenu";
@@ -43,20 +40,17 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
         "fixed left-0 right-0 top-0 z-50 flex h-20 w-full",
         "items-center justify-between bg-black/35 px-2 py-2",
         "text-base text-white backdrop-blur-md",
+        "md:px-16 xl:px-32",
       )}
-      style={{
-        paddingLeft: responsiveSize(24, 128, 1024, 1920),
-        paddingRight: responsiveSize(24, 128, 1024, 1920),
-      }}
     >
-      <Link href="/" className="flex items-center">
+      <CustomLink href="/home" className="flex items-center">
         <Image
           alt="Kleros"
           src={klerosLogo?.logo_svg.url}
           width={184}
           height={48}
         />
-      </Link>
+      </CustomLink>
 
       <button
         className="ml-auto block text-white lg:hidden"
@@ -84,25 +78,31 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
         </CustomLink>
       </div>
 
-      {menuOpen && (
-        <div
-          className={"fixed inset-0 z-40 flex bg-black bg-opacity-50"}
-          onClick={() => setMenuOpen(false)}
-        >
-          <div className="relative" onClick={(e) => e.stopPropagation()}>
-            <MobileMenu
-              {...{
-                pathname,
-                navLinks,
-                resourceSections,
-                appsSection,
-                socials,
-                navbarButton,
-              }}
-            />
-          </div>
+      <div
+        className={clsx(
+          { hidden: !menuOpen },
+          "allowDiscreteDisplay fixed inset-0 z-40 h-dvh bg-black",
+          "bg-opacity-50",
+        )}
+        onClick={() => setMenuOpen(false)}
+      >
+        <div className="relative" onClick={(e) => e.stopPropagation()}>
+          <MobileMenu
+            className={clsx(
+              menuOpen ? "translate-x-0" : "translate-x-full",
+              "allowDiscreteDisplay slideInFromRight",
+            )}
+            {...{
+              pathname,
+              navLinks,
+              resourceSections,
+              appsSection,
+              socials,
+              navbarButton,
+            }}
+          />
         </div>
-      )}
+      </div>
     </header>
   );
 };

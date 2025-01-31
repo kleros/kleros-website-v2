@@ -60,17 +60,23 @@ body {
   }
 }
 
-@keyframes slideInFromRight {
-  from {
+/* @keyframes slideInFromRight { */
+/*   from { */
+/*     transform: translateX(100%); */
+/*   } */
+/*   to { */
+/*     transform: translateX(0); */
+/*   } */
+/* } */
+
+@starting-style {
+  .slideInFromRight {
     transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
   }
 }
 
-.animate-slideInFromRight {
-  animation: slideInFromRight 0.3s ease-out;
+.allowDiscreteDisplay {
+  transition: .3s ease allow-discrete
 }
 
 @keyframes slideInFromTop {

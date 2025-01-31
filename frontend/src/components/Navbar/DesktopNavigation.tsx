@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { useLockBodyScroll } from "react-use";
@@ -70,17 +71,21 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                   alt="Down Arrow"
                   width={12}
                   height={12}
-                  className="ml-2"
+                  className={clsx("ml-2 transition", {
+                    "rotate-180": openDropdownIndex === index,
+                  })}
                 />
               </button>
 
               {openDropdownIndex === index && navLink.is_dropdown ? (
                 <div
-                  className="animate-slideInFromTop fixed inset-0 z-40 bg-black bg-opacity-50"
+                  className="fixed inset-0 z-40 h-dvh bg-black bg-opacity-50"
                   onClick={() => setOpenDropdownIndex(null)}
                 >
                   <div
-                    className="relative mt-20 bg-background-2"
+                    className={
+                      "animate-slideInFromTop relative mt-20 bg-background-2"
+                    }
                     onClick={(e) => e.stopPropagation()}
                   >
                     {navLink?.title === "Apps" ? (

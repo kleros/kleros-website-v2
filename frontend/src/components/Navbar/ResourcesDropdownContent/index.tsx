@@ -4,13 +4,6 @@ import Image from "next/image";
 import CustomLink from "@/components/CustomLink";
 import { ResourceSection, Social } from "@/queries/navbar";
 
-const hoverScaleUp = clsx("transform transition duration-75");
-const hoverScaleUpLink = clsx(hoverScaleUp, "hover:scale-[1.01]");
-const hoverScaleUpLogo = clsx(hoverScaleUp, "hover:scale-[1.10]");
-const borderStyle = clsx(
-  "border-stroke border-t lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 pt-5",
-);
-
 interface ResourcesDropdownContentProps {
   resourceSections: ResourceSection[];
   socials: Social[];
@@ -21,38 +14,36 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
   socials,
 }) => {
   return (
-    <div
-      className={clsx(
-        "mt-4 flex flex-col bg-background-2",
-        "items-center lg:mt-0",
-      )}
-    >
+    <div className="flex flex-col items-center bg-background-2">
       <div
         className={clsx(
-          "grid w-full grid-cols-1 gap-4",
-          "max-w-screen-lg lg:grid-cols-3 lg:py-12",
+          "grid w-full max-w-screen-lg grid-cols-1 divide-y-2 lg:grid-cols-3",
+          "lg:divide-x-2 lg:divide-y-0 lg:py-8",
         )}
       >
-        {resourceSections?.map((section, index) => (
+        {resourceSections?.map((section) => (
           <div
             key={section.title}
             className={clsx(
-              "flex items-start gap-4",
-              index !== 0 && borderStyle,
+              "flex w-full flex-col gap-4 border-stroke bg-background-2",
+              "py-4 lg:px-4 lg:py-0",
             )}
           >
-            <div className="flex w-full flex-col gap-4 rounded-lg bg-background-2 lg:w-96">
-              <h3 className="text-base font-bold text-primary-purple">
-                {section.title}
-              </h3>
-              <ul className="flex flex-col gap-2">
-                {section.links?.map((link) => (
-                  <li key={link.url} className={hoverScaleUpLink}>
-                    <CustomLink href={link.url}>{link.name}</CustomLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <h3 className="text-base font-bold text-primary-purple">
+              {section.title}
+            </h3>
+            <ul className="flex flex-col gap-2">
+              {section.links?.map((link) => (
+                <li
+                  key={link.url}
+                  className={
+                    "w-max transform transition duration-75 hover:scale-[1.01]"
+                  }
+                >
+                  <CustomLink href={link.url}>{link.name}</CustomLink>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
@@ -66,7 +57,7 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
           <CustomLink
             key={social.name}
             href={social.url}
-            className={hoverScaleUpLogo}
+            className={"transform transition duration-75 hover:scale-[1.10]"}
           >
             <Image
               src={social.icon.url}
