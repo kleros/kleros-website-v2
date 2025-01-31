@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "url": {
-      "type": "string"
-    },
     "month": {
       "type": "enumeration",
       "enum": [
@@ -34,6 +31,16 @@
     },
     "year": {
       "type": "integer"
+    },
+    "file": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

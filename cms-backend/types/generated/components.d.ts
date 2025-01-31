@@ -308,15 +308,33 @@ export interface PnkTokenPageTokenStatDisplay extends Struct.ComponentSchema {
   };
 }
 
+export interface RAndDPageDownloadableFormat extends Struct.ComponentSchema {
+  collectionName: 'components_r_and_d_page_downloadable_formats';
+  info: {
+    displayName: 'DownloadableFormat';
+  };
+  attributes: {
+    file: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface RAndDPageKlerosBook extends Struct.ComponentSchema {
   collectionName: 'components_r_and_d_page_kleros_books';
   info: {
+    description: '';
     displayName: 'KlerosBook';
   };
   attributes: {
     bookCover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     bookTitle: Schema.Attribute.String;
-    downloadFormats: Schema.Attribute.Component<'content.button-link', true>;
+    downloadFormats: Schema.Attribute.Component<
+      'r-and-d-page.downloadable-format',
+      true
+    >;
     subtitle: Schema.Attribute.String;
   };
 }
@@ -402,6 +420,7 @@ declare module '@strapi/strapi' {
       'home.cta': HomeCta;
       'home.introduction': HomeIntroduction;
       'pnk-token-page.token-stat-display': PnkTokenPageTokenStatDisplay;
+      'r-and-d-page.downloadable-format': RAndDPageDownloadableFormat;
       'r-and-d-page.kleros-book': RAndDPageKlerosBook;
       'r-and-d-page.waitlist-section': RAndDPageWaitlistSection;
       'table.table': TableTable;
