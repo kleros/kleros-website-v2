@@ -17,18 +17,26 @@ const descriptionTextStyle = clsx(
 interface CardProps {
   solution: Solution;
   variant: "large" | "medium" | "small";
+  className?: string;
 }
 
-const Card: React.FC<CardProps> = ({ solution, variant }) => {
+const Card: React.FC<CardProps> = ({ solution, variant, className }) => {
   return (
     <CustomLink
       key={solution?.solution_name}
       href={solution?.url}
-      className={clsx(cardBaseStyle, hoverEffect, "flex-row", "w-full", {
-        "xl:flex-col xl:pb-8": variant === "large",
-        "xl:flex-row": variant === "medium" || variant === "small",
-        "xl:w-[380px]": true,
-      })}
+      className={clsx(
+        cardBaseStyle,
+        hoverEffect,
+        "flex-row",
+        "w-full",
+        {
+          "xl:flex-col xl:pb-8": variant === "large",
+          "xl:flex-row": variant === "medium" || variant === "small",
+          "xl:w-[380px]": true,
+        },
+        className,
+      )}
     >
       <Image
         src={solution?.logo_svg?.url}
