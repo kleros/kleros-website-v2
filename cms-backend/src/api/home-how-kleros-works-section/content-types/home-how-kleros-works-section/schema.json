@@ -24,11 +24,6 @@
       "type": "string",
       "required": true
     },
-    "token_stats": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::token-stat.token-stat"
-    },
     "explainer": {
       "type": "component",
       "repeatable": false,

@@ -1623,10 +1623,6 @@ export interface ApiHomeHowKlerosWorksSectionHomeHowKlerosWorksSection
     publishedAt: Schema.Attribute.DateTime;
     subtitle: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    token_stats: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::token-stat.token-stat'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1696,6 +1692,10 @@ export interface ApiHomePageHeroHomePageHero extends Struct.SingleTypeSchema {
     secondaryButton: Schema.Attribute.Component<'content.button-link', false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    tokenStats: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::token-stat.token-stat'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
