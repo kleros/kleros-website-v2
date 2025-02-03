@@ -24,26 +24,15 @@
       "type": "string",
       "required": true
     },
-    "explainer": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "token_stats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::token-stat.token-stat"
     },
-    "explainer_desktop": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+    "explainer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.responsive-media"
     }
   }
 }
