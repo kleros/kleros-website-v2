@@ -1693,7 +1693,7 @@ export interface ApiHomePageHeroHomePageHero extends Struct.SingleTypeSchema {
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
     tokenStats: Schema.Attribute.Relation<
-      'oneToOne',
+      'oneToMany',
       'api::token-stat.token-stat'
     >;
     updatedAt: Schema.Attribute.DateTime;
