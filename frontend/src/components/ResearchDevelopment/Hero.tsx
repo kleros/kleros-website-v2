@@ -18,7 +18,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
   return (
     <div className="relative px-6 pb-56 pt-44 md:pt-52 lg:px-32 lg:pb-72">
       <div className="space-y-8">
-        <h1 className="pt-1 text-3xl font-medium lg:pt-3 lg:text-4xl">
+        <h1 className="pt-1 text-2xl font-medium lg:pt-3 lg:text-4xl">
           {header}
         </h1>
         <p className="max-w-[685px] text-lg">{subtitle}</p>

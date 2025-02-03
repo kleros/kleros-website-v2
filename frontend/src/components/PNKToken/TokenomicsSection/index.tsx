@@ -12,17 +12,17 @@ const TokenomicsSection: React.FC<ITokenomicsSection> = ({
 }) => {
   return (
     <div className="bg-background-2 px-6 py-12 lg:px-32 lg:py-24">
-      <h1 className="mb-8 text-3xl font-medium text-primary-text">
+      <h1 className="mb-8 text-2xl font-medium text-primary-text lg:text-3xl">
         {tokenomicsData.header}
       </h1>
-      <p className="mb-16 text-lg text-secondary-text">
+      <p className="mb-16 text-secondary-text lg:text-lg">
         {tokenomicsData.subtitle}
       </p>
       <TokenStatDisplay {...tokenomicsData.tokenStatDisplay} />
       <ExternalLink
         text={tokenomicsData.arrowLink.text}
         url={tokenomicsData.arrowLink.link.url}
-        className="flex-wrap justify-center pt-12 md:justify-start md:pt-16"
+        className="flex-wrap justify-center pt-3 md:justify-start md:pt-16"
       />
     </div>
   );

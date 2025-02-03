@@ -22,15 +22,19 @@ const FellowshipTabContent: React.FC<IFellowshipTabContent> = ({
 }) => {
   return (
     <div className="flex flex-col gap-8 pb-12 pt-[88px] lg:py-24">
-      <h1 className="text-2xl font-medium text-primary-text md:text-3xl">
+      <h1 className="text-xl font-medium text-primary-text lg:text-3xl">
         {header}
       </h1>
-      <p className="text-lg text-secondary-text">{subtitle}</p>
+      <p className="text-secondary-text lg:text-lg">{subtitle}</p>
 
-      <h3 className="my-8 text-xl text-secondary-text">{testimonialsHeader}</h3>
+      <h3 className="my-8 text-lg text-secondary-text lg:text-xl">
+        {testimonialsHeader}
+      </h3>
       <Testimonials {...{ testimonials }} />
 
-      <h3 className="my-4 text-xl text-secondary-text">{fellowsHeader}</h3>
+      <h3 className="my-4 text-lg text-secondary-text lg:text-xl">
+        {fellowsHeader}
+      </h3>
       <Fellows {...{ fellows }} />
     </div>
   );

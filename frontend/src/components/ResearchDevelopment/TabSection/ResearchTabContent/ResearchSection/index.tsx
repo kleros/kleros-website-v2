@@ -24,14 +24,18 @@ const ResearchSection: React.FC<IResearchSection> = ({
   researches,
 }) => {
   return (
-    <div className="flex flex-col gap-8 pb-12 pt-[88px] lg:py-24">
-      <h1 className="text-2xl font-medium text-primary-text md:text-3xl">
+    <div className="flex flex-col gap-6 pb-12 pt-[88px] lg:gap-8 lg:py-24">
+      <h1 className="text-xl font-medium text-primary-text md:text-3xl lg:mb-2">
         {researchHeader}
       </h1>
-      <h3 className="text-xl text-secondary-text">{researchSecondaryHeader}</h3>
-      <p className="text-lg text-secondary-text">{researchParagraph}</p>
-      <label className="text-lg text-secondary-text">{researchCardLabel}</label>
-      <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <h3 className="text-lg text-secondary-text lg:text-xl">
+        {researchSecondaryHeader}
+      </h3>
+      <p className="text-secondary-text lg:text-lg">{researchParagraph}</p>
+      <label className="text-secondary-text lg:text-lg">
+        {researchCardLabel}
+      </label>
+      <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:mt-8">
         {researches.map((research) => (
           <ResearchCard key={research.field} {...research} />
         ))}
