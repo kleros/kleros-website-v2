@@ -38,7 +38,7 @@ const Tab = <T,>({ items, currentValue, callback, className }: ITab<T>) => {
             "min-h-14",
             "transition-all hover:cursor-pointer hover:border-b-[3px] hover:border-b-primary-blue hover:text-primary-blue",
             "flex flex-grow items-center justify-center pb-6",
-            "text-center text-lg font-medium",
+            "text-center font-medium lg:text-lg",
             item.value === currentValue
               ? "border-b-[3px] border-b-primary-blue text-primary-blue"
               : "border-b border-b-stroke text-secondary-text",

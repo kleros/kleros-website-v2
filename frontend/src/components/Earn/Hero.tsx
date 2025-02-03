@@ -11,9 +11,9 @@ interface IHero {
 const Hero: React.FC<IHero> = ({ heroData }) => {
   const { title, subtitle, statDisplay, background } = heroData.earnPageHero;
   return (
-    <div className="relative px-6 pb-[304px] pt-44 lg:px-32 lg:pb-72 lg:pt-56">
+    <div className="relative px-6 pb-[218px] pt-44 lg:px-32 lg:pb-72 lg:pt-56">
       <div className="space-y-8">
-        <h1 className="text-3xl font-medium lg:text-4xl">{title}</h1>
+        <h1 className="text-2xl font-medium lg:text-4xl">{title}</h1>
         <p className="text-lg">{subtitle}</p>
 
         <div className="flex items-center gap-8 rounded-full bg-background-translucent p-4 pr-8 md:w-fit">
