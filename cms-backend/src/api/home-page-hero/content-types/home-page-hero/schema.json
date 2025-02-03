@@ -46,7 +46,7 @@
     },
     "tokenStats": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::token-stat.token-stat"
     }
   }
