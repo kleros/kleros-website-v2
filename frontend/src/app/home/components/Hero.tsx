@@ -9,6 +9,8 @@ import { request } from "@/utils/graphQLClient";
 
 import { HeroQueryType, heroQuery } from "../queries/hero";
 
+import TokenStats from "./TokenStats";
+
 const Hero: React.FC = async () => {
   const heroData = await request<HeroQueryType>(heroQuery);
   const {
@@ -18,10 +20,11 @@ const Hero: React.FC = async () => {
     secondaryButton,
     arrowLink,
     background,
+    tokenStats,
   } = heroData.homePageHero;
 
   return (
-    <div className="relative px-6 pb-28 pt-44 md:pt-52 lg:px-32 lg:pb-60">
+    <div className="relative px-6 pb-28 pt-44 md:pt-52 lg:px-32 lg:pb-20">
       <div className="space-y-8">
         <h1 className="text-2xl font-medium lg:text-3xl">{title}</h1>
         <p className="text-lg">{subtitle}</p>
@@ -44,6 +47,7 @@ const Hero: React.FC = async () => {
           text={arrowLink.text}
           className="[&>span]:text-base [&>span]:text-primary-text"
         />
+        <TokenStats {...{ tokenStats }} />
       </div>
       <Image
         src={background.url}
