@@ -45,6 +45,16 @@
       "type": "component",
       "repeatable": false,
       "component": "content.button-link"
+    },
+    "useCaseBannerDesktop": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

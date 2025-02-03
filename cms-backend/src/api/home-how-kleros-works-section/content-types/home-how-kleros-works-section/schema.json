@@ -36,14 +36,20 @@
       ]
     },
     "explainer_desktop": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "token_stats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::token-stat.token-stat"
     }
   }
 }

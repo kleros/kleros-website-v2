@@ -1256,6 +1256,9 @@ export interface ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     useCaseBanner: Schema.Attribute.Media & Schema.Attribute.Required;
+    useCaseBannerDesktop: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     useCaseDescription: Schema.Attribute.String;
     useCases: Schema.Attribute.Relation<'oneToMany', 'api::use-case.use-case'>;
     useCaseTitle: Schema.Attribute.String;
@@ -1628,6 +1631,10 @@ export interface ApiHomeHowKlerosWorksSectionHomeHowKlerosWorksSection
     publishedAt: Schema.Attribute.DateTime;
     subtitle: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    token_stats: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::token-stat.token-stat'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
