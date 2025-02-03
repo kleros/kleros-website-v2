@@ -22,7 +22,6 @@ const KlerosEnterpriseSection: React.FC = async () => {
     cards,
     disputeResolutionProcessHeader,
     processDiagram,
-    processDiagramDesktop,
     table,
     arrowLink,
   } = (
@@ -56,7 +55,6 @@ const KlerosEnterpriseSection: React.FC = async () => {
         {...{
           disputeResolutionProcessHeader,
           processDiagram,
-          processDiagramDesktop,
         }}
       />
 
