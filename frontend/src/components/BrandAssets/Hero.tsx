@@ -13,10 +13,12 @@ interface IHero {
 
 const Hero: React.FC<IHero> = ({ heroData }) => {
   return (
-    <div className="relative px-6 pb-12 pt-32">
+    <div className="relative px-6 pb-28 pt-44 md:pt-52 lg:px-32 lg:pb-[302px]">
       <div className="space-y-6">
-        <h1 className="w-min text-3xl">{heroData.header}</h1>
-        <p className="text-lg">{heroData.subtitle}</p>
+        <h1 className="pt-1 text-2xl font-medium lg:pt-3 lg:text-4xl">
+          {heroData.header}
+        </h1>
+        <p className="max-w-[685px] text-lg">{heroData.subtitle}</p>
         <div>
           <CustomLink href={heroData.button?.link?.url}>
             <Button variant="secondary">
@@ -26,11 +28,11 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         </div>
       </div>
       <Image
-        src={heroData.background?.url}
+        src={heroData.background.url}
         alt="Hero Image Background"
-        width="1440"
-        height="835"
-        className="absolute left-0 top-0 z-[-1] h-full object-cover object-left"
+        fill
+        priority
+        className="absolute left-0 top-0 z-[-1] h-full object-cover"
       />
     </div>
   );

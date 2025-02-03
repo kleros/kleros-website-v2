@@ -30,8 +30,8 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
           alt="Product Icon"
         />
         <div className="flex flex-col gap-4">
-          <div className="text-lg text-primary-purple">{header}</div>
-          <div className="text-xl text-primary-text md:text-2xl">
+          <div className="text-primary-purple lg:text-lg">{header}</div>
+          <div className="text-lg text-primary-text md:text-2xl">
             {productName}
           </div>
         </div>
@@ -51,7 +51,7 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
           <Button className="text-background-1">{learnMoreButton.text}</Button>
         </CustomLink>
       </div>
-      <div className="flex flex-col items-center gap-8 md:flex-row">
+      <div className="flex flex-col items-center gap-6 md:flex-row lg:gap-8">
         {arrowLinks.map((arrowLink) => (
           <ExternalLink
             key={arrowLink.text}

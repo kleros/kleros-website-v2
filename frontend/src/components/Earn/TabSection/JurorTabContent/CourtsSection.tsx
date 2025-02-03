@@ -18,7 +18,7 @@ const CourtsSection: React.FC<ICourtsSection> = ({
 }) => {
   return (
     <>
-      <h2 className="md:text-xlfont-medium text-lg md:font-normal">
+      <h2 className="text-lg font-medium md:text-xl md:font-normal lg:pt-4">
         {mostActiveCourtsHeader}
       </h2>
       <div className="flex flex-row flex-wrap items-center gap-4">
