@@ -7,10 +7,11 @@ import { Solution } from "@/queries/navbar";
 interface ICard {
   solution: Solution;
   variant: "large" | "medium" | "small";
+  onClick?: () => void;
   className?: string;
 }
 
-const Card: React.FC<ICard> = ({ solution, variant, className }) => {
+const Card: React.FC<ICard> = ({ solution, variant, onClick, className }) => {
   return (
     <CustomLink
       href={solution?.url}
@@ -24,6 +25,7 @@ const Card: React.FC<ICard> = ({ solution, variant, className }) => {
           "lg:flex-row": variant === "medium" || variant === "small",
         },
       )}
+      {...{ onClick }}
     >
       <Image
         src={solution?.logo_svg?.url}

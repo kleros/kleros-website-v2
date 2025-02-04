@@ -1,18 +1,17 @@
 "use client";
 
-import { useState } from "react";
-
 import clsx from "clsx";
+import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useLockBodyScroll } from "react-use";
+import { useLockBodyScroll, useToggle } from "react-use";
 
-import HamburgerIcon from "@/assets/svgs/icons/hamburger.svg";
 import Button from "@/components/Button";
 import CustomLink from "@/components/CustomLink";
 import { NavbarQueryType } from "@/queries/navbar";
 
 import DesktopNavigation from "./DesktopNavigation";
+import HamburgerButton from "./HamburgerButton";
 import MobileMenu from "./MobileMenu";
 
 interface INavbar {
@@ -20,7 +19,7 @@ interface INavbar {
 }
 
 const Navbar: React.FC<INavbar> = ({ navbarData }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, toggleMenuOpen] = useToggle(false);
   const pathname = usePathname();
 
   const klerosLogo = navbarData?.klerosLogo;
@@ -29,8 +28,6 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const resourceSections = navbarData?.navbarResourcesSection.Section;
   const appsSection = navbarData?.navbarAppsSection;
   const socials = navbarData?.socials;
-
-  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   useLockBodyScroll(menuOpen);
 
@@ -43,7 +40,11 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
         "md:px-16 xl:px-32",
       )}
     >
-      <CustomLink href="/home" className="flex items-center">
+      <CustomLink
+        href="/home"
+        className="flex items-center"
+        onClick={() => toggleMenuOpen(false)}
+      >
         <Image
           alt="Kleros"
           src={klerosLogo?.logo_svg.url}
@@ -54,14 +55,9 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
 
       <button
         className="ml-auto block text-white lg:hidden"
-        onClick={toggleMenu}
+        onClick={toggleMenuOpen}
       >
-        <Image
-          src={HamburgerIcon}
-          alt="Hamburger Icon"
-          width={24}
-          height={24}
-        />
+        <HamburgerButton className="h-5 w-6" isOpen={menuOpen} />
       </button>
 
       <div className="hidden lg:flex">
@@ -78,31 +74,37 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
         </CustomLink>
       </div>
 
-      <div
-        className={clsx(
-          { hidden: !menuOpen },
-          "allowDiscreteDisplay fixed inset-0 z-40 h-dvh bg-black",
-          "bg-opacity-50",
-        )}
-        onClick={() => setMenuOpen(false)}
-      >
-        <div className="relative" onClick={(e) => e.stopPropagation()}>
-          <MobileMenu
-            className={clsx(
-              menuOpen ? "translate-x-0" : "translate-x-full",
-              "allowDiscreteDisplay slideInFromRight",
-            )}
-            {...{
-              pathname,
-              navLinks,
-              resourceSections,
-              appsSection,
-              socials,
-              navbarButton,
-            }}
-          />
-        </div>
-      </div>
+      <AnimatePresence>
+        {menuOpen ? (
+          <motion.div
+            className={clsx("fixed inset-0 top-20 z-40 h-dvh bg-black/50")}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => toggleMenuOpen(false)}
+          >
+            <motion.div
+              className="absolute top-0"
+              initial={{ right: "-100%" }}
+              animate={{ right: 0 }}
+              exit={{ right: "-100%" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <MobileMenu
+                {...{
+                  pathname,
+                  navLinks,
+                  resourceSections,
+                  appsSection,
+                  socials,
+                  navbarButton,
+                }}
+                closeFn={() => toggleMenuOpen(false)}
+              />
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 };

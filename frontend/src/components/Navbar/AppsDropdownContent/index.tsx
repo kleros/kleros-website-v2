@@ -7,10 +7,12 @@ import Card from "./Card";
 
 interface AppsDropdownContentProps {
   appsSection: AppsSection;
+  closeFn?: () => void;
 }
 
 const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
   appsSection,
+  closeFn,
 }) => (
   <div className="mx-auto py-6 lg:max-w-[1172px] lg:py-12">
     <div
@@ -25,6 +27,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
           key={solution.solution_name}
           {...{ solution }}
           variant={getVariant(i)}
+          onClick={closeFn}
         />
       ))}
     </div>

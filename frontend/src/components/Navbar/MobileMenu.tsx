@@ -26,6 +26,7 @@ interface IMobileMenu {
   resourceSections: ResourceSection[];
   socials: Social[];
   navbarButton: NavbarButton;
+  closeFn: () => void;
   className?: string;
 }
 
@@ -36,6 +37,7 @@ const MobileMenu: React.FC<IMobileMenu> = ({
   resourceSections,
   socials,
   navbarButton,
+  closeFn,
   className,
 }) => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
@@ -50,7 +52,7 @@ const MobileMenu: React.FC<IMobileMenu> = ({
     <div
       className={clsx(
         className,
-        "fixed right-0 top-20 z-50 w-screen overflow-y-auto rounded-b-lg",
+        "z-50 w-screen overflow-y-auto rounded-b-lg",
         "bg-background-2 p-6 shadow-lg",
       )}
     >
@@ -92,10 +94,10 @@ const MobileMenu: React.FC<IMobileMenu> = ({
                   )}
                 >
                   {navLink?.title === "Apps" ? (
-                    <AppsDropdownContent {...{ appsSection }} />
+                    <AppsDropdownContent {...{ appsSection, closeFn }} />
                   ) : navLink?.title === "Resources" ? (
                     <ResourcesDropdownContent
-                      {...{ resourceSections, socials }}
+                      {...{ resourceSections, socials, closeFn }}
                     />
                   ) : null}
                 </div>

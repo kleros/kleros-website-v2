@@ -7,11 +7,13 @@ import { ResourceSection, Social } from "@/queries/navbar";
 interface ResourcesDropdownContentProps {
   resourceSections: ResourceSection[];
   socials: Social[];
+  closeFn: () => void;
 }
 
 const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
   resourceSections,
   socials,
+  closeFn,
 }) => {
   return (
     <div className="flex flex-col items-center bg-background-2">
@@ -40,7 +42,9 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
                     "w-max transform transition duration-75 hover:scale-[1.01]"
                   }
                 >
-                  <CustomLink href={link.url}>{link.name}</CustomLink>
+                  <CustomLink href={link.url} onClick={closeFn}>
+                    {link.name}
+                  </CustomLink>
                 </li>
               ))}
             </ul>
@@ -58,6 +62,7 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
             key={social.name}
             href={social.url}
             className={"transform transition duration-75 hover:scale-[1.10]"}
+            onClick={closeFn}
           >
             <Image
               src={social.icon.url}
