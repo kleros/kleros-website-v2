@@ -90,7 +90,10 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
               initial={{ right: "-100%" }}
               animate={{ right: 0 }}
               exit={{ right: "-100%" }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                toggleMenuOpen(false);
+                e.stopPropagation();
+              }}
             >
               <MobileMenu
                 {...{
