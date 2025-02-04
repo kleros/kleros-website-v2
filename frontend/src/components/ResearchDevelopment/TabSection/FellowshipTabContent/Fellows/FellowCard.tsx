@@ -28,7 +28,9 @@ const FellowCard: React.FC<Fellow> = ({
       </label>
       <Divider />
 
-      <p className="mb-12 mt-6 text-xl text-primary-text">{workText}</p>
+      <p className="mb-8 mt-6 text-lg text-primary-text lg:mb-12 lg:text-xl">
+        {workText}
+      </p>
       <div className="mt-auto w-full">
         <Divider />
         <ExternalLink

@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx";
 import Image from "next/image";
 
@@ -56,8 +57,8 @@ const KlerosBook: React.FC<IKlerosBook> = ({
       </div>
       <div className="space-y-16">
         <div className="space-y-6">
-          <h3 className="text-lg text-primary-purple">{subtitle}</h3>
-          <h1 className="text-2xl font-medium lg:text-3xl">{bookTitle}</h1>
+          <h3 className="text-primary-purple lg:text-lg">{subtitle}</h3>
+          <h1 className="text-xl font-medium lg:text-3xl">{bookTitle}</h1>
         </div>
         <div className="flex flex-wrap gap-4">
           {downloadFormats.map((format) => (

@@ -33,11 +33,12 @@ export const forLawyersPageKlerosEnterpriseSectionQuery = gql`
       }
 
       processDiagram {
-        url
-      }
-
-      processDiagramDesktop {
-        url
+        mobile {
+          url
+        }
+        desktop {
+          url
+        }
       }
 
       table {
@@ -90,11 +91,10 @@ export type ForLawyersPageKlerosEnterpiseSectionType = {
     cards: Card[];
     arrowLink: ArrowLink;
     disputeResolutionProcessHeader: HighlightedText;
+
     processDiagram: {
-      url: string;
-    };
-    processDiagramDesktop: {
-      url: string;
+      mobile: { url: string };
+      desktop: { url: string };
     };
     table: Table;
   };

@@ -14,7 +14,7 @@ const ResearchCard: React.FC<Research> = ({ field, icon }) => {
       )}
     >
       <Image src={icon.url} alt="document" width={64} height={64} />
-      <p className="text-lg text-primary-text">{field}</p>
+      <p className="text-primary-text lg:text-lg">{field}</p>
     </div>
   );
 };

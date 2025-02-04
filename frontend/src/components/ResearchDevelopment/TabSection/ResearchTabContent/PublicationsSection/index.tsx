@@ -27,16 +27,16 @@ const PublicationSection: React.FC<IPublicationSection> = ({
 }) => {
   return (
     <div className="py-12 lg:py-24">
-      <h1 className="mb-8 text-2xl text-primary-text lg:text-3xl lg:font-medium">
+      <h1 className="mb-8 text-xl text-primary-text lg:text-3xl lg:font-medium">
         {publicationsHeader}
       </h1>
 
-      <h3 className="mb-16 text-xl text-secondary-text">
+      <h3 className="mb-16 text-lg text-secondary-text lg:text-xl">
         {publicationsTeamHeader}
       </h3>
       <TeamPublications {...{ teamPublications }} />
 
-      <h3 className="my-12 text-xl text-secondary-text">
+      <h3 className="my-12 text-lg text-secondary-text lg:text-xl">
         {publications3rdPartyHeader}
       </h3>
       <ThirdPartyPublications {...{ thirdPartyPublications }} />
