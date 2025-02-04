@@ -90,10 +90,6 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
               initial={{ right: "-100%" }}
               animate={{ right: 0 }}
               exit={{ right: "-100%" }}
-              onClick={(e) => {
-                toggleMenuOpen(false);
-                e.stopPropagation();
-              }}
             >
               <MobileMenu
                 {...{
@@ -106,6 +102,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
                 }}
                 className="h-full overflow-y-auto md:h-auto"
                 closeFn={() => toggleMenuOpen(false)}
+                onClick={(e) => e.stopPropagation()}
               />
             </motion.div>
           </motion.div>

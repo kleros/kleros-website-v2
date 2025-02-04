@@ -20,7 +20,7 @@ import {
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
 
-interface IMobileMenu {
+interface IMobileMenu extends React.ComponentProps<"div"> {
   pathname: string;
   navLinks: NavLink[];
   appsSection: AppsSection;
@@ -28,7 +28,6 @@ interface IMobileMenu {
   socials: Social[];
   navbarButton: NavbarButton;
   closeFn: () => void;
-  className?: string;
 }
 
 const MobileMenu: React.FC<IMobileMenu> = ({
@@ -40,6 +39,7 @@ const MobileMenu: React.FC<IMobileMenu> = ({
   navbarButton,
   closeFn,
   className,
+  ...props
 }) => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null,
@@ -56,6 +56,7 @@ const MobileMenu: React.FC<IMobileMenu> = ({
         "z-50 w-screen overflow-y-auto rounded-b-lg",
         "bg-background-2 p-6 shadow-lg",
       )}
+      {...props}
     >
       <nav className="flex flex-col gap-y-4">
         {navLinks?.map((navLink, index) => (
