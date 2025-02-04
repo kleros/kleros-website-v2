@@ -53,6 +53,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
               className={`${
                 pathname === `/${navLink.path_name}` ? "font-bold" : ""
               }`}
+              onClick={() => setOpenDropdownIndex(null)}
             >
               {navLink.title}
             </Link>
