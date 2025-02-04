@@ -83,7 +83,8 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                 {openDropdownIndex === index && navLink.is_dropdown ? (
                   <motion.div
                     className={clsx(
-                      "fixed inset-0 top-20 z-40 h-dvh bg-black/50",
+                      "fixed inset-0 top-20 z-40 h-[calc(100dvh-5rem)]",
+                      "bg-black/50",
                     )}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -91,7 +92,10 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                     onClick={() => setOpenDropdownIndex(null)}
                   >
                     <motion.div
-                      className="absolute top-0 w-full bg-background-2"
+                      className={clsx(
+                        "absolute top-0 max-h-full w-full overflow-y-auto",
+                        "bg-background-2",
+                      )}
                       initial={{ translateY: "-5%" }}
                       animate={{ translateY: 0 }}
                       exit={{ translateY: "-5%" }}
@@ -99,6 +103,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                     >
                       {navLink?.title === "Apps" ? (
                         <AppsDropdownContent
+                          className="px-6 py-12"
                           {...{ appsSection }}
                           closeFn={() => setOpenDropdownIndex(null)}
                         />

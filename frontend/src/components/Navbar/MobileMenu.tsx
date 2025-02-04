@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import clsx from "clsx";
+import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
@@ -66,6 +67,7 @@ const MobileMenu: React.FC<IMobileMenu> = ({
                   "block text-white",
                   pathname === `/${navLink.path_name}` && "font-bold",
                 )}
+                onClick={closeFn}
               >
                 {navLink.title}
               </CustomLink>
@@ -86,21 +88,27 @@ const MobileMenu: React.FC<IMobileMenu> = ({
                     height={12}
                   />
                 </button>
-                <div
-                  className={clsx(
-                    "transition-accordionHeight h-auto overflow-y-auto",
-                    "pl-2 pr-4",
-                    openDropdownIndex === index && "accordionOpen",
-                  )}
-                >
-                  {navLink?.title === "Apps" ? (
-                    <AppsDropdownContent {...{ appsSection, closeFn }} />
-                  ) : navLink?.title === "Resources" ? (
-                    <ResourcesDropdownContent
-                      {...{ resourceSections, socials, closeFn }}
-                    />
+                <AnimatePresence>
+                  {openDropdownIndex === index ? (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: "auto" }}
+                      exit={{ height: 0 }}
+                      className="mt-2 max-h-[30dvh] overflow-y-scroll pl-2 pr-4"
+                    >
+                      {navLink?.title === "Apps" ? (
+                        <AppsDropdownContent
+                          {...{ appsSection, closeFn }}
+                          className="mt-2"
+                        />
+                      ) : navLink?.title === "Resources" ? (
+                        <ResourcesDropdownContent
+                          {...{ resourceSections, socials, closeFn }}
+                        />
+                      ) : null}
+                    </motion.div>
                   ) : null}
-                </div>
+                </AnimatePresence>
               </>
             )}
           </div>

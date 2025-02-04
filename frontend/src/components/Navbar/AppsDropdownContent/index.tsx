@@ -8,13 +8,15 @@ import Card from "./Card";
 interface AppsDropdownContentProps {
   appsSection: AppsSection;
   closeFn?: () => void;
+  className?: string;
 }
 
 const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
   appsSection,
   closeFn,
+  className,
 }) => (
-  <div className="mx-auto py-6 lg:max-w-[1172px] lg:py-12">
+  <div className={clsx(className, "mx-auto lg:max-w-[1172px]")}>
     <div
       className={clsx(
         "grid w-full grid-cols-1 gap-3 bg-background-2 lg:grid-flow-col",

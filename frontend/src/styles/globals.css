@@ -60,19 +60,6 @@ body {
   }
 }
 
-.transition-accordionHeight {
-  max-height: 0;
-  transition:
-    max-height 0.3s ease-out,
-    opacity 0.3s ease-out;
-  opacity: 0;
-}
-
-.accordionOpen {
-  max-height: 332px;
-  opacity: 1;
-}
-
 .border-gradient-purple-blue {
   position: relative;
   border-radius: 9999px;

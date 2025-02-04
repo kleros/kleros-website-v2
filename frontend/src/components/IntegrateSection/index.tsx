@@ -23,12 +23,15 @@ const IntegrateSection: React.FC = async () => {
       <p className="text-base text-secondary-text lg:mb-4 lg:text-lg">
         {integrateData.description}
       </p>
-      <AppsDropdownContent appsSection={integrateData.appsSection} />
+      <AppsDropdownContent
+        appsSection={integrateData.appsSection}
+        className="pt-8 lg:pt-16"
+      />
       <LearnMore
         background={integrateData.getInTouchSection.background}
         title={integrateData.header}
         button={integrateData.arrowLink}
-        className="!mt-16 lg:!mt-4"
+        className="!mt-12 lg:!mt-16"
       />
       <ExternalLink
         className="mt-12 flex-wrap justify-center text-center lg:mt-16"

@@ -77,14 +77,16 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
       <AnimatePresence>
         {menuOpen ? (
           <motion.div
-            className={clsx("fixed inset-0 top-20 z-40 h-dvh bg-black/50")}
+            className={clsx(
+              "fixed inset-0 top-20 z-40 h-[calc(100dvh-5rem)] bg-black/50",
+            )}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => toggleMenuOpen(false)}
           >
             <motion.div
-              className="absolute top-0"
+              className="absolute bottom-0 top-0"
               initial={{ right: "-100%" }}
               animate={{ right: 0 }}
               exit={{ right: "-100%" }}
@@ -99,6 +101,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
                   socials,
                   navbarButton,
                 }}
+                className="h-full overflow-y-auto md:h-auto"
                 closeFn={() => toggleMenuOpen(false)}
               />
             </motion.div>
