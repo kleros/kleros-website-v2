@@ -7,7 +7,12 @@ export const homeHowKlerosWorksQuery = gql`
       title
       subtitle
       explainer {
-        url
+        mobile {
+          url
+        }
+        desktop {
+          url
+        }
       }
     }
   }
@@ -19,7 +24,12 @@ export type HomeHowKlerosWorksQueryType = {
     title: string;
     subtitle: string;
     explainer: {
-      url: string;
+      mobile: {
+        url: string;
+      };
+      desktop: {
+        url: string;
+      };
     };
   };
 };

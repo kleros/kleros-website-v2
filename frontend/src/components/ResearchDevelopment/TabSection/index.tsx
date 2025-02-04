@@ -1,7 +1,3 @@
-"use client";
-
-import { useMemo, useState } from "react";
-
 import Tab from "@/components/Tab";
 import { TabSectionQueryType } from "@/queries/research-development/tabs-data";
 
@@ -15,47 +11,43 @@ interface ITabSection {
 }
 
 const TabSection: React.FC<ITabSection> = ({ tabsData }) => {
-  const [activeTab, setActiveTab] = useState(0);
-
-  const tabItems = useMemo(
-    () => [
-      { text: tabsData.rAndDPageResearchTabSection.tabName, value: 0 },
-      { text: tabsData.rAndDPageFellowshipTabSection.tabName, value: 1 },
-    ],
-    [tabsData],
-  );
-
   return (
-    <>
-      <div className="bg-background-2 px-6 pb-12 pt-[39px] lg:px-32 lg:py-12">
-        <Tab
-          items={tabItems}
-          currentValue={activeTab}
-          callback={(val: number) => {
-            setActiveTab(val);
-          }}
-        />
-        {activeTab === 1 ? (
-          <FellowshipTabContent
-            {...tabsData.rAndDPageFellowshipTabSection}
-            {...tabsData}
-          />
-        ) : (
-          <ResearchTabContent
-            {...tabsData.rAndDPageResearchTabSection}
-            {...tabsData}
-          />
-        )}
-      </div>
-
-      {activeTab === 1 ? (
-        <WaitlistSection
-          {...tabsData.rAndDPageFellowshipTabSection.waitlistSection}
-        />
-      ) : (
-        <KlerosBook {...tabsData.rAndDPageResearchTabSection.klerosBook} />
-      )}
-    </>
+    <div>
+      <Tab
+        items={[
+          {
+            text: tabsData.rAndDPageResearchTabSection.tabName,
+            children: (
+              <>
+                <ResearchTabContent
+                  {...tabsData.rAndDPageResearchTabSection}
+                  {...tabsData}
+                />
+                <KlerosBook
+                  {...tabsData.rAndDPageResearchTabSection.klerosBook}
+                />
+              </>
+            ),
+          },
+          {
+            text: tabsData.rAndDPageFellowshipTabSection.tabName,
+            children: (
+              <>
+                {" "}
+                <FellowshipTabContent
+                  {...tabsData.rAndDPageFellowshipTabSection}
+                  {...tabsData}
+                />
+                <WaitlistSection
+                  {...tabsData.rAndDPageFellowshipTabSection.waitlistSection}
+                />
+              </>
+            ),
+          },
+        ]}
+        className="bg-background-2 px-6 pt-[39px] lg:px-32 lg:pt-12"
+      />
+    </div>
   );
 };
 export default TabSection;

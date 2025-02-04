@@ -26,11 +26,6 @@
     "useCaseDescription": {
       "type": "string"
     },
-    "useCaseBanner": {
-      "type": "media",
-      "multiple": false,
-      "required": true
-    },
     "keyChallenges": {
       "type": "component",
       "repeatable": false,
@@ -45,6 +40,11 @@
       "type": "component",
       "repeatable": false,
       "component": "content.button-link"
+    },
+    "useCaseBanner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.responsive-media"
     }
   }
 }

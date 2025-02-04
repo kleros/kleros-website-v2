@@ -1255,7 +1255,10 @@ export interface ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    useCaseBanner: Schema.Attribute.Media & Schema.Attribute.Required;
+    useCaseBanner: Schema.Attribute.Component<
+      'content.responsive-media',
+      false
+    >;
     useCaseDescription: Schema.Attribute.String;
     useCases: Schema.Attribute.Relation<'oneToMany', 'api::use-case.use-case'>;
     useCaseTitle: Schema.Attribute.String;
@@ -1408,11 +1411,9 @@ export interface ApiForLawyersPageKlerosEnterpriseSectionForLawyersPageKlerosEnt
       'api::for-lawyers-page-kleros-enterprise-section.for-lawyers-page-kleros-enterprise-section'
     > &
       Schema.Attribute.Private;
-    processDiagram: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    processDiagramDesktop: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
+    processDiagram: Schema.Attribute.Component<
+      'content.responsive-media',
+      false
     >;
     publishedAt: Schema.Attribute.DateTime;
     subtitle: Schema.Attribute.Component<'content.highlight-text', false>;
@@ -1611,13 +1612,7 @@ export interface ApiHomeHowKlerosWorksSectionHomeHowKlerosWorksSection
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    explainer: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    > &
-      Schema.Attribute.Required;
-    explainer_desktop: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    explainer: Schema.Attribute.Component<'content.responsive-media', false>;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1697,6 +1692,10 @@ export interface ApiHomePageHeroHomePageHero extends Struct.SingleTypeSchema {
     secondaryButton: Schema.Attribute.Component<'content.button-link', false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    tokenStats: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::token-stat.token-stat'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

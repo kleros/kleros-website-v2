@@ -15,7 +15,7 @@ interface IResearchTabContent extends RAndDPageResearchTabSection {
 }
 const ResearchTabContent: React.FC<IResearchTabContent> = (props) => {
   return (
-    <div>
+    <div className="bg-background-2 px-6 lg:px-32">
       <ResearchSection {...props} />
       <PublicationSection {...props} />
     </div>

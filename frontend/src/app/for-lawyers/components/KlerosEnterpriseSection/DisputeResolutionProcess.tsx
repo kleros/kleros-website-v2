@@ -1,8 +1,4 @@
-"use client";
-
-import Image from "next/image";
-
-import { useScreenSize } from "@/hooks/useScreenSize";
+import ResponsiveImage from "@/components/ResponsiveImage";
 
 import { ForLawyersPageKlerosEnterpiseSectionType } from "../../queries/kleros-enterprise-section";
 
@@ -10,15 +6,13 @@ import HighlightedText from "./HighlightedText";
 
 type IDisputeResolutionProcess = Pick<
   ForLawyersPageKlerosEnterpiseSectionType["forLawyersPageKlerosEnterpriseSection"],
-  "disputeResolutionProcessHeader" | "processDiagram" | "processDiagramDesktop"
+  "disputeResolutionProcessHeader" | "processDiagram"
 >;
 
 const DisputeResolutionProcess: React.FC<IDisputeResolutionProcess> = ({
   disputeResolutionProcessHeader,
   processDiagram,
-  processDiagramDesktop,
 }) => {
-  const screenSize = useScreenSize();
   return (
     <div className="flex flex-col gap-8">
       <HighlightedText
@@ -28,21 +22,20 @@ const DisputeResolutionProcess: React.FC<IDisputeResolutionProcess> = ({
       />
 
       <div className="relative flex w-full justify-center">
-        {screenSize === "lg" ? (
-          <Image
-            src={processDiagramDesktop.url}
-            width={1182}
-            height={707}
-            alt="Process diagram"
-          />
-        ) : (
-          <Image
-            src={processDiagram.url}
-            width={342}
-            height={864}
-            alt="Process diagram"
-          />
-        )}
+        <ResponsiveImage
+          mobileProps={{
+            src: processDiagram.mobile.url,
+            alt: "Process diagram",
+            width: 342,
+            height: 864,
+          }}
+          desktopProps={{
+            src: processDiagram.desktop.url,
+            alt: "Process diagram",
+            width: 1182,
+            height: 707,
+          }}
+        />
       </div>
     </div>
   );

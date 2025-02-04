@@ -89,6 +89,17 @@ export interface ContentNavlink extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentResponsiveMedia extends Struct.ComponentSchema {
+  collectionName: 'components_content_responsive_medias';
+  info: {
+    displayName: 'ResponsiveMedia';
+  };
+  attributes: {
+    desktop: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mobile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface ContentSection extends Struct.ComponentSchema {
   collectionName: 'components_content_sections';
   info: {
@@ -403,6 +414,7 @@ declare module '@strapi/strapi' {
       'content.highlight-text': ContentHighlightText;
       'content.link-card': ContentLinkCard;
       'content.navlink': ContentNavlink;
+      'content.responsive-media': ContentResponsiveMedia;
       'content.section': ContentSection;
       'content.stat-display': ContentStatDisplay;
       'cooperative-report-page.learn-more-section': CooperativeReportPageLearnMoreSection;

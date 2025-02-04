@@ -66,10 +66,10 @@ const ReportCard: React.FC<IReportCard> = ({
       )}
     >
       <div className="flex flex-col items-start gap-8">
-        <h2 className="text-2xl font-medium text-primary-text md:text-3xl">
+        <h2 className="text-xl font-medium text-primary-text md:text-3xl">
           {title}
         </h2>
-        <p className="text-lg text-secondary-text">{subtitle}</p>
+        <p className="text-secondary-text lg:text-lg">{subtitle}</p>
 
         <DropdownContainer
           {...{
