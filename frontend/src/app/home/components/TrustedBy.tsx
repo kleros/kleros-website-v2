@@ -60,8 +60,8 @@ const PartnersCarousel: React.FC<IPartnersCarousel> = ({ partners }) => (
           <div
             key={name}
             className={clsx(
-              "relative mx-2 inline-block h-16 w-16 rounded-full bg-white lg:mx-10",
-              "hover:cursor-pointer",
+              "relative mx-2 inline-block h-16 w-16 rounded-full bg-white",
+              "hover:cursor-pointer lg:mx-10",
             )}
           >
             <Image

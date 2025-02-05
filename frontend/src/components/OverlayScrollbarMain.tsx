@@ -18,7 +18,10 @@ const OverlayScrollbarBody: React.FC<IOverlayScrollbarBody> = ({
     {...{ className }}
     defer
     data-overlayscrollbars-initialize
-    options={{ scrollbars: { autoHide: "move" } }}
+    options={{
+      scrollbars: { autoHide: "move" },
+      overflow: { y: "visible" },
+    }}
   >
     {children}
   </OverlayScrollbarsComponent>

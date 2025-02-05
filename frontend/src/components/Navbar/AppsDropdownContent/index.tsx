@@ -7,56 +7,51 @@ import Card from "./Card";
 
 interface AppsDropdownContentProps {
   appsSection: AppsSection;
+  closeFn?: () => void;
+  className?: string;
 }
 
 const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
   appsSection,
-}) => {
-  const columnOne = appsSection?.solutions.slice(0, 1);
-  const columnTwo = appsSection?.solutions.slice(1, 3);
-  const columnThree = appsSection?.solutions.slice(3, 7);
-
-  return (
+  closeFn,
+  className,
+}) => (
+  <div className={clsx(className, "mx-auto lg:max-w-[1172px]")}>
     <div
       className={clsx(
-        "mt-4 grid w-full gap-3 py-2 xl:mt-0 xl:w-[1172px] xl:gap-4 xl:py-12",
-        "mx-auto grid-cols-1 bg-background-2 xl:grid-cols-3",
+        "grid w-full grid-cols-1 gap-3 bg-background-2 lg:grid-flow-col",
+        "lg:grid-cols-3 lg:grid-rows-4 lg:gap-4",
       )}
     >
-      <div className="flex flex-col gap-3 xl:gap-4">
-        {columnOne?.map((solution) => (
-          <Card
-            key={solution.solution_name}
-            solution={solution}
-            variant="large"
-          />
-        ))}
-      </div>
-      <div className="flex flex-col gap-3 xl:gap-4">
-        {columnTwo?.map((solution) => (
-          <Card
-            key={solution.solution_name}
-            solution={solution}
-            variant="medium"
-          />
-        ))}
-      </div>
-      <div className="flex flex-col gap-3 xl:gap-4">
-        {columnThree?.map((solution) => (
-          <Card
-            key={solution.solution_name}
-            solution={solution}
-            variant="small"
-          />
-        ))}
-        <ExternalLink
-          url={appsSection?.arrowLink.link.url}
-          text={appsSection?.arrowLink.text}
-          className="self-start xl:self-end"
+      {appsSection?.solutions.map((solution, i) => (
+        <Card
+          className={getRowSpan(i)}
+          key={solution.solution_name}
+          {...{ solution }}
+          variant={getVariant(i)}
+          onClick={closeFn}
         />
-      </div>
+      ))}
     </div>
-  );
+    <ExternalLink
+      className="ml-auto mt-2 w-max"
+      url={appsSection?.arrowLink.link.url}
+      text={appsSection?.arrowLink.text}
+    />
+  </div>
+);
+
+const getVariant = (index: number): "large" | "medium" | "small" => {
+  if (index === 0) return "large";
+  if (index < 3) return "medium";
+  return "small";
+};
+
+const getRowSpan = (
+  index: number,
+): "lg:row-span-4" | "lg:row-span-2" | undefined => {
+  if (index === 0) return "lg:row-span-4";
+  if (index < 3) return "lg:row-span-2";
 };
 
 export default AppsDropdownContent;

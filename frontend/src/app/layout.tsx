@@ -1,5 +1,6 @@
 import React from "react";
 
+import clsx from "clsx";
 import { Urbanist } from "next/font/google";
 
 import Footer from "@/components/Footer";
@@ -25,7 +26,7 @@ export default async function RootLayout({
   return (
     <html lang="en" data-overlayscrollbars-initialize>
       <OverlayScrollbarBody className="bg-background-1 antialiased">
-        <main className={urbanist.className}>
+        <main className={clsx(urbanist.className)}>
           <Navbar {...{ navbarData }} />
           {children}
           <Footer />

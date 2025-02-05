@@ -3,11 +3,12 @@
 import { useState } from "react";
 
 import clsx from "clsx";
+import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
 
 import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
 import Button from "@/components/Button";
+import CustomLink from "@/components/CustomLink";
 import {
   AppsSection,
   NavbarButton,
@@ -16,34 +17,29 @@ import {
   Social,
 } from "@/queries/navbar";
 
-import CustomLink from "../CustomLink";
-
 import AppsDropdownContent from "./AppsDropdownContent";
 import ResourcesDropdownContent from "./ResourcesDropdownContent";
 
-const menuContainerStyle = clsx(
-  "z-50 fixed w-screen top-20 right-0 bg-background-2 p-6",
-  "rounded-lg shadow-lg overflow-y-auto animate-slideInFromRight",
-);
-
-const linkStyle = clsx("text-white block");
-
-interface MobileMenuProps {
+interface IMobileMenu extends React.ComponentProps<"div"> {
   pathname: string;
   navLinks: NavLink[];
   appsSection: AppsSection;
   resourceSections: ResourceSection[];
   socials: Social[];
   navbarButton: NavbarButton;
+  closeFn: () => void;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({
+const MobileMenu: React.FC<IMobileMenu> = ({
   pathname,
   navLinks,
   appsSection,
   resourceSections,
   socials,
   navbarButton,
+  closeFn,
+  className,
+  ...props
 }) => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null,
@@ -54,20 +50,28 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   };
 
   return (
-    <div className={menuContainerStyle}>
+    <div
+      className={clsx(
+        className,
+        "z-50 w-screen overflow-y-auto rounded-b-lg",
+        "bg-background-2 p-6 shadow-lg",
+      )}
+      {...props}
+    >
       <nav className="flex flex-col gap-y-4">
         {navLinks?.map((navLink, index) => (
           <div key={navLink.path_name || navLink.title} className="relative">
             {!navLink.is_dropdown ? (
-              <Link
+              <CustomLink
                 href={`/${navLink.path_name}`}
                 className={clsx(
-                  linkStyle,
+                  "block text-white",
                   pathname === `/${navLink.path_name}` && "font-bold",
                 )}
+                onClick={closeFn}
               >
                 {navLink.title}
-              </Link>
+              </CustomLink>
             ) : (
               <>
                 <button
@@ -76,26 +80,36 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                 >
                   {navLink.title}
                   <Image
+                    className={clsx("transition", {
+                      "rotate-180": openDropdownIndex === index,
+                    })}
                     src={DownArrowIcon}
                     alt="Down Arrow"
                     width={12}
                     height={12}
                   />
                 </button>
-                <div
-                  className={clsx(
-                    "transition-accordionHeight h-auto overflow-y-auto",
-                    openDropdownIndex === index && "accordionOpen",
-                  )}
-                >
-                  {navLink?.title === "Apps" ? (
-                    <AppsDropdownContent {...{ appsSection }} />
-                  ) : navLink?.title === "Resources" ? (
-                    <ResourcesDropdownContent
-                      {...{ resourceSections, socials }}
-                    />
+                <AnimatePresence>
+                  {openDropdownIndex === index ? (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: "auto" }}
+                      exit={{ height: 0 }}
+                      className="mt-2 max-h-[30dvh] overflow-y-scroll pl-2 pr-4"
+                    >
+                      {navLink?.title === "Apps" ? (
+                        <AppsDropdownContent
+                          {...{ appsSection, closeFn }}
+                          className="mt-2"
+                        />
+                      ) : navLink?.title === "Resources" ? (
+                        <ResourcesDropdownContent
+                          {...{ resourceSections, socials, closeFn }}
+                        />
+                      ) : null}
+                    </motion.div>
                   ) : null}
-                </div>
+                </AnimatePresence>
               </>
             )}
           </div>
