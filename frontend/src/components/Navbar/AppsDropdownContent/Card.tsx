@@ -3,32 +3,29 @@ import Image from "next/image";
 
 import CustomLink from "@/components/CustomLink";
 import { Solution } from "@/queries/navbar";
-import { hoverEffect } from "@/styles";
 
-const cardBaseStyle = clsx(
-  "bg-background-2 rounded-2xl border border-stroke text-wrap",
-  "p-4 flex gap-4 h-full lg:items-start",
-);
-const headerTextStyle = clsx("text-primary-purple font-bold text-base");
-const descriptionTextStyle = clsx(
-  "text-secondary-text text-base leading-tight",
-);
-
-interface CardProps {
+interface ICard {
   solution: Solution;
   variant: "large" | "medium" | "small";
+  onClick?: () => void;
+  className?: string;
 }
 
-const Card: React.FC<CardProps> = ({ solution, variant }) => {
+const Card: React.FC<ICard> = ({ solution, variant, onClick, className }) => {
   return (
     <CustomLink
-      key={solution?.solution_name}
       href={solution?.url}
-      className={clsx(cardBaseStyle, hoverEffect, "flex-row", "w-full", {
-        "xl:flex-col xl:pb-8": variant === "large",
-        "xl:flex-row": variant === "medium" || variant === "small",
-        "xl:w-[380px]": true,
-      })}
+      className={clsx(
+        className,
+        "flex h-full w-full transform flex-row gap-4 text-wrap rounded-2xl",
+        "border border-stroke bg-background-2 p-4 transition duration-100",
+        "hover:scale-[1.01] lg:items-start",
+        {
+          "lg:flex-col": variant === "large",
+          "lg:flex-row": variant === "medium" || variant === "small",
+        },
+      )}
+      {...{ onClick }}
     >
       <Image
         src={solution?.logo_svg?.url}
@@ -36,29 +33,26 @@ const Card: React.FC<CardProps> = ({ solution, variant }) => {
         width={64}
         height={64}
       />
-      <div>
-        <h2 className={headerTextStyle}>{solution?.solution_name}</h2>
+      <div className="space-y-2">
+        <h2 className="text-base font-medium text-primary-purple">
+          {solution?.solution_name}
+        </h2>
 
         <h3
-          className={clsx(
-            headerTextStyle,
-            "mt-1 leading-tight text-primary-text",
-            {
-              "font-normal": variant === "small",
-              "xl:text-xl": variant === "large",
-              "xl:text-lg": variant === "medium",
-              "xl:text-base": variant === "small",
-            },
-          )}
+          className={clsx("text-base font-medium text-primary-text", {
+            "md:text-lg lg:text-xl": variant === "large",
+            "md:text-lg": variant === "medium",
+            "md:text-lg lg:text-base": variant === "small",
+          })}
         >
           {solution?.header_title}
         </h3>
 
         {solution?.header_description && (
           <p
-            className={clsx(descriptionTextStyle, "mt-2", {
+            className={clsx("mt-2 text-base text-secondary-text", {
               hidden: true,
-              "lg:block": variant !== "small",
+              "md:block": variant !== "small",
             })}
           >
             {solution?.header_description}

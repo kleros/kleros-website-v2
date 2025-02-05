@@ -21,11 +21,16 @@ const Footer: React.FC = async () => {
   }));
   return (
     <div>
-      <div className={"bg-primary-purple py-16"}>
-        <div className="flex flex-col gap-12 px-6">
+      <div className={"bg-background-dark py-16 md:px-16 xl:px-32"}>
+        <div
+          className={clsx(
+            "grid grid-flow-col grid-cols-2 grid-rows-2 gap-12 px-6",
+            "lg:grid-cols-4 lg:grid-rows-1",
+          )}
+        >
           {sections.map(({ title, links }) => (
             <div key={title} className="flex flex-col gap-4">
-              <h2 className="text-background-2">{title}</h2>
+              <h2 className="text-primary-purple">{title}</h2>
               {links.map(({ name, url }) => (
                 <CustomLink
                   className={clsx(hoverScaleUp, "w-max")}
@@ -38,7 +43,7 @@ const Footer: React.FC = async () => {
             </div>
           ))}
         </div>
-        <hr className="mx-6 mb-6 mt-16 h-0.5 border-t-0 bg-secondary-purple" />
+        <hr className="mx-6 mb-6 mt-16 h-0.5 border-t-0 bg-primary-purple" />
         <div className="flex items-center justify-center gap-8">
           {socials.map(({ name, icon_white: icon, url }) => (
             <CustomLink className={hoverScaleUp} key={name} href={url}>

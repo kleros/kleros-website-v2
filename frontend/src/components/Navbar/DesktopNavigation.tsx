@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import clsx from "clsx";
+import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLockBodyScroll } from "react-use";
@@ -51,6 +53,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
               className={`${
                 pathname === `/${navLink.path_name}` ? "font-bold" : ""
               }`}
+              onClick={() => setOpenDropdownIndex(null)}
             >
               {navLink.title}
             </Link>
@@ -70,30 +73,51 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                   alt="Down Arrow"
                   width={12}
                   height={12}
-                  className="ml-2"
+                  className={clsx("ml-2 transition", {
+                    "rotate-180": openDropdownIndex === index,
+                  })}
                 />
               </button>
 
-              {openDropdownIndex === index && navLink.is_dropdown ? (
-                <div
-                  className="animate-slideInFromTop fixed inset-0 z-40 bg-black bg-opacity-50"
-                  onClick={() => setOpenDropdownIndex(null)}
-                >
-                  <div
-                    className="relative mt-20 bg-background-2"
-                    onClick={(e) => e.stopPropagation()}
+              <AnimatePresence>
+                {openDropdownIndex === index && navLink.is_dropdown ? (
+                  <motion.div
+                    className={clsx(
+                      "fixed inset-0 top-20 z-40 h-[calc(100dvh-5rem)]",
+                      "bg-black/50",
+                    )}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setOpenDropdownIndex(null)}
                   >
-                    {navLink?.title === "Apps" ? (
-                      <AppsDropdownContent {...{ appsSection }} />
-                    ) : null}
-                    {navLink?.title === "Resources" ? (
-                      <ResourcesDropdownContent
-                        {...{ resourceSections, socials }}
-                      />
-                    ) : null}
-                  </div>
-                </div>
-              ) : null}
+                    <motion.div
+                      className={clsx(
+                        "absolute top-0 max-h-full w-full overflow-y-auto",
+                        "bg-background-2",
+                      )}
+                      initial={{ translateY: "-5%" }}
+                      animate={{ translateY: 0 }}
+                      exit={{ translateY: "-5%" }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {navLink?.title === "Apps" ? (
+                        <AppsDropdownContent
+                          className="px-6 py-12"
+                          {...{ appsSection }}
+                          closeFn={() => setOpenDropdownIndex(null)}
+                        />
+                      ) : null}
+                      {navLink?.title === "Resources" ? (
+                        <ResourcesDropdownContent
+                          {...{ resourceSections, socials }}
+                          closeFn={() => setOpenDropdownIndex(null)}
+                        />
+                      ) : null}
+                    </motion.div>
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
             </>
           )}
         </div>

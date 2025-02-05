@@ -28,28 +28,6 @@
       "repeatable": false,
       "component": "content.highlight-text"
     },
-    "processDiagram": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "processDiagramDesktop": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "table": {
       "type": "component",
       "repeatable": false,
@@ -64,6 +42,11 @@
       "type": "component",
       "repeatable": false,
       "component": "content.button-link"
+    },
+    "processDiagram": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.responsive-media"
     }
   }
 }

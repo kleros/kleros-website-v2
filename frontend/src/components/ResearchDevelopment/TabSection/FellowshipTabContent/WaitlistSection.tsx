@@ -21,7 +21,7 @@ const WaitlistSection: React.FC<RAndDPageWaitlistSection> = ({
       )}
     >
       <div className="space-y-16">
-        <h1 className="max-w-[683px] text-2xl font-medium lg:text-3xl">
+        <h1 className="max-w-[683px] text-xl font-medium lg:text-3xl">
           {header}
         </h1>
         <div className="flex flex-wrap gap-8">

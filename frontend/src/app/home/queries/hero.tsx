@@ -23,6 +23,11 @@ export const heroQuery = gql`
           url
         }
       }
+      tokenStats {
+        key
+        primaryValue
+        secondaryValue
+      }
       background {
         url
       }
@@ -52,6 +57,11 @@ export type HeroQueryType = {
         url: string;
       };
     };
+    tokenStats: Array<{
+      key: string;
+      primaryValue: string;
+      secondaryValue: string;
+    }>;
     background: {
       url: string;
     };

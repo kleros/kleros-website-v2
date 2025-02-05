@@ -1,5 +1,6 @@
 import React from "react";
 
+import clsx from "clsx";
 import Image from "next/image";
 
 import Button from "@/components/Button";
@@ -13,14 +14,21 @@ interface ILearnMore {
   background: {
     url: string;
   };
+  className?: string;
 }
 
-const LearnMore: React.FC<ILearnMore> = ({ title, button, background }) => {
+const LearnMore: React.FC<ILearnMore> = ({
+  title,
+  button,
+  background,
+  className,
+}) => {
   return (
     <div
-      className={
-        "relative mt-16 flex w-full flex-col items-center justify-center p-8"
-      }
+      className={clsx(
+        "relative mt-16 flex w-full flex-col items-center justify-center p-8",
+        className,
+      )}
     >
       <h2 className="z-[1] mb-8 text-center text-lg text-primary-text lg:text-xl">
         {title}

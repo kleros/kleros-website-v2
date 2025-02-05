@@ -7,6 +7,10 @@
   --foreground: #171717;
 }
 
+.os-scrollbar {
+  --os-handle-bg: #42498f;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -54,47 +58,6 @@ body {
       animation-play-state: paused;
     }
   }
-}
-
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-.animate-slideInFromRight {
-  animation: slideInFromRight 0.3s ease-out;
-}
-
-@keyframes slideInFromTop {
-  from {
-    transform: translateY(-5%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.animate-slideInFromTop {
-  animation: slideInFromTop 0.5s ease-out;
-}
-
-.transition-accordionHeight {
-  max-height: 0;
-  transition:
-    max-height 0.3s ease-out,
-    opacity 0.3s ease-out;
-  opacity: 0;
-}
-
-.accordionOpen {
-  max-height: 332px;
-  opacity: 1;
 }
 
 .border-gradient-purple-blue {

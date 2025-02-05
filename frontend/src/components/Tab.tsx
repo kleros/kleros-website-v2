@@ -1,55 +1,58 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import clsx from "clsx";
 
-type TabItem<T> = {
+type TabItem = {
   text: string;
-  value: T;
+  children: React.ReactNode;
 };
 
-interface ITab<T> {
-  items: TabItem<T>[];
-  currentValue: T;
-  callback: (value: T) => void;
+interface ITab {
+  items: TabItem[];
   className?: string;
 }
 
-const Tab = <T,>({ items, currentValue, callback, className }: ITab<T>) => {
+const Tab = ({ items, className }: ITab) => {
+  const [activeTab, setActiveTab] = useState(0);
+
   const handleKeyDown = useCallback(
-    (event: React.KeyboardEvent, value: T) => {
+    (event: React.KeyboardEvent, value: number) => {
       if (event.key === "Enter" || event.key === " ") {
-        callback(value);
+        setActiveTab(value);
       }
     },
-    [callback],
+    [],
   );
 
   return (
-    <div role="tablist" className={`flex h-fit w-full ${className}`}>
-      {items.map((item, i) => (
-        <div
-          role="tab"
-          tabIndex={i + 1}
-          aria-selected={item.value === currentValue}
-          key={item.text}
-          className={clsx(
-            "min-h-14",
-            "transition-all hover:cursor-pointer hover:border-b-[3px] hover:border-b-primary-blue hover:text-primary-blue",
-            "flex flex-grow items-center justify-center pb-6",
-            "text-center text-lg font-medium",
-            item.value === currentValue
-              ? "border-b-[3px] border-b-primary-blue text-primary-blue"
-              : "border-b border-b-stroke text-secondary-text",
-          )}
-          onClick={() => callback(item.value)}
-          onKeyDown={(e) => handleKeyDown(e, item.value)}
-        >
-          {item.text}
-        </div>
-      ))}
-    </div>
+    <>
+      <div role="tablist" className={`flex h-fit w-full ${className}`}>
+        {items.map((item, i) => (
+          <div
+            role="tab"
+            tabIndex={i + 1}
+            aria-selected={i === activeTab}
+            key={item.text}
+            className={clsx(
+              "min-h-14",
+              "transition-all hover:cursor-pointer hover:border-b-[3px] hover:border-b-primary-blue hover:text-primary-blue",
+              "flex flex-grow items-center justify-center pb-6",
+              "text-center font-medium lg:text-lg",
+              i === activeTab
+                ? "border-b-[3px] border-b-primary-blue text-primary-blue"
+                : "border-b border-b-stroke text-secondary-text",
+            )}
+            onClick={() => setActiveTab(i)}
+            onKeyDown={(e) => handleKeyDown(e, i)}
+          >
+            {item.text}
+          </div>
+        ))}
+      </div>
+      {items[activeTab].children}
+    </>
   );
 };
 

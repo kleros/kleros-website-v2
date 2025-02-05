@@ -89,6 +89,17 @@ export interface ContentNavlink extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentResponsiveMedia extends Struct.ComponentSchema {
+  collectionName: 'components_content_responsive_medias';
+  info: {
+    displayName: 'ResponsiveMedia';
+  };
+  attributes: {
+    desktop: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mobile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface ContentSection extends Struct.ComponentSchema {
   collectionName: 'components_content_sections';
   info: {
@@ -308,15 +319,31 @@ export interface PnkTokenPageTokenStatDisplay extends Struct.ComponentSchema {
   };
 }
 
+export interface RAndDPageDownloadableFormat extends Struct.ComponentSchema {
+  collectionName: 'components_r_and_d_page_downloadable_formats';
+  info: {
+    description: '';
+    displayName: 'DownloadableFormat';
+  };
+  attributes: {
+    file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface RAndDPageKlerosBook extends Struct.ComponentSchema {
   collectionName: 'components_r_and_d_page_kleros_books';
   info: {
+    description: '';
     displayName: 'KlerosBook';
   };
   attributes: {
     bookCover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     bookTitle: Schema.Attribute.String;
-    downloadFormats: Schema.Attribute.Component<'content.button-link', true>;
+    downloadFormats: Schema.Attribute.Component<
+      'r-and-d-page.downloadable-format',
+      true
+    >;
     subtitle: Schema.Attribute.String;
   };
 }
@@ -387,6 +414,7 @@ declare module '@strapi/strapi' {
       'content.highlight-text': ContentHighlightText;
       'content.link-card': ContentLinkCard;
       'content.navlink': ContentNavlink;
+      'content.responsive-media': ContentResponsiveMedia;
       'content.section': ContentSection;
       'content.stat-display': ContentStatDisplay;
       'cooperative-report-page.learn-more-section': CooperativeReportPageLearnMoreSection;
@@ -402,6 +430,7 @@ declare module '@strapi/strapi' {
       'home.cta': HomeCta;
       'home.introduction': HomeIntroduction;
       'pnk-token-page.token-stat-display': PnkTokenPageTokenStatDisplay;
+      'r-and-d-page.downloadable-format': RAndDPageDownloadableFormat;
       'r-and-d-page.kleros-book': RAndDPageKlerosBook;
       'r-and-d-page.waitlist-section': RAndDPageWaitlistSection;
       'table.table': TableTable;

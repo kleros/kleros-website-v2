@@ -7,7 +7,12 @@ export const useCasesQuery = gql`
       useCaseTitle
       useCaseDescription
       useCaseBanner {
-        url
+        mobile {
+          url
+        }
+        desktop {
+          url
+        }
       }
       keyChallenges {
         title
@@ -52,7 +57,8 @@ export type UseCasesQueryType = {
     useCaseTitle: string;
     useCaseDescription: string;
     useCaseBanner: {
-      url: string;
+      mobile: { url: string };
+      desktop: { url: string };
     };
     keyChallenges: {
       title: string;

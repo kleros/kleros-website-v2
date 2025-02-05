@@ -26,7 +26,7 @@ const PublicationCard: React.FC<IPublicationCard> = ({
     >
       {isTeamPublication(publication) ? (
         <>
-          <h2 className="mb-6 text-xl font-medium text-primary-text">
+          <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
             {publication.topic}
           </h2>
           <p className="mb-8 text-secondary-text">{publication.authors}</p>
@@ -39,7 +39,7 @@ const PublicationCard: React.FC<IPublicationCard> = ({
         <ExternalLink
           text={publication.paperLink.text}
           url={publication.paperLink.link.url}
-          className="mb-2 mt-6 flex-wrap justify-start"
+          className="mt-6 flex-wrap justify-start lg:mb-2"
         />
       </div>
     </div>

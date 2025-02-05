@@ -1,21 +1,17 @@
 "use client";
 
-import { useState } from "react";
-
 import clsx from "clsx";
+import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLockBodyScroll } from "react-use";
+import { useLockBodyScroll, useToggle } from "react-use";
 
-import HamburgerIcon from "@/assets/svgs/icons/hamburger.svg";
 import Button from "@/components/Button";
+import CustomLink from "@/components/CustomLink";
 import { NavbarQueryType } from "@/queries/navbar";
-import { responsiveSize } from "@/styles/responsiveSize";
-
-import CustomLink from "../CustomLink";
 
 import DesktopNavigation from "./DesktopNavigation";
+import HamburgerButton from "./HamburgerButton";
 import MobileMenu from "./MobileMenu";
 
 interface INavbar {
@@ -23,7 +19,7 @@ interface INavbar {
 }
 
 const Navbar: React.FC<INavbar> = ({ navbarData }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, toggleMenuOpen] = useToggle(false);
   const pathname = usePathname();
 
   const klerosLogo = navbarData?.klerosLogo;
@@ -33,8 +29,6 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const appsSection = navbarData?.navbarAppsSection;
   const socials = navbarData?.socials;
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-
   useLockBodyScroll(menuOpen);
 
   return (
@@ -43,31 +37,27 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
         "fixed left-0 right-0 top-0 z-50 flex h-20 w-full",
         "items-center justify-between bg-black/35 px-2 py-2",
         "text-base text-white backdrop-blur-md",
+        "md:px-16 xl:px-32",
       )}
-      style={{
-        paddingLeft: responsiveSize(24, 128, 1024, 1920),
-        paddingRight: responsiveSize(24, 128, 1024, 1920),
-      }}
     >
-      <Link href="/" className="flex items-center">
+      <CustomLink
+        href="/home"
+        className="flex items-center"
+        onClick={() => toggleMenuOpen(false)}
+      >
         <Image
           alt="Kleros"
           src={klerosLogo?.logo_svg.url}
           width={184}
           height={48}
         />
-      </Link>
+      </CustomLink>
 
       <button
         className="ml-auto block text-white lg:hidden"
-        onClick={toggleMenu}
+        onClick={toggleMenuOpen}
       >
-        <Image
-          src={HamburgerIcon}
-          alt="Hamburger Icon"
-          width={24}
-          height={24}
-        />
+        <HamburgerButton className="h-5 w-6" isOpen={menuOpen} />
       </button>
 
       <div className="hidden lg:flex">
@@ -84,25 +74,40 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
         </CustomLink>
       </div>
 
-      {menuOpen && (
-        <div
-          className={"fixed inset-0 z-40 flex bg-black bg-opacity-50"}
-          onClick={() => setMenuOpen(false)}
-        >
-          <div className="relative" onClick={(e) => e.stopPropagation()}>
-            <MobileMenu
-              {...{
-                pathname,
-                navLinks,
-                resourceSections,
-                appsSection,
-                socials,
-                navbarButton,
-              }}
-            />
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {menuOpen ? (
+          <motion.div
+            className={clsx(
+              "fixed inset-0 top-20 z-40 h-[calc(100dvh-5rem)] bg-black/50",
+            )}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => toggleMenuOpen(false)}
+          >
+            <motion.div
+              className="absolute bottom-0 top-0"
+              initial={{ right: "-100%" }}
+              animate={{ right: 0 }}
+              exit={{ right: "-100%" }}
+            >
+              <MobileMenu
+                {...{
+                  pathname,
+                  navLinks,
+                  resourceSections,
+                  appsSection,
+                  socials,
+                  navbarButton,
+                }}
+                className="h-full overflow-y-auto md:h-auto"
+                closeFn={() => toggleMenuOpen(false)}
+                onClick={(e) => e.stopPropagation()}
+              />
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 };

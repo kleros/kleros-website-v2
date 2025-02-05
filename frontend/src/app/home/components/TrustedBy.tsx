@@ -13,7 +13,7 @@ const TrustedBy: React.FC = async () => {
     await request<PartnersQueryType>(partnersQuery);
 
   return (
-    <div className="bg-background-2 px-6 py-12">
+    <div className="bg-background-2 px-6 py-12 lg:px-10">
       <h3 className="mx-auto mb-8 w-max text-lg text-secondary-text">
         Trusted By
       </h3>
@@ -61,7 +61,7 @@ const PartnersCarousel: React.FC<IPartnersCarousel> = ({ partners }) => (
             key={name}
             className={clsx(
               "relative mx-2 inline-block h-16 w-16 rounded-full bg-white",
-              "hover:cursor-pointer",
+              "hover:cursor-pointer lg:mx-10",
             )}
           >
             <Image

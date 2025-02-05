@@ -1,7 +1,6 @@
 import React from "react";
 
-import Image from "next/image";
-
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { UseCasesQueryType } from "@/queries/for-builders/use-cases";
 
 interface IHeader {
@@ -10,18 +9,26 @@ interface IHeader {
 
 const Header: React.FC<IHeader> = ({ useCasesData }) => {
   return (
-    <div className="mb-16">
-      <h2 className="mb-6 text-xl text-primary-purple">
+    <div className="mb-12 lg:mb-16">
+      <h2 className="mb-6 text-lg text-primary-purple lg:text-2xl">
         {useCasesData.useCaseTitle}
       </h2>
-      <p className="mb-12 text-lg text-secondary-text">
+      <p className="mb-12 text-secondary-text lg:mb-16 lg:text-xl">
         {useCasesData.useCaseDescription}
       </p>
-      <Image
-        src={useCasesData.useCaseBanner.url}
-        alt="UseCaseBanner mobile"
-        width="400"
-        height="835"
+      <ResponsiveImage
+        mobileProps={{
+          src: useCasesData.useCaseBanner.mobile.url,
+          alt: "UseCaseBanner mobile",
+          width: 400,
+          height: 835,
+        }}
+        desktopProps={{
+          src: useCasesData.useCaseBanner.desktop.url,
+          alt: "UseCaseBanner mobile",
+          width: 1182,
+          height: 388,
+        }}
       />
     </div>
   );
