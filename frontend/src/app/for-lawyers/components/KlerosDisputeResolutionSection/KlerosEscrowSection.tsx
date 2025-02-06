@@ -23,23 +23,37 @@ const KlerosEscrowSection: React.FC = async () => {
   ).forLawyersPageKlerosEscrowSection;
   return (
     <div>
-      <h1 className="mb-6 text-lg font-medium text-primary-text lg:text-2xl">
+      <h1
+        className={
+          "mb-6 text-lg font-medium text-primary-text lg:px-32 lg:text-2xl"
+        }
+      >
         {header}
       </h1>
-      <p className="mb-16 text-secondary-text lg:text-lg">{subtitle}</p>
+      <p className="mb-16 text-secondary-text lg:px-32 lg:text-lg">
+        {subtitle}
+      </p>
 
-      <p className="mb-12 text-primary-purple lg:text-lg">{flowchartLabel}</p>
+      <p className="mb-12 text-primary-purple lg:px-32 lg:text-lg">
+        {flowchartLabel}
+      </p>
       <Flowchart items={flowchart} background="secondary" />
 
-      <h2 className="mb-6 mt-12 text-lg font-medium text-primary-text lg:text-xl">
+      <h2
+        className={
+          "mb-6 mt-12 text-lg font-medium text-primary-text lg:px-32 lg:text-xl"
+        }
+      >
         {secondHeader}
       </h2>
-      <p className="mb-8 text-secondary-text lg:text-lg">{secondSubtitle}</p>
+      <p className="mb-8 text-secondary-text lg:px-32 lg:text-lg">
+        {secondSubtitle}
+      </p>
 
       <ExternalLink
         text={arrowLink.text}
         url={arrowLink.link.url}
-        className="flex-wrap justify-center lg:justify-start"
+        className="flex-wrap justify-center lg:justify-start lg:px-32"
       />
     </div>
   );

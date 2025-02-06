@@ -1,5 +1,6 @@
 import React from "react";
 
+import clsx from "clsx";
 import Image from "next/image";
 
 import { HeroQueryType } from "@/queries/earn/hero";
@@ -16,7 +17,12 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         <h1 className="text-2xl font-medium lg:text-4xl">{title}</h1>
         <p className="text-lg">{subtitle}</p>
 
-        <div className="flex items-center gap-8 rounded-full bg-background-translucent p-4 pr-8 md:w-fit">
+        <div
+          className={clsx(
+            "flex w-fit items-center gap-8 rounded-full",
+            "bg-background-translucent p-4 pr-8",
+          )}
+        >
           <Image
             src={statDisplay.icon.url}
             alt="icon"

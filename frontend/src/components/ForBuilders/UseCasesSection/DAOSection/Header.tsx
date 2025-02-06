@@ -18,12 +18,14 @@ const Header: React.FC<IHeader> = ({ useCasesData }) => {
       </p>
       <ResponsiveImage
         mobileProps={{
+          className: "mx-auto",
           src: useCasesData.useCaseBanner.mobile.url,
           alt: "UseCaseBanner mobile",
-          width: 400,
-          height: 835,
+          width: 294,
+          height: 798,
         }}
         desktopProps={{
+          className: "mx-auto",
           src: useCasesData.useCaseBanner.desktop.url,
           alt: "UseCaseBanner mobile",
           width: 1182,

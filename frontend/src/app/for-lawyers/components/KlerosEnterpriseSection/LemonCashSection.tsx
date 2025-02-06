@@ -20,7 +20,7 @@ const LemonCashSection: React.FC = async () => {
     .lemonCashSection;
 
   return (
-    <div>
+    <div className="lg:px-32">
       <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-2xl">
         {header}
       </h2>

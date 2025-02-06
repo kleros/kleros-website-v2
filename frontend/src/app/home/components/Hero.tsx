@@ -26,7 +26,7 @@ const Hero: React.FC = async () => {
   return (
     <div className="relative px-6 pb-28 pt-44 md:pt-52 lg:px-32 lg:pb-20">
       <div className="space-y-8">
-        <h1 className="text-2xl font-medium lg:text-3xl">{title}</h1>
+        <h1 className="text-2xl font-medium lg:text-4xl">{title}</h1>
         <p className="text-lg">{subtitle}</p>
         <div className="lg:hidden">
           <CustomLink href={primaryButton.link.url}>

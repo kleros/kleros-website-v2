@@ -28,6 +28,7 @@ const Card: React.FC<ICard> = ({ solution, variant, onClick, className }) => {
       {...{ onClick }}
     >
       <Image
+        className="md:h-fit"
         src={solution?.logo_svg?.url}
         alt={solution?.solution_name}
         width={64}

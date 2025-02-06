@@ -13,7 +13,11 @@ const EnterCourtSection: React.FC<IEnterCourtSection> = ({
   background,
 }) => {
   return (
-    <div className="relative mt-16 flex w-full flex-col items-center justify-center p-8">
+    <div
+      className={
+        "relative mt-16 flex w-full flex-col items-center justify-center p-8"
+      }
+    >
       <CustomLink href={button.link.url} className="z-[1] mb-8">
         <Button>
           <span className="text-background-2">{button.text}</span>

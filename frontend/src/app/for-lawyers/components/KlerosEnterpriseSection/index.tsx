@@ -34,10 +34,10 @@ const KlerosEnterpriseSection: React.FC = async () => {
       className={clsx(
         "bg-background-2",
         "flex flex-col gap-12 lg:gap-16",
-        "px-6 py-12 lg:px-32 lg:py-24",
+        "px-6 py-12 lg:py-24",
       )}
     >
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 lg:px-32">
         <h3 className="text-primary-purple lg:text-lg">{headerSubtitle}</h3>
         <h1 className="text-xl font-medium text-primary-text lg:text-3xl">
           {header}
@@ -45,7 +45,7 @@ const KlerosEnterpriseSection: React.FC = async () => {
         <HighlightedText {...subtitle} />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:px-32">
         {cards.map((card) => (
           <Card key={card.title} {...card} />
         ))}
@@ -62,7 +62,7 @@ const KlerosEnterpriseSection: React.FC = async () => {
       <ExternalLink
         url={arrowLink.link.url}
         text={arrowLink.text}
-        className="flex-wrap justify-center"
+        className="flex-wrap justify-center lg:px-32"
       />
       <MethodsTable {...{ table }} />
     </div>

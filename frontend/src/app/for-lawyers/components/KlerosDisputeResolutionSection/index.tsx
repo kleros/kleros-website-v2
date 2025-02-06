@@ -32,10 +32,10 @@ const KlerosDisputeResolutionSection: React.FC = async () => {
       className={clsx(
         "bg-background-2",
         "flex flex-col gap-16",
-        "px-6 py-12 lg:px-32 lg:py-24",
+        "px-6 py-12 lg:py-24",
       )}
     >
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 lg:px-32">
         <h3 className="mb-6 text-primary-purple lg:text-lg">
           {headerSubtitle}
         </h3>
@@ -48,7 +48,7 @@ const KlerosDisputeResolutionSection: React.FC = async () => {
       <ArbitrationMethodTable table={arbitrationMethodTable} />
       <ResearchSection {...{ secondHeader, secondSubtitle, publications }} />
 
-      <div className="my-4">
+      <div className="my-4 lg:px-32">
         <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
           {thirdHeader}
         </h2>
