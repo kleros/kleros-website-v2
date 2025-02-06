@@ -13,23 +13,25 @@ const TrustedBy: React.FC = async () => {
     await request<PartnersQueryType>(partnersQuery);
 
   return (
-    <div className="bg-background-2 px-6 py-12 lg:px-10">
+    <div className="bg-background-2 py-12">
       <h3 className="mx-auto mb-8 w-max text-lg text-secondary-text">
         Trusted By
       </h3>
-      <div
-        className={clsx(
-          "hover-pause-child-animation",
-          "relative grid auto-cols-max grid-flow-col overflow-hidden",
-        )}
-      >
-        <PartnersCarousel {...{ partners }} />
-        <BlurredBorders />
+      <div className="px-6 lg:px-10">
+        <div
+          className={clsx(
+            "hover-pause-child-animation relative grid auto-cols-max",
+            "grid-flow-col overflow-hidden",
+          )}
+        >
+          <PartnersCarousel {...{ partners }} />
+          <BlurredBorders />
+        </div>
       </div>
       <div
         className={clsx(
-          "mt-16 grid grid-cols-1 items-center justify-items-center gap-8",
-          "lg:grid-cols-3",
+          "mt-16 flex flex-col items-center justify-items-center gap-8 px-6",
+          "md:px-32 lg:flex-row lg:justify-between xl:gap-16",
         )}
       >
         {institutions.map(({ name, link, image }) => (
