@@ -13,7 +13,11 @@ const FellowCard: React.FC<Fellow> = ({
   arrowLinkText,
 }) => {
   return (
-    <div className="flex flex-col items-start rounded-2xl border border-stroke p-8">
+    <div
+      className={
+        "flex flex-col items-start rounded-2xl border border-stroke p-8"
+      }
+    >
       <Image
         width={150}
         height={150}
@@ -33,11 +37,7 @@ const FellowCard: React.FC<Fellow> = ({
       </p>
       <div className="mt-auto w-full">
         <Divider />
-        <ExternalLink
-          text={arrowLinkText}
-          url={reportUrl}
-          className="mt-6 flex-wrap justify-start"
-        />
+        <ExternalLink text={arrowLinkText} url={reportUrl} className="mt-6" />
       </div>
     </div>
   );

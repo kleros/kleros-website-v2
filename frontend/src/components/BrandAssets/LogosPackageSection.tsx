@@ -31,7 +31,6 @@ const LogosPackageSection: React.FC<ILogosPackageSection> = ({
       <ExternalLink
         url={logosPackageData.arrowLink.link.url}
         text={logosPackageData.arrowLink.text}
-        className="z-[1] flex-wrap"
       />
     </div>
   );

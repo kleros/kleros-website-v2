@@ -18,7 +18,7 @@ const DAOSection: React.FC<IDAOSection> = ({ useCasesData }) => {
       <ExternalLink
         url={useCasesData.arrowLink.link.url}
         text={useCasesData.arrowLink.text}
-        className="mt-12 flex-wrap justify-center lg:mt-16 lg:justify-start"
+        className="mx-auto mt-12 md:mx-0 lg:mt-16"
       />
     </div>
   );

@@ -56,7 +56,7 @@ const KlerosFellowSection: React.FC = async () => {
       <ExternalLink
         text={arrowLink.text}
         url={arrowLink.link.url}
-        className="w-full flex-wrap justify-center"
+        className="mx-auto"
       />
     </div>
   );

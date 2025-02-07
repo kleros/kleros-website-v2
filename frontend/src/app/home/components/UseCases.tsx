@@ -22,7 +22,7 @@ const UseCases: React.FC = async () => {
       <ExternalLink
         text={arrowLink.text}
         url={arrowLink.link.url}
-        className="lg:justify-center"
+        className="mx-auto"
       />
     </div>
   );

@@ -45,7 +45,7 @@ const Hero: React.FC = async () => {
         <ExternalLink
           url={arrowLink.link.url}
           text={arrowLink.text}
-          className="[&>span]:text-base [&>span]:text-primary-text"
+          className="text-start [&>span]:text-base [&>span]:text-primary-text"
         />
         <TokenStats {...{ tokenStats }} />
       </div>

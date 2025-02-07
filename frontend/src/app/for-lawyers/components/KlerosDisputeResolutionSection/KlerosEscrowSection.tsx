@@ -50,11 +50,9 @@ const KlerosEscrowSection: React.FC = async () => {
         {secondSubtitle}
       </p>
 
-      <ExternalLink
-        text={arrowLink.text}
-        url={arrowLink.link.url}
-        className="flex-wrap justify-center lg:justify-start lg:px-32"
-      />
+      <div className="mx-auto lg:mx-0 lg:px-32">
+        <ExternalLink text={arrowLink.text} url={arrowLink.link.url} />
+      </div>
     </div>
   );
 };

@@ -37,7 +37,9 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
               key={link.text}
               text={link.text}
               url={link.link.url}
-              className="[&>span]:text-base [&>span]:text-primary-text"
+              className={
+                "text-start [&>span]:text-base [&>span]:text-primary-text"
+              }
             />
           ))}
         </div>

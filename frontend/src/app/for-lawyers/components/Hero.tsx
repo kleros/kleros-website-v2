@@ -1,6 +1,5 @@
 import React from "react";
 
-import clsx from "clsx";
 import Image from "next/image";
 
 import Button from "@/components/Button";
@@ -34,10 +33,7 @@ const Hero: React.FC = async () => {
         <ExternalLink
           text={arrowLink.text}
           url={arrowLink.link.url}
-          className={clsx(
-            "flex-wrap items-start lg:pb-9",
-            "[&>span]:text-start [&>span]:text-primary-text",
-          )}
+          className="text-start lg:pb-9 [&>span]:text-primary-text"
         />
       </div>
       <Image

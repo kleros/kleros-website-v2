@@ -26,7 +26,7 @@ const CuratorTabContent: React.FC<EarnPageBecomeACuratorTab> = ({
       <ExternalLink
         url={arrowLink.link.url}
         text={arrowLink.text}
-        className="flex-wrap justify-center"
+        className="mx-auto"
       />
       <p className="pt-8 text-secondary-text lg:text-lg">{scoutExplanation}</p>
       <KlerosScoutSection {...klerosScoutSection} />

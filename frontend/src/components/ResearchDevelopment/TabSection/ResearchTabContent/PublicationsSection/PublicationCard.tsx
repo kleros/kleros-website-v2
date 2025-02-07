@@ -39,7 +39,7 @@ const PublicationCard: React.FC<IPublicationCard> = ({
         <ExternalLink
           text={publication.paperLink.text}
           url={publication.paperLink.link.url}
-          className="mt-6 flex-wrap justify-start lg:mb-2"
+          className="mt-6 lg:mb-2"
         />
       </div>
     </div>
