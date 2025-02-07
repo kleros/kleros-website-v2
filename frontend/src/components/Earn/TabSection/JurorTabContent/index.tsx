@@ -15,7 +15,7 @@ const JurorTabContent: React.FC<EarnPageBecomeAJurorTab> = ({
 }) => {
   return (
     <div className="space-y-8 pb-7 pt-[88px] lg:space-y-12 lg:pb-12 lg:pt-24">
-      <div className="text-xl font-medium text-primary-text md:text-3xl">
+      <div className="text-xl font-medium text-primary-text lg:text-3xl">
         {title}
       </div>
       <div className="text-secondary-text lg:text-lg">{description}</div>
