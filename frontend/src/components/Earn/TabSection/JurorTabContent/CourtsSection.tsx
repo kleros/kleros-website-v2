@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Image from "next/image";
 
 import PlusIcon from "@/assets/svgs/icons/plus-icon.svg";
@@ -27,14 +28,15 @@ const CourtsSection: React.FC<ICourtsSection> = ({
         ))}
         <CustomLink href={courtsButton.link.url}>
           <button
-            className={
-              "border-gradient-purple-blue h-8 w-8 px-2 lg:h-12 lg:w-12"
-            }
+            className={clsx(
+              "border-gradient-purple-blue flex h-8 w-8 items-center",
+              "justify-center px-2 lg:h-12 lg:w-12",
+            )}
           >
             <Image
               src={PlusIcon}
               width="24"
-              height="18"
+              height="19"
               alt="Plus icon"
               className="inline"
             />
