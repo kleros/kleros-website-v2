@@ -16,7 +16,10 @@ const ExternalLink: React.FC<IExternalLink> = ({ text, url, className }) => {
   return (
     <CustomLink
       href={url}
-      className={clsx("block w-fit hover:brightness-[1.2]", className)}
+      className={clsx(
+        "block w-fit text-center hover:brightness-[1.2]",
+        className,
+      )}
     >
       <span className="text-center text-primary-blue md:text-lg">
         <span className="mr-2 md:mr-4"> {text} </span>
