@@ -59,11 +59,9 @@ const KlerosEnterpriseSection: React.FC = async () => {
       />
 
       <LemonCashSection />
-      <ExternalLink
-        url={arrowLink.link.url}
-        text={arrowLink.text}
-        className="flex-wrap justify-center lg:px-32"
-      />
+      <div className="mx-auto lg:px-32">
+        <ExternalLink url={arrowLink.link.url} text={arrowLink.text} />
+      </div>
       <MethodsTable {...{ table }} />
     </div>
   );
