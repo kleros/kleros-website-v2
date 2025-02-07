@@ -22,7 +22,7 @@ const TokenomicsSection: React.FC<ITokenomicsSection> = ({
       <ExternalLink
         text={tokenomicsData.arrowLink.text}
         url={tokenomicsData.arrowLink.link.url}
-        className="flex-wrap justify-center pt-3 md:justify-start md:pt-16"
+        className="mx-auto pt-3 md:mx-0 md:pt-16"
       />
     </div>
   );

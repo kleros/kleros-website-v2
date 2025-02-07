@@ -20,13 +20,11 @@ const TokenNeedSection: React.FC<ITokenNeedSection> = ({ tokenNeedData }) => {
           <CtaCard key={card.title} {...card} />
         ))}
       </div>
-      <div className="w-full items-center">
-        <ExternalLink
-          text={tokenNeedData.arrowLink.text}
-          url={tokenNeedData.arrowLink.link.url}
-          className="mt-12 flex-wrap justify-center md:justify-start"
-        />
-      </div>
+      <ExternalLink
+        text={tokenNeedData.arrowLink.text}
+        url={tokenNeedData.arrowLink.link.url}
+        className="mx-auto mt-12"
+      />
     </div>
   );
 };

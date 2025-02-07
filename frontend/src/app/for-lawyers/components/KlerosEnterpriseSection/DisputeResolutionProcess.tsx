@@ -14,7 +14,7 @@ const DisputeResolutionProcess: React.FC<IDisputeResolutionProcess> = ({
   processDiagram,
 }) => {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 lg:px-32">
       <HighlightedText
         {...disputeResolutionProcessHeader}
         fullTextStyle="!text-primary-text !text-lg !font-medium lg:!text-xl"

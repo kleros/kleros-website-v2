@@ -19,7 +19,7 @@ const CaseStudies: React.FC = async () => {
         <h3 className="text-xl font-medium lg:text-3xl">{title}</h3>
         <p className="text-base lg:text-lg">{subtitle}</p>
       </div>
-      <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div className="mt-16 grid grid-cols-1 gap-4 lg:grid-cols-3">
         {cards.map(({ title, subtitle, icon, link }) => (
           <CtaCard
             key={title}

@@ -36,7 +36,7 @@ const ResearchSection: React.FC<IResearchSection> = ({
   );
 
   return (
-    <div>
+    <div className="lg:px-32">
       <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
         {secondHeader}
       </h2>

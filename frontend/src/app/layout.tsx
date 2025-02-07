@@ -28,7 +28,7 @@ export default async function RootLayout({
       <OverlayScrollbarBody className="bg-background-1 antialiased">
         <main className={clsx(urbanist.className)}>
           <Navbar {...{ navbarData }} />
-          {children}
+          <div className="mx-auto max-w-7xl"> {children} </div>
           <Footer />
         </main>
       </OverlayScrollbarBody>

@@ -20,7 +20,7 @@ const Footer: React.FC = async () => {
     cta: result.footerSubscribeCta,
   }));
   return (
-    <div>
+    <div className="mx-auto max-w-7xl">
       <div className={"bg-background-dark py-16 md:px-16 xl:px-32"}>
         <div
           className={clsx(
@@ -54,22 +54,29 @@ const Footer: React.FC = async () => {
       </div>
       <div
         className={clsx(
-          ["flex flex-col items-center justify-center"],
-          ["bg-background-2 py-16"],
+          "relative grid grid-cols-1 items-center justify-items-center gap-8",
+          "bg-background-2 py-16 md:grid-cols-3 md:gap-0 md:px-16 xl:px-32",
         )}
       >
         <Image
+          className="md:justify-self-start"
           src={cta.logo.url}
           alt="kleros logo"
           width="185"
           height="48"
-          className="mb-8"
         />
-        <p className="mb-8">{cta.notice}</p>
-        <p className="mb-6">{cta.cta_text}</p>
-        <Button>
-          <span className="text-background-2">{cta.cta_button}</span>
-        </Button>
+        <p className="md:justify-self-center"> {cta.notice} </p>
+        <div
+          className={clsx(
+            "flex flex-col items-center justify-items-center gap-6 md:flex-row",
+            "md:justify-self-end",
+          )}
+        >
+          <p>{cta.cta_text}</p>
+          <Button>
+            <span className="text-background-2">{cta.cta_button}</span>
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -21,10 +21,10 @@ const KlerosMediationSection: React.FC = async () => {
       className={clsx(
         "bg-background-1",
         "flex flex-col gap-16",
-        "px-6 py-12 lg:px-32 lg:py-24",
+        "px-6 py-12 lg:py-24",
       )}
     >
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 lg:px-32">
         <h1 className="text-xl font-medium text-primary-text lg:text-3xl">
           {header}
         </h1>
@@ -33,7 +33,7 @@ const KlerosMediationSection: React.FC = async () => {
 
       <Flowchart items={flowchart} background="primary" />
 
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 lg:px-32">
         <h2 className="text-lg text-primary-text lg:text-xl">
           {benefitsHeader}
         </h2>
@@ -47,7 +47,7 @@ const KlerosMediationSection: React.FC = async () => {
       <ExternalLink
         text={arrowLink.text}
         url={arrowLink.link.url}
-        className="w-full flex-wrap justify-center"
+        className="mx-auto"
       />
     </div>
   );

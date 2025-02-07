@@ -13,7 +13,7 @@ const FlowchartItem: React.FC<IFlowchartItem> = ({
   background,
 }) => {
   return (
-    <div className="flex w-[284px] flex-col gap-6">
+    <div className="flex max-w-[270px] flex-col gap-6">
       <div
         className={clsx(
           "h-[148px] rounded-2xl bg-[linear-gradient(90deg,_#D38BFF_0%,_#9747FF_100%)]",
@@ -60,7 +60,11 @@ interface IFlowchart {
 
 const Flowchart: React.FC<IFlowchart> = ({ items, background }) => {
   return (
-    <div className="flex w-full flex-wrap justify-center gap-4 md:justify-center">
+    <div
+      className={
+        "mx-auto grid w-fit grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4"
+      }
+    >
       {items.map((item) => (
         <FlowchartItem key={item.name} {...item} background={background} />
       ))}

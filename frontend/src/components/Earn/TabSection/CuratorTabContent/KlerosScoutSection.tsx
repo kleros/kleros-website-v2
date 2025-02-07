@@ -21,7 +21,7 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
         "flex flex-col gap-8 px-6 py-8 md:px-8 md:py-12",
       )}
     >
-      <div className="flex flex-col gap-6 md:flex-row">
+      <div className="flex flex-row gap-6">
         <Image
           width={128}
           height={128}
@@ -30,26 +30,30 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
           alt="Product Icon"
         />
         <div className="flex flex-col gap-4">
-          <div className="text-primary-purple lg:text-lg">{header}</div>
-          <div className="text-lg text-primary-text md:text-2xl">
+          <span className="text-primary-purple lg:text-lg">{header}</span>
+          <span className="text-lg text-primary-text md:text-2xl">
             {productName}
-          </div>
+          </span>
         </div>
       </div>
       <div
-        style={{ backgroundImage: `url(${background.url})` }}
         className={clsx(
-          "relative h-[308px] rounded-2xl md:h-[380px]",
-          "bg-cover bg-[-314px] md:bg-[0px]",
-          "flex items-center justify-center pt-3 md:pt-0",
+          "relative flex h-[308px] items-center justify-center rounded-2xl",
+          "md:h-[380px]",
         )}
       >
         <CustomLink
           href={learnMoreButton.link.url}
-          className="z-[1] mt-16 md:mt-0"
+          className="relative z-10 mt-14 block h-fit w-fit rounded-full md:mt-0"
         >
           <Button className="text-background-1">{learnMoreButton.text}</Button>
         </CustomLink>
+        <Image
+          src={background.url}
+          alt="Background Image"
+          fill
+          className="rounded-2xl object-cover object-[65%]"
+        />
       </div>
       <div className="flex flex-col items-center gap-6 md:flex-row lg:gap-8">
         {arrowLinks.map((arrowLink) => (

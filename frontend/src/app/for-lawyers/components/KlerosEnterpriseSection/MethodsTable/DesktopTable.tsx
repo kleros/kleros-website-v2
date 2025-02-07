@@ -41,7 +41,9 @@ const DesktopTable: React.FC<IMethodsTable> = ({ table }) => {
               rowIndex !== tableRows.length - 1 && "border-b border-b-stroke",
             )}
           >
-            <span className="break-words text-lg font-medium text-primary-purple">
+            <span
+              className={"break-words text-lg font-medium text-primary-purple"}
+            >
               {rowHeading}
             </span>
           </div>

@@ -54,7 +54,7 @@ const CtaCard: React.FC<ICtaCard> = ({
           <ExternalLink
             text={arrowLink.text}
             url={arrowLink.link.url}
-            className="mb-1 mt-6 flex-wrap justify-start"
+            className="mb-1 mt-6 text-start"
           />
         </div>
       ) : null}

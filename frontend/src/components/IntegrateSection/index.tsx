@@ -34,7 +34,7 @@ const IntegrateSection: React.FC = async () => {
         className="!mt-12 lg:!mt-16"
       />
       <ExternalLink
-        className="mt-12 flex-wrap justify-center text-center lg:mt-16"
+        className="mx-auto mt-12 lg:mt-16"
         text={integrateData.arrowLink.text}
         url={integrateData.arrowLink.link.url}
       />

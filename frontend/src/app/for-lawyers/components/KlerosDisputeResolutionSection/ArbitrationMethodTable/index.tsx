@@ -12,7 +12,11 @@ const ArbitrationMethodTable: React.FC<IArbitrationMethodTable> = ({
   table,
 }) => {
   return (
-    <div className="relative h-fit min-h-[1125px] w-full lg:min-h-[500px]">
+    <div
+      className={
+        "relative h-fit min-h-[1125px] w-full lg:min-h-[500px] lg:px-32"
+      }
+    >
       <div
         className={clsx(
           "box-border rounded-3xl border-2 border-stroke bg-background-2",

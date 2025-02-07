@@ -16,13 +16,16 @@ const MemberSection: React.FC<IMemberSection> = ({ memberData }) => {
         {memberData.subtitle}
       </p>
       <LearnMore {...memberData.learnMoreSection} />
-      <h1 className="mb-8 mt-16 text-xl font-medium text-primary-text lg:text-3xl">
+      <h1
+        className={
+          "mb-8 mt-16 text-xl font-medium text-primary-text lg:text-3xl"
+        }
+      >
         {memberData.secondaryHeader}
       </h1>
       <ExternalLink
         url={memberData.arrowLink.link.url}
         text={memberData.arrowLink.text}
-        className="!gap-2"
       />
     </div>
   );

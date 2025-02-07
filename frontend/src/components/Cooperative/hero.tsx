@@ -33,7 +33,9 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         <ExternalLink
           url={arrowLink.link.url}
           text={arrowLink.text}
-          className="lg:pb-6 [&>span]:text-base [&>span]:text-primary-text"
+          className={
+            "text-start lg:pb-6 [&>span]:text-base [&>span]:text-primary-text"
+          }
         />
       </div>
       <Image
