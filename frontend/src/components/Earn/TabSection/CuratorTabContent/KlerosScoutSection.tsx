@@ -38,23 +38,22 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
       </div>
       <div
         className={clsx(
-          "relative h-[308px] rounded-2xl md:h-[380px]",
-          "bg-cover bg-[-314px] md:bg-[0px]",
-          "flex items-center justify-center pt-3 md:pt-0",
+          "relative flex h-[308px] items-center justify-center rounded-2xl",
+          "md:h-[380px]",
         )}
       >
+        <CustomLink
+          href={learnMoreButton.link.url}
+          className="relative z-10 mt-14 block h-fit w-fit rounded-full md:mt-0"
+        >
+          <Button className="text-background-1">{learnMoreButton.text}</Button>
+        </CustomLink>
         <Image
           src={background.url}
           alt="Background Image"
           fill
           className="rounded-2xl object-cover object-[65%]"
         />
-        <CustomLink
-          href={learnMoreButton.link.url}
-          className="z-[1] mt-16 md:mt-0"
-        >
-          <Button className="text-background-1">{learnMoreButton.text}</Button>
-        </CustomLink>
       </div>
       <div className="flex flex-col items-center gap-6 md:flex-row lg:gap-8">
         {arrowLinks.map((arrowLink) => (
