@@ -22,7 +22,7 @@ const UseCases: React.FC = async () => {
       <ExternalLink
         text={arrowLink.text}
         url={arrowLink.link.url}
-        className="mx-auto"
+        className="mx-0 lg:mx-auto"
       />
     </div>
   );
