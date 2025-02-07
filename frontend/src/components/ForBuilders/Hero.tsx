@@ -47,6 +47,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         alt="Hero Image Background"
         fill
         priority
+        quality={100}
         className="absolute left-0 top-0 z-[-1] h-full object-cover"
       />
     </div>
