@@ -15,16 +15,15 @@ const WaitlistSection: React.FC<RAndDPageWaitlistSection> = ({
   return (
     <div
       className={clsx(
-        "bg-background-1",
-        "px-6 pb-[90px] pt-12 lg:flex-row lg:px-32 lg:py-24",
-        "flex flex-col items-start justify-start gap-16",
+        "flex flex-col gap-16 bg-background-1 px-6 py-12 md:flex-row md:gap-4",
+        "lg:px-32 lg:py-24",
       )}
     >
-      <div className="space-y-16">
-        <h1 className="max-w-[683px] text-xl font-medium lg:text-3xl">
+      <div>
+        <h3 className="mb-8 text-xl font-medium lg:mb-12 lg:text-3xl">
           {header}
-        </h1>
-        <div className="flex flex-wrap gap-8">
+        </h3>
+        <div className="flex items-start gap-4 md:flex-row md:gap-8">
           <Link
             href={applyButton.link.url}
             target="_blank"
@@ -35,9 +34,13 @@ const WaitlistSection: React.FC<RAndDPageWaitlistSection> = ({
           <ExternalLink url={arrowLink.link.url} text={arrowLink.text} />
         </div>
       </div>
-      <div className="relative h-[267px] w-[295px] flex-shrink-0">
-        <Image src={icon.url} alt="Icon" fill className="!w-fit" />
-      </div>
+      <Image
+        className="mx-auto mb-20 lg:mx-0 lg:ml-auto lg:justify-self-end"
+        alt="Kleros Logo"
+        src={icon.url}
+        width="296"
+        height="267"
+      />
     </div>
   );
 };
