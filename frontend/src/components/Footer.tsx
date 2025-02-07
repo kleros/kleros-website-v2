@@ -58,7 +58,13 @@ const Footer: React.FC = async () => {
           "bg-background-2 py-16 md:grid-cols-3 md:gap-0 md:px-16 xl:px-32",
         )}
       >
-        <Image src={cta.logo.url} alt="kleros logo" width="185" height="48" />
+        <Image
+          className="md:justify-self-start"
+          src={cta.logo.url}
+          alt="kleros logo"
+          width="185"
+          height="48"
+        />
         <p className="md:justify-self-center"> {cta.notice} </p>
         <div
           className={clsx(
