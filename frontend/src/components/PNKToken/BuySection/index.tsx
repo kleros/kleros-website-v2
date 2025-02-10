@@ -10,7 +10,7 @@ interface IBuySection {
 const BuySection: React.FC<IBuySection> = ({ buyData }) => {
   return (
     <div className="bg-background-2 px-6 py-12 lg:px-32 lg:py-24">
-      <h1 className="mb-12 text-xl font-medium text-primary-text lg:mb-16 lg:text-3xl">
+      <h1 className="text-primary-text mb-12 text-xl font-medium lg:mb-16 lg:text-3xl">
         {buyData.header}
       </h1>
       <div className="mb-12 grid grid-cols-1 gap-6 lg:grid-cols-3">

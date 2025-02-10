@@ -6,7 +6,7 @@ import Stat from "./Stat";
 
 const TokenStatDisplay: React.FC<ITokenStatDisplay> = ({ icon, stats }) => {
   return (
-    <div className="flex flex-col gap-8 rounded-2xl bg-background-1 p-6 md:w-fit md:flex-row md:rounded-full md:p-4 md:pr-8">
+    <div className="bg-background-1 flex flex-col gap-8 rounded-2xl p-6 md:w-fit md:flex-row md:rounded-full md:p-4 md:pr-8">
       <Image
         src={icon.url}
         alt="icon"

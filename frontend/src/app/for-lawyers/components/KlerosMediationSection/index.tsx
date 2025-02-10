@@ -25,7 +25,7 @@ const KlerosMediationSection: React.FC = async () => {
       )}
     >
       <div className="flex flex-col gap-8 lg:px-32">
-        <h1 className="text-xl font-medium text-primary-text lg:text-3xl">
+        <h1 className="text-primary-text text-xl font-medium lg:text-3xl">
           {header}
         </h1>
         <p className="text-secondary-text lg:text-lg">{subtitle}</p>
@@ -34,7 +34,7 @@ const KlerosMediationSection: React.FC = async () => {
       <Flowchart items={flowchart} background="primary" />
 
       <div className="flex flex-col gap-8 lg:px-32">
-        <h2 className="text-lg text-primary-text lg:text-xl">
+        <h2 className="text-primary-text text-lg lg:text-xl">
           {benefitsHeader}
         </h2>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">

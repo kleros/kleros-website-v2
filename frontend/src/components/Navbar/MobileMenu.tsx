@@ -98,7 +98,7 @@ const MobileMenu: React.FC<IMobileMenu> = ({
                       initial={{ height: 0 }}
                       animate={{ height: "auto" }}
                       exit={{ height: 0 }}
-                      className="mt-2 max-h-[30dvh] overflow-y-scroll pl-2 pr-4"
+                      className="mt-2 max-h-[30dvh] overflow-y-scroll pr-4 pl-2"
                     >
                       {navLink?.title === "Apps" ? (
                         <AppsDropdownContent

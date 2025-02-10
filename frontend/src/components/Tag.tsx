@@ -13,7 +13,7 @@ const Tag: React.FC<ITag> = ({ text, selected, className }) => {
         "lg:px-8 lg:py-4 lg:text-base",
         selected
           ? "bg-primary-purple text-lg text-white"
-          : "border-gradient-purple-blue text-lg text-secondary-text",
+          : "border-gradient-purple-blue text-secondary-text text-lg",
         className,
       )}
     >

@@ -9,10 +9,10 @@ interface ITokenNeedSection {
 const TokenNeedSection: React.FC<ITokenNeedSection> = ({ tokenNeedData }) => {
   return (
     <div className="bg-background-1 px-6 py-12 lg:px-32 lg:py-24">
-      <h1 className="mb-8 text-xl font-medium text-primary-text lg:text-3xl">
+      <h1 className="text-primary-text mb-8 text-xl font-medium lg:text-3xl">
         {tokenNeedData.header}
       </h1>
-      <p className="mb-16 text-secondary-text lg:text-lg">
+      <p className="text-secondary-text mb-16 lg:text-lg">
         {tokenNeedData.subtitle}
       </p>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">

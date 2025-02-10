@@ -14,7 +14,7 @@ const UseCases: React.FC = async () => {
   return (
     <div
       className={
-        "space-y-8 bg-background-2 px-6 pb-12 lg:space-y-12 lg:px-32 lg:pb-24"
+        "bg-background-2 space-y-8 px-6 pb-12 lg:space-y-12 lg:px-32 lg:pb-24"
       }
     >
       <h3 className="text-xl font-medium lg:text-3xl"> {title} </h3>

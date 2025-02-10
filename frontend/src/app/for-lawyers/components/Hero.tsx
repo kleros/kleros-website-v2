@@ -15,7 +15,7 @@ const Hero: React.FC = async () => {
   ).forLawyersPageHero;
 
   return (
-    <div className="relative px-6 pb-28 pt-44 md:pt-52 lg:px-32 lg:pb-60">
+    <div className="relative px-6 pt-44 pb-28 md:pt-52 lg:px-32 lg:pb-60">
       <div className="space-y-8">
         <h1 className="pt-1 text-2xl font-medium lg:pt-3 lg:text-4xl">
           {header}
@@ -33,7 +33,7 @@ const Hero: React.FC = async () => {
         <ExternalLink
           text={arrowLink.text}
           url={arrowLink.link.url}
-          className="text-start lg:pb-9 [&>span]:text-primary-text"
+          className="[&>span]:text-primary-text text-start lg:pb-9"
         />
       </div>
       <Image
@@ -41,7 +41,7 @@ const Hero: React.FC = async () => {
         alt="Hero Image Background"
         fill
         priority
-        className="absolute left-0 top-0 z-[-1] h-full object-cover"
+        className="absolute top-0 left-0 z-[-1] h-full object-cover"
       />
     </div>
   );

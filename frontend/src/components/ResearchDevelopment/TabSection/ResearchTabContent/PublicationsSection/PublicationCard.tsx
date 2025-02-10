@@ -19,20 +19,20 @@ const PublicationCard: React.FC<IPublicationCard> = ({
   return (
     <div
       className={clsx(
-        "rounded-2xl border border-stroke p-6",
+        "border-stroke rounded-2xl border p-6",
         "flex flex-col items-start",
         className,
       )}
     >
       {isTeamPublication(publication) ? (
         <>
-          <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
+          <h2 className="text-primary-text mb-6 text-lg font-medium lg:text-xl">
             {publication.topic}
           </h2>
-          <p className="mb-8 text-secondary-text">{publication.authors}</p>
+          <p className="text-secondary-text mb-8">{publication.authors}</p>
         </>
       ) : (
-        <p className="mb-8 text-secondary-text">{publication.topic}</p>
+        <p className="text-secondary-text mb-8">{publication.topic}</p>
       )}
       <div className="mt-auto w-full">
         <Divider />

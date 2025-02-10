@@ -7,13 +7,13 @@ const Card: React.FC<ICard> = ({ title, description, icon }) => {
   return (
     <div
       className={clsx(
-        "rounded-2xl border border-stroke bg-background-2",
+        "border-stroke bg-background-2 rounded-2xl border",
         "p-6 pb-[56px] lg:pb-[60px]",
         "flex flex-col items-start gap-4",
       )}
     >
       <Image src={icon.url} width={90} height={90} alt="Card Icon" />
-      <h2 className="mb-2 text-lg font-medium text-primary-text lg:text-xl">
+      <h2 className="text-primary-text mb-2 text-lg font-medium lg:text-xl">
         {title}
       </h2>
 

@@ -19,9 +19,9 @@ const ArbitrationMethodTable: React.FC<IArbitrationMethodTable> = ({
     >
       <div
         className={clsx(
-          "box-border rounded-3xl border-2 border-stroke bg-background-2",
-          "absolute left-0 top-0 h-full min-h-fit w-full",
-          "pb-[66.666%] lg:pb-0 lg:pr-[66.666%]",
+          "border-stroke bg-background-2 box-border rounded-3xl border-2",
+          "absolute top-0 left-0 h-full min-h-fit w-full",
+          "pb-[66.666%] lg:pr-[66.666%] lg:pb-0",
         )}
       >
         <TableCardContent {...table?.[0]} />
@@ -29,9 +29,9 @@ const ArbitrationMethodTable: React.FC<IArbitrationMethodTable> = ({
 
       <div
         className={clsx(
-          "box-border rounded-3xl bg-background-1",
-          "absolute left-0 top-1/3 h-2/3 min-h-fit w-full lg:left-1/3 lg:top-0 lg:h-full lg:w-2/3",
-          "pb-[33.333%] lg:pb-0 lg:pr-[33.333%]",
+          "bg-background-1 box-border rounded-3xl",
+          "absolute top-1/3 left-0 h-2/3 min-h-fit w-full lg:top-0 lg:left-1/3 lg:h-full lg:w-2/3",
+          "pb-[33.333%] lg:pr-[33.333%] lg:pb-0",
         )}
       >
         <TableCardContent {...table?.[1]} />
@@ -41,7 +41,7 @@ const ArbitrationMethodTable: React.FC<IArbitrationMethodTable> = ({
         className={clsx(
           "box-border rounded-3xl",
           "bg-[linear-gradient(0deg,_#5B2B99_0%,_#27CDFE_100%)]",
-          "absolute left-0 top-2/3 h-1/3 w-full p-[6px] lg:left-2/3 lg:top-0 lg:h-full lg:w-1/3",
+          "absolute top-2/3 left-0 h-1/3 w-full p-[6px] lg:top-0 lg:left-2/3 lg:h-full lg:w-1/3",
         )}
       >
         <div

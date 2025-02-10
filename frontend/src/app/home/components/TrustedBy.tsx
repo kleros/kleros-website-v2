@@ -14,7 +14,7 @@ const TrustedBy: React.FC = async () => {
 
   return (
     <div className="bg-background-2 py-12">
-      <h3 className="mx-auto mb-8 w-max text-lg text-secondary-text">
+      <h3 className="text-secondary-text mx-auto mb-8 w-max text-lg">
         Trusted By
       </h3>
       <div className="px-6 lg:px-10">
@@ -57,7 +57,7 @@ interface IPartnersCarousel {
 const PartnersCarousel: React.FC<IPartnersCarousel> = ({ partners }) => (
   <>
     {[...Array(4)].map((_, i) => (
-      <div className="h-16 animate-h-scroll" key={i}>
+      <div className="animate-h-scroll h-16" key={i}>
         {partners.map(({ name, icon_svg }) => (
           <div
             key={name}
@@ -72,7 +72,7 @@ const PartnersCarousel: React.FC<IPartnersCarousel> = ({ partners }) => (
               width="42"
               height="42"
               className={
-                "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
               }
             />
           </div>
@@ -86,14 +86,14 @@ const BlurredBorders: React.FC = () => (
   <>
     <div
       className={clsx(
-        "absolute bottom-0 left-0 right-[90%] top-0",
-        "bg-gradient-to-r from-background-2 to-transparent",
+        "absolute top-0 right-[90%] bottom-0 left-0",
+        "from-background-2 bg-linear-to-r to-transparent",
       )}
     />
     <div
       className={clsx(
-        "absolute bottom-0 left-[90%] right-0 top-0",
-        "bg-gradient-to-r from-transparent to-background-2",
+        "absolute top-0 right-0 bottom-0 left-[90%]",
+        "to-background-2 bg-linear-to-r from-transparent",
       )}
     />
   </>

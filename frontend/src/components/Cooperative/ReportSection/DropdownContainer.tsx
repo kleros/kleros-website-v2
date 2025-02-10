@@ -83,7 +83,7 @@ const DropdownContainer: React.FC<IDropdownContainer> = ({
       className={"flex flex-col items-start gap-8 md:flex-row md:items-center"}
     >
       <div className="flex items-center gap-4">
-        <label className="text-lg text-secondary-text">
+        <label className="text-secondary-text text-lg">
           {yearDropdownLabel}
         </label>
         <Dropdown
@@ -94,7 +94,7 @@ const DropdownContainer: React.FC<IDropdownContainer> = ({
       </div>
       {isMonthInfo ? (
         <div className="flex items-center gap-4">
-          <label className="text-lg text-secondary-text">
+          <label className="text-secondary-text text-lg">
             {monthDropdownLabel}
           </label>
           <Dropdown

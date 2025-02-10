@@ -18,7 +18,7 @@ const DropdownItemButton: React.FC<IDropdownItem> = ({
       value === item.value
         ? "bg-background-2 text-primary-blue"
         : "text-secondary-text",
-      "cursor-pointer hover:bg-background-2 hover:text-primary-blue",
+      "hover:bg-background-2 hover:text-primary-blue cursor-pointer",
     )}
     onClick={() => handleClick(item.value)}
   >

@@ -13,8 +13,8 @@ const CuratorTabContent: React.FC<EarnPageBecomeACuratorTab> = ({
   klerosScoutSection,
 }) => {
   return (
-    <div className="space-y-12 pb-7 pt-[88px] lg:pb-12 lg:pt-24">
-      <div className="text-xl font-medium text-primary-text lg:text-3xl">
+    <div className="space-y-12 pt-[88px] pb-7 lg:pt-24 lg:pb-12">
+      <div className="text-primary-text text-xl font-medium lg:text-3xl">
         {title}
       </div>
       <div className="text-secondary-text lg:text-lg">{description}</div>
@@ -28,7 +28,7 @@ const CuratorTabContent: React.FC<EarnPageBecomeACuratorTab> = ({
         text={arrowLink.text}
         className="mx-auto"
       />
-      <p className="pt-8 text-secondary-text lg:text-lg">{scoutExplanation}</p>
+      <p className="text-secondary-text pt-8 lg:text-lg">{scoutExplanation}</p>
       <KlerosScoutSection {...klerosScoutSection} />
     </div>
   );

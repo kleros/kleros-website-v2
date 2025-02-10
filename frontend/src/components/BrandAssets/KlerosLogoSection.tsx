@@ -10,7 +10,7 @@ const KlerosLogoSection: React.FC<IKlerosLogoSection> = ({
   klerosLogoData,
 }) => {
   return (
-    <div className="relative space-y-12 bg-background-1 px-6 py-12 lg:space-y-16 lg:px-32 lg:py-24">
+    <div className="bg-background-1 relative space-y-12 px-6 py-12 lg:space-y-16 lg:px-32 lg:py-24">
       <h1 className="text-xl font-medium lg:text-3xl">
         {klerosLogoData.header}
       </h1>

@@ -16,10 +16,10 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
   closeFn,
 }) => {
   return (
-    <div className="flex flex-col items-center bg-background-2">
+    <div className="bg-background-2 flex flex-col items-center">
       <div
         className={clsx(
-          "grid w-full max-w-screen-lg grid-cols-1 divide-y-2 lg:grid-cols-3",
+          "grid w-full max-w-(--breakpoint-lg) grid-cols-1 divide-y-2 lg:grid-cols-3",
           "lg:divide-x-2 lg:divide-y-0 lg:py-8",
         )}
       >
@@ -27,11 +27,11 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
           <div
             key={section.title}
             className={clsx(
-              "flex w-full flex-col gap-4 border-stroke bg-background-2",
+              "border-stroke bg-background-2 flex w-full flex-col gap-4",
               "py-4 lg:px-4 lg:py-0",
             )}
           >
-            <h3 className="text-base font-bold text-primary-purple">
+            <h3 className="text-primary-purple text-base font-bold">
               {section.title}
             </h3>
             <ul className="flex flex-col gap-2">
@@ -54,7 +54,7 @@ const ResourcesDropdownContent: React.FC<ResourcesDropdownContentProps> = ({
       <div
         className={clsx(
           "flex w-full justify-start gap-6 py-3",
-          "lg:justify-center lg:gap-8 lg:bg-background-1 lg:py-8",
+          "lg:bg-background-1 lg:justify-center lg:gap-8 lg:py-8",
         )}
       >
         {socials?.map((social) => (

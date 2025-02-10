@@ -37,12 +37,12 @@ const Tab = ({ items, className }: ITab) => {
             key={item.text}
             className={clsx(
               "min-h-14",
-              "transition-all hover:cursor-pointer hover:border-b-[3px] hover:border-b-primary-blue hover:text-primary-blue",
-              "flex flex-grow items-center justify-center pb-6",
+              "hover:border-b-primary-blue hover:text-primary-blue transition-all hover:cursor-pointer hover:border-b-[3px]",
+              "flex grow items-center justify-center pb-6",
               "text-center font-medium lg:text-lg",
               i === activeTab
-                ? "border-b-[3px] border-b-primary-blue text-primary-blue"
-                : "border-b border-b-stroke text-secondary-text",
+                ? "border-b-primary-blue text-primary-blue border-b-[3px]"
+                : "border-b-stroke text-secondary-text border-b",
             )}
             onClick={() => setActiveTab(i)}
             onKeyDown={(e) => handleKeyDown(e, i)}

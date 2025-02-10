@@ -36,10 +36,10 @@ const KlerosDisputeResolutionSection: React.FC = async () => {
       )}
     >
       <div className="flex flex-col gap-6 lg:px-32">
-        <h3 className="mb-6 text-primary-purple lg:text-lg">
+        <h3 className="text-primary-purple mb-6 lg:text-lg">
           {headerSubtitle}
         </h3>
-        <h1 className="text-xl font-medium text-primary-text lg:text-3xl">
+        <h1 className="text-primary-text text-xl font-medium lg:text-3xl">
           {header}
         </h1>
         <p className="text-secondary-text lg:text-lg">{subtitle}</p>
@@ -49,7 +49,7 @@ const KlerosDisputeResolutionSection: React.FC = async () => {
       <ResearchSection {...{ secondHeader, secondSubtitle, publications }} />
 
       <div className="my-4 lg:px-32">
-        <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
+        <h2 className="text-primary-text mb-6 text-lg font-medium lg:text-xl">
           {thirdHeader}
         </h2>
         <p className="text-secondary-text lg:text-lg">{thirdSubtitle}</p>

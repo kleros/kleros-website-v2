@@ -12,7 +12,7 @@ const CommunitiesSection: React.FC<ICommunitiesSection> = ({ communities }) => {
   const rowOneCommunities = communities.slice(0, 2);
   const restCommunities = communities.slice(2);
   return (
-    <div className="w-full bg-background-2 px-6 lg:px-32">
+    <div className="bg-background-2 w-full px-6 lg:px-32">
       <div
         className={clsx(
           "-translate-y-40 lg:-translate-y-44",

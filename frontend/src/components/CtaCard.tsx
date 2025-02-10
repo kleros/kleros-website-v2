@@ -30,7 +30,7 @@ const CtaCard: React.FC<ICtaCard> = ({
     <div
       className={clsx(
         className,
-        "flex flex-col items-start rounded-2xl border border-stroke p-6",
+        "border-stroke flex flex-col items-start rounded-2xl border p-6",
       )}
     >
       {icon ? (
@@ -42,10 +42,10 @@ const CtaCard: React.FC<ICtaCard> = ({
           alt="Icon"
         />
       ) : null}
-      <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
+      <h2 className="text-primary-text mb-6 text-lg font-medium lg:text-xl">
         {title}
       </h2>
-      <p className="mb-6 text-base text-secondary-text lg:text-lg">
+      <p className="text-secondary-text mb-6 text-base lg:text-lg">
         {description}
       </p>
       {typeof arrowLink !== "undefined" ? (
@@ -54,7 +54,7 @@ const CtaCard: React.FC<ICtaCard> = ({
           <ExternalLink
             text={arrowLink.text}
             url={arrowLink.link.url}
-            className="mb-1 mt-6 text-start"
+            className="mt-6 mb-1 text-start"
           />
         </div>
       ) : null}

@@ -24,11 +24,11 @@ const ResearchSection: React.FC<IResearchSection> = ({
   researches,
 }) => {
   return (
-    <div className="flex flex-col gap-6 pb-12 pt-[88px] lg:gap-8 lg:py-24">
-      <h1 className="text-xl font-medium text-primary-text md:text-3xl lg:mb-2">
+    <div className="flex flex-col gap-6 pt-[88px] pb-12 lg:gap-8 lg:py-24">
+      <h1 className="text-primary-text text-xl font-medium md:text-3xl lg:mb-2">
         {researchHeader}
       </h1>
-      <h3 className="text-lg text-secondary-text lg:text-xl">
+      <h3 className="text-secondary-text text-lg lg:text-xl">
         {researchSecondaryHeader}
       </h3>
       <p className="text-secondary-text lg:text-lg">{researchParagraph}</p>

@@ -13,7 +13,7 @@ const FeaturedExchange: React.FC<IFeaturedExchange> = ({ exchange }) => {
     <CustomLink href={exchange.url}>
       <div
         className={clsx(
-          "flex h-40 flex-col items-center justify-center gap-5 rounded-2xl border border-stroke px-2",
+          "border-stroke flex h-40 flex-col items-center justify-center gap-5 rounded-2xl border px-2",
           hoverEffect,
         )}
       >

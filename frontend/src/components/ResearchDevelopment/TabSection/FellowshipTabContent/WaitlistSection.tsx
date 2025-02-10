@@ -15,7 +15,7 @@ const WaitlistSection: React.FC<RAndDPageWaitlistSection> = ({
   return (
     <div
       className={clsx(
-        "flex flex-col gap-16 bg-background-1 px-6 py-12 md:flex-row md:gap-4",
+        "bg-background-1 flex flex-col gap-16 px-6 py-12 md:flex-row md:gap-4",
         "lg:px-32 lg:py-24",
       )}
     >

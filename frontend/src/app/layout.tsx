@@ -23,10 +23,10 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className="min-w-80 bg-background-1 antialiased">
+      <body className="bg-background-1 min-w-80 antialiased">
         <main className={clsx(urbanist.className)}>
           <Navbar {...{ navbarData }} />
-          <div className="mx-auto max-w-screen-2xl"> {children} </div>
+          <div className="mx-auto max-w-(--breakpoint-2xl)"> {children} </div>
           <Footer />
         </main>
       </body>

@@ -28,7 +28,7 @@ const Pagination: React.FC<IPagination> = ({
           className={clsx(
             "h-4 w-4 rounded-full transition-all",
             currentPage === index + 1
-              ? "scale-110 bg-primary-blue"
+              ? "bg-primary-blue scale-110"
               : "bg-stroke",
           )}
           onClick={() => callback(index + 1)}

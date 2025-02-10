@@ -20,7 +20,7 @@ const FlowchartItem: React.FC<IFlowchartItem> = ({
           "flex items-center justify-center p-6",
         )}
       >
-        <span className="text-center text-lg font-medium text-primary-text lg:text-xl">
+        <span className="text-primary-text text-center text-lg font-medium lg:text-xl">
           {name}
         </span>
       </div>
@@ -29,24 +29,24 @@ const FlowchartItem: React.FC<IFlowchartItem> = ({
       <div className="pr-[14px]">
         <div
           className={clsx(
-            "relative h-7 w-[100%-14px] bg-primary-blue",
+            "bg-primary-blue relative h-7 w-[100%-14px]",
             "flex items-center justify-center",
             //start-arrow
-            "before:absolute before:-left-[1px] before:top-0 before:border-b-[14px] before:border-l-[14px] before:border-t-[14px]",
-            "before:border-b-transparent before:border-t-transparent",
+            "before:absolute before:top-0 before:-left-[1px] before:border-t-[14px] before:border-b-[14px] before:border-l-[14px]",
+            "before:border-t-transparent before:border-b-transparent",
             background === "primary"
               ? "before:border-l-background-1"
               : "before:border-l-background-2",
             //end arrow
-            "after:absolute after:right-[-14px] after:top-0 after:border-b-[14px] after:border-l-[14px] after:border-t-[14px]",
-            "after:border-b-transparent after:border-l-primary-blue after:border-t-transparent",
+            "after:absolute after:top-0 after:right-[-14px] after:border-t-[14px] after:border-b-[14px] after:border-l-[14px]",
+            "after:border-l-primary-blue after:border-t-transparent after:border-b-transparent",
           )}
         >
-          <span className="text-xl text-background-2">{index}</span>
+          <span className="text-background-2 text-xl">{index}</span>
         </div>
       </div>
 
-      <div className="rounded-3xl border-2 border-stroke bg-background-2 p-6">
+      <div className="border-stroke bg-background-2 rounded-3xl border-2 p-6">
         <p className="text-secondary-text lg:text-lg">{description}</p>
       </div>
     </div>

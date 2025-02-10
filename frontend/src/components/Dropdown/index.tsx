@@ -46,18 +46,18 @@ const Dropdown: React.FC<IDropwdownProps> = ({ items, value, onChange }) => {
         className="flex flex-row items-center gap-2"
         onClick={toggleDropdown}
       >
-        <span className="text-lg text-primary-blue">{keyFromValue}</span>
+        <span className="text-primary-blue text-lg">{keyFromValue}</span>
         <Image
           src={DownArrowIcon}
           alt="Down Arrow"
           width={16}
           height={16}
-          className="ml-1 fill-primary-blue"
+          className="fill-primary-blue ml-1"
         />
       </button>
       <div
         className={clsx(
-          "absolute z-10 mt-2 rounded-2xl border border-stroke bg-background-1",
+          "border-stroke bg-background-1 absolute z-10 mt-2 rounded-2xl border",
           "flex max-h-[300px] w-[200px] flex-col gap-4 overflow-auto p-[10px] md:w-[348px]",
           isOpen ? "visible" : "hidden",
         )}

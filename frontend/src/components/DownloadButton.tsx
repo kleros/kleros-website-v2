@@ -38,7 +38,7 @@ const DownloadButton: React.FC<IDownloadButton> = ({ name, url }) => {
     <button
       onClick={handleDownload}
       className={clsx(
-        "rounded px-4 py-1 transition duration-75",
+        "rounded-sm px-4 py-1 transition duration-75",
         "bg-primary-blue",
         "hover:bg-primary-blue/90",
         "disabled:bg-stroke",
