@@ -18,22 +18,18 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Urbanist, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
+html {
+  scrollbar-gutter: stable;
 
-  /* scollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
+
   ::-webkit-scrollbar-track {
     background: transparent;
   }
+
   ::-webkit-scrollbar-thumb {
     background-color: #42498f;
     border-radius: 16px;
@@ -43,9 +39,15 @@ body {
       border-color 0.15s,
       width 0.15s;
   }
+}
 
-  scrollbar-width: thin;
-  scrollbar-color: #42498f transparent;
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Urbanist, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
 }
 
 @layer utilities {

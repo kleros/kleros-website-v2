@@ -671,6 +671,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@uidotdev/usehooks@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "@uidotdev/usehooks@npm:2.4.1"
+  peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  checksum: 10/7f2e1dcfcaf654841150fde36556a257afb2240bca0145586b4e1e9385b85fea108a7dd17c2cbc4c2bd46d136126ffdf84267118933120fe54ad2e028c2dfa68
+  languageName: node
+  linkType: hard
+
 "@ungap/structured-clone@npm:^1.2.0":
   version: 1.2.1
   resolution: "@ungap/structured-clone@npm:1.2.1"
@@ -2132,6 +2142,7 @@ __metadata:
     "@types/node": "npm:^22.10.5"
     "@types/react": "npm:^19.0.4"
     "@types/react-dom": "npm:^19.0.2"
+    "@uidotdev/usehooks": "npm:^2.4.1"
     clsx: "npm:^2.1.1"
     eslint: "npm:^8"
     eslint-config-next: "npm:^15.0.0"
@@ -2143,8 +2154,6 @@ __metadata:
     lint-staged: "npm:^15.3.0"
     motion: "npm:^12.0.11"
     next: "npm:^15.1.4"
-    overlayscrollbars: "npm:^2.10.1"
-    overlayscrollbars-react: "npm:^0.5.6"
     postcss: "npm:^8"
     prettier: "npm:^3.4.2"
     prettier-plugin-tailwindcss: "npm:^0.6.9"
@@ -3636,23 +3645,6 @@ __metadata:
     type-check: "npm:^0.4.0"
     word-wrap: "npm:^1.2.5"
   checksum: 10/a8398559c60aef88d7f353a4f98dcdff6090a4e70f874c827302bf1213d9106a1c4d5fcb68dacb1feb3c30a04c4102f41047aa55d4c576b863d6fc876e001af6
-  languageName: node
-  linkType: hard
-
-"overlayscrollbars-react@npm:^0.5.6":
-  version: 0.5.6
-  resolution: "overlayscrollbars-react@npm:0.5.6"
-  peerDependencies:
-    overlayscrollbars: ^2.0.0
-    react: ">=16.8.0"
-  checksum: 10/473f5af860feab4b5418f9adc8e356fb201e9de61286443ff64002b9c997bc19bf17cf60e314c502c14ca41fa213c12f18111e6fe913be86ad68a15c32e66789
-  languageName: node
-  linkType: hard
-
-"overlayscrollbars@npm:^2.10.1":
-  version: 2.10.1
-  resolution: "overlayscrollbars@npm:2.10.1"
-  checksum: 10/dfea9d3cf439a50b671119a806c42a7b49ad8db686a607ac8874706da092aa3cf69542605fb600dc96ee94df54b785a81c1cbdca16e8bd3fd69ba3d16ab192a1
   languageName: node
   linkType: hard
 
