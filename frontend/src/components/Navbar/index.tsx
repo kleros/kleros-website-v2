@@ -32,7 +32,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   return (
     <header
       className={clsx(
-        "fixed left-0 right-0 top-0 z-50 h-20 w-full min-w-80 bg-black/35",
+        "fixed left-0 right-0 top-0 z-50 h-20 w-screen min-w-80 bg-black/35",
         "backdrop-blur-md",
       )}
     >
