@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
@@ -49,6 +50,8 @@ const MobileMenu: React.FC<IMobileMenu> = ({
     setOpenDropdownIndex(openDropdownIndex === index ? null : index);
   };
 
+  useLockBodyScroll();
+
   return (
     <div
       className={clsx(
@@ -60,7 +63,7 @@ const MobileMenu: React.FC<IMobileMenu> = ({
     >
       <nav className="flex flex-col gap-y-4">
         {navLinks?.map((navLink, index) => (
-          <div key={navLink.path_name || navLink.title} className="relative">
+          <div key={navLink.path_name || navLink.title}>
             {!navLink.is_dropdown ? (
               <CustomLink
                 href={`/${navLink.path_name}`}
