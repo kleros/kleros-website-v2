@@ -15,7 +15,7 @@ const FellowCard: React.FC<Fellow> = ({
   return (
     <div
       className={
-        "flex flex-col items-start rounded-2xl border border-stroke p-8"
+        "border-stroke flex flex-col items-start rounded-2xl border p-8"
       }
     >
       <Image
@@ -26,13 +26,13 @@ const FellowCard: React.FC<Fellow> = ({
         alt="Profile pic"
       />
 
-      <h2 className="mb-4 text-lg font-medium text-primary-text">{name}</h2>
-      <label className="mb-6 font-medium text-secondary-text">
+      <h2 className="text-primary-text mb-4 text-lg font-medium">{name}</h2>
+      <label className="text-secondary-text mb-6 font-medium">
         {profession}
       </label>
       <Divider />
 
-      <p className="mb-8 mt-6 text-lg text-primary-text lg:mb-12 lg:text-xl">
+      <p className="text-primary-text mt-6 mb-8 text-lg lg:mb-12 lg:text-xl">
         {workText}
       </p>
       <div className="mt-auto w-full">

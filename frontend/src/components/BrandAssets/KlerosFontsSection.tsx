@@ -10,7 +10,7 @@ const KlerosFontsSection: React.FC<IKlerosFontsSection> = ({
   klerosFontsData,
 }) => {
   return (
-    <div className="relative space-y-8 bg-background-1 px-6 pb-12 lg:space-y-16 lg:px-32 lg:pb-24 lg:pt-8">
+    <div className="bg-background-1 relative space-y-8 px-6 pb-12 lg:space-y-16 lg:px-32 lg:pt-8 lg:pb-24">
       <h1 className="text-xl font-medium lg:text-2xl">
         {klerosFontsData.header}
       </h1>

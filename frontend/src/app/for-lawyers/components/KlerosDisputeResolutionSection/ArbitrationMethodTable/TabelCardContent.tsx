@@ -63,7 +63,7 @@ const TableCardContent: React.FC<ArbitrationMethodTableType> = ({
           width={53.251}
           height={49.259}
           alt="Kleros-icon"
-          className="absolute right-[33.75px] top-[32px]"
+          className="absolute top-[32px] right-[33.75px]"
         />
       ) : null}
     </div>

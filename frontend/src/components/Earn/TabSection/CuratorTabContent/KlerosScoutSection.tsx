@@ -17,7 +17,7 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
   return (
     <div
       className={clsx(
-        "rounded-2xl bg-background-1",
+        "bg-background-1 rounded-2xl",
         "flex flex-col gap-8 px-6 py-8 md:px-8 md:py-12",
       )}
     >
@@ -31,7 +31,7 @@ const KlerosScoutSection: React.FC<IKlerosScoutSection> = ({
         />
         <div className="flex flex-col gap-4">
           <span className="text-primary-purple lg:text-lg">{header}</span>
-          <span className="text-lg text-primary-text md:text-2xl">
+          <span className="text-primary-text text-lg md:text-2xl">
             {productName}
           </span>
         </div>

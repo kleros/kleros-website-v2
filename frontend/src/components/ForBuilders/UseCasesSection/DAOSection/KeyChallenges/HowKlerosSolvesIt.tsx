@@ -11,7 +11,7 @@ interface IHowKlerosSolvesIt {
 const HowKlerosSolvesIt: React.FC<IHowKlerosSolvesIt> = ({ useCasesData }) => {
   return (
     <div>
-      <h2 className="mb-8 text-lg text-primary-purple lg:text-xl">
+      <h2 className="text-primary-purple mb-8 text-lg lg:text-xl">
         {useCasesData.solutionSections.header}
       </h2>
       <SafeSnap {...{ useCasesData }} />

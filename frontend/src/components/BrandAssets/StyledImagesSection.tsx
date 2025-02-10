@@ -10,14 +10,14 @@ const StyledImagesSection: React.FC<IStyledImagesSection> = ({
   styledImagesData,
 }) => {
   return (
-    <div className="relative space-y-8 bg-background-2 px-6 py-12 lg:px-32 lg:py-24">
+    <div className="bg-background-2 relative space-y-8 px-6 py-12 lg:px-32 lg:py-24">
       <h1 className="text-xl font-medium lg:text-3xl">
         {styledImagesData.header}
       </h1>
       <h1 className="text-lg lg:text-2xl">
         {styledImagesData.wallpapersHeader}
       </h1>
-      <p className="pb-8 text-secondary-text lg:pb-16 lg:text-lg">
+      <p className="text-secondary-text pb-8 lg:pb-16 lg:text-lg">
         {styledImagesData.wallpapersSubtitle}
       </p>
       <div className="flex flex-row flex-wrap justify-center gap-8 lg:gap-y-16">

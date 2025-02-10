@@ -13,7 +13,7 @@ const TokenStats: React.FC<{
         <div key={key} className="flex flex-col">
           <div className="flex flex-row">
             <h3 className="text-2xl font-medium">{primaryValue}</h3>
-            <h3 className="text-2xl text-primary-blue">{secondaryValue}</h3>
+            <h3 className="text-primary-blue text-2xl">{secondaryValue}</h3>
           </div>
           <p className="font-medium">{key}</p>
         </div>

@@ -8,8 +8,8 @@ const ResearchCard: React.FC<Research> = ({ field, icon }) => {
     <div
       className={clsx(
         "relative min-h-[185px] w-full",
-        "rounded-2xl border border-stroke bg-background-2",
-        "before:absolute before:left-[-1px] before:top-1/2 before:h-[146px] before:-translate-y-1/2 before:border-r-2 before:border-primary-purple",
+        "border-stroke bg-background-2 rounded-2xl border",
+        "before:border-primary-purple before:absolute before:top-1/2 before:left-[-1px] before:h-[146px] before:-translate-y-1/2 before:border-r-2",
         "flex items-center justify-start gap-4 p-6",
       )}
     >

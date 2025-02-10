@@ -1,4 +1,4 @@
 const Divider: React.FC = () => (
-  <div className="w-full border border-stroke"></div>
+  <div className="border-stroke w-full border"></div>
 );
 export default Divider;

@@ -14,7 +14,7 @@ interface IHero {
 const Hero: React.FC<IHero> = ({ heroData }) => {
   const { header, subtitle, communityButtons, background } = heroData;
   return (
-    <div className="relative px-6 pb-[277px] pt-44 lg:px-32 lg:pb-[331px]">
+    <div className="relative px-6 pt-44 pb-[277px] lg:px-32 lg:pb-[331px]">
       <div className="space-y-8">
         <h1 className="pt-1 text-2xl font-medium lg:pt-3 lg:text-4xl">
           {header}
@@ -35,7 +35,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         alt="Hero Image Background"
         fill
         priority
-        className="absolute left-0 top-0 z-[-1] h-full object-cover"
+        className="absolute top-0 left-0 z-[-1] h-full object-cover"
       />
     </div>
   );

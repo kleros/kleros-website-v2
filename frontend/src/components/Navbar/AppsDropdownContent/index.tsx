@@ -19,7 +19,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
   <div className={clsx(className, "mx-auto lg:max-w-[1172px]")}>
     <div
       className={clsx(
-        "grid w-full grid-cols-1 gap-3 bg-background-2",
+        "bg-background-2 grid w-full grid-cols-1 gap-3",
         "md:grid-cols-2 md:grid-rows-5",
         "lg:grid-flow-col lg:grid-cols-3 lg:grid-rows-4 lg:gap-4",
       )}
@@ -35,7 +35,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
       ))}
     </div>
     <ExternalLink
-      className="ml-auto mt-2 w-max"
+      className="mt-2 ml-auto w-max"
       url={appsSection?.arrowLink.link.url}
       text={appsSection?.arrowLink.text}
     />

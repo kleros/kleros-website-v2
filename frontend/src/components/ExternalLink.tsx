@@ -21,7 +21,7 @@ const ExternalLink: React.FC<IExternalLink> = ({ text, url, className }) => {
         className,
       )}
     >
-      <span className="text-center text-primary-blue md:text-lg">
+      <span className="text-primary-blue text-center md:text-lg">
         <span className="mr-2 md:mr-4"> {text} </span>
         <Image
           src={LinkArrow}

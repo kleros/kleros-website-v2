@@ -12,7 +12,7 @@ interface IHero {
 const Hero: React.FC<IHero> = ({ heroData }) => {
   const { title, subtitle, statDisplay, background } = heroData.earnPageHero;
   return (
-    <div className="relative px-6 pb-[218px] pt-44 lg:px-32 lg:pb-72 lg:pt-56">
+    <div className="relative px-6 pt-44 pb-[218px] lg:px-32 lg:pt-56 lg:pb-72">
       <div className="space-y-8">
         <h1 className="text-2xl font-medium lg:text-4xl">{title}</h1>
         <p className="text-lg">{subtitle}</p>
@@ -31,14 +31,14 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
             className="object-contain"
           />
           <div className="flex flex-col">
-            <label className="text-base text-primary-text">
+            <label className="text-primary-text text-base">
               {statDisplay.statName}
             </label>
             <div className="flex flex-row">
-              <h2 className="text-xl font-medium text-primary-text lg:text-2xl">
+              <h2 className="text-primary-text text-xl font-medium lg:text-2xl">
                 {statDisplay.statValue}
               </h2>
-              <h2 className="text-xl text-primary-blue lg:text-2xl">
+              <h2 className="text-primary-blue text-xl lg:text-2xl">
                 {statDisplay.statValueSuffix}
               </h2>
             </div>
@@ -50,7 +50,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         alt="Hero Image Background"
         fill
         priority
-        className="absolute left-0 top-0 z-[-1] h-full object-cover"
+        className="absolute top-0 left-0 z-[-1] h-full object-cover"
       />
     </div>
   );

@@ -8,7 +8,7 @@ const HighlightedText: React.FC<
   const FullText = (
     <span
       className={clsx(
-        "text-base font-normal text-secondary-text lg:text-lg lg:font-medium",
+        "text-secondary-text text-base font-normal lg:text-lg lg:font-medium",
         fullTextStyle,
       )}
     >
@@ -28,14 +28,14 @@ const HighlightedText: React.FC<
   return (
     <span
       className={clsx(
-        "text-base font-normal text-secondary-text lg:text-lg lg:font-medium",
+        "text-secondary-text text-base font-normal lg:text-lg lg:font-medium",
         fullTextStyle,
       )}
     >
       {beforeMatch}
       <span
         className={clsx(
-          "text-base font-normal text-primary-purple lg:text-lg lg:font-medium",
+          "text-primary-purple text-base font-normal lg:text-lg lg:font-medium",
           highlightedTextStyle,
         )}
       >

@@ -16,12 +16,12 @@ const TableItem: React.FC<{
   return (
     <div
       className={clsx(
-        "rounded-2xl border-2 border-stroke bg-background-1",
-        "px-6 pb-16 pt-8",
+        "border-stroke bg-background-1 rounded-2xl border-2",
+        "px-6 pt-8 pb-16",
         "flex flex-col gap-6",
       )}
     >
-      <h2 className="text-lg font-medium text-primary-text">{heading}</h2>{" "}
+      <h2 className="text-primary-text text-lg font-medium">{heading}</h2>{" "}
       <Divider />
       {tableHeadings.slice(1).map(({ heading }, index) => (
         <div key={`${heading}-${index}`} className="flex flex-col gap-4">

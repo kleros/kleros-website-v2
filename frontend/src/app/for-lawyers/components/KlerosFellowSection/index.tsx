@@ -33,7 +33,7 @@ const KlerosFellowSection: React.FC = async () => {
     >
       <div className="flex flex-col gap-8">
         <h3 className="text-primary-purple lg:text-lg">{headerSubtitle}</h3>
-        <h1 className="text-xl font-medium text-primary-text lg:text-3xl">
+        <h1 className="text-primary-text text-xl font-medium lg:text-3xl">
           {header}
         </h1>
         <p className="text-secondary-text lg:text-lg">{firstSubtitle}</p>

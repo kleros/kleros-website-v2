@@ -35,7 +35,7 @@ const CtaBox: React.FC<ICtaBox> = ({ background, header, button }) => {
           "justify-center py-9",
         )}
       >
-        <h2 className="mb-8 text-center text-lg text-primary-text lg:text-xl">
+        <h2 className="text-primary-text mb-8 text-center text-lg lg:text-xl">
           {header}
         </h2>
         <CustomLink href={button.link.url}>
