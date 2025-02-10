@@ -30,10 +30,10 @@ const LearnMore: React.FC<ILearnMore> = ({
         className,
       )}
     >
-      <h2 className="z-[1] mb-8 text-center text-lg text-primary-text lg:text-xl">
+      <h2 className="text-primary-text z-1 mb-8 text-center text-lg lg:text-xl">
         {title}
       </h2>
-      <CustomLink href={button.link.url} className="z-[1]">
+      <CustomLink href={button.link.url} className="z-1">
         <Button>
           <span className="text-background-2">{button.text}</span>
         </Button>

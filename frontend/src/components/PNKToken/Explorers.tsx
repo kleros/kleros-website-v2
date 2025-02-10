@@ -21,7 +21,7 @@ const Explorers: React.FC<IExplorers> = ({ explorers }) => {
             src={explorer.icon.url}
             fill
             alt={explorer.name}
-            className="!w-min"
+            className="w-min!"
           />
         </CustomLink>
       ))}

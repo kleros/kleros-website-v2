@@ -32,11 +32,11 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   return (
     <header
       className={clsx(
-        "fixed left-0 right-0 top-0 z-50 h-20 w-screen min-w-80 bg-black/35",
+        "fixed top-0 right-0 left-0 z-50 h-20 w-screen min-w-80 bg-black/35",
         "backdrop-blur-md",
       )}
     >
-      <div className="mx-auto h-full max-w-screen-2xl px-2 md:px-16 xl:px-32">
+      <div className="mx-auto h-full max-w-(--breakpoint-2xl) px-2 md:px-16 xl:px-32">
         <div
           className={clsx(
             "flex h-full items-center justify-between",
@@ -95,7 +95,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
                 onClick={() => toggleMenuOpen(false)}
               >
                 <motion.div
-                  className="absolute bottom-0 top-0"
+                  className="absolute top-0 bottom-0"
                   initial={{ right: "-100%" }}
                   animate={{ right: 0 }}
                   exit={{ right: "-100%" }}

@@ -21,17 +21,17 @@ const LemonCashSection: React.FC = async () => {
 
   return (
     <div className="lg:px-32">
-      <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-2xl">
+      <h2 className="text-primary-text mb-6 text-lg font-medium lg:text-2xl">
         {header}
       </h2>
       <p className="text-primary-purple lg:text-lg">{primarySubtitle}</p>
-      <p className="mb-12 text-secondary-text lg:text-lg">
+      <p className="text-secondary-text mb-12 lg:text-lg">
         {secondarySubtitle}
       </p>
 
       <div
         className={clsx(
-          "rounded-2xl border border-stroke px-6 py-12 lg:px-12",
+          "border-stroke rounded-2xl border px-6 py-12 lg:px-12",
           "flex flex-col items-center gap-12 lg:flex-row lg:gap-16",
         )}
       >
@@ -40,7 +40,7 @@ const LemonCashSection: React.FC = async () => {
           height={180}
           src={icon.url}
           alt="Lemon cash"
-          className="flex-shrink-0"
+          className="shrink-0"
         />
         <div className="flex flex-col gap-4">
           <p className="text-primary-text lg:text-lg">{testimony}</p>

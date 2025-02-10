@@ -66,7 +66,7 @@ const ReportCard: React.FC<IReportCard> = ({
       )}
     >
       <div className="flex flex-col items-start gap-8">
-        <h2 className="text-xl font-medium text-primary-text md:text-3xl">
+        <h2 className="text-primary-text text-xl font-medium md:text-3xl">
           {title}
         </h2>
         <p className="text-secondary-text lg:text-lg">{subtitle}</p>
@@ -92,7 +92,7 @@ const ReportCard: React.FC<IReportCard> = ({
 
       <div
         className={
-          "relative hidden h-32 w-32 flex-shrink-0 md:block md:h-56 md:w-56"
+          "relative hidden h-32 w-32 shrink-0 md:block md:h-56 md:w-56"
         }
       >
         <Image src={icon.url} alt={icon.name} fill className="object-contain" />

@@ -24,7 +24,7 @@ const Hero: React.FC = async () => {
   } = heroData.homePageHero;
 
   return (
-    <div className="relative px-6 pb-28 pt-44 md:pt-52 lg:px-32 lg:pb-20">
+    <div className="relative px-6 pt-44 pb-28 md:pt-52 lg:px-32 lg:pb-20">
       <div className="space-y-8">
         <h1 className="text-2xl font-medium lg:text-4xl">{title}</h1>
         <p className="text-lg">{subtitle}</p>
@@ -45,7 +45,7 @@ const Hero: React.FC = async () => {
         <ExternalLink
           url={arrowLink.link.url}
           text={arrowLink.text}
-          className="text-start [&>span]:text-base [&>span]:text-primary-text"
+          className="[&>span]:text-primary-text text-start [&>span]:text-base"
         />
         <TokenStats {...{ tokenStats }} />
       </div>
@@ -54,7 +54,7 @@ const Hero: React.FC = async () => {
         alt="Hero Image Background"
         fill
         priority
-        className="absolute left-0 top-0 z-[-1] h-full object-cover"
+        className="absolute top-0 left-0 z-[-1] h-full object-cover"
       />
     </div>
   );

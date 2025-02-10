@@ -22,12 +22,12 @@ const LearnPosts: React.FC = async () => {
         <p className="text-base lg:text-lg">{subtitle}</p>
         <div
           className={
-            "mx-auto mb-12 mt-16 flex flex-wrap gap-4 xl:grid xl:grid-cols-3"
+            "mx-auto mt-16 mb-12 flex flex-wrap gap-4 xl:grid xl:grid-cols-3"
           }
         >
           {cards.map(({ icon, title, subtitle, link }) => (
             <CtaCard
-              className="flex-grow"
+              className="grow"
               key={title}
               {...{ icon, title, description: subtitle, arrowLink: link }}
             />

@@ -37,17 +37,17 @@ const ResearchSection: React.FC<IResearchSection> = ({
 
   return (
     <div className="lg:px-32">
-      <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
+      <h2 className="text-primary-text mb-6 text-lg font-medium lg:text-xl">
         {secondHeader}
       </h2>
-      <p className="mb-12 text-secondary-text lg:text-lg">{secondSubtitle}</p>
+      <p className="text-secondary-text mb-12 lg:text-lg">{secondSubtitle}</p>
 
       <div className="mb-12 grid grid-cols-1 gap-4 lg:grid-cols-3">
         {items.map((publication, index) => (
           <PublicationCard
             key={`${publication.topic}-${index}`}
             {...{ publication }}
-            className="[&>h2]:mb-4 [&>h2]:!text-lg [&>p]:mb-2"
+            className="[&>h2]:mb-4 [&>h2]:text-lg! [&>p]:mb-2"
           />
         ))}
       </div>

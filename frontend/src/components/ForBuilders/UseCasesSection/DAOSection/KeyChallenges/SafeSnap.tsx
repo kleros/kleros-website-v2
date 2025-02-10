@@ -11,11 +11,11 @@ interface ISafeSnap {
 
 const SafeSnap: React.FC<ISafeSnap> = ({ useCasesData }) => {
   return (
-    <div className="rounded-2xl border border-stroke bg-background-2 p-6 pb-8 lg:p-8 lg:pb-16">
+    <div className="border-stroke bg-background-2 rounded-2xl border p-6 pb-8 lg:p-8 lg:pb-16">
       <h2 className="mb-4 text-lg font-medium lg:text-xl">
         {useCasesData.solutionSections.title}
       </h2>
-      <div className="mb-8 text-secondary-text lg:text-lg">
+      <div className="text-secondary-text mb-8 lg:text-lg">
         {useCasesData.solutionSections.description}
       </div>
 
@@ -29,16 +29,16 @@ const SafeSnap: React.FC<ISafeSnap> = ({ useCasesData }) => {
               key={useCasesData.solutionSections?.solution?.solution_name}
               solution={useCasesData.solutionSections.solution}
               variant="small"
-              className="border-gradient-purple-blue !rounded-2xl border-none before:!p-[1px]"
+              className="border-gradient-purple-blue rounded-2xl! border-none before:p-[1px]!"
             />
           </div>
         </div>
 
-        <div className="flex flex-grow flex-col gap-4">
+        <div className="flex grow flex-col gap-4">
           <div className="text-secondary-text">
             {useCasesData.solutionSections.partnersHeader}
           </div>
-          <div className="border-gradient-purple-blue flex flex-row gap-x-6 !rounded-2xl p-4 before:!p-[1px]">
+          <div className="border-gradient-purple-blue flex flex-row gap-x-6 rounded-2xl! p-4 before:p-[1px]!">
             {useCasesData.solutionSections.partners.map((partner) => (
               <CustomLink
                 key={partner?.name}

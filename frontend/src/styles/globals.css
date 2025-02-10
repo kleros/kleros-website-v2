@@ -1,67 +1,135 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --text-*: initial;
+  --text-sm: 0.9rem;
+  --text-sm--line-height: 1.063rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.188rem;
+  --text-lg: 1.5rem;
+  --text-lg--line-height: 1.813rem;
+  --text-xl: 2rem;
+  --text-xl--line-height: 2.375rem;
+  --text-2xl: 3rem;
+  --text-2xl--line-height: 3.625rem;
+  --text-3xl: 4rem;
+  --text-3xl--line-height: 4.813rem;
+  --text-4xl: 6rem;
+  --text-4xl--line-height: 7.188rem;
 
-.os-scrollbar {
-  --os-handle-bg: #42498f;
-}
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-text: #daf0ff;
+  --color-secondary-text: #becce5;
+  --color-stroke: #42498f;
+  --color-primary-purple: #9747ff;
+  --color-secondary-purple: #ba75fe;
+  --color-dark-purple: #230079;
+  --color-primary-blue: #27cdfe;
+  --color-secondary-blue: #7ce2ff;
+  --color-background-1: #1b003f;
+  --color-background-2: #220050;
+  --color-background-dark: #13002d;
+  --color-background-translucent: rgba(34, 0, 80, 0.24);
+  --color-success: #00f068;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-h-scroll: h-scroll 10s linear infinite;
+
+  @keyframes h-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
 }
 
-html {
-  scrollbar-gutter: stable;
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
 
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
   }
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #42498f;
-    border-radius: 16px;
-    transition:
-      opacity 0.15s,
-      background-color 0.15s,
-      border-color 0.15s,
-      width 0.15s;
-  }
-
-  scrollbar-width: thin;
-  scrollbar-color: #42498f transparent;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Urbanist, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
+@utility text-balance {
+  text-wrap: balance;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .hover-pause-child-animation:hover {
+@utility hover-pause-child-animation {
+  &:hover {
     & > * {
       animation-play-state: paused;
     }
+  }
+}
+
+@layer utilities {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+
+  .os-scrollbar {
+    --os-handle-bg: #42498f;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+  }
+
+  html {
+    scrollbar-gutter: stable;
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #42498f;
+      border-radius: 16px;
+      transition:
+        opacity 0.15s,
+        background-color 0.15s,
+        border-color 0.15s,
+        width 0.15s;
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: #42498f transparent;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Urbanist, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
   }
 }
 

@@ -20,7 +20,7 @@ const Footer: React.FC = async () => {
     cta: result.footerSubscribeCta,
   }));
   return (
-    <div className="mx-auto max-w-screen-2xl">
+    <div className="mx-auto max-w-(--breakpoint-2xl)">
       <div className={"bg-background-dark py-16 md:px-16 xl:px-32"}>
         <div
           className={clsx(
@@ -43,7 +43,7 @@ const Footer: React.FC = async () => {
             </div>
           ))}
         </div>
-        <hr className="mx-6 mb-6 mt-16 h-0.5 border-t-0 bg-primary-purple" />
+        <hr className="bg-primary-purple mx-6 mt-16 mb-6 h-0.5 border-t-0" />
         <div className="flex items-center justify-center gap-8">
           {socials.map(({ name, icon_white: icon, url }) => (
             <CustomLink className={hoverScaleUp} key={name} href={url}>

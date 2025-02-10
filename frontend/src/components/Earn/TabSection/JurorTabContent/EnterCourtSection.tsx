@@ -18,7 +18,7 @@ const EnterCourtSection: React.FC<IEnterCourtSection> = ({
         "relative mt-16 flex w-full flex-col items-center justify-center p-8"
       }
     >
-      <CustomLink href={button.link.url} className="z-[1] mb-8">
+      <CustomLink href={button.link.url} className="z-1 mb-8">
         <Button>
           <span className="text-background-2">{button.text}</span>
         </Button>
@@ -26,7 +26,7 @@ const EnterCourtSection: React.FC<IEnterCourtSection> = ({
       <ExternalLink
         url={arrowLink.link.url}
         text={arrowLink.text}
-        className="z-[1] flex-wrap justify-center"
+        className="z-1 flex-wrap justify-center"
       />
       <Image
         src={background.url}
