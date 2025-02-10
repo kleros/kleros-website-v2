@@ -39,6 +39,9 @@ html {
       border-color 0.15s,
       width 0.15s;
   }
+
+  scrollbar-width: thin;
+  scrollbar-color: #42498f transparent;
 }
 
 body {
