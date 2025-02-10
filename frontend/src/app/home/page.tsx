@@ -1,4 +1,4 @@
-import Head from "next/head";
+import type { Metadata } from "next";
 
 import IntegrateSection from "@/components/IntegrateSection";
 import { request } from "@/utils/graphQLClient";
@@ -13,19 +13,23 @@ import TrustedBy from "./components/TrustedBy";
 import UseCases from "./components/UseCases";
 import { HeroQueryType, heroQuery } from "./queries/hero";
 
-const Home: React.FC = async () => {
+export const generateMetadata = async (): Promise<Metadata> => {
   const heroData = await request<HeroQueryType>(heroQuery);
   const { title, subtitle, background } = heroData.homePageHero;
+  return {
+    title,
+    description: subtitle,
+    openGraph: {
+      title,
+      description: subtitle,
+      images: background.url,
+    },
+  };
+};
 
+const Home: React.FC = async () => {
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={subtitle} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={subtitle} />
-        <meta property="og:image" content={background.url} />
-      </Head>
       <Hero />
       <TrustedBy />
       <HowKlerosWorks />
