@@ -26,7 +26,7 @@ export default async function RootLayout({
       <body className="min-w-80 bg-background-1 antialiased">
         <main className={clsx(urbanist.className)}>
           <Navbar {...{ navbarData }} />
-          <div className="mx-auto max-w-7xl"> {children} </div>
+          <div className="mx-auto max-w-screen-2xl"> {children} </div>
           <Footer />
         </main>
       </body>

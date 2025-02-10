@@ -36,7 +36,7 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
         "backdrop-blur-md",
       )}
     >
-      <div className="mx-auto h-full max-w-7xl px-2 md:px-16 xl:px-32">
+      <div className="mx-auto h-full max-w-screen-2xl px-2 md:px-16 xl:px-32">
         <div
           className={clsx(
             "flex h-full items-center justify-between",
