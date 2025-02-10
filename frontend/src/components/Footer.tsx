@@ -20,7 +20,7 @@ const Footer: React.FC = async () => {
     cta: result.footerSubscribeCta,
   }));
   return (
-    <div className="mx-auto max-w-7xl">
+    <div className="mx-auto max-w-screen-2xl">
       <div className={"bg-background-dark py-16 md:px-16 xl:px-32"}>
         <div
           className={clsx(

@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useLockBodyScroll, useToggle } from "react-use";
+import { useToggle } from "react-use";
 
 import Button from "@/components/Button";
 import CustomLink from "@/components/CustomLink";
@@ -29,16 +29,14 @@ const Navbar: React.FC<INavbar> = ({ navbarData }) => {
   const appsSection = navbarData?.navbarAppsSection;
   const socials = navbarData?.socials;
 
-  useLockBodyScroll(menuOpen);
-
   return (
     <header
       className={clsx(
-        "fixed left-0 right-0 top-0 z-50 h-20 w-full bg-black/35",
+        "fixed left-0 right-0 top-0 z-50 h-20 w-screen min-w-80 bg-black/35",
         "backdrop-blur-md",
       )}
     >
-      <div className="mx-auto h-full max-w-7xl px-2 md:px-16 xl:px-32">
+      <div className="mx-auto h-full max-w-screen-2xl px-2 md:px-16 xl:px-32">
         <div
           className={clsx(
             "flex h-full items-center justify-between",
