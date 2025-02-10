@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import "@/styles/globals.css";
 import { request } from "@/utils/graphQLClient";
+import { HeroQueryType, herosQuery } from "@/queries/heros";
 
 const urbanist = Urbanist({
   weight: ["400", "500"],
@@ -20,9 +21,24 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const navbarData = await request<NavbarQueryType>(navbarQuery);
+  const herosImgs = await request<HeroQueryType>(herosQuery);
 
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href={herosImgs.earnPageHero.background.url}
+          imageSizes="100vw"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href={herosImgs.pnkTokenPageHero.background.url}
+          imageSizes="100vw"
+        />
+      </head>
       <body className="min-w-80 bg-background-1 antialiased">
         <main className={clsx(urbanist.className)}>
           <Navbar {...{ navbarData }} />
