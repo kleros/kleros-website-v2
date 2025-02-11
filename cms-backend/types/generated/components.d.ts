@@ -117,6 +117,18 @@ export interface ContentSection extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentSeo extends Struct.ComponentSchema {
+  collectionName: 'components_content_seos';
+  info: {
+    displayName: 'SEO';
+  };
+  attributes: {
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ContentStatDisplay extends Struct.ComponentSchema {
   collectionName: 'components_content_stat_display';
   info: {
@@ -416,6 +428,7 @@ declare module '@strapi/strapi' {
       'content.navlink': ContentNavlink;
       'content.responsive-media': ContentResponsiveMedia;
       'content.section': ContentSection;
+      'content.seo': ContentSeo;
       'content.stat-display': ContentStatDisplay;
       'cooperative-report-page.learn-more-section': CooperativeReportPageLearnMoreSection;
       'cooperative-report-page.report-card': CooperativeReportPageReportCard;

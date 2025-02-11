@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "r_and_d_page_seos",
+  "info": {
+    "singularName": "r-and-d-page-seo",
+    "pluralName": "r-and-d-page-seos",
+    "displayName": "R&DPageSEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.seo"
+    }
+  }
+}

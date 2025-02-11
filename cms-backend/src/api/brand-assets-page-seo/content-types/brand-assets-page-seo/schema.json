@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "brand_assets_page_seos",
+  "info": {
+    "singularName": "brand-assets-page-seo",
+    "pluralName": "brand-assets-page-seos",
+    "displayName": "BrandAssetsPageSEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.seo"
+    }
+  }
+}

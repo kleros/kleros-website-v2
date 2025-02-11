@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "community_page_seos",
+  "info": {
+    "singularName": "community-page-seo",
+    "pluralName": "community-page-seos",
+    "displayName": "CommunityPageSEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.seo"
+    }
+  }
+}
