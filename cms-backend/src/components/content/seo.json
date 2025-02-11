@@ -1,7 +1,8 @@
 {
   "collectionName": "components_content_seos",
   "info": {
-    "displayName": "SEO"
+    "displayName": "SEO",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,16 +11,16 @@
       "required": true
     },
     "description": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
