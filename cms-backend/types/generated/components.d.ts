@@ -120,10 +120,11 @@ export interface ContentSection extends Struct.ComponentSchema {
 export interface ContentSeo extends Struct.ComponentSchema {
   collectionName: 'components_content_seos';
   info: {
+    description: '';
     displayName: 'SEO';
   };
   attributes: {
-    description: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
