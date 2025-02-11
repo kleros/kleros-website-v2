@@ -10,6 +10,8 @@ import "@/styles/globals.css";
 import { request } from "@/utils/graphQLClient";
 import { HeroQueryType, herosQuery } from "@/queries/heros";
 
+import { getImageProps } from "next/image";
+
 const urbanist = Urbanist({
   weight: ["400", "500"],
   subsets: ["latin"],
@@ -22,6 +24,12 @@ export default async function RootLayout({
 }) {
   const navbarData = await request<NavbarQueryType>(navbarQuery);
   const herosImgs = await request<HeroQueryType>(herosQuery);
+  const props = getImageProps({
+    src: herosImgs.earnPageHero.background.url,
+    alt: "earn",
+    fill: true,
+    priority: true,
+  });
 
   return (
     <html lang="en">
@@ -29,13 +37,7 @@ export default async function RootLayout({
         <link
           rel="preload"
           as="image"
-          href={herosImgs.earnPageHero.background.url}
-          imageSizes="100vw"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href={herosImgs.pnkTokenPageHero.background.url}
+          imageSrcSet={props.props.srcSet}
           imageSizes="100vw"
         />
       </head>
