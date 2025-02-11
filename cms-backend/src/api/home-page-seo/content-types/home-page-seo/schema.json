@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_page_seos",
+  "info": {
+    "singularName": "home-page-seo",
+    "pluralName": "home-page-seos",
+    "displayName": "HomePageSEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.seo"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "earn_page_seos",
+  "info": {
+    "singularName": "earn-page-seo",
+    "pluralName": "earn-page-seos",
+    "displayName": "EarnPageSEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.seo"
+    }
+  }
+}
