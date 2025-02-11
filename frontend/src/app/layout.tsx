@@ -7,7 +7,9 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import "@/styles/globals.css";
+import { getHeroImgsProps } from "@/utils/getHeroImgsProps";
 import { request } from "@/utils/graphQLClient";
+import { HeroImagesQueryType, herosImagesQuery } from "@/queries/heroImages";
 
 const urbanist = Urbanist({
   weight: ["400", "500"],
@@ -20,9 +22,23 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const navbarData = await request<NavbarQueryType>(navbarQuery);
+  const herosImgs = await request<HeroImagesQueryType>(herosImagesQuery);
+  const props = getHeroImgsProps(herosImgs);
 
   return (
     <html lang="en">
+      <head>
+        {props.map((prop) => (
+          <link
+            key={prop.props.alt}
+            rel="preload"
+            as="image"
+            imageSizes="100vw"
+            imageSrcSet={prop.props.srcSet}
+            href={prop.props.src}
+          ></link>
+        ))}
+      </head>
       <body className="min-w-80 bg-background-1 antialiased">
         <main className={clsx(urbanist.className)}>
           <Navbar {...{ navbarData }} />
