@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import IntegrateSection from "@/components/IntegrateSection";
+import { seoQuery, SEOQueryType } from "@/queries/seo";
 import { request } from "@/utils/graphQLClient";
 
 import CaseStudies from "./components/CaseStudies";
@@ -11,18 +12,17 @@ import LearnPosts from "./components/LearnPosts";
 import StartEarning from "./components/StartEarning";
 import TrustedBy from "./components/TrustedBy";
 import UseCases from "./components/UseCases";
-import { HeroQueryType, heroQuery } from "./queries/hero";
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const heroData = await request<HeroQueryType>(heroQuery);
-  const { title, subtitle, background } = heroData.homePageHero;
+  const seoData = await request<SEOQueryType>(seoQuery);
+  const { title, description, image } = seoData.homePageSeo.SEO;
   return {
     title,
-    description: subtitle,
+    description,
     openGraph: {
       title,
-      description: subtitle,
-      images: background.url,
+      description,
+      images: image.url,
     },
   };
 };

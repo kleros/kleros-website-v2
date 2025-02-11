@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import Hero from "@/components/BrandAssets/Hero";
 import KlerosBadgesSection from "@/components/BrandAssets/KlerosBadgesSection";
 import KlerosColorsSection from "@/components/BrandAssets/KlerosColorsSection/index";
@@ -35,7 +37,22 @@ import {
   styledImagesSectionQuery,
   StyledImagesSectionQueryType,
 } from "@/queries/brand-assets/styled-images-section";
+import { seoQuery, SEOQueryType } from "@/queries/seo";
 import { request } from "@/utils/graphQLClient";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const seoData = await request<SEOQueryType>(seoQuery);
+  const { title, description, image } = seoData.brandAssetsPageSeo.SEO;
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: image.url,
+    },
+  };
+};
 
 const BrandAssets: React.FC = async () => {
   const heroData = await request<HeroQueryType>(heroQuery);

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import BuySection from "@/components/PNKToken/BuySection";
 import Hero from "@/components/PNKToken/Hero";
 import TokenNeedSection from "@/components/PNKToken/TokenNeedSection";
@@ -15,7 +17,22 @@ import {
   TokenomicsSectionQueryType,
   tokenomicsSectionQuery,
 } from "@/queries/pnk-token/tokenomics";
+import { seoQuery, SEOQueryType } from "@/queries/seo";
 import { request } from "@/utils/graphQLClient";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const seoData = await request<SEOQueryType>(seoQuery);
+  const { title, description, image } = seoData.pnkTokenPageSeo.SEO;
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: image.url,
+    },
+  };
+};
 
 const PNKToken: React.FC = async () => {
   const heroData = await request<HeroQueryType>(heroQuery);
