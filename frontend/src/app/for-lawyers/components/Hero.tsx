@@ -40,8 +40,7 @@ const Hero: React.FC = async () => {
         src={background.url}
         alt="Hero Image Background"
         fill
-        priority
-        sizes="100vw"
+        unoptimized
         className="absolute left-0 top-0 z-[-1] h-full object-cover"
       />
     </div>
