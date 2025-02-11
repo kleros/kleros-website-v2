@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "for_lawyers_page_seos",
+  "info": {
+    "singularName": "for-lawyers-page-seo",
+    "pluralName": "for-lawyers-page-seos",
+    "displayName": "ForLawyersPageSEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.seo"
+    }
+  }
+}

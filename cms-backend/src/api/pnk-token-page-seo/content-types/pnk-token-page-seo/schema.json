@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "pnk_token_page_seos",
+  "info": {
+    "singularName": "pnk-token-page-seo",
+    "pluralName": "pnk-token-page-seos",
+    "displayName": "PNKTokenPageSEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.seo"
+    }
+  }
+}

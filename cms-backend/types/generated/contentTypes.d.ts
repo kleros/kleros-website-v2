@@ -633,6 +633,35 @@ export interface ApiBrandAssetsPagePnkTokenSectionBrandAssetsPagePnkTokenSection
   };
 }
 
+export interface ApiBrandAssetsPageSeoBrandAssetsPageSeo
+  extends Struct.SingleTypeSchema {
+  collectionName: 'brand_assets_page_seos';
+  info: {
+    displayName: 'BrandAssetsPageSEO';
+    pluralName: 'brand-assets-page-seos';
+    singularName: 'brand-assets-page-seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brand-assets-page-seo.brand-assets-page-seo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'content.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBrandAssetsPageStyledImagesSectionBrandAssetsPageStyledImagesSection
   extends Struct.SingleTypeSchema {
   collectionName: 'brand_assets_page_styled_images_sections';
@@ -702,6 +731,35 @@ export interface ApiCommunityPageHeroCommunityPageHero
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     subtitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCommunityPageSeoCommunityPageSeo
+  extends Struct.SingleTypeSchema {
+  collectionName: 'community_page_seos';
+  info: {
+    displayName: 'CommunityPageSEO';
+    pluralName: 'community-page-seos';
+    singularName: 'community-page-seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::community-page-seo.community-page-seo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'content.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -845,6 +903,35 @@ export interface ApiCooperativePageReportSectionCooperativePageReportSection
   };
 }
 
+export interface ApiCooperativePageSeoCooperativePageSeo
+  extends Struct.SingleTypeSchema {
+  collectionName: 'cooperative_page_seos';
+  info: {
+    displayName: 'CooperativePageSEO';
+    pluralName: 'cooperative-page-seos';
+    singularName: 'cooperative-page-seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cooperative-page-seo.cooperative-page-seo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'content.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCourtCourt extends Struct.CollectionTypeSchema {
   collectionName: 'courts';
   info: {
@@ -980,6 +1067,34 @@ export interface ApiEarnPageHeroEarnPageHero extends Struct.SingleTypeSchema {
     statDisplay: Schema.Attribute.Component<'content.stat-display', false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEarnPageSeoEarnPageSeo extends Struct.SingleTypeSchema {
+  collectionName: 'earn_page_seos';
+  info: {
+    displayName: 'EarnPageSEO';
+    pluralName: 'earn-page-seos';
+    singularName: 'earn-page-seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::earn-page-seo.earn-page-seo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'content.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1213,6 +1328,35 @@ export interface ApiForBuildersPageIntegrateSectionForBuildersPageIntegrateSecti
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForBuildersPageSeoForBuildersPageSeo
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_builders_page_seos';
+  info: {
+    displayName: 'ForBuildersPageSEO';
+    pluralName: 'for-builders-page-seos';
+    singularName: 'for-builders-page-seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-builders-page-seo.for-builders-page-seo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'content.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1531,6 +1675,35 @@ export interface ApiForLawyersPageParticipateSectionForLawyersPageParticipateSec
   };
 }
 
+export interface ApiForLawyersPageSeoForLawyersPageSeo
+  extends Struct.SingleTypeSchema {
+  collectionName: 'for_lawyers_page_seos';
+  info: {
+    displayName: 'ForLawyersPageSEO';
+    pluralName: 'for-lawyers-page-seos';
+    singularName: 'for-lawyers-page-seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::for-lawyers-page-seo.for-lawyers-page-seo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'content.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeCaseStudiesSectionHomeCaseStudiesSection
   extends Struct.SingleTypeSchema {
   collectionName: 'home_case_studies_sections';
@@ -1696,6 +1869,34 @@ export interface ApiHomePageHeroHomePageHero extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::token-stat.token-stat'
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomePageSeoHomePageSeo extends Struct.SingleTypeSchema {
+  collectionName: 'home_page_seos';
+  info: {
+    displayName: 'HomePageSEO';
+    pluralName: 'home-page-seos';
+    singularName: 'home-page-seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page-seo.home-page-seo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'content.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2137,6 +2338,35 @@ export interface ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection
   };
 }
 
+export interface ApiPnkTokenPageSeoPnkTokenPageSeo
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pnk_token_page_seos';
+  info: {
+    displayName: 'PNKTokenPageSEO';
+    pluralName: 'pnk-token-page-seos';
+    singularName: 'pnk-token-page-seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pnk-token-page-seo.pnk-token-page-seo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'content.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPnkTokenPageTokenomicsSectionPnkTokenPageTokenomicsSection
   extends Struct.SingleTypeSchema {
   collectionName: 'pnk_token_page_tokenomics_sections';
@@ -2277,6 +2507,34 @@ export interface ApiRAndDPageResearchTabSectionRAndDPageResearchTabSection
     researchParagraph: Schema.Attribute.Text;
     researchSecondaryHeader: Schema.Attribute.String;
     tabName: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRAndDPageSeoRAndDPageSeo extends Struct.SingleTypeSchema {
+  collectionName: 'r_and_d_page_seos';
+  info: {
+    displayName: 'R&DPageSEO';
+    pluralName: 'r-and-d-page-seos';
+    singularName: 'r-and-d-page-seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-and-d-page-seo.r-and-d-page-seo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'content.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3173,16 +3431,20 @@ declare module '@strapi/strapi' {
       'api::brand-assets-page-kleros-logo-section.brand-assets-page-kleros-logo-section': ApiBrandAssetsPageKlerosLogoSectionBrandAssetsPageKlerosLogoSection;
       'api::brand-assets-page-logos-package-section.brand-assets-page-logos-package-section': ApiBrandAssetsPageLogosPackageSectionBrandAssetsPageLogosPackageSection;
       'api::brand-assets-page-pnk-token-section.brand-assets-page-pnk-token-section': ApiBrandAssetsPagePnkTokenSectionBrandAssetsPagePnkTokenSection;
+      'api::brand-assets-page-seo.brand-assets-page-seo': ApiBrandAssetsPageSeoBrandAssetsPageSeo;
       'api::brand-assets-page-styled-images-section.brand-assets-page-styled-images-section': ApiBrandAssetsPageStyledImagesSectionBrandAssetsPageStyledImagesSection;
       'api::community-page-hero.community-page-hero': ApiCommunityPageHeroCommunityPageHero;
+      'api::community-page-seo.community-page-seo': ApiCommunityPageSeoCommunityPageSeo;
       'api::community.community': ApiCommunityCommunity;
       'api::cooperative-page-hero.cooperative-page-hero': ApiCooperativePageHeroCooperativePageHero;
       'api::cooperative-page-member-section.cooperative-page-member-section': ApiCooperativePageMemberSectionCooperativePageMemberSection;
       'api::cooperative-page-report-section.cooperative-page-report-section': ApiCooperativePageReportSectionCooperativePageReportSection;
+      'api::cooperative-page-seo.cooperative-page-seo': ApiCooperativePageSeoCooperativePageSeo;
       'api::court.court': ApiCourtCourt;
       'api::earn-page-become-a-curator-tab-content.earn-page-become-a-curator-tab-content': ApiEarnPageBecomeACuratorTabContentEarnPageBecomeACuratorTabContent;
       'api::earn-page-become-a-juror-tab-content.earn-page-become-a-juror-tab-content': ApiEarnPageBecomeAJurorTabContentEarnPageBecomeAJurorTabContent;
       'api::earn-page-hero.earn-page-hero': ApiEarnPageHeroEarnPageHero;
+      'api::earn-page-seo.earn-page-seo': ApiEarnPageSeoEarnPageSeo;
       'api::exchange.exchange': ApiExchangeExchange;
       'api::fellow.fellow': ApiFellowFellow;
       'api::footer-links-section.footer-links-section': ApiFooterLinksSectionFooterLinksSection;
@@ -3190,6 +3452,7 @@ declare module '@strapi/strapi' {
       'api::footer-subscribe-cta.footer-subscribe-cta': ApiFooterSubscribeCtaFooterSubscribeCta;
       'api::for-builders-page-hero.for-builders-page-hero': ApiForBuildersPageHeroForBuildersPageHero;
       'api::for-builders-page-integrate-section.for-builders-page-integrate-section': ApiForBuildersPageIntegrateSectionForBuildersPageIntegrateSection;
+      'api::for-builders-page-seo.for-builders-page-seo': ApiForBuildersPageSeoForBuildersPageSeo;
       'api::for-builders-page-use-cases-section.for-builders-page-use-cases-section': ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection;
       'api::for-lawyers-page-become-a-fellow-section.for-lawyers-page-become-a-fellow-section': ApiForLawyersPageBecomeAFellowSectionForLawyersPageBecomeAFellowSection;
       'api::for-lawyers-page-dispute-resolution-with-kleros-section.for-lawyers-page-dispute-resolution-with-kleros-section': ApiForLawyersPageDisputeResolutionWithKlerosSectionForLawyersPageDisputeResolutionWithKlerosSection;
@@ -3198,11 +3461,13 @@ declare module '@strapi/strapi' {
       'api::for-lawyers-page-kleros-escrow-section.for-lawyers-page-kleros-escrow-section': ApiForLawyersPageKlerosEscrowSectionForLawyersPageKlerosEscrowSection;
       'api::for-lawyers-page-mediation-section.for-lawyers-page-mediation-section': ApiForLawyersPageMediationSectionForLawyersPageMediationSection;
       'api::for-lawyers-page-participate-section.for-lawyers-page-participate-section': ApiForLawyersPageParticipateSectionForLawyersPageParticipateSection;
+      'api::for-lawyers-page-seo.for-lawyers-page-seo': ApiForLawyersPageSeoForLawyersPageSeo;
       'api::home-case-studies-section.home-case-studies-section': ApiHomeCaseStudiesSectionHomeCaseStudiesSection;
       'api::home-get-in-touch-section.home-get-in-touch-section': ApiHomeGetInTouchSectionHomeGetInTouchSection;
       'api::home-how-kleros-works-section.home-how-kleros-works-section': ApiHomeHowKlerosWorksSectionHomeHowKlerosWorksSection;
       'api::home-learn-posts-section.home-learn-posts-section': ApiHomeLearnPostsSectionHomeLearnPostsSection;
       'api::home-page-hero.home-page-hero': ApiHomePageHeroHomePageHero;
+      'api::home-page-seo.home-page-seo': ApiHomePageSeoHomePageSeo;
       'api::home-start-earning-section.home-start-earning-section': ApiHomeStartEarningSectionHomeStartEarningSection;
       'api::home-use-cases-section.home-use-cases-section': ApiHomeUseCasesSectionHomeUseCasesSection;
       'api::institution.institution': ApiInstitutionInstitution;
@@ -3217,10 +3482,12 @@ declare module '@strapi/strapi' {
       'api::pnk-token-page-buy-section.pnk-token-page-buy-section': ApiPnkTokenPageBuySectionPnkTokenPageBuySection;
       'api::pnk-token-page-hero.pnk-token-page-hero': ApiPnkTokenPageHeroPnkTokenPageHero;
       'api::pnk-token-page-need-section.pnk-token-page-need-section': ApiPnkTokenPageNeedSectionPnkTokenPageNeedSection;
+      'api::pnk-token-page-seo.pnk-token-page-seo': ApiPnkTokenPageSeoPnkTokenPageSeo;
       'api::pnk-token-page-tokenomics-section.pnk-token-page-tokenomics-section': ApiPnkTokenPageTokenomicsSectionPnkTokenPageTokenomicsSection;
       'api::r-and-d-page-fellowship-tab-section.r-and-d-page-fellowship-tab-section': ApiRAndDPageFellowshipTabSectionRAndDPageFellowshipTabSection;
       'api::r-and-d-page-hero.r-and-d-page-hero': ApiRAndDPageHeroRAndDPageHero;
       'api::r-and-d-page-research-tab-section.r-and-d-page-research-tab-section': ApiRAndDPageResearchTabSectionRAndDPageResearchTabSection;
+      'api::r-and-d-page-seo.r-and-d-page-seo': ApiRAndDPageSeoRAndDPageSeo;
       'api::research.research': ApiResearchResearch;
       'api::risk-report.risk-report': ApiRiskReportRiskReport;
       'api::social.social': ApiSocialSocial;
