@@ -1,20 +1,27 @@
 import React from "react";
 
 import clsx from "clsx";
+import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { HeroImagesQueryType, herosImagesQuery } from "@/queries/heroImages";
 import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import "@/styles/globals.css";
 import { getHeroImgsProps } from "@/utils/getHeroImgsProps";
 import { request } from "@/utils/graphQLClient";
-import { HeroImagesQueryType, herosImagesQuery } from "@/queries/heroImages";
 
 const urbanist = Urbanist({
   weight: ["400", "500"],
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  robots: {
+    index: true,
+  },
+};
 
 export default async function RootLayout({
   children,
