@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
 import IntegrateSection from "@/components/IntegrateSection";
-import { seoQuery, SEOQueryType } from "@/queries/seo";
-import { request } from "@/utils/graphQLClient";
+import { getPageMetadata } from "@/utils/seo";
 
 import CaseStudies from "./components/CaseStudies";
 import GetInTouch from "./components/GetInTouch";
@@ -14,17 +13,7 @@ import TrustedBy from "./components/TrustedBy";
 import UseCases from "./components/UseCases";
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const seoData = await request<SEOQueryType>(seoQuery);
-  const { title, description, image } = seoData.homePageSeo.SEO;
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      images: image.url,
-    },
-  };
+  return await getPageMetadata("homePageSeo");
 };
 
 const Home: React.FC = async () => {

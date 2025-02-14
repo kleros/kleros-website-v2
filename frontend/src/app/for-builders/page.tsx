@@ -8,21 +8,11 @@ import {
   useCasesQuery,
   UseCasesQueryType,
 } from "@/queries/for-builders/use-cases";
-import { seoQuery, SEOQueryType } from "@/queries/seo";
 import { request } from "@/utils/graphQLClient";
+import { getPageMetadata } from "@/utils/seo";
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const seoData = await request<SEOQueryType>(seoQuery);
-  const { title, description, image } = seoData.forBuildersPageSeo.SEO;
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      images: image.url,
-    },
-  };
+  return await getPageMetadata("forBuildersPageSeo");
 };
 
 const ForBuilders: React.FC = async () => {

@@ -12,21 +12,11 @@ import {
   cooperativePageReportQuery,
   CooperativePageReportQueryType,
 } from "@/queries/cooperative/report-section";
-import { seoQuery, SEOQueryType } from "@/queries/seo";
 import { request } from "@/utils/graphQLClient";
+import { getPageMetadata } from "@/utils/seo";
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const seoData = await request<SEOQueryType>(seoQuery);
-  const { title, description, image } = seoData.cooperativePageSeo.SEO;
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      images: image.url,
-    },
-  };
+  return await getPageMetadata("cooperativePageSeo");
 };
 
 const Cooperative: React.FC = async () => {

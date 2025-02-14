@@ -7,21 +7,11 @@ import {
   tabSectionQuery,
   TabSectionQueryType,
 } from "@/queries/research-development/tabs-data";
-import { seoQuery, SEOQueryType } from "@/queries/seo";
 import { request } from "@/utils/graphQLClient";
+import { getPageMetadata } from "@/utils/seo";
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const seoData = await request<SEOQueryType>(seoQuery);
-  const { title, description, image } = seoData.rAndDPageSeo.SEO;
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      images: image.url,
-    },
-  };
+  return getPageMetadata("rAndDPageSeo");
 };
 
 const ResearchDevelopment: React.FC = async () => {
