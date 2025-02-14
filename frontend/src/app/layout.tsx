@@ -1,7 +1,6 @@
 import React from "react";
 
 import clsx from "clsx";
-import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 
 import Footer from "@/components/Footer";
@@ -16,12 +15,6 @@ const urbanist = Urbanist({
   weight: ["400", "500"],
   subsets: ["latin"],
 });
-
-export const metadata: Metadata = {
-  robots: {
-    index: true,
-  },
-};
 
 export default async function RootLayout({
   children,
