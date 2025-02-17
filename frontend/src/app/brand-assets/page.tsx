@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import Hero from "@/components/BrandAssets/Hero";
 import KlerosBadgesSection from "@/components/BrandAssets/KlerosBadgesSection";
 import KlerosColorsSection from "@/components/BrandAssets/KlerosColorsSection/index";
@@ -36,6 +38,11 @@ import {
   StyledImagesSectionQueryType,
 } from "@/queries/brand-assets/styled-images-section";
 import { request } from "@/utils/graphQLClient";
+import { getPageMetadata } from "@/utils/seo";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return await getPageMetadata("brandAssetsPageSeo");
+};
 
 const BrandAssets: React.FC = async () => {
   const heroData = await request<HeroQueryType>(heroQuery);

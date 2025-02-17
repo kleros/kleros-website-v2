@@ -5,11 +5,11 @@ import { Urbanist } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { HeroImagesQueryType, herosImagesQuery } from "@/queries/heroImages";
 import { navbarQuery, NavbarQueryType } from "@/queries/navbar";
 import "@/styles/globals.css";
 import { getHeroImgsProps } from "@/utils/getHeroImgsProps";
 import { request } from "@/utils/graphQLClient";
-import { HeroImagesQueryType, herosImagesQuery } from "@/queries/heroImages";
 
 const urbanist = Urbanist({
   weight: ["400", "500"],

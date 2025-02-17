@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import BuySection from "@/components/PNKToken/BuySection";
 import Hero from "@/components/PNKToken/Hero";
 import TokenNeedSection from "@/components/PNKToken/TokenNeedSection";
@@ -16,6 +18,11 @@ import {
   tokenomicsSectionQuery,
 } from "@/queries/pnk-token/tokenomics";
 import { request } from "@/utils/graphQLClient";
+import { getPageMetadata } from "@/utils/seo";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return await getPageMetadata("pnkTokenPageSeo");
+};
 
 const PNKToken: React.FC = async () => {
   const heroData = await request<HeroQueryType>(heroQuery);

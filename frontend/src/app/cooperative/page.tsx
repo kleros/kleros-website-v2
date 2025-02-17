@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import Hero from "@/components/Cooperative/hero";
 import MemberSection from "@/components/Cooperative/MemberSection";
 import ReportSection from "@/components/Cooperative/ReportSection";
@@ -11,6 +13,11 @@ import {
   CooperativePageReportQueryType,
 } from "@/queries/cooperative/report-section";
 import { request } from "@/utils/graphQLClient";
+import { getPageMetadata } from "@/utils/seo";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return await getPageMetadata("cooperativePageSeo");
+};
 
 const Cooperative: React.FC = async () => {
   const heroData = await request<HeroQueryType>(heroQuery);
