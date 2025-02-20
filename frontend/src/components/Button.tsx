@@ -9,7 +9,7 @@ const primaryStyle = clsx(
 );
 
 const secondaryStyle = clsx(
-  "bg-transparent border-2 border-white",
+  "bg-transparent border-2 border-white text-primary-text",
   "hover:bg-primary-blue hover:border-primary-blue hover:text-background-2",
 );
 

@@ -15,7 +15,7 @@ const ImageDownload: React.FC<IImageDownload> = ({ imageDownload }) => {
     <div className="flex flex-col gap-4">
       <Image src={imageDownload.image.url} alt="" width="378" height="200" />
       <div className="flex flex-row items-center gap-4">
-        <span>{imageDownload.name}</span>
+        <span className="text-primary-text">{imageDownload.name}</span>
         {imageDownload.svgDownloadLink ? (
           <DownloadButton name="SVG" url={imageDownload.svgDownloadLink} />
         ) : null}

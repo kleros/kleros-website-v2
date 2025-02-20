@@ -13,7 +13,7 @@ const LogosPackageSection: React.FC<ILogosPackageSection> = ({
 }) => {
   return (
     <div className="relative space-y-6 bg-background-2 px-6 py-12 lg:px-32 lg:py-24">
-      <h1 className="text-xl font-medium lg:text-3xl">
+      <h1 className="text-xl font-medium text-primary-text lg:text-3xl">
         {logosPackageData.header}
       </h1>
       <p className="text-secondary-text lg:text-lg">

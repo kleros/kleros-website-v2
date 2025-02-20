@@ -15,10 +15,12 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
   return (
     <div className="relative px-6 pb-28 pt-44 md:pt-52 lg:px-32 lg:pb-[302px]">
       <div className="space-y-6">
-        <h1 className="pt-1 text-2xl font-medium lg:pt-3 lg:text-4xl">
+        <h1 className="pt-1 text-2xl font-medium text-primary-text lg:pt-3 lg:text-4xl">
           {heroData.header}
         </h1>
-        <p className="max-w-[685px] text-lg">{heroData.subtitle}</p>
+        <p className="max-w-[685px] text-lg text-primary-text">
+          {heroData.subtitle}
+        </p>
         <div>
           <CustomLink href={heroData.button?.link?.url}>
             <Button variant="secondary">

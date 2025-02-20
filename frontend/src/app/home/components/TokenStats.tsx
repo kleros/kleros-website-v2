@@ -12,10 +12,12 @@ const TokenStats: React.FC<{
       {tokenStats.map(({ key, primaryValue, secondaryValue }) => (
         <div key={key} className="flex flex-col">
           <div className="flex flex-row">
-            <h3 className="text-2xl font-medium">{primaryValue}</h3>
+            <h3 className="text-2xl font-medium text-primary-text">
+              {primaryValue}
+            </h3>
             <h3 className="text-2xl text-primary-blue">{secondaryValue}</h3>
           </div>
-          <p className="font-medium">{key}</p>
+          <p className="font-medium text-primary-text">{key}</p>
         </div>
       ))}
     </div>

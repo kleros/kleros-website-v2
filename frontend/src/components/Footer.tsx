@@ -33,7 +33,7 @@ const Footer: React.FC = async () => {
               <h2 className="text-primary-purple">{title}</h2>
               {links.map(({ name, url }) => (
                 <CustomLink
-                  className={clsx(hoverScaleUp, "w-max")}
+                  className={clsx(hoverScaleUp, "w-max text-primary-text")}
                   key={name}
                   href={url}
                 >
@@ -65,14 +65,17 @@ const Footer: React.FC = async () => {
           width="185"
           height="48"
         />
-        <p className="md:justify-self-center"> {cta.notice} </p>
+        <p className="text-primary-text md:justify-self-center">
+          {" "}
+          {cta.notice}{" "}
+        </p>
         <div
           className={clsx(
             "flex flex-col items-center justify-items-center gap-6 md:flex-row",
             "md:justify-self-end",
           )}
         >
-          <p>{cta.cta_text}</p>
+          <p className="text-primary-text">{cta.cta_text}</p>
           <Button>
             <span className="text-background-2">{cta.cta_button}</span>
           </Button>

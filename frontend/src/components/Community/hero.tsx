@@ -16,10 +16,10 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
   return (
     <div className="relative px-6 pb-[277px] pt-44 lg:px-32 lg:pb-[331px]">
       <div className="space-y-8">
-        <h1 className="pt-1 text-2xl font-medium lg:pt-3 lg:text-4xl">
+        <h1 className="pt-1 text-2xl font-medium text-primary-text lg:pt-3 lg:text-4xl">
           {header}
         </h1>
-        <p className="text-lg">{subtitle}</p>
+        <p className="text-lg text-primary-text">{subtitle}</p>
         <div className="flex flex-wrap items-center gap-6">
           {communityButtons.map((button) => (
             <CustomLink key={button.text} href={button.link.url}>
