@@ -20,7 +20,7 @@ const WaitlistSection: React.FC<RAndDPageWaitlistSection> = ({
       )}
     >
       <div>
-        <h3 className="mb-8 text-xl font-medium lg:mb-12 lg:text-3xl">
+        <h3 className="mb-8 text-xl font-medium text-primary-text lg:mb-12 lg:text-3xl">
           {header}
         </h3>
         <div className="flex items-start gap-4 md:flex-row md:gap-8">

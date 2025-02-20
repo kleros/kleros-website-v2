@@ -18,10 +18,10 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
   return (
     <div className="relative px-6 pb-52 pt-44 md:pt-52 lg:px-32 lg:pb-60">
       <div className="space-y-8">
-        <h1 className="pt-1 text-2xl font-medium lg:pt-3 lg:text-4xl">
+        <h1 className="pt-1 text-2xl font-medium text-primary-text lg:pt-3 lg:text-4xl">
           {header}
         </h1>
-        <p className="max-w-[685px] text-lg">{subtitle}</p>
+        <p className="max-w-[685px] text-lg text-primary-text">{subtitle}</p>
         <div>
           <CustomLink href={buyButton.link.url}>
             <Button variant="secondary">

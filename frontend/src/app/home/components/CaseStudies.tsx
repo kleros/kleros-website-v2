@@ -16,8 +16,10 @@ const CaseStudies: React.FC = async () => {
   return (
     <div className="bg-background-2 px-6 py-12 lg:px-32 lg:pt-24">
       <div className="flex flex-col gap-8">
-        <h3 className="text-xl font-medium lg:text-3xl">{title}</h3>
-        <p className="text-base lg:text-lg">{subtitle}</p>
+        <h3 className="text-xl font-medium text-primary-text lg:text-3xl">
+          {title}
+        </h3>
+        <p className="text-base text-primary-text lg:text-lg">{subtitle}</p>
       </div>
       <div className="mt-16 grid grid-cols-1 gap-4 lg:grid-cols-3">
         {cards.map(({ title, subtitle, icon, link }) => (

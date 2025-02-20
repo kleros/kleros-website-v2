@@ -16,10 +16,12 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
   return (
     <div className="relative px-6 pb-28 pt-44 md:pt-52 lg:px-32 lg:pb-60">
       <div className="space-y-6">
-        <h1 className="pt-1 text-2xl font-medium lg:pt-3 lg:text-4xl">
+        <h1 className="pt-1 text-2xl font-medium text-primary-text lg:pt-3 lg:text-4xl">
           {heroData.title}
         </h1>
-        <p className="max-w-[685px] text-lg">{heroData.subtitle}</p>
+        <p className="max-w-[685px] text-lg text-primary-text">
+          {heroData.subtitle}
+        </p>
         <div>
           <CustomLink href={heroData.button.link.url}>
             <Button variant="secondary">
@@ -30,7 +32,7 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
         <div className="block space-x-2">
           {heroData.arrowLink?.map((arrowLink) => (
             <CustomLink key={arrowLink.text} href={arrowLink.link.url}>
-              <span className="mr-2">{arrowLink.text}</span>
+              <span className="mr-2 text-primary-text">{arrowLink.text}</span>
               <Image
                 src={LinkArrow}
                 width="24"

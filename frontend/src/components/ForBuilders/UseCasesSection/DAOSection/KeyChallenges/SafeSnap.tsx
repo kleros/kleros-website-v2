@@ -12,7 +12,7 @@ interface ISafeSnap {
 const SafeSnap: React.FC<ISafeSnap> = ({ useCasesData }) => {
   return (
     <div className="rounded-2xl border border-stroke bg-background-2 p-6 pb-8 lg:p-8 lg:pb-16">
-      <h2 className="mb-4 text-lg font-medium lg:text-xl">
+      <h2 className="mb-4 text-lg font-medium text-primary-text lg:text-xl">
         {useCasesData.solutionSections.title}
       </h2>
       <div className="mb-8 text-secondary-text lg:text-lg">

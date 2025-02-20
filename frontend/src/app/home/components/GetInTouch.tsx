@@ -19,10 +19,10 @@ const GetInTouch: React.FC = async () => {
       }
     >
       <div>
-        <h3 className="mb-8 text-xl font-medium lg:mb-12 lg:text-3xl">
+        <h3 className="mb-8 text-xl font-medium text-primary-text lg:mb-12 lg:text-3xl">
           {title}
         </h3>
-        <p className="mb-6 lg:mb-8 lg:text-lg">{subtitle}</p>
+        <p className="mb-6 text-primary-text lg:mb-8 lg:text-lg">{subtitle}</p>
         <ExternalLink className="mb-16" text={link.text} url={link.link.url} />
       </div>
       <Image

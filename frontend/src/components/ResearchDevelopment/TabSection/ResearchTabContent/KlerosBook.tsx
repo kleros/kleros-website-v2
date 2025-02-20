@@ -58,7 +58,9 @@ const KlerosBook: React.FC<IKlerosBook> = ({
       <div className="space-y-16">
         <div className="space-y-6">
           <h3 className="text-primary-purple lg:text-lg">{subtitle}</h3>
-          <h1 className="text-xl font-medium lg:text-3xl">{bookTitle}</h1>
+          <h1 className="text-xl font-medium text-primary-text lg:text-3xl">
+            {bookTitle}
+          </h1>
         </div>
         <div className="flex flex-wrap gap-4">
           {downloadFormats.map((format) => (

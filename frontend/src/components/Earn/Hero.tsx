@@ -14,8 +14,10 @@ const Hero: React.FC<IHero> = ({ heroData }) => {
   return (
     <div className="relative px-6 pb-[218px] pt-44 lg:px-32 lg:pb-72 lg:pt-56">
       <div className="space-y-8">
-        <h1 className="text-2xl font-medium lg:text-4xl">{title}</h1>
-        <p className="text-lg">{subtitle}</p>
+        <h1 className="text-2xl font-medium text-primary-text lg:text-4xl">
+          {title}
+        </h1>
+        <p className="text-lg text-primary-text">{subtitle}</p>
 
         <div
           className={clsx(

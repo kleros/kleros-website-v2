@@ -21,8 +21,10 @@ const HowKlerosWorks: React.FC = async () => {
         <label className="text-base text-primary-purple lg:text-lg">
           {label}
         </label>
-        <h3 className="text-xl font-medium lg:text-3xl">{title}</h3>
-        <p className="text-base lg:text-lg">{subtitle}</p>
+        <h3 className="text-xl font-medium text-primary-text lg:text-3xl">
+          {title}
+        </h3>
+        <p className="text-base text-primary-text lg:text-lg">{subtitle}</p>
       </div>
       <ResponsiveImage
         mobileProps={{

@@ -11,7 +11,7 @@ const KlerosBadgesSection: React.FC<IKlerosBadgesSection> = ({
 }) => {
   return (
     <div className="relative space-y-8 bg-background-1 px-6 py-12 lg:px-32 lg:py-24">
-      <h1 className="text-xl font-medium lg:text-2xl">
+      <h1 className="text-xl font-medium text-primary-text lg:text-2xl">
         {klerosBadgesData.header}
       </h1>
       <p className="pb-4 text-secondary-text lg:pb-8 lg:text-lg">

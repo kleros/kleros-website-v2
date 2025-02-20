@@ -12,6 +12,7 @@ export const getHeroImgsProps = (data: HeroImagesQueryType) => {
       alt: data[key].background.name,
       fill: true,
       unoptimized: true,
+      fetchPriority: "low",
     }),
   );
 };
