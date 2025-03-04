@@ -41,7 +41,7 @@ const config: Config = {
         },
       },
       animation: {
-        "h-scroll": "h-scroll 10s linear infinite",
+        "h-scroll": "h-scroll 45s linear infinite",
       },
     },
   },

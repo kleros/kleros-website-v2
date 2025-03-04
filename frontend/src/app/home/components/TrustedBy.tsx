@@ -56,7 +56,7 @@ interface IPartnersCarousel {
 
 const PartnersCarousel: React.FC<IPartnersCarousel> = ({ partners }) => (
   <>
-    {[...Array(4)].map((_, i) => (
+    {[...Array(3)].map((_, i) => (
       <div className="h-16 animate-h-scroll" key={i}>
         {partners.map(({ name, icon_svg }) => (
           <div
