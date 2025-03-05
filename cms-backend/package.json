@@ -34,5 +34,9 @@
   "strapi": {
     "uuid": "0bf590e7-2f35-4bb0-b67c-230ca856765f"
   },
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "yarn@1.22.19",
+  "volta": {
+    "node": "20.18.3",
+    "yarn": "1.22.19"
+  }
 }
