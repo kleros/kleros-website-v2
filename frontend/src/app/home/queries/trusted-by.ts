@@ -2,7 +2,7 @@ import { gql } from "graphql-request";
 
 export const partnersQuery = gql`
   {
-    partners(pagination: { limit: 100 }) {
+    partners {
       name
       icon_svg {
         url
