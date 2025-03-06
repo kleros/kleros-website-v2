@@ -9,7 +9,7 @@ export const forLawyersPageBecomeAFellowSectionQuery = gql`
       header
       firstSubtitle
       secondSubtitle
-      fellowImages(pagination: { limit: 50 }) {
+      fellowImages {
         url
       }
       arrowLink {

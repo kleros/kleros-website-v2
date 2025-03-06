@@ -28,7 +28,7 @@ export const forLawyersPageDisputeResolutionSectionQuery = gql`
         }
       }
 
-      publications(pagination: { limit: 50 }) {
+      publications {
         topic
         authors
         paperLink {

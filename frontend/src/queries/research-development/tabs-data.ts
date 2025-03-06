@@ -57,14 +57,14 @@ export const tabSectionQuery = gql`
       }
     }
 
-    researches(pagination: { limit: 50 }) {
+    researches {
       field
       icon {
         url
       }
     }
 
-    teamPublications(pagination: { limit: 50 }) {
+    teamPublications {
       topic
       authors
       paperLink {
@@ -75,7 +75,7 @@ export const tabSectionQuery = gql`
       }
     }
 
-    thirdPartyPublications(pagination: { limit: 50 }) {
+    thirdPartyPublications {
       topic
       paperLink {
         text
@@ -85,14 +85,14 @@ export const tabSectionQuery = gql`
       }
     }
 
-    testimonials(pagination: { limit: 50 }) {
+    testimonials {
       url
       thumbnail {
         url
       }
     }
 
-    fellows(pagination: { limit: 50 }) {
+    fellows {
       name
       profession
       workText

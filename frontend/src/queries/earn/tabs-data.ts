@@ -43,7 +43,7 @@ export const tabSectionQuery = gql`
 
       mostActiveCourtsHeader
 
-      mostActiveCourts(pagination: { limit: 20 }) {
+      mostActiveCourts {
         name
       }
 
