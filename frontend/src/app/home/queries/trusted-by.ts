@@ -7,6 +7,7 @@ export const partnersQuery = gql`
       icon_svg {
         url
       }
+      url
     }
     institutions {
       name
@@ -26,6 +27,7 @@ export type PartnersQueryType = {
     icon_svg: {
       url: string;
     };
+    url: string;
   }>;
   institutions: Array<{
     name: string;

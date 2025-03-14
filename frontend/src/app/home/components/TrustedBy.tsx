@@ -58,13 +58,14 @@ const PartnersCarousel: React.FC<IPartnersCarousel> = ({ partners }) => (
   <>
     {[...Array(3)].map((_, i) => (
       <div className="h-16 animate-h-scroll" key={i}>
-        {partners.map(({ name, icon_svg }) => (
-          <div
+        {partners.map(({ name, icon_svg, url }) => (
+          <CustomLink
             key={name}
             className={clsx(
               "relative mx-2 inline-block h-16 w-16 rounded-full bg-white",
               "hover:cursor-pointer lg:mx-10",
             )}
+            href={url}
           >
             <Image
               src={icon_svg.url}
@@ -75,7 +76,7 @@ const PartnersCarousel: React.FC<IPartnersCarousel> = ({ partners }) => (
                 "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
               }
             />
-          </div>
+          </CustomLink>
         ))}
       </div>
     ))}
