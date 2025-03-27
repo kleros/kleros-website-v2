@@ -18,9 +18,13 @@ const CuratorTabContent: React.FC<EarnPageBecomeACuratorTab> = ({
         {title}
       </div>
       <div className="text-secondary-text lg:text-lg">{description}</div>
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {ctaCard.map((card) => (
-          <CtaCard key={card.title} {...card} />
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-6">
+        {ctaCard.map((card, i) => (
+          <CtaCard
+            className={i + 1 < ctaCard.length / 2 ? "col-span-3" : "col-span-2"}
+            key={card.title}
+            {...card}
+          />
         ))}
       </div>
       <ExternalLink
