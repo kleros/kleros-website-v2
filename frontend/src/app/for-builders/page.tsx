@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import Hero from "@/components/ForBuilders/Hero";
 import UseCasesSection from "@/components/ForBuilders/UseCasesSection";
-import IntegrateSection from "@/components/IntegrateSection";
 import { heroQuery, HeroQueryType } from "@/queries/for-builders/hero";
 import {
   useCasesQuery,
@@ -25,7 +24,6 @@ const ForBuilders: React.FC = async () => {
       <UseCasesSection
         {...{ useCasesData: useCasesData.forBuildersPageUseCasesSection }}
       />
-      <IntegrateSection />
     </>
   );
 };
