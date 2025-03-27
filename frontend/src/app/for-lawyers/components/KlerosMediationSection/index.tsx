@@ -1,6 +1,7 @@
 import clsx from "clsx";
 
 import ExternalLink from "@/components/ExternalLink";
+import Flowchart from "@/components/Flowchart";
 import { request } from "@/utils/graphQLClient";
 
 import {
@@ -8,7 +9,6 @@ import {
   ForLawyersPageMediationSectionType,
 } from "../../queries/kleros-mediation-section";
 import Card from "../Card";
-import Flowchart from "../Flowchart";
 
 const KlerosMediationSection: React.FC = async () => {
   const { header, subtitle, cards, flowchart, benefitsHeader, arrowLink } = (

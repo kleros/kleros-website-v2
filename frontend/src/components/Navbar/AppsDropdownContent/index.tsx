@@ -7,12 +7,14 @@ import Card from "./Card";
 
 interface AppsDropdownContentProps {
   appsSection: AppsSection;
+  listMode?: boolean;
   closeFn?: () => void;
   className?: string;
 }
 
 const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
   appsSection,
+  listMode = false,
   closeFn,
   className,
 }) => (
@@ -20,8 +22,10 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
     <div
       className={clsx(
         "grid w-full grid-cols-1 gap-3 bg-background-2",
-        "md:grid-cols-2 md:grid-rows-5",
-        "lg:grid-flow-col lg:grid-cols-3 lg:grid-rows-4 lg:gap-4",
+        !listMode && [
+          "md:grid-cols-2 md:grid-rows-5",
+          "lg:grid-flow-col lg:grid-cols-3 lg:grid-rows-4 lg:gap-4",
+        ],
       )}
     >
       {appsSection?.solutions.map((solution, i) => (

@@ -1,13 +1,16 @@
 import React from "react";
 
-import ExternalLink from "@/components/ExternalLink";
 import AppsDropdownContent from "@/components/Navbar/AppsDropdownContent";
 import { integrateQuery, IntegrateQueryType } from "@/queries/integrate";
 import { request } from "@/utils/graphQLClient";
 
 import LearnMore from "../LearnMore";
 
-const IntegrateSection: React.FC = async () => {
+interface IIntegrateSection {
+  listMode?: boolean;
+}
+
+const IntegrateSection: React.FC<IIntegrateSection> = async ({ listMode }) => {
   const integrateData = await request<IntegrateQueryType>(integrateQuery).then(
     (res) => res.forBuildersPageIntegrateSection,
   );
@@ -25,6 +28,7 @@ const IntegrateSection: React.FC = async () => {
       </p>
       <AppsDropdownContent
         appsSection={integrateData.appsSection}
+        {...{ listMode }}
         className="pt-8 lg:pt-16"
       />
       <LearnMore
@@ -32,11 +36,6 @@ const IntegrateSection: React.FC = async () => {
         title={integrateData.header}
         button={integrateData.arrowLink}
         className="!mt-12 lg:!mt-16"
-      />
-      <ExternalLink
-        className="mx-auto mt-12 lg:mt-16"
-        text={integrateData.arrowLink.text}
-        url={integrateData.arrowLink.link.url}
       />
     </div>
   );

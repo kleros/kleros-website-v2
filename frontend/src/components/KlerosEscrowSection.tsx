@@ -1,11 +1,10 @@
 import ExternalLink from "@/components/ExternalLink";
-import { request } from "@/utils/graphQLClient";
-
+import Flowchart from "@/components/Flowchart";
 import {
   ForLawyersPageKlerosEscrowSection,
   forLawyersPageKlerosEscrowSectionQuery,
-} from "../../queries/kleros-escrow-section";
-import Flowchart from "../Flowchart";
+} from "@/queries/kleros-escrow-section";
+import { request } from "@/utils/graphQLClient";
 
 const KlerosEscrowSection: React.FC = async () => {
   const {

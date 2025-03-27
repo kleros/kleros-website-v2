@@ -16,7 +16,7 @@ const LearnPosts: React.FC = async () => {
     );
 
   return (
-    <div className="bg-background-1 px-6 py-12 lg:px-32 lg:py-24">
+    <div className="bg-background-2 px-6 py-12 lg:px-32 lg:py-24">
       <div className="flex flex-col gap-8">
         <h3 className="text-xl font-medium text-primary-text lg:text-3xl">
           {title}
