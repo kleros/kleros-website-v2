@@ -1,8 +1,7 @@
 import { gql } from "graphql-request";
 
+import { Flowchart } from "@/app/for-lawyers/queries/kleros-mediation-section";
 import { ArrowLink } from "@/queries/navbar";
-
-import { Flowchart } from "./kleros-mediation-section";
 
 export const forLawyersPageKlerosEscrowSectionQuery = gql`
   {

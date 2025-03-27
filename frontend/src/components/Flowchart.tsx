@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { Flowchart as FlowchartItems } from "../queries/kleros-mediation-section";
+import { Flowchart as FlowchartItems } from "@/app/for-lawyers/queries/kleros-mediation-section";
 
 type IFlowchartItem = FlowchartItems[number] & {
   background: "primary" | "secondary";

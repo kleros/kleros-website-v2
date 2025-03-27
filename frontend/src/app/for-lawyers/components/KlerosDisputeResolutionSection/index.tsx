@@ -8,7 +8,6 @@ import {
 } from "../../queries/kleros-dispute-resolution-section";
 
 import ArbitrationMethodTable from "./ArbitrationMethodTable";
-import KlerosEscrowSection from "./KlerosEscrowSection";
 import ResearchSection from "./ResearchSection";
 
 const KlerosDisputeResolutionSection: React.FC = async () => {
@@ -54,8 +53,6 @@ const KlerosDisputeResolutionSection: React.FC = async () => {
         </h2>
         <p className="text-secondary-text lg:text-lg">{thirdSubtitle}</p>
       </div>
-
-      <KlerosEscrowSection />
     </div>
   );
 };
