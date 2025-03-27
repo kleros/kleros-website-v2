@@ -45,7 +45,11 @@ const CtaCard: React.FC<ICtaCard> = ({
       <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
         {title}
       </h2>
-      <p className="mb-6 text-base text-secondary-text lg:text-lg">
+      <p
+        className={
+          "mb-6 whitespace-pre-wrap text-base text-secondary-text lg:text-lg"
+        }
+      >
         {description}
       </p>
       {typeof arrowLink !== "undefined" ? (
