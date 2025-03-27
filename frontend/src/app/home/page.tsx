@@ -22,10 +22,10 @@ const Home: React.FC = async () => {
       <Hero />
       <TrustedBy />
       <HowKlerosWorks />
+      <LearnPosts />
       <CaseStudies />
       <UseCases />
-      <LearnPosts />
-      <IntegrateSection />
+      <IntegrateSection listMode />
       <StartEarning />
       <GetInTouch />
     </>
