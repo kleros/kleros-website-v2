@@ -4,21 +4,14 @@ import Image from "next/image";
 
 import Button from "@/components/Button";
 import CustomLink from "@/components/CustomLink";
-import ExternalLink from "@/components/ExternalLink";
 import { request } from "@/utils/graphQLClient";
 
 import { HeroQueryType, heroQuery } from "../queries/hero";
 
 const Hero: React.FC = async () => {
   const heroData = await request<HeroQueryType>(heroQuery);
-  const {
-    title,
-    subtitle,
-    primaryButton,
-    secondaryButton,
-    arrowLink,
-    background,
-  } = heroData.homePageHero;
+  const { title, subtitle, primaryButton, secondaryButton, background } =
+    heroData.homePageHero;
 
   return (
     <div className="relative px-6 pb-56 pt-44 md:pt-52 lg:px-32 lg:pb-72">
@@ -27,10 +20,10 @@ const Hero: React.FC = async () => {
           {title}
         </h1>
         <p className="text-lg text-primary-text">{subtitle}</p>
-        <div className="lg:hidden">
+        <div>
           <CustomLink href={primaryButton.link.url}>
-            <Button>
-              <span className="text-background-2"> {primaryButton.text} </span>
+            <Button variant="secondary">
+              <span> {primaryButton.text} </span>
             </Button>
           </CustomLink>
         </div>
@@ -41,11 +34,6 @@ const Hero: React.FC = async () => {
             </Button>
           </CustomLink>
         </div>
-        <ExternalLink
-          url={arrowLink.link.url}
-          text={arrowLink.text}
-          className="text-start [&>span]:text-base [&>span]:text-primary-text"
-        />
       </div>
       <Image
         src={background.url}
