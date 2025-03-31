@@ -1,0 +1,46 @@
+services:
+  strapi:
+    container_name: strapi
+    platform: linux/x86_64
+    build:
+      context: .
+      args:
+        - NODE_ENV=production
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:1337:$PORT"
+    networks:
+      - strapi
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /home/ubuntu/nginx/conf/:/etc/nginx/conf.d/:ro
+      - /home/ubuntu/certbot/www/:/var/www/certbot/:ro
+      - /home/ubuntu/certbot/conf/:/etc/nginx/ssl/:ro
+    restart: unless-stopped
+    depends_on:
+      - strapi
+    networks:
+      - strapi
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - /home/ubuntu/certbot/www/:/var/www/certbot/:rw
+      - /home/ubuntu/certbot/conf/:/etc/letsencrypt/:rw
+    restart: unless-stopped
+    # renew certificates every 12 hours as recommended by letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - strapi
+
+networks:
+  strapi:
