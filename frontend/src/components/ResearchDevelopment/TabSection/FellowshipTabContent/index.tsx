@@ -33,11 +33,11 @@ const FellowshipTabContent: React.FC<IFellowshipTabContent> = ({
           {testimonialsHeader}
         </h3>
         <Testimonials {...{ testimonials }} />
-        <KlerosFellowSection />
         <h3 className="my-4 text-lg text-secondary-text lg:text-xl">
           {fellowsHeader}
         </h3>
         <Fellows {...{ fellows }} />
+        <KlerosFellowSection />
       </div>
     </div>
   );
