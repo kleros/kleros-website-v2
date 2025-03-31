@@ -1,5 +1,5 @@
 "use client";
-import { Table } from "@/app/for-lawyers/queries/kleros-enterprise-section";
+import { Table } from "@/app/enterprise/queries/kleros-enterprise-section";
 import { useScreenSize } from "@/hooks/useScreenSize";
 
 import DesktopTable from "./DesktopTable";

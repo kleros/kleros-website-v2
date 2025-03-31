@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { ArbitrationMethodTableType } from "@/app/for-lawyers/queries/kleros-dispute-resolution-section";
+import { ArbitrationMethodTableType } from "@/app/enterprise/queries/kleros-dispute-resolution-section";
 
 import TableCardContent from "./TabelCardContent";
 

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 
-import { ArbitrationMethodTableType } from "@/app/for-lawyers/queries/kleros-dispute-resolution-section";
+import { ArbitrationMethodTableType } from "@/app/enterprise/queries/kleros-dispute-resolution-section";
 
 const TableCardContent: React.FC<ArbitrationMethodTableType> = ({
   name,

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import clsx from "clsx";
 
-import { Table } from "@/app/for-lawyers/queries/kleros-enterprise-section";
+import { Table } from "@/app/enterprise/queries/kleros-enterprise-section";
 import Divider from "@/components/Divider";
 import Pagination from "@/components/Pagination";
 
