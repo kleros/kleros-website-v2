@@ -10,7 +10,6 @@ import HowKlerosWorks from "./components/HowKlerosWorks";
 import LearnPosts from "./components/LearnPosts";
 import StartEarning from "./components/StartEarning";
 import TrustedBy from "./components/TrustedBy";
-import UseCases from "./components/UseCases";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await getPageMetadata("homePageSeo");
@@ -24,7 +23,6 @@ const Home: React.FC = async () => {
       <HowKlerosWorks />
       <LearnPosts />
       <CaseStudies />
-      <UseCases />
       <IntegrateSection listMode />
       <StartEarning />
       <GetInTouch />

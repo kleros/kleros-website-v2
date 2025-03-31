@@ -1,13 +1,12 @@
 import clsx from "clsx";
 import Image from "next/image";
 
-import ExternalLink from "@/components/ExternalLink";
 import { request } from "@/utils/graphQLClient";
 
 import {
   ForLawyersPageBecomeAFellowSection,
   forLawyersPageBecomeAFellowSectionQuery,
-} from "../../queries/kleros-become-a-fellow-section";
+} from "./queries";
 
 const KlerosFellowSection: React.FC = async () => {
   const {
@@ -16,7 +15,6 @@ const KlerosFellowSection: React.FC = async () => {
     firstSubtitle,
     secondSubtitle,
     fellowImages,
-    arrowLink,
   } = (
     await request<ForLawyersPageBecomeAFellowSection>(
       forLawyersPageBecomeAFellowSectionQuery,
@@ -28,7 +26,7 @@ const KlerosFellowSection: React.FC = async () => {
       className={clsx(
         "bg-background-2",
         "flex flex-col gap-16",
-        "px-6 py-12 lg:px-32 lg:py-24",
+        "py-12 lg:py-24",
       )}
     >
       <div className="flex flex-col gap-8">
@@ -52,12 +50,6 @@ const KlerosFellowSection: React.FC = async () => {
           />
         ))}
       </div>
-
-      <ExternalLink
-        text={arrowLink.text}
-        url={arrowLink.link.url}
-        className="mx-auto"
-      />
     </div>
   );
 };

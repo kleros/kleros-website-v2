@@ -5,6 +5,7 @@ import {
 } from "@/queries/research-development/tabs-data";
 
 import Fellows from "./Fellows";
+import KlerosFellowSection from "./KlerosFellowSection";
 import Testimonials from "./Testimonials";
 
 interface IFellowshipTabContent extends RAndDPageFellowshipTabSection {
@@ -32,7 +33,7 @@ const FellowshipTabContent: React.FC<IFellowshipTabContent> = ({
           {testimonialsHeader}
         </h3>
         <Testimonials {...{ testimonials }} />
-
+        <KlerosFellowSection />
         <h3 className="my-4 text-lg text-secondary-text lg:text-xl">
           {fellowsHeader}
         </h3>

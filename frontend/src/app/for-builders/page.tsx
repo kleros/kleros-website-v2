@@ -10,6 +10,8 @@ import {
 import { request } from "@/utils/graphQLClient";
 import { getPageMetadata } from "@/utils/seo";
 
+import KlerosParticipateSection from "./components/KlerosParticipateSection";
+
 export const generateMetadata = async (): Promise<Metadata> => {
   return await getPageMetadata("forBuildersPageSeo");
 };
@@ -24,6 +26,7 @@ const ForBuilders: React.FC = async () => {
       <UseCasesSection
         {...{ useCasesData: useCasesData.forBuildersPageUseCasesSection }}
       />
+      <KlerosParticipateSection />
     </>
   );
 };

@@ -11,8 +11,12 @@ interface IUseCasesSection {
 
 const UseCasesSection: React.FC<IUseCasesSection> = ({ useCasesData }) => {
   return (
-    <div className="relative bg-background-1 px-6 py-16 md:py-24 lg:px-32">
-      <h1 className="mb-8 text-xl font-medium text-primary-text lg:mb-12 lg:text-3xl">
+    <div className="relative bg-background-1 px-6 pt-16 md:pt-24 lg:px-32">
+      <h1
+        className={
+          "mb-8 text-xl font-medium text-primary-text lg:mb-12 lg:text-3xl"
+        }
+      >
         {useCasesData.sectionHeader}
       </h1>
       <UseCasesCards selectedIndex={0} />

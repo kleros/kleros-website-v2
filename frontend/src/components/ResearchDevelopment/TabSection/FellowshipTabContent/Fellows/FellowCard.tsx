@@ -22,7 +22,7 @@ const FellowCard: React.FC<Fellow> = ({
         width={150}
         height={150}
         src={profilePic.url}
-        className="mb-6 aspect-square object-contain"
+        className="mb-6 aspect-square rounded-2xl object-contain"
         alt="Profile pic"
       />
 

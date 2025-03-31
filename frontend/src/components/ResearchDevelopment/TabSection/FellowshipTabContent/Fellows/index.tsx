@@ -23,7 +23,7 @@ const Fellows: React.FC<{ fellows: Fellow[] }> = ({ fellows }) => {
         itemsPerPage * (page - 1),
         Math.min(fellows.length, itemsPerPage * page),
       ),
-    [itemsPerPage, page],
+    [itemsPerPage, fellows, page],
   );
 
   return (
