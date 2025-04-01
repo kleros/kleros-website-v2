@@ -2,28 +2,37 @@ import React from "react";
 
 import Image from "next/image";
 
-import { ImageDownloadType } from "@/queries/brand-assets/kleros-logo-section";
-
 import DownloadButton from "./DownloadButton";
 
-interface IImageDownload {
-  imageDownload: ImageDownloadType;
+export interface IImageDownload {
+  name: string;
+  image: {
+    url: string;
+  };
+  svgDownloadLink?: string;
+  pngDownloadLink?: string;
 }
 
-const ImageDownload: React.FC<IImageDownload> = ({ imageDownload }) => {
+const ImageDownload: React.FC<IImageDownload> = ({
+  name,
+  image,
+  svgDownloadLink,
+  pngDownloadLink,
+}) => {
   return (
     <div className="flex flex-col gap-4">
-      <Image src={imageDownload.image.url} alt="" width="378" height="200" />
+      <Image src={image.url} alt="" width="378" height="200" />
       <div className="flex flex-row items-center gap-4">
-        <span className="text-primary-text">{imageDownload.name}</span>
-        {imageDownload.svgDownloadLink ? (
-          <DownloadButton name="SVG" url={imageDownload.svgDownloadLink} />
+        <span className="text-primary-text">{name}</span>
+        {svgDownloadLink ? (
+          <DownloadButton name="SVG" url={svgDownloadLink} />
         ) : null}
-        {imageDownload.pngDownloadLink ? (
-          <DownloadButton name="PNG" url={imageDownload.pngDownloadLink} />
+        {pngDownloadLink ? (
+          <DownloadButton name="PNG" url={pngDownloadLink} />
         ) : null}
       </div>
     </div>
   );
 };
+
 export default ImageDownload;
