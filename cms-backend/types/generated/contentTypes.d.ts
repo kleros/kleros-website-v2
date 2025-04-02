@@ -1736,6 +1736,37 @@ export interface ApiHomeCaseStudiesSectionHomeCaseStudiesSection
   };
 }
 
+export interface ApiHomeEnterpriseHomeEnterprise
+  extends Struct.SingleTypeSchema {
+  collectionName: 'home_enterprises';
+  info: {
+    displayName: 'HomeEnterprise';
+    pluralName: 'home-enterprises';
+    singularName: 'home-enterprise';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'content.link-card', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-enterprise.home-enterprise'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeGetInTouchSectionHomeGetInTouchSection
   extends Struct.SingleTypeSchema {
   collectionName: 'home_get_in_touch_sections';
@@ -1897,6 +1928,37 @@ export interface ApiHomePageSeoHomePageSeo extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     SEO: Schema.Attribute.Component<'content.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomePageWeb3HomePageWeb3 extends Struct.SingleTypeSchema {
+  collectionName: 'home_page_web3s';
+  info: {
+    description: '';
+    displayName: 'HomeWeb3';
+    pluralName: 'home-page-web3s';
+    singularName: 'home-page-web3';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'content.link-card', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page-web3.home-page-web3'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3463,11 +3525,13 @@ declare module '@strapi/strapi' {
       'api::for-lawyers-page-participate-section.for-lawyers-page-participate-section': ApiForLawyersPageParticipateSectionForLawyersPageParticipateSection;
       'api::for-lawyers-page-seo.for-lawyers-page-seo': ApiForLawyersPageSeoForLawyersPageSeo;
       'api::home-case-studies-section.home-case-studies-section': ApiHomeCaseStudiesSectionHomeCaseStudiesSection;
+      'api::home-enterprise.home-enterprise': ApiHomeEnterpriseHomeEnterprise;
       'api::home-get-in-touch-section.home-get-in-touch-section': ApiHomeGetInTouchSectionHomeGetInTouchSection;
       'api::home-how-kleros-works-section.home-how-kleros-works-section': ApiHomeHowKlerosWorksSectionHomeHowKlerosWorksSection;
       'api::home-learn-posts-section.home-learn-posts-section': ApiHomeLearnPostsSectionHomeLearnPostsSection;
       'api::home-page-hero.home-page-hero': ApiHomePageHeroHomePageHero;
       'api::home-page-seo.home-page-seo': ApiHomePageSeoHomePageSeo;
+      'api::home-page-web3.home-page-web3': ApiHomePageWeb3HomePageWeb3;
       'api::home-start-earning-section.home-start-earning-section': ApiHomeStartEarningSectionHomeStartEarningSection;
       'api::home-use-cases-section.home-use-cases-section': ApiHomeUseCasesSectionHomeUseCasesSection;
       'api::institution.institution': ApiInstitutionInstitution;
