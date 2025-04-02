@@ -24,7 +24,7 @@ export default ({ env }) => {
         },
       },
       pool: {
-        min: env.int("DATABASE_POOL_MIN", 2),
+        min: env.int("DATABASE_POOL_MIN", 0),
         max: env.int("DATABASE_POOL_MAX", 10),
       },
     },
@@ -45,7 +45,8 @@ export default ({ env }) => {
         schema: env("DATABASE_SCHEMA", "public"),
       },
       pool: {
-        min: env.int("DATABASE_POOL_MIN", 2),
+        // Configured as 0 becuase we use docker, and docker kills idle connections
+        min: env.int("DATABASE_POOL_MIN", 0),
         max: env.int("DATABASE_POOL_MAX", 10),
       },
       useNullAsDefault: true,
