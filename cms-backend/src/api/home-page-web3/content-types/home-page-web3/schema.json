@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_page_web3s",
+  "info": {
+    "singularName": "home-page-web3",
+    "pluralName": "home-page-web3s",
+    "displayName": "HomeWeb3",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.link-card"
+    }
+  }
+}
