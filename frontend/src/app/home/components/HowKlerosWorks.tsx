@@ -12,15 +12,12 @@ const HowKlerosWorks: React.FC = async () => {
   const howKlerosWorks = await request<HomeHowKlerosWorksQueryType>(
     homeHowKlerosWorksQuery,
   );
-  const { label, title, subtitle, explainer } =
+  const { title, subtitle, explainer } =
     howKlerosWorks.homeHowKlerosWorksSection;
 
   return (
-    <div className="bg-background-1 px-6 py-12 lg:px-32 lg:py-24">
+    <div className="bg-background-1 px-6 pb-12 pt-8 lg:px-32 lg:pb-32 lg:pt-24">
       <div className="flex flex-col gap-8">
-        <label className="text-base text-primary-purple lg:text-lg">
-          {label}
-        </label>
         <h3 className="text-xl font-medium text-primary-text lg:text-3xl">
           {title}
         </h3>
