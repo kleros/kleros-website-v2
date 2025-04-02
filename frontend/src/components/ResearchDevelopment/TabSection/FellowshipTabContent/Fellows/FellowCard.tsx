@@ -35,10 +35,12 @@ const FellowCard: React.FC<Fellow> = ({
       <p className="mb-8 mt-6 text-lg text-primary-text lg:mb-12 lg:text-xl">
         {workText}
       </p>
-      <div className="mt-auto w-full">
-        <Divider />
-        <ExternalLink text={arrowLinkText} url={reportUrl} className="mt-6" />
-      </div>
+      {reportUrl ? (
+        <div className="mt-auto w-full">
+          <Divider />
+          <ExternalLink text={arrowLinkText} url={reportUrl} className="mt-6" />
+        </div>
+      ) : null}
     </div>
   );
 };

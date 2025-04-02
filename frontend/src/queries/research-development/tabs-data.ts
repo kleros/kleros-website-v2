@@ -92,7 +92,7 @@ export const tabSectionQuery = gql`
       }
     }
 
-    fellows {
+    fellows(sort: "createdAt:desc") {
       name
       profession
       workText
