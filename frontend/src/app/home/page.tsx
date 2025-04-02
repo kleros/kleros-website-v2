@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import IntegrateSection from "@/components/IntegrateSection";
 import { getPageMetadata } from "@/utils/seo";
 
 import CaseStudies from "./components/CaseStudies";
@@ -27,7 +26,6 @@ const Home: React.FC = async () => {
       <Web3 />
       <Enterprise />
       <CaseStudies />
-      <IntegrateSection listMode />
       <StartEarning />
       <GetInTouch />
     </>
