@@ -1,24 +1,19 @@
 import type { Metadata } from "next";
 
-import Hero from "@/components/Earn/Hero";
-import TabSection from "@/components/Earn/TabSection";
-import { heroQuery, HeroQueryType } from "@/queries/earn/hero";
-import { tabSectionQuery, TabSectionQueryType } from "@/queries/earn/tabs-data";
-import { request } from "@/utils/graphQLClient";
 import { getPageMetadata } from "@/utils/seo";
+
+import Hero from "./components/Hero";
+import TabSection from "./components/TabSection";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await getPageMetadata("earnPageSeo");
 };
 
 const Earn: React.FC = async () => {
-  const heroData = await request<HeroQueryType>(heroQuery);
-  const tabsData = await request<TabSectionQueryType>(tabSectionQuery);
-
   return (
     <>
-      <Hero {...{ heroData }} />
-      <TabSection {...{ tabsData }} />
+      <Hero />
+      <TabSection />
     </>
   );
 };
