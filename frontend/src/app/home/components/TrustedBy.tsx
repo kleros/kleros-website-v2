@@ -72,9 +72,10 @@ const PartnersCarousel: React.FC<IPartnersCarousel> = ({ partners }) => (
               alt={name}
               width="42"
               height="42"
-              className={
-                "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-              }
+              className={clsx(
+                "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
+                "rounded-xl",
+              )}
               loading="eager"
             />
           </CustomLink>
