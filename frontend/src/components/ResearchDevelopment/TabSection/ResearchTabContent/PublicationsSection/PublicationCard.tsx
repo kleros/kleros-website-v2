@@ -1,3 +1,5 @@
+import { RefObject } from "react";
+
 import clsx from "clsx";
 
 import Divider from "@/components/Divider";
@@ -9,15 +11,18 @@ import {
 
 interface IPublicationCard {
   publication: TeamPublication | ThirdPartyPublication;
+  ref?: RefObject<HTMLDivElement | null>;
   className?: string;
 }
 
 const PublicationCard: React.FC<IPublicationCard> = ({
   publication,
+  ref,
   className,
 }) => {
   return (
     <div
+      ref={ref}
       className={clsx(
         "rounded-2xl border border-stroke p-6",
         "flex flex-col items-start",

@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
+import LinkArrow from "@/assets/svgs/icons/link-arrow.svg?url";
 import Button from "@/components/Button";
 import { HeroQueryType } from "@/queries/for-builders/hero";
 

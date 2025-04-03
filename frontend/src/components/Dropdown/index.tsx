@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import { useToggle, useClickAway } from "react-use";
 
-import DownArrowIcon from "@/assets/svgs/icons/down-arrow-blue.svg";
+import DownArrowIcon from "@/assets/svgs/icons/down-arrow-blue.svg?url";
 
 import DropdownItemButton from "./DropdownItemButton";
 
