@@ -26,7 +26,12 @@ export const footerQuery = gql`
       }
       notice
       cta_text
-      cta_button
+      cta_button {
+        text
+        link {
+          url
+        }
+      }
     }
   }
 `;
@@ -56,6 +61,11 @@ export type FooterQueryType = {
     };
     notice: string;
     cta_text: string;
-    cta_button: string;
+    cta_button: {
+      text: string;
+      link: {
+        url: string;
+      };
+    };
   };
 };
