@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLockBodyScroll } from "react-use";
 
-import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
+import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg?url";
 import {
   AppsSection,
   NavLink,

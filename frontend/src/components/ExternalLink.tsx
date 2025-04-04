@@ -3,7 +3,7 @@ import React, { HTMLAttributes } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 
-import LinkArrow from "@/assets/svgs/icons/link-arrow.svg";
+import LinkArrow from "@/assets/svgs/icons/link-arrow.svg?url";
 
 import CustomLink from "./CustomLink";
 

@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 
-import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg";
+import DownArrowIcon from "@/assets/svgs/icons/down-arrow.svg?url";
 import Button from "@/components/Button";
 import CustomLink from "@/components/CustomLink";
 import {

@@ -12,6 +12,8 @@ const WaitlistSection: React.FC<RAndDPageWaitlistSection> = ({
   arrowLink,
   icon,
 }) => {
+  const fellowshipBatchIsLive = false;
+
   return (
     <div
       className={clsx(
@@ -24,13 +26,15 @@ const WaitlistSection: React.FC<RAndDPageWaitlistSection> = ({
           {header}
         </h3>
         <div className="flex items-start gap-4 md:flex-row md:gap-8">
-          <Link
-            href={applyButton.link.url}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <Button className="text-background-1">{applyButton.text}</Button>
-          </Link>
+          {fellowshipBatchIsLive ? (
+            <Link
+              href={applyButton.link.url}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Button className="text-background-1">{applyButton.text}</Button>
+            </Link>
+          ) : null}
           <ExternalLink url={arrowLink.link.url} text={arrowLink.text} />
         </div>
       </div>

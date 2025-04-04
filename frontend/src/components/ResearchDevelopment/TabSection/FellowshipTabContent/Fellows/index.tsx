@@ -1,6 +1,7 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 
+import MobilePagination from "@/components/MobilePagination";
 import Pagination from "@/components/Pagination";
 import { useScreenSize } from "@/hooks/useScreenSize";
 import { Fellow } from "@/queries/research-development/tabs-data";
@@ -23,8 +24,21 @@ const Fellows: React.FC<{ fellows: Fellow[] }> = ({ fellows }) => {
         itemsPerPage * (page - 1),
         Math.min(fellows.length, itemsPerPage * page),
       ),
-    [itemsPerPage, page],
+    [itemsPerPage, fellows, page],
   );
+
+  const numPages = useMemo(
+    () => Math.ceil(fellows.length / itemsPerPage),
+    [fellows, itemsPerPage],
+  );
+
+  useEffect(() => {
+    if (itemsPerPage === 1) {
+      setPage(page * 2 - 1);
+    } else {
+      setPage(Math.min(Math.floor(page / 2) + 1, numPages));
+    }
+  }, [itemsPerPage]);
 
   return (
     <div>
@@ -33,12 +47,21 @@ const Fellows: React.FC<{ fellows: Fellow[] }> = ({ fellows }) => {
           <FellowCard key={fellow.name} {...fellow} />
         ))}
       </div>
-      <Pagination
-        currentPage={page}
-        numPages={Math.ceil(fellows.length / itemsPerPage)}
-        callback={(val) => setPage(val)}
-        className="w-full justify-center"
-      />
+      {screenSize === "lg" ? (
+        <Pagination
+          currentPage={page}
+          numPages={numPages}
+          callback={(val) => setPage(val)}
+          className="w-full justify-center"
+        />
+      ) : (
+        <MobilePagination
+          currentPage={page}
+          numPages={numPages}
+          callback={(val) => setPage(val)}
+          className="w-full justify-center"
+        />
+      )}
     </div>
   );
 };

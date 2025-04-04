@@ -11,7 +11,12 @@ interface ISafeSnap {
 
 const SafeSnap: React.FC<ISafeSnap> = ({ useCasesData }) => {
   return (
-    <div className="rounded-2xl border border-stroke bg-background-2 p-6 pb-8 lg:p-8 lg:pb-16">
+    <div
+      className={clsx(
+        "rounded-2xl border border-stroke bg-background-2 p-6 pb-8",
+        "lg:p-8 lg:pb-16",
+      )}
+    >
       <h2 className="mb-4 text-lg font-medium text-primary-text lg:text-xl">
         {useCasesData.solutionSections.title}
       </h2>
@@ -29,7 +34,10 @@ const SafeSnap: React.FC<ISafeSnap> = ({ useCasesData }) => {
               key={useCasesData.solutionSections?.solution?.solution_name}
               solution={useCasesData.solutionSections.solution}
               variant="small"
-              className="border-gradient-purple-blue !rounded-2xl border-none before:!p-[1px]"
+              className={clsx(
+                "border-gradient-purple-blue !rounded-2xl border-none",
+                "before:!p-[1px]",
+              )}
             />
           </div>
         </div>
@@ -38,17 +46,27 @@ const SafeSnap: React.FC<ISafeSnap> = ({ useCasesData }) => {
           <div className="text-secondary-text">
             {useCasesData.solutionSections.partnersHeader}
           </div>
-          <div className="border-gradient-purple-blue flex flex-row gap-x-6 !rounded-2xl p-4 before:!p-[1px]">
+          <div
+            className={clsx(
+              "border-gradient-purple-blue flex flex-row gap-x-6 !rounded-2xl",
+              "p-4 before:!p-[1px]",
+            )}
+          >
             {useCasesData.solutionSections.partners.map((partner) => (
               <CustomLink
                 key={partner?.name}
                 href={partner?.url}
                 className={clsx(
-                  "transform transition duration-100 hover:scale-[1.01]",
-                  "cursor-pointer",
+                  "relative inline-block h-16 w-16 transform",
+                  "transition duration-100 hover:scale-[1.01]",
+                  "hover:cursor-pointer",
                 )}
               >
                 <Image
+                  className={clsx(
+                    "absolute left-1/2 top-1/2 -translate-x-1/2",
+                    "-translate-y-1/2",
+                  )}
                   key={partner?.name}
                   src={partner?.icon_svg?.url}
                   alt={partner?.name}

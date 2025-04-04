@@ -5,7 +5,7 @@ import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
 
-import DownloadIcon from "@/assets/svgs/icons/download.svg";
+import DownloadIcon from "@/assets/svgs/icons/download.svg?url";
 
 interface IDownloadButton {
   name: string;

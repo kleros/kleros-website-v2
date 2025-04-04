@@ -76,9 +76,11 @@ const Footer: React.FC = async () => {
           )}
         >
           <p className="text-primary-text">{cta.cta_text}</p>
-          <Button>
-            <span className="text-background-2">{cta.cta_button}</span>
-          </Button>
+          <CustomLink href={cta.cta_button.link.url}>
+            <Button>
+              <span className="text-background-2">{cta.cta_button.text}</span>
+            </Button>
+          </CustomLink>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 
-import PlusIcon from "@/assets/svgs/icons/plus-icon.svg";
+import PlusIcon from "@/assets/svgs/icons/plus-icon.svg?url";
 import CustomLink from "@/components/CustomLink";
 import Tag from "@/components/Tag";
 import { Court } from "@/queries/earn/tabs-data";

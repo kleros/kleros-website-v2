@@ -7,12 +7,14 @@ import Card from "./Card";
 
 interface AppsDropdownContentProps {
   appsSection: AppsSection;
+  listMode?: boolean;
   closeFn?: () => void;
   className?: string;
 }
 
 const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
   appsSection,
+  listMode = false,
   closeFn,
   className,
 }) => (
@@ -20,8 +22,10 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
     <div
       className={clsx(
         "grid w-full grid-cols-1 gap-3 bg-background-2",
-        "md:grid-cols-2 md:grid-rows-5",
-        "lg:grid-flow-col lg:grid-cols-3 lg:grid-rows-4 lg:gap-4",
+        !listMode && [
+          "md:grid-cols-2 md:grid-rows-4",
+          "lg:grid-flow-col lg:grid-cols-3 lg:grid-rows-4 lg:gap-4",
+        ],
       )}
     >
       {appsSection?.solutions.map((solution, i) => (
@@ -35,7 +39,7 @@ const AppsDropdownContent: React.FC<AppsDropdownContentProps> = ({
       ))}
     </div>
     <ExternalLink
-      className="ml-auto mt-2 w-max"
+      className="mr-auto mt-2 w-max"
       url={appsSection?.arrowLink.link.url}
       text={appsSection?.arrowLink.text}
     />
@@ -50,9 +54,12 @@ const getVariant = (index: number): "large" | "medium" | "small" => {
 
 const getRowSpan = (
   index: number,
-): "md:row-span-2 lg:row-span-4" | "md:row-span-2" | undefined => {
-  if (index === 0) return "md:row-span-2 lg:row-span-4";
-  if (index < 3) return "md:row-span-2";
+):
+  | "md:row-span-1 lg:row-span-4"
+  | "md:row-span-1 lg:row-span-2"
+  | undefined => {
+  if (index === 0) return "md:row-span-1 lg:row-span-4";
+  if (index < 3) return "md:row-span-1 lg:row-span-2";
 };
 
 export default AppsDropdownContent;

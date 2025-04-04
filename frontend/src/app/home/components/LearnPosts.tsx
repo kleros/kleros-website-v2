@@ -1,5 +1,7 @@
 import React from "react";
 
+import clsx from "clsx";
+
 import CtaCard from "@/components/CtaCard";
 import CustomLink from "@/components/CustomLink";
 import { request } from "@/utils/graphQLClient";
@@ -23,9 +25,10 @@ const LearnPosts: React.FC = async () => {
         </h3>
         <p className="text-base text-primary-text lg:text-lg">{subtitle}</p>
         <div
-          className={
-            "mx-auto mb-12 mt-16 flex flex-wrap gap-4 xl:grid xl:grid-cols-3"
-          }
+          className={clsx(
+            "mx-auto mb-4 mt-8 flex flex-wrap gap-4",
+            "xl:mb-12 xl:mt-16 xl:grid xl:grid-cols-3",
+          )}
         >
           {cards.map(({ icon, title, subtitle, link }) => (
             <CtaCard
