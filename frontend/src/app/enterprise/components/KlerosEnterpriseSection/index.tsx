@@ -10,6 +10,7 @@ import {
 import Card from "../Card";
 
 import DisputeResolutionProcess from "./DisputeResolutionProcess";
+import Industries from "./Industries";
 import LemonCashSection from "./LemonCashSection";
 import MethodsTable from "./MethodsTable";
 
@@ -47,6 +48,9 @@ const KlerosEnterpriseSection: React.FC = async () => {
       />
 
       <LemonCashSection />
+
+      <Industries />
+
       <div className="mx-auto lg:px-32">
         <ExternalLink url={arrowLink.link.url} text={arrowLink.text} />
       </div>
