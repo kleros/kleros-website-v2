@@ -8,19 +8,16 @@ import {
 } from "../../queries/kleros-dispute-resolution-section";
 
 import ArbitrationMethodTable from "./ArbitrationMethodTable";
-import ResearchSection from "./ResearchSection";
+// import ResearchSection from "./ResearchSection";
 
 const KlerosDisputeResolutionSection: React.FC = async () => {
   const {
     headerSubtitle,
     header,
     subtitle,
-    secondHeader,
-    secondSubtitle,
     thirdHeader,
     thirdSubtitle,
     arbitrationMethodTable,
-    publications,
   } = (
     await request<ForLawyersPageDisputeResolutionSectionQueryType>(
       forLawyersPageDisputeResolutionSectionQuery,
@@ -45,7 +42,6 @@ const KlerosDisputeResolutionSection: React.FC = async () => {
       </div>
 
       <ArbitrationMethodTable table={arbitrationMethodTable} />
-      <ResearchSection {...{ secondHeader, secondSubtitle, publications }} />
 
       <div className="my-4 lg:px-32">
         <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">

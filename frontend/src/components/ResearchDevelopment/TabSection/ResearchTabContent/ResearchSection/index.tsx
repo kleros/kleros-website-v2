@@ -18,8 +18,6 @@ interface IResearchSection
 
 const ResearchSection: React.FC<IResearchSection> = ({
   researchHeader,
-  researchParagraph,
-  researchSecondaryHeader,
   researchCardLabel,
   researches,
 }) => {
@@ -28,10 +26,6 @@ const ResearchSection: React.FC<IResearchSection> = ({
       <h1 className="text-xl font-medium text-primary-text md:text-3xl lg:mb-2">
         {researchHeader}
       </h1>
-      <h3 className="text-lg text-secondary-text lg:text-xl">
-        {researchSecondaryHeader}
-      </h3>
-      <p className="text-secondary-text lg:text-lg">{researchParagraph}</p>
       <label className="text-secondary-text lg:text-lg">
         {researchCardLabel}
       </label>
