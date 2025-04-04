@@ -5,6 +5,7 @@ import { getPageMetadata } from "@/utils/seo";
 import Hero from "./components/Hero";
 import KlerosDisputeResolutionSection from "./components/KlerosDisputeResolutionSection";
 import KlerosEnterpriseSection from "./components/KlerosEnterpriseSection";
+import KlerosForGovernments from "./components/KlerosForGovernments";
 // import KlerosMediationSection from "./components/KlerosMediationSection";
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -16,6 +17,7 @@ const ForLawyers: React.FC = async () => {
     <>
       <Hero />
       <KlerosEnterpriseSection />
+      <KlerosForGovernments />
       <KlerosDisputeResolutionSection />
     </>
   );
