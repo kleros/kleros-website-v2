@@ -1,7 +1,5 @@
 import React from "react";
 
-import Image from "next/image";
-
 import Button from "@/components/Button";
 import CustomLink from "@/components/CustomLink";
 import ExternalLink from "@/components/ExternalLink";
@@ -9,55 +7,56 @@ import { request } from "@/utils/graphQLClient";
 
 import { HeroQueryType, heroQuery } from "../queries/hero";
 
-import TokenStats from "./TokenStats";
+import { IcosahedronScene } from "./IcosahedronScene";
+import { ScrollIndicator } from "./ScrollIndicator";
+import { StatsSection } from "./StatsSection";
 
 const Hero: React.FC = async () => {
   const heroData = await request<HeroQueryType>(heroQuery);
-  const {
-    title,
-    subtitle,
-    primaryButton,
-    secondaryButton,
-    arrowLink,
-    background,
-    tokenStats,
-  } = heroData.homePageHero;
+  const { title, subtitle, primaryButton, secondaryButton, arrowLink } =
+    heroData.homePageHero;
 
   return (
-    <div className="relative px-6 pb-28 pt-44 md:pt-52 lg:px-32 lg:pb-20">
-      <div className="space-y-8">
-        <h1 className="text-2xl font-medium text-primary-text lg:text-4xl">
-          {title}
-        </h1>
-        <p className="text-lg text-primary-text">{subtitle}</p>
-        <div className="lg:hidden">
-          <CustomLink href={primaryButton.link.url}>
-            <Button>
-              <span className="text-background-2"> {primaryButton.text} </span>
-            </Button>
-          </CustomLink>
-        </div>
-        <div>
-          <CustomLink href={secondaryButton.link.url}>
-            <Button variant="secondary">
-              <span>{secondaryButton.text}</span>
-            </Button>
-          </CustomLink>
-        </div>
-        <ExternalLink
-          url={arrowLink.link.url}
-          text={arrowLink.text}
-          className="text-start [&>span]:text-base [&>span]:text-primary-text"
-        />
-        <TokenStats {...{ tokenStats }} />
+    <div className="relative min-h-[100dvh] w-full">
+      <div className="absolute inset-0">
+        <IcosahedronScene />
       </div>
-      <Image
-        src={background.url}
-        alt="Hero Image Background"
-        fill
-        priority
-        className="absolute left-0 top-0 z-[-1] h-full object-cover"
-      />
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-screen-2xl flex-col justify-center px-6">
+        <div className="space-y-8">
+          <h1 className="lg:text-5xl max-w-2xl text-3xl font-medium text-primary-text">
+            {title}
+          </h1>
+          <p className="max-w-xl text-lg text-primary-text lg:text-xl">
+            {subtitle}
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="lg:hidden">
+              <CustomLink href={primaryButton.link.url}>
+                <Button>
+                  <span className="text-background-2">
+                    {" "}
+                    {primaryButton.text}{" "}
+                  </span>
+                </Button>
+              </CustomLink>
+            </div>
+            <div>
+              <CustomLink href={secondaryButton.link.url}>
+                <Button variant="secondary">
+                  <span>{secondaryButton.text}</span>
+                </Button>
+              </CustomLink>
+            </div>
+          </div>
+          <ExternalLink
+            url={arrowLink.link.url}
+            text={arrowLink.text}
+            className="text-start [&>span]:text-base [&>span]:text-primary-text"
+          />
+          <StatsSection />
+        </div>
+      </div>
+      <ScrollIndicator />
     </div>
   );
 };

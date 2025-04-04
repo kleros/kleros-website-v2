@@ -30,7 +30,7 @@ const CtaCard: React.FC<ICtaCard> = ({
     <div
       className={clsx(
         className,
-        "flex flex-col items-start rounded-2xl border border-stroke p-6",
+        "flex flex-col items-start rounded-2xl border border-stroke p-8",
       )}
     >
       {icon ? (
@@ -42,7 +42,7 @@ const CtaCard: React.FC<ICtaCard> = ({
           alt="Icon"
         />
       ) : null}
-      <h2 className="mb-6 text-lg font-medium text-primary-text lg:text-xl">
+      <h2 className="mb-6 text-xl font-medium text-primary-text lg:text-xl">
         {title}
       </h2>
       <p className="mb-6 text-base text-secondary-text lg:text-lg">

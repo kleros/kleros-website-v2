@@ -13,38 +13,40 @@ const TrustedBy: React.FC = async () => {
     await request<PartnersQueryType>(partnersQuery);
 
   return (
-    <div className="bg-background-2 py-12">
-      <h3 className="mx-auto mb-8 w-max text-lg text-secondary-text">
-        Trusted By
-      </h3>
-      <div className="px-6 lg:px-10">
+    <div className="w-full bg-background-2-alpha py-12 backdrop-blur-sm">
+      <div className="mx-auto max-w-screen-2xl">
+        <h3 className="mx-auto mb-8 w-max text-lg text-secondary-text">
+          Trusted By
+        </h3>
+        <div className="px-6 lg:px-10">
+          <div
+            className={clsx(
+              "hover-pause-child-animation relative grid auto-cols-max",
+              "grid-flow-col overflow-hidden",
+            )}
+          >
+            <PartnersCarousel {...{ partners }} />
+            <BlurredBorders />
+          </div>
+        </div>
         <div
           className={clsx(
-            "hover-pause-child-animation relative grid auto-cols-max",
-            "grid-flow-col overflow-hidden",
+            "mt-16 flex flex-col items-center justify-items-center gap-8 px-6",
+            "md:px-32 lg:flex-row lg:justify-between xl:gap-16",
           )}
         >
-          <PartnersCarousel {...{ partners }} />
-          <BlurredBorders />
+          {institutions.map(({ name, link, image }) => (
+            <CustomLink key={name} href={link.url}>
+              <Image
+                src={image.url}
+                alt={name}
+                width="1"
+                height="1"
+                className="h-auto w-auto"
+              />
+            </CustomLink>
+          ))}
         </div>
-      </div>
-      <div
-        className={clsx(
-          "mt-16 flex flex-col items-center justify-items-center gap-8 px-6",
-          "md:px-32 lg:flex-row lg:justify-between xl:gap-16",
-        )}
-      >
-        {institutions.map(({ name, link, image }) => (
-          <CustomLink key={name} href={link.url}>
-            <Image
-              src={image.url}
-              alt={name}
-              width="1"
-              height="1"
-              className="h-auto w-auto"
-            />
-          </CustomLink>
-        ))}
       </div>
     </div>
   );
