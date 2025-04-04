@@ -4,7 +4,8 @@
   "info": {
     "singularName": "footer-subscribe-cta",
     "pluralName": "footer-subscribe-ctas",
-    "displayName": "FooterSubscribeCTA"
+    "displayName": "FooterSubscribeCTA",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,14 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "notice": {
       "type": "string"
@@ -28,7 +30,9 @@
       "type": "string"
     },
     "cta_button": {
-      "type": "string"
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button-link"
     }
   }
 }

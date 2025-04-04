@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "enterprises",
+  "info": {
+    "singularName": "enterprise",
+    "pluralName": "enterprises",
+    "displayName": "Enterprise",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "industries": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.link-card"
+    },
+    "GovernmentSection": {
+      "type": "dynamiczone",
+      "components": [
+        "content.text",
+        "content.long-text",
+        "content.cards-section",
+        "content.responsive-media",
+        "content.quote"
+      ]
+    }
+  }
+}

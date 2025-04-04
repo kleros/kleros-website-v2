@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_content_cards_sections",
+  "info": {
+    "displayName": "cards-section"
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.link-card"
+    }
+  }
+}

@@ -1101,6 +1101,44 @@ export interface ApiEarnPageSeoEarnPageSeo extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiEnterpriseEnterprise extends Struct.SingleTypeSchema {
+  collectionName: 'enterprises';
+  info: {
+    description: '';
+    displayName: 'Enterprise';
+    pluralName: 'enterprises';
+    singularName: 'enterprise';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    GovernmentSection: Schema.Attribute.DynamicZone<
+      [
+        'content.text',
+        'content.long-text',
+        'content.cards-section',
+        'content.responsive-media',
+        'content.quote',
+      ]
+    >;
+    industries: Schema.Attribute.Component<'content.link-card', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::enterprise.enterprise'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiExchangeExchange extends Struct.CollectionTypeSchema {
   collectionName: 'exchanges';
   info: {
@@ -1229,6 +1267,7 @@ export interface ApiFooterSubscribeCtaFooterSubscribeCta
   extends Struct.SingleTypeSchema {
   collectionName: 'footer_subscribe_ctas';
   info: {
+    description: '';
     displayName: 'FooterSubscribeCTA';
     pluralName: 'footer-subscribe-ctas';
     singularName: 'footer-subscribe-cta';
@@ -1240,7 +1279,7 @@ export interface ApiFooterSubscribeCtaFooterSubscribeCta
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cta_button: Schema.Attribute.String;
+    cta_button: Schema.Attribute.Component<'content.button-link', false>;
     cta_text: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -3507,6 +3546,7 @@ declare module '@strapi/strapi' {
       'api::earn-page-become-a-juror-tab-content.earn-page-become-a-juror-tab-content': ApiEarnPageBecomeAJurorTabContentEarnPageBecomeAJurorTabContent;
       'api::earn-page-hero.earn-page-hero': ApiEarnPageHeroEarnPageHero;
       'api::earn-page-seo.earn-page-seo': ApiEarnPageSeoEarnPageSeo;
+      'api::enterprise.enterprise': ApiEnterpriseEnterprise;
       'api::exchange.exchange': ApiExchangeExchange;
       'api::fellow.fellow': ApiFellowFellow;
       'api::footer-links-section.footer-links-section': ApiFooterLinksSectionFooterLinksSection;
