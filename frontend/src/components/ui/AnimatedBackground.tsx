@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface Particle {
   x: number;
@@ -19,7 +19,7 @@ export function AnimatedBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // Configuration
@@ -40,13 +40,19 @@ export function AnimatedBackground() {
 
     // Initialize particles
     const initParticles = () => {
-      particlesRef.current = Array.from({ length: config.particleCount }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * config.particleSpeed.max,
-        vy: (Math.random() - 0.5) * config.particleSpeed.max,
-        radius: Math.random() * (config.particleRadius.max - config.particleRadius.min) + config.particleRadius.min
-      }));
+      particlesRef.current = Array.from(
+        { length: config.particleCount },
+        () => ({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * config.particleSpeed.max,
+          vy: (Math.random() - 0.5) * config.particleSpeed.max,
+          radius:
+            Math.random() *
+              (config.particleRadius.max - config.particleRadius.min) +
+            config.particleRadius.min,
+        }),
+      );
     };
 
     // Update mouse position
@@ -54,7 +60,7 @@ export function AnimatedBackground() {
       const rect = canvas.getBoundingClientRect();
       mouseRef.current = {
         x: e.clientX - rect.left,
-        y: e.clientY - rect.top
+        y: e.clientY - rect.top,
       };
     };
 
@@ -86,7 +92,7 @@ export function AnimatedBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < config.connectionDistance) {
-            const opacity = 1 - (distance / config.connectionDistance);
+            const opacity = 1 - distance / config.connectionDistance;
             ctx.beginPath();
             ctx.strokeStyle = `rgba(151, 71, 255, ${opacity * 0.5})`;
             ctx.lineWidth = 1;
@@ -102,13 +108,16 @@ export function AnimatedBackground() {
         const mouseDistance = Math.sqrt(dx * dx + dy * dy);
 
         if (mouseDistance < config.mouseRadius) {
-          const force = (config.mouseRadius - mouseDistance) / config.mouseRadius;
+          const force =
+            (config.mouseRadius - mouseDistance) / config.mouseRadius;
           particle.vx += (dx / mouseDistance) * force * 0.02;
           particle.vy += (dy / mouseDistance) * force * 0.02;
         }
 
         // Speed limit
-        const speed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
+        const speed = Math.sqrt(
+          particle.vx * particle.vx + particle.vy * particle.vy,
+        );
         if (speed > config.particleSpeed.max) {
           particle.vx = (particle.vx / speed) * config.particleSpeed.max;
           particle.vy = (particle.vy / speed) * config.particleSpeed.max;
@@ -117,11 +126,15 @@ export function AnimatedBackground() {
         // Draw particle
         ctx.beginPath();
         const gradient = ctx.createRadialGradient(
-          particle.x, particle.y, 0,
-          particle.x, particle.y, particle.radius * 2
+          particle.x,
+          particle.y,
+          0,
+          particle.x,
+          particle.y,
+          particle.radius * 2,
         );
-        gradient.addColorStop(0, 'rgba(151, 71, 255, 0.8)');
-        gradient.addColorStop(1, 'rgba(151, 71, 255, 0)');
+        gradient.addColorStop(0, "rgba(151, 71, 255, 0.8)");
+        gradient.addColorStop(1, "rgba(151, 71, 255, 0)");
         ctx.fillStyle = gradient;
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         ctx.fill();
@@ -132,22 +145,22 @@ export function AnimatedBackground() {
 
     // Initialize
     setCanvasSize();
-    window.addEventListener('resize', setCanvasSize);
-    canvas.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("resize", setCanvasSize);
+    canvas.addEventListener("mousemove", handleMouseMove);
     animate();
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', setCanvasSize);
-      canvas.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("resize", setCanvasSize);
+      canvas.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-10 h-full w-full bg-transparent pointer-events-none"
+      className="pointer-events-none fixed inset-0 -z-10 h-full w-full bg-transparent"
       aria-hidden="true"
     />
   );
-} 
+}

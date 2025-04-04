@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import clsx from "clsx";
 
 interface AnimatedStatProps {
@@ -15,9 +16,13 @@ function getRandomChar() {
   return glitchChars[Math.floor(Math.random() * glitchChars.length)];
 }
 
-export function AnimatedStat({ value, label, secondaryValue }: AnimatedStatProps) {
+export function AnimatedStat({
+  value,
+  label,
+  secondaryValue,
+}: AnimatedStatProps) {
   const [displayedChars, setDisplayedChars] = useState<string[]>(
-    Array(value.length).fill("X")
+    Array(value.length).fill("X"),
   );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isGlitching, setIsGlitching] = useState(false);
@@ -27,8 +32,8 @@ export function AnimatedStat({ value, label, secondaryValue }: AnimatedStatProps
 
     // Glitch effect for current character
     const glitchInterval = setInterval(() => {
-      setIsGlitching(prev => !prev); // Toggle glitch state for animation
-      setDisplayedChars(prev => {
+      setIsGlitching((prev) => !prev); // Toggle glitch state for animation
+      setDisplayedChars((prev) => {
         const next = [...prev];
         // Only glitch characters after the current stable index
         for (let i = currentIndex; i < value.length; i++) {
@@ -40,12 +45,12 @@ export function AnimatedStat({ value, label, secondaryValue }: AnimatedStatProps
 
     // Stabilize current character after delay and move to next
     const stabilizeTimeout = setTimeout(() => {
-      setDisplayedChars(prev => {
+      setDisplayedChars((prev) => {
         const next = [...prev];
         next[currentIndex] = value[currentIndex];
         return next;
       });
-      setCurrentIndex(prev => prev + 1);
+      setCurrentIndex((prev) => prev + 1);
     }, 300); // Time before moving to next character
 
     return () => {
@@ -57,7 +62,7 @@ export function AnimatedStat({ value, label, secondaryValue }: AnimatedStatProps
   // Start the animation after initial delay
   useEffect(() => {
     const startDelay = setTimeout(() => {
-      setDisplayedChars(prev => {
+      setDisplayedChars((prev) => {
         const next = [...prev];
         next[0] = value[0]; // Stabilize first character immediately
         return next;
@@ -79,15 +84,17 @@ export function AnimatedStat({ value, label, secondaryValue }: AnimatedStatProps
                 "inline-block transition-transform",
                 index >= currentIndex && {
                   "animate-glitch-shift": isGlitching,
-                  "relative before:absolute before:left-0 before:top-0 before:z-[-1] before:text-primary-purple before:opacity-50 before:content-[attr(data-char)] before:blur-[1px] after:absolute after:left-0 after:top-0 after:z-[-1] after:text-primary-blue after:opacity-50 after:content-[attr(data-char)] after:blur-[1px]": true,
+                  "relative before:absolute before:left-0 before:top-0 before:z-[-1] before:text-primary-purple before:opacity-50 before:blur-[1px] before:content-[attr(data-char)] after:absolute after:left-0 after:top-0 after:z-[-1] after:text-primary-blue after:opacity-50 after:blur-[1px] after:content-[attr(data-char)]":
+                    true,
                   "text-shadow-neon": true,
-                }
+                },
               )}
               data-char={char}
               style={{
-                transform: index >= currentIndex && isGlitching
-                  ? `translate(${Math.random() * 1 - 0.5}px, ${Math.random() * 1 - 0.5}px)`
-                  : 'none'
+                transform:
+                  index >= currentIndex && isGlitching
+                    ? `translate(${Math.random() * 1 - 0.5}px, ${Math.random() * 1 - 0.5}px)`
+                    : "none",
               }}
             >
               {char}
@@ -101,4 +108,4 @@ export function AnimatedStat({ value, label, secondaryValue }: AnimatedStatProps
       <p className="font-medium text-primary-text">{label}</p>
     </div>
   );
-} 
+}

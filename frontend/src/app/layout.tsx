@@ -42,7 +42,7 @@ export default async function RootLayout({
       </head>
       <body className="min-w-80 antialiased">
         <AnimatedBackground />
-        <main className={clsx(urbanist.className, "relative z-1")}>
+        <main className={clsx(urbanist.className, "z-1 relative")}>
           <Navbar {...{ navbarData }} />
           {children}
           <Footer />

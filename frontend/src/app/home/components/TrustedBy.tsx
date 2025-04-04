@@ -13,7 +13,7 @@ const TrustedBy: React.FC = async () => {
     await request<PartnersQueryType>(partnersQuery);
 
   return (
-    <div className="w-full bg-background-2-alpha backdrop-blur-sm py-12">
+    <div className="w-full bg-background-2-alpha py-12 backdrop-blur-sm">
       <div className="mx-auto max-w-screen-2xl">
         <h3 className="mx-auto mb-8 w-max text-lg text-secondary-text">
           Trusted By

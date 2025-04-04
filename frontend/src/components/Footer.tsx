@@ -21,7 +21,7 @@ const Footer: React.FC = async () => {
   }));
   return (
     <div className="w-full">
-      <div className="w-full bg-background-dark-alpha backdrop-blur-sm py-16">
+      <div className="w-full bg-background-dark-alpha py-16 backdrop-blur-sm">
         <div className="mx-auto max-w-screen-2xl md:px-16 xl:px-32">
           <div
             className={clsx(
@@ -54,7 +54,7 @@ const Footer: React.FC = async () => {
           </div>
         </div>
       </div>
-      <div className="w-full bg-background-2-alpha backdrop-blur-sm py-16">
+      <div className="w-full bg-background-2-alpha py-16 backdrop-blur-sm">
         <div className="mx-auto max-w-screen-2xl md:px-16 xl:px-32">
           <div
             className={clsx(

@@ -1,8 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+
 import { Icosahedron } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 function RotatingIcosahedron() {
@@ -11,10 +12,10 @@ function RotatingIcosahedron() {
 
   useFrame((state) => {
     if (!meshRef.current || !groupRef.current) return;
-    
+
     // Gentle floating motion
     groupRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
-    
+
     // Smooth rotation
     meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
     meshRef.current.rotation.y += 0.005;
@@ -80,4 +81,4 @@ export function IcosahedronScene() {
       </Canvas>
     </div>
   );
-} 
+}

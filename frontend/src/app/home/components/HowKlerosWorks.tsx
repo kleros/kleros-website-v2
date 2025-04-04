@@ -16,7 +16,7 @@ const HowKlerosWorks: React.FC = async () => {
     howKlerosWorks.homeHowKlerosWorksSection;
 
   return (
-    <div className="w-full bg-background-1-alpha backdrop-blur-sm px-6 py-12 lg:px-32 lg:py-24">
+    <div className="w-full bg-background-1-alpha px-6 py-12 backdrop-blur-sm lg:px-32 lg:py-24">
       <div className="mx-auto max-w-screen-2xl">
         <div className="flex flex-col gap-8">
           <label className="text-base text-primary-purple lg:text-lg">
