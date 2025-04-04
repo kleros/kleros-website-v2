@@ -36,6 +36,16 @@ export interface ContentButtonLink extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentCardsSection extends Struct.ComponentSchema {
+  collectionName: 'components_content_cards_sections';
+  info: {
+    displayName: 'cards-section';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'content.link-card', true>;
+  };
+}
+
 export interface ContentCtaCard extends Struct.ComponentSchema {
   collectionName: 'components_content_cta_cards';
   info: {
@@ -75,6 +85,16 @@ export interface ContentLinkCard extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentLongText extends Struct.ComponentSchema {
+  collectionName: 'components_content_long_texts';
+  info: {
+    displayName: 'long-text';
+  };
+  attributes: {
+    longtext: Schema.Attribute.Text;
+  };
+}
+
 export interface ContentNavlink extends Struct.ComponentSchema {
   collectionName: 'components_content_navlinks';
   info: {
@@ -86,6 +106,22 @@ export interface ContentNavlink extends Struct.ComponentSchema {
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+  };
+}
+
+export interface ContentQuote extends Struct.ComponentSchema {
+  collectionName: 'components_content_quotes';
+  info: {
+    description: '';
+    displayName: 'quote';
+  };
+  attributes: {
+    header: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    primarySubtitle: Schema.Attribute.String;
+    secondarySubtitle: Schema.Attribute.String;
+    testimony: Schema.Attribute.Text;
+    testimonyAuthor: Schema.Attribute.String;
   };
 }
 
@@ -141,6 +177,16 @@ export interface ContentStatDisplay extends Struct.ComponentSchema {
     statName: Schema.Attribute.String;
     statValue: Schema.Attribute.String;
     statValueSuffix: Schema.Attribute.String;
+  };
+}
+
+export interface ContentText extends Struct.ComponentSchema {
+  collectionName: 'components_content_texts';
+  info: {
+    displayName: 'text';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
   };
 }
 
@@ -423,14 +469,18 @@ declare module '@strapi/strapi' {
       'brand-assets-page.color-card': BrandAssetsPageColorCard;
       'brand-assets-page.image-download': BrandAssetsPageImageDownload;
       'content.button-link': ContentButtonLink;
+      'content.cards-section': ContentCardsSection;
       'content.cta-card': ContentCtaCard;
       'content.highlight-text': ContentHighlightText;
       'content.link-card': ContentLinkCard;
+      'content.long-text': ContentLongText;
       'content.navlink': ContentNavlink;
+      'content.quote': ContentQuote;
       'content.responsive-media': ContentResponsiveMedia;
       'content.section': ContentSection;
       'content.seo': ContentSeo;
       'content.stat-display': ContentStatDisplay;
+      'content.text': ContentText;
       'cooperative-report-page.learn-more-section': CooperativeReportPageLearnMoreSection;
       'cooperative-report-page.report-card': CooperativeReportPageReportCard;
       'earn-page.enter-court-section': EarnPageEnterCourtSection;

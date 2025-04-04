@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_content_quotes",
+  "info": {
+    "displayName": "quote",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "primarySubtitle": {
+      "type": "string"
+    },
+    "secondarySubtitle": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "testimony": {
+      "type": "text"
+    },
+    "testimonyAuthor": {
+      "type": "string"
+    }
+  }
+}
