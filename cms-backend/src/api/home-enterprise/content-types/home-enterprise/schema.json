@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_enterprises",
+  "info": {
+    "singularName": "home-enterprise",
+    "pluralName": "home-enterprises",
+    "displayName": "HomeEnterprise"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.link-card"
+    }
+  }
+}
