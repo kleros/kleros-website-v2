@@ -23,7 +23,8 @@
         "content.long-text",
         "content.cards-section",
         "content.responsive-media",
-        "content.quote"
+        "content.quote",
+        "content.highlight-text"
       ]
     }
   }

@@ -1123,6 +1123,7 @@ export interface ApiEnterpriseEnterprise extends Struct.SingleTypeSchema {
         'content.cards-section',
         'content.responsive-media',
         'content.quote',
+        'content.highlight-text',
       ]
     >;
     industries: Schema.Attribute.Component<'content.link-card', true>;
