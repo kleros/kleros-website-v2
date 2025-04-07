@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import BuySection from "@/components/PNKToken/BuySection";
 import Hero from "@/components/PNKToken/Hero";
 import TokenNeedSection from "@/components/PNKToken/TokenNeedSection";
-import TokenomicsSection from "@/components/PNKToken/TokenomicsSection";
+// import TokenomicsSection from "@/components/PNKToken/TokenomicsSection";
 import { heroQuery, HeroQueryType } from "@/queries/pnk-token/hero";
 import {
   buySectionQuery,
@@ -13,10 +13,10 @@ import {
   tokenNeedSectionQuery,
   TokenNeedSectionQueryType,
 } from "@/queries/pnk-token/token-need";
-import {
-  TokenomicsSectionQueryType,
-  tokenomicsSectionQuery,
-} from "@/queries/pnk-token/tokenomics";
+// import {
+//   TokenomicsSectionQueryType,
+//   tokenomicsSectionQuery,
+// } from "@/queries/pnk-token/tokenomics";
 import { request } from "@/utils/graphQLClient";
 import { getPageMetadata } from "@/utils/seo";
 
@@ -30,9 +30,9 @@ const PNKToken: React.FC = async () => {
   const tokenNeedData = await request<TokenNeedSectionQueryType>(
     tokenNeedSectionQuery,
   );
-  const tokenomicsData = await request<TokenomicsSectionQueryType>(
-    tokenomicsSectionQuery,
-  );
+  // const tokenomicsData = await request<TokenomicsSectionQueryType>(
+  //   tokenomicsSectionQuery,
+  // );
 
   return (
     <>
@@ -40,9 +40,6 @@ const PNKToken: React.FC = async () => {
       <BuySection {...{ buyData: buyData.pnkTokenPageBuySection }} />
       <TokenNeedSection
         {...{ tokenNeedData: tokenNeedData.pnkTokenPageNeedSection }}
-      />
-      <TokenomicsSection
-        {...{ tokenomicsData: tokenomicsData.pnkTokenPageTokenomicsSection }}
       />
     </>
   );
