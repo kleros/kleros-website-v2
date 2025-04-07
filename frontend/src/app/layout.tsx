@@ -3,6 +3,9 @@ import React from "react";
 import clsx from "clsx";
 import { Urbanist } from "next/font/google";
 
+import "swiper/css";
+import "swiper/css/pagination";
+
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { HeroImagesQueryType, herosImagesQuery } from "@/queries/heroImages";
