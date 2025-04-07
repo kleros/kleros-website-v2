@@ -5,6 +5,10 @@ export const forGovernmentsQuery = gql`
     enterprise {
       GovernmentSection {
         __typename
+        ... on ComponentContentHighlightText {
+          fullText
+          highlightedText
+        }
         ... on ComponentContentText {
           text
         }
@@ -39,6 +43,12 @@ export const forGovernmentsQuery = gql`
     }
   }
 `;
+
+export type ICCHightlightText = {
+  __typename: "ComponentContentHighlightText";
+  fullText: string;
+  highlightedText: string;
+};
 
 export type ICCText = {
   __typename: "ComponentContentText";
@@ -79,6 +89,7 @@ export type ICCQuote = {
 };
 
 type GovernmentSectionBlock =
+  | ICCHightlightText
   | ICCText
   | ICCLongText
   | ICCCardsSection
@@ -93,6 +104,6 @@ export type IForGovernmentsQuery = {
 export function getBlock<T extends GovernmentSectionBlock>(
   blocks: GovernmentSectionBlock[],
   typename: T["__typename"],
-): T {
-  return blocks.find((block) => block.__typename === typename) as T;
+): T[] {
+  return blocks.filter((block) => block.__typename === typename) as T[];
 }

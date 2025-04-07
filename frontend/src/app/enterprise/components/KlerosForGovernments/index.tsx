@@ -1,4 +1,7 @@
+import clsx from "clsx";
+
 import Card from "@/components/CtaCard";
+import HighlightedText from "@/components/HighlightedText";
 import Quote from "@/components/Quote";
 import { request } from "@/utils/graphQLClient";
 
@@ -10,32 +13,39 @@ import {
   ICCCardsSection,
   ICCLongText,
   ICCQuote,
+  ICCHightlightText,
 } from "./queries";
 
 const ForGovernments: React.FC = async () => {
   const sections = (await request<IForGovernmentsQuery>(forGovernmentsQuery))
     .enterprise.GovernmentSection;
-  const { text } = getBlock<ICCText>(sections, "ComponentContentText");
-  const { longtext } = getBlock<ICCLongText>(
+  const [{ fullText, highlightedText }] = getBlock<ICCHightlightText>(
+    sections,
+    "ComponentContentHighlightText",
+  );
+  const [{ longtext }] = getBlock<ICCLongText>(
     sections,
     "ComponentContentLongText",
   );
-  const { cards } = getBlock<ICCCardsSection>(
-    sections,
-    "ComponentContentCardsSection",
-  );
-  const quote = getBlock<ICCQuote>(sections, "ComponentContentQuote");
+  const [{ text }] = getBlock<ICCText>(sections, "ComponentContentText");
+  const [{ cards: objectivesCards }, { cards: disputeTypesCards }] =
+    getBlock<ICCCardsSection>(sections, "ComponentContentCardsSection");
+  const [quote] = getBlock<ICCQuote>(sections, "ComponentContentQuote");
 
   return (
     <div
       className={"flex flex-col gap-20 px-6 py-12 lg:gap-28 lg:px-32 lg:py-24"}
     >
       <div className="space-y-6">
-        <span className="text-xl font-medium lg:text-2xl">{text}</span>
+        <HighlightedText
+          {...{ fullText, highlightedText }}
+          fullTextStyle="!text-primary-text !text-xl !font-medium lg:!text-2xl"
+          highlightedTextStyle="!text-xl !font-medium lg:!text-2xl"
+        />
         <p className="lg:text-lg">{longtext}</p>
       </div>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {cards.map((card) => (
+        {objectivesCards.map((card) => (
           <Card
             key={card.title}
             title={card.title}
@@ -45,6 +55,24 @@ const ForGovernments: React.FC = async () => {
         ))}
       </div>
       <Quote {...quote} />
+      <div>
+        <h3 className="mb-12 text-lg font-medium text-primary-text lg:text-xl">
+          {text}
+        </h3>
+        <div className="flex flex-wrap gap-4">
+          {disputeTypesCards.map((card) => (
+            <div
+              key={card.title}
+              className={clsx(
+                "text-md rounded-2xl border border-stroke bg-background-2 p-6",
+                "lg:text-lg",
+              )}
+            >
+              {card.title}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
