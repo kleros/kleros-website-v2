@@ -1445,6 +1445,23 @@ export interface ApiForBuildersPageUseCasesSectionForBuildersPageUseCasesSection
     >;
     useCaseDescription: Schema.Attribute.String;
     useCases: Schema.Attribute.Relation<'oneToMany', 'api::use-case.use-case'>;
+    UseCasesWeb3: Schema.Attribute.DynamicZone<
+      [
+        'content.text',
+        'content.stat-display',
+        'content.seo',
+        'content.section',
+        'content.responsive-media',
+        'content.quote',
+        'content.navlink',
+        'content.long-text',
+        'content.link-card',
+        'content.highlight-text',
+        'content.cta-card',
+        'content.cards-section',
+        'content.button-link',
+      ]
+    >;
     useCaseTitle: Schema.Attribute.String;
   };
 }
