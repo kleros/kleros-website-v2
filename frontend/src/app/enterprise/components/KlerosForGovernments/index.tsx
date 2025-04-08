@@ -65,7 +65,7 @@ const ForGovernments: React.FC = async () => {
               key={card.title}
               className={clsx(
                 "text-md rounded-2xl border border-stroke bg-background-2 p-6",
-                "lg:text-lg",
+                "text-primary-text lg:text-lg",
               )}
             >
               {card.title}

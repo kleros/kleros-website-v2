@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Image from "next/image";
 
 import CustomLink from "@/components/CustomLink";
@@ -18,7 +19,7 @@ const Exchanges: React.FC<IExchanges> = ({ exchanges }) => {
             height={64}
             src={exchange.icon.url}
             alt={exchange.name}
-            className={hoverEffect}
+            className={clsx(hoverEffect, "rounded-full bg-white")}
           />
         </CustomLink>
       ))}
