@@ -3016,48 +3016,6 @@ export interface ApiUseCaseUseCase extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiWeb3Web3 extends Struct.SingleTypeSchema {
-  collectionName: 'web3s';
-  info: {
-    description: '';
-    displayName: 'Web3';
-    pluralName: 'web3s';
-    singularName: 'web3';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::web3.web3'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Web3Page: Schema.Attribute.DynamicZone<
-      [
-        'content.text',
-        'content.section',
-        'content.stat-display',
-        'content.seo',
-        'content.responsive-media',
-        'content.quote',
-        'content.navlink',
-        'content.long-text',
-        'content.link-card',
-        'content.highlight-text',
-        'content.cta-card',
-        'content.cards-section',
-        'content.button-link',
-      ]
-    >;
-  };
-}
-
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -3646,7 +3604,6 @@ declare module '@strapi/strapi' {
       'api::token-stat.token-stat': ApiTokenStatTokenStat;
       'api::treasury-report.treasury-report': ApiTreasuryReportTreasuryReport;
       'api::use-case.use-case': ApiUseCaseUseCase;
-      'api::web3.web3': ApiWeb3Web3;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
